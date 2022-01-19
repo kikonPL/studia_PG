@@ -1,0 +1,3681 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inżynieria cech &#8212; Silky Coders Data Science</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Klasteryzacja w Python" href="../7.%20Klasteryzacja/7_Klasteryzacja.html" />
+    <link rel="prev" title="Wykrywanie anomalii - tutorial" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/silky-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Silky Coders Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Przedmiot specjalistyczny, 1 semestr studiów magisterskich matematyki na Politechnice Gdańskiej
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">
+   Pakiet pandas - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">
+   Pakiet NumPy - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">
+   Wizualizacja danych w Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">
+   Analiza statystyczna - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">
+   Wykrywanie anomalii - definicje
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">
+   Wykrywanie anomalii - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Inżynieria cech
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
+   Klasteryzacja w Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">
+   Wyjaśnialność modeli - metryki statystyczne - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">
+   Wyjaśnialność modeli - definicje
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">
+   Wyjaśnialność modeli - XAI - tutorial
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/6. Inzynieria_cech/6_Inzynieria cech.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kikonPL/studia_PG"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F6. Inzynieria_cech/6_Inzynieria cech.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kikonPL/studia_PG/main?urlpath=tree/_build/6. Inzynieria_cech/6_Inzynieria cech.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Inżynieria cech
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tworzenie-przykladowych-zbiorow-danych">
+   Tworzenie przykładowych zbiorów danych
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cechy-tworzone-na-podstawie-danych-czasowych">
+   Cechy tworzone na podstawie danych czasowych
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cechy-powstale-przez-przesuniecie-w-czasie">
+   Cechy powstałe przez przesunięcie w czasie
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cechy-kategoryczne-i-ich-transformacje">
+   Cechy kategoryczne i ich transformacje
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#laczenie-atrybutow-cech-kategorycznych">
+   łączenie atrybutów cech kategorycznych
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cechy-oparte-na-wiedzy-domenowej-oraz-cechy-interakcji">
+   Cechy oparte na wiedzy domenowej oraz cechy interakcji
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cechy-oparte-na-transformacji-zmiennych-numerycznych">
+   Cechy oparte na transformacji zmiennych numerycznych
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#laczenie-zmiennych-numerycznych-w-przedzialy">
+   łączenie zmiennych numerycznych w przedziały
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#normalizacja-i-standaryzacja">
+   Normalizacja i Standaryzacja
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#laczenie-roznych-transformacji-w-ramach-pipeline">
+   łączenie różnych transformacji w ramach pipeline
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#podsumowanie">
+   Podsumowanie
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="inzynieria-cech">
+<h1>Inżynieria cech<a class="headerlink" href="#inzynieria-cech" title="Permalink to this headline">¶</a></h1>
+<div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p><b>Feature Engineering</b> polega na przekształcaniu surowych danych w cechy użyteczne w procesie modelowania.</p>
+</div><div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>Tworzenie zmiennych predykcyjnych zawsze powinno opierać się przede wszystkim na zrozumieniu danych i wiedzy biznesowej związanej z danym problemem. Istnieje jednak kilka standardowych technik, które można stosować do tworzenia cech w większości problemów, można tu wyróżnić:</p>
+<ul class="simple">
+<li><p>przekształcanie zmiennych kategorycznych</p></li>
+<li><p>zmienne na podstawie cech z daty</p></li>
+<li><p>zmienne powstałe przez przesunięcie w czasie</p></li>
+<li><p>transformacje zmiennych numerycznych</p></li>
+<li><p>zmienne interakcji</p></li>
+</ul>
+</div><div class="alert alert-block alert-danger">
+<b>Uwaga!</b> 
+<p><b>Feature Engineering</b> stanowi jeden z ważniejszych etapów w procesie budowy uczenia maszynowego, dlatego należy mu poświęcić dużo uwagi. Często można uzyskać znacznie lepsze wyniki mając prosty model oparty na cechach predykcyjnych dobrze oddających naturę badanego zjawiska niż budując wyrafinowany model w oparciu o zbyt wąski zbiór zmiennych.</p>
+</div></div>
+<div class="tex2jax_ignore mathjax_ignore section" id="tworzenie-przykladowych-zbiorow-danych">
+<h1>Tworzenie przykładowych zbiorów danych<a class="headerlink" href="#tworzenie-przykladowych-zbiorow-danych" title="Permalink to this headline">¶</a></h1>
+<p>Zaprezentujemy tutaj 2 przykładowe zbiory danych o różnym charakterze oraz przykłady zmiennych predykcyjnych, które można wygenerować na ich podstawie</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generateIceCreamSalesData</span><span class="p">(</span><span class="n">month_coef</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">week_coef</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">day_coef</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_coef</span> <span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2018-01-01&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2020-12-31&quot;</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SalesDate&quot;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">SalesDate</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Week&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">SalesDate</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">()</span><span class="o">.</span><span class="n">week</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;WeekDay&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">SalesDate</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;IceCreamSales&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Month</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">month_coef</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Week</span><span class="o">-</span><span class="mi">27</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">27</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">week_coef</span> <span class="o">+</span><span class="n">df</span><span class="o">.</span><span class="n">WeekDay</span><span class="o">*</span><span class="n">day_coef</span> <span class="o">+</span><span class="n">random_coef</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span> <span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s2">&quot;SalesDate&quot;</span><span class="p">,</span><span class="s2">&quot;IceCreamSales&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IceCream_df</span> <span class="o">=</span> <span class="n">generateIceCreamSalesData</span><span class="p">()</span>
+<span class="n">IceCream_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SalesDate</th>
+      <th>IceCreamSales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-01-01</td>
+      <td>173100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-01-02</td>
+      <td>203200</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-01-03</td>
+      <td>213300</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2018-01-04</td>
+      <td>223400</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2018-01-05</td>
+      <td>253500</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1091</th>
+      <td>2020-12-27</td>
+      <td>174700</td>
+    </tr>
+    <tr>
+      <th>1092</th>
+      <td>2020-12-28</td>
+      <td>123100</td>
+    </tr>
+    <tr>
+      <th>1093</th>
+      <td>2020-12-29</td>
+      <td>103200</td>
+    </tr>
+    <tr>
+      <th>1094</th>
+      <td>2020-12-30</td>
+      <td>143300</td>
+    </tr>
+    <tr>
+      <th>1095</th>
+      <td>2020-12-31</td>
+      <td>83400</td>
+    </tr>
+  </tbody>
+</table>
+<p>1096 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_used_cars_data</span><span class="p">(</span><span class="n">len_df</span> <span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">conditions</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;very_bad&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;bad&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;medium&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;good&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;very_good&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">}</span>
+    <span class="n">brands</span> <span class="o">=</span><span class="p">[</span><span class="s2">&quot;Fiat&quot;</span><span class="p">,</span><span class="s2">&quot;Renault&quot;</span><span class="p">,</span><span class="s2">&quot;VW&quot;</span><span class="p">,</span> <span class="s2">&quot;Seat&quot;</span><span class="p">,</span> <span class="s2">&quot;Skoda&quot;</span><span class="p">,</span><span class="s2">&quot;Toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;Audi&quot;</span><span class="p">,</span><span class="s2">&quot;BMW&quot;</span><span class="p">,</span><span class="s2">&quot;Mercedes&quot;</span><span class="p">,</span> <span class="s2">&quot;Bugatti&quot;</span><span class="p">]</span>
+    <span class="n">standard_brands</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Fiat&quot;</span><span class="p">,</span><span class="s2">&quot;Renault&quot;</span><span class="p">,</span><span class="s2">&quot;VW&quot;</span><span class="p">,</span> <span class="s2">&quot;Seat&quot;</span><span class="p">,</span> <span class="s2">&quot;Skoda&quot;</span><span class="p">,</span><span class="s2">&quot;Toyota&quot;</span><span class="p">]</span>
+    <span class="n">premium_brands</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Audi&quot;</span><span class="p">,</span><span class="s2">&quot;BMW&quot;</span><span class="p">,</span><span class="s2">&quot;Mercedes&quot;</span><span class="p">]</span>
+    <span class="n">luxury_brands</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bugatti&quot;</span><span class="p">]</span>
+    <span class="n">dict_data</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;condition&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">conditions</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span><span class="n">size</span><span class="o">=</span><span class="n">len_df</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span><span class="mf">0.2</span> <span class="p">]),</span>
+                <span class="s2">&quot;brand&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">brands</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">len_df</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span> <span class="p">),</span>
+                <span class="s2">&quot;year_manufactured&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1950</span><span class="p">,</span><span class="mi">2020</span><span class="p">,</span><span class="n">size</span> <span class="o">=</span><span class="n">len_df</span><span class="p">)</span>
+               <span class="p">}</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dict_data</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span><span class="mi">2021</span><span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">year_manufactured</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;mileage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">age</span> <span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span> <span class="n">len_df</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span> <span class="n">len_df</span><span class="p">)</span>
+    
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;selling_price&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100000</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">standard_brands</span><span class="p">)</span><span class="o">+</span><span class="mi">300000</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">premium_brands</span><span class="p">)</span><span class="o">+</span><span class="mi">600000</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">luxury_brands</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;selling_price&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">mileage</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;condition_num&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">condition</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">conditions</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;selling_price&quot;</span><span class="p">]</span> <span class="o">*=</span>  <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;condition_num&quot;</span><span class="p">])</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">luxury_brands</span><span class="p">))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year_manufactured</span><span class="o">&lt;=</span><span class="mi">1970</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;condition_num&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">),</span><span class="s2">&quot;selling_price&quot;</span><span class="p">]</span> <span class="o">*=</span>\
+    <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">luxury_brands</span><span class="p">))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year_manufactured</span><span class="o">&lt;=</span><span class="mi">1970</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;condition_num&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">),</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;selling_price&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;selling_price&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s2">&quot;selling_price&quot;</span><span class="p">,</span><span class="s2">&quot;condition&quot;</span><span class="p">,</span><span class="s2">&quot;mileage&quot;</span><span class="p">,</span><span class="s2">&quot;brand&quot;</span><span class="p">,</span><span class="s2">&quot;year_manufactured&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsedCars_df</span> <span class="o">=</span><span class="n">generate_used_cars_data</span><span class="p">()</span>
+<span class="n">UsedCars_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>selling_price</th>
+      <th>condition</th>
+      <th>mileage</th>
+      <th>brand</th>
+      <th>year_manufactured</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8655.0</td>
+      <td>medium</td>
+      <td>170639</td>
+      <td>VW</td>
+      <td>1969</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>32525.0</td>
+      <td>very_good</td>
+      <td>221288</td>
+      <td>Mercedes</td>
+      <td>1954</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>49170.0</td>
+      <td>medium</td>
+      <td>352612</td>
+      <td>Bugatti</td>
+      <td>1959</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>9567.0</td>
+      <td>good</td>
+      <td>421537</td>
+      <td>Seat</td>
+      <td>1974</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>27971.0</td>
+      <td>good</td>
+      <td>523044</td>
+      <td>Mercedes</td>
+      <td>1962</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>8410.0</td>
+      <td>medium</td>
+      <td>257487</td>
+      <td>Toyota</td>
+      <td>1966</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>10278.0</td>
+      <td>good</td>
+      <td>90302</td>
+      <td>VW</td>
+      <td>1952</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>35037.0</td>
+      <td>good</td>
+      <td>28405</td>
+      <td>Audi</td>
+      <td>1988</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>9633.0</td>
+      <td>good</td>
+      <td>281706</td>
+      <td>Seat</td>
+      <td>1958</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>6525.0</td>
+      <td>bad</td>
+      <td>394407</td>
+      <td>Fiat</td>
+      <td>1970</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 5 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cechy-tworzone-na-podstawie-danych-czasowych">
+<h1>Cechy tworzone na podstawie danych czasowych<a class="headerlink" href="#cechy-tworzone-na-podstawie-danych-czasowych" title="Permalink to this headline">¶</a></h1>
+<p>Pierwszy zbiór danych nazwany tutaj IceCream_df de facto ma charakter szeregu czasowego i patrząc na poniższy wykres mógłby być z powodzeniem przewidywany dedykowanymi metodami do predykcji szeregów czasowych, jednak dla celów pokazania tworzenia zmiennych na podstawie danych o charakterze czasowym potraktujemy to zagadnienie jako problem regresyjny, w którym naszą zmienną celu będzie IceCreamSales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IceCream_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;SalesDate&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;IceCream Sales&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;IceCream Sales&#39;}, xlabel=&#39;SalesDate&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/6_Inzynieria cech_13_1.png" src="../_images/6_Inzynieria cech_13_1.png" />
+</div>
+</div>
+<p>Wyraźnie widać tutaj, że sprzedaż lodów ma silnie sezonowy charakter, stąd cechy wyciągnięte z daty powinny znacznie ułatwić dobrą predykcję. Funkcję generującą takie cechy zaprezentowano poniżej:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_date_features</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">date_column</span><span class="p">):</span>
+    <span class="n">df_temp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">df_temp</span><span class="p">[</span><span class="n">date_column</span> <span class="o">+</span> <span class="s1">&#39;Quarter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">[</span><span class="n">date_column</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">quarter</span>
+    <span class="n">df_temp</span><span class="p">[</span><span class="n">date_column</span> <span class="o">+</span> <span class="s1">&#39;Month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">[</span><span class="n">date_column</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+    <span class="n">df_temp</span><span class="p">[</span><span class="n">date_column</span> <span class="o">+</span> <span class="s1">&#39;Week&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">[</span><span class="n">date_column</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">()</span><span class="o">.</span><span class="n">week</span>
+    <span class="c1"># poniżej zwracany rozkład to 0-6, dodajemy 1 aby przejsc na bardziej intuicyjne wrtości 1-7</span>
+    <span class="n">df_temp</span><span class="p">[</span><span class="n">date_column</span> <span class="o">+</span> <span class="s1">&#39;WeekDay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">[</span><span class="n">date_column</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span> <span class="o">+</span> <span class="mi">1</span> 
+    <span class="n">df_temp</span><span class="p">[</span><span class="n">date_column</span> <span class="o">+</span> <span class="s1">&#39;YearDay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">[</span><span class="n">date_column</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span>
+    <span class="n">df_temp</span><span class="p">[</span><span class="n">date_column</span> <span class="o">+</span> <span class="s1">&#39;isWeekend&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df_temp</span><span class="p">[</span><span class="n">date_column</span> <span class="o">+</span> <span class="s1">&#39;WeekDay&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_temp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IceCream_df_extended</span> <span class="o">=</span> <span class="n">extract_date_features</span><span class="p">(</span><span class="n">IceCream_df</span><span class="p">,</span><span class="s2">&quot;SalesDate&quot;</span><span class="p">)</span>
+<span class="n">IceCream_df_extended</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SalesDate</th>
+      <th>IceCreamSales</th>
+      <th>SalesDateQuarter</th>
+      <th>SalesDateMonth</th>
+      <th>SalesDateWeek</th>
+      <th>SalesDateWeekDay</th>
+      <th>SalesDateYearDay</th>
+      <th>SalesDateisWeekend</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-01-01</td>
+      <td>173100</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-01-02</td>
+      <td>203200</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-01-03</td>
+      <td>213300</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2018-01-04</td>
+      <td>223400</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2018-01-05</td>
+      <td>253500</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1091</th>
+      <td>2020-12-27</td>
+      <td>174700</td>
+      <td>4</td>
+      <td>12</td>
+      <td>52</td>
+      <td>7</td>
+      <td>362</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1092</th>
+      <td>2020-12-28</td>
+      <td>123100</td>
+      <td>4</td>
+      <td>12</td>
+      <td>53</td>
+      <td>1</td>
+      <td>363</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1093</th>
+      <td>2020-12-29</td>
+      <td>103200</td>
+      <td>4</td>
+      <td>12</td>
+      <td>53</td>
+      <td>2</td>
+      <td>364</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1094</th>
+      <td>2020-12-30</td>
+      <td>143300</td>
+      <td>4</td>
+      <td>12</td>
+      <td>53</td>
+      <td>3</td>
+      <td>365</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1095</th>
+      <td>2020-12-31</td>
+      <td>83400</td>
+      <td>4</td>
+      <td>12</td>
+      <td>53</td>
+      <td>4</td>
+      <td>366</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>1096 rows × 8 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cechy-powstale-przez-przesuniecie-w-czasie">
+<h1>Cechy powstałe przez przesunięcie w czasie<a class="headerlink" href="#cechy-powstale-przez-przesuniecie-w-czasie" title="Permalink to this headline">¶</a></h1>
+<p>Analizując wykres można zaobserwować, że sprzedaż lodów nie jest liniowo zależna od zmiennych takich jak numer kwartału, numer miesiąca czy numer tygodnia, aby uzyskać lepsze wyniki warto zbudować cechy w oparciu o przesunięte w czasie wartości zmiennej celu.</p>
+<div class="alert alert-block alert-danger">
+<b>Uwaga!</b> 
+<p>Przy korzystaniu ze zmiennych przesuniętych w czasie, w szczególności opartych o wcześniejsze wartości zmiennej celu nalezy zawsze wziąc pod uwagę jakie dane będziemy mieli dostępne na moment predykcji, inaczej możemy popełnić jeden z najczęstszych błędów czyli <b>data leakage</b>.
+Przy założeniu, że mamy przewidywać sprzedaż lodów np na rok do przodu wykorzystanie sprzedaży lodów z dnia poprzedniego stanowi data leakage, ponieważ ta informacja nie będzie dostępna na moment predykcji w tej samej formie. Moglibyśmy natomiast uwzględnić sprzedaż lodów sprzed roku, jako, że ta informacja będzie dostępna w tej samej formie.</p>
+</div><p>Tutaj dla uproszczenia zakładamy chwilowo, że horyzont predykcji to tylko 1 dzień do przodu, co pozwoli zaprezentować większy zakres zmiennych przesuniętych w czasie.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_shifted_target_values</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">lag_values</span><span class="p">,</span> <span class="n">date_column</span><span class="p">,</span> <span class="n">target_column</span><span class="p">):</span>
+    <span class="n">df_temp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">df_temp</span> <span class="o">=</span><span class="n">df_temp</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">date_column</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">lag</span> <span class="ow">in</span> <span class="n">lag_values</span><span class="p">:</span>
+        <span class="n">df_temp</span><span class="p">[</span><span class="n">target_column</span> <span class="o">+</span><span class="s2">&quot;_lagged_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lag</span><span class="p">)]</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">lag</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_temp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Uwzględniając, że przewidujemy z horyzontem czasowym tylko na dzień w przód, pierwszym kandydatem na wartość przesunięcia jest 1 dzień, jako, że w danych o charakterze szeregu czasowego podobieństwo kolejnych obserwacji będzie siłą rzeczy relatywnie wysokie. Z analizy wykresu można łatwo wywnioskować, że wartośc przesunięcia 365 dni również będzie miała dużą siłę predykcyjną. Ponadto można tutaj wypróbować 7 dni co powinno być przydatne w przypadku tygodniowej sezonowości danych</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IceCream_df_extended</span> <span class="o">=</span> <span class="n">get_shifted_target_values</span><span class="p">(</span><span class="n">IceCream_df_extended</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">365</span><span class="p">],</span> <span class="s2">&quot;SalesDate&quot;</span><span class="p">,</span><span class="s2">&quot;IceCreamSales&quot;</span><span class="p">)</span>
+<span class="n">IceCream_df_extended</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SalesDate</th>
+      <th>IceCreamSales</th>
+      <th>SalesDateQuarter</th>
+      <th>SalesDateMonth</th>
+      <th>SalesDateWeek</th>
+      <th>SalesDateWeekDay</th>
+      <th>SalesDateYearDay</th>
+      <th>SalesDateisWeekend</th>
+      <th>IceCreamSales_lagged_1</th>
+      <th>IceCreamSales_lagged_7</th>
+      <th>IceCreamSales_lagged_365</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-01-01</td>
+      <td>173100</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-01-02</td>
+      <td>203200</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>173100</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-01-03</td>
+      <td>213300</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+      <td>203200</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2018-01-04</td>
+      <td>223400</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0</td>
+      <td>213300</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2018-01-05</td>
+      <td>253500</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>5</td>
+      <td>0</td>
+      <td>223400</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1091</th>
+      <td>2020-12-27</td>
+      <td>174700</td>
+      <td>4</td>
+      <td>12</td>
+      <td>52</td>
+      <td>7</td>
+      <td>362</td>
+      <td>1</td>
+      <td>114600</td>
+      <td>233700</td>
+      <td>144600</td>
+    </tr>
+    <tr>
+      <th>1092</th>
+      <td>2020-12-28</td>
+      <td>123100</td>
+      <td>4</td>
+      <td>12</td>
+      <td>53</td>
+      <td>1</td>
+      <td>363</td>
+      <td>0</td>
+      <td>174700</td>
+      <td>194100</td>
+      <td>114700</td>
+    </tr>
+    <tr>
+      <th>1093</th>
+      <td>2020-12-29</td>
+      <td>103200</td>
+      <td>4</td>
+      <td>12</td>
+      <td>53</td>
+      <td>2</td>
+      <td>364</td>
+      <td>0</td>
+      <td>123100</td>
+      <td>134200</td>
+      <td>143100</td>
+    </tr>
+    <tr>
+      <th>1094</th>
+      <td>2020-12-30</td>
+      <td>143300</td>
+      <td>4</td>
+      <td>12</td>
+      <td>53</td>
+      <td>3</td>
+      <td>365</td>
+      <td>0</td>
+      <td>103200</td>
+      <td>154300</td>
+      <td>143200</td>
+    </tr>
+    <tr>
+      <th>1095</th>
+      <td>2020-12-31</td>
+      <td>83400</td>
+      <td>4</td>
+      <td>12</td>
+      <td>53</td>
+      <td>4</td>
+      <td>366</td>
+      <td>0</td>
+      <td>143300</td>
+      <td>154400</td>
+      <td>243300</td>
+    </tr>
+  </tbody>
+</table>
+<p>1096 rows × 11 columns</p>
+</div></div></div>
+</div>
+<p>Widzimy, że początek zbioru danych zawiera teraz wartości puste, ze względu na fakt, że dla wartości z roku 2018 nie istniały obserwacje cofnięte o rok. Do pokazywania liczby niepustych wartości w ramce danych przydatna jest funkcja info z biblioteki pandas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IceCream_df_extended</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 1096 entries, 0 to 1095
+Data columns (total 11 columns):
+ #   Column                    Non-Null Count  Dtype         
+---  ------                    --------------  -----         
+ 0   SalesDate                 1096 non-null   datetime64[ns]
+ 1   IceCreamSales             1096 non-null   Int64         
+ 2   SalesDateQuarter          1096 non-null   int64         
+ 3   SalesDateMonth            1096 non-null   int64         
+ 4   SalesDateWeek             1096 non-null   UInt32        
+ 5   SalesDateWeekDay          1096 non-null   int64         
+ 6   SalesDateYearDay          1096 non-null   int64         
+ 7   SalesDateisWeekend        1096 non-null   int32         
+ 8   IceCreamSales_lagged_1    1095 non-null   Int64         
+ 9   IceCreamSales_lagged_7    1089 non-null   Int64         
+ 10  IceCreamSales_lagged_365  731 non-null    Int64         
+dtypes: Int64(4), UInt32(1), datetime64[ns](1), int32(1), int64(4)
+memory usage: 99.5 KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>oczywiście wartości puste należy potem w jakiś sposób obsłużyć, poprzez ich usunięcie lub imputację</p>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>Tworząc zmienne oparte o cechy przesunięte w czasie warto mieć na uwadze, że dane historyczne mogą zawierać wartości odstające. Dlatego zamiast brać wprost wartość sprzed np. 365 dni można rozważyć wygładzenie wartości stosując medianę z 5 dniowego okna, którego środek stanowi wartość sprzed 365 dni.</p>
+</div></div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cechy-kategoryczne-i-ich-transformacje">
+<h1>Cechy kategoryczne i ich transformacje<a class="headerlink" href="#cechy-kategoryczne-i-ich-transformacje" title="Permalink to this headline">¶</a></h1>
+<p>Dla zilustrowania transformacji na zmiennych kategorycznych posłużymy się drugim z przygotowanych zbiorów danych, gdzie chcemy przewidzieć cenę sprzedaży używanego samochodu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsedCars_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>selling_price</th>
+      <th>condition</th>
+      <th>mileage</th>
+      <th>brand</th>
+      <th>year_manufactured</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8655.0</td>
+      <td>medium</td>
+      <td>170639</td>
+      <td>VW</td>
+      <td>1969</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>32525.0</td>
+      <td>very_good</td>
+      <td>221288</td>
+      <td>Mercedes</td>
+      <td>1954</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>49170.0</td>
+      <td>medium</td>
+      <td>352612</td>
+      <td>Bugatti</td>
+      <td>1959</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>9567.0</td>
+      <td>good</td>
+      <td>421537</td>
+      <td>Seat</td>
+      <td>1974</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>27971.0</td>
+      <td>good</td>
+      <td>523044</td>
+      <td>Mercedes</td>
+      <td>1962</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>jak widzimy występują tutaj 2 cechy kategoryczne condition oraz brand, na podstawie których zaprezentujemy które transformacje danych najlepiej zastosować w którym przypadku. Aby umożliwić wykorzystanie tych cech w predykcji niezbędne jest odpowiednie ich przekształcenie w wartości numeryczne</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsedCars_df</span><span class="o">.</span><span class="n">condition</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;medium&#39;, &#39;very_good&#39;, &#39;good&#39;, &#39;very_bad&#39;, &#39;bad&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>patrząc na atrybuty zmiennej condition widzimy, że ma ona charakter porządkowy - jesteśmy w stanie łatwo ustalić naturalną kolejność jej atrybutów. Stanowi ona zatem dobrego kandydata do zastosowania <b>kodowania porządkowego</b></p>
+<div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p><b>kodowania porządkowe</b> (ang. <em>Ordinal encoding</em>) - reprezentacja każdego atrybutu kodowanej zmiennej jako kolejnej liczby naturalnej</p>
+</div><p>poniżej zaprezentujemy kodowanie porządkowe z użyciem transformera OrdinalEncoder, najpierw jednak podzielimy nasze dane na zbiór treningowy i testowy, aby lepiej odwzorować to, że dane treningowe są oddzielone od danych produkcyjnych, na których model będzie potem stosowany.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OrdinalEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>tutaj dla uproszczenia stosujemy tylko prosty podział na zbiór treningowy i testowy, generalnie najlepszą praktyką jest wydzielenie osobnego zbioru testowego reprezentującego zdolność modelu do generalizacji na nowych, niewidzianych wcześniej danych i dobór najlepszego zestawu parametrów i transformacji stosując crosswalidację na zbiorze treningowym.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">UsedCars_df</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>następnie tworzymy obiekt klasy OrdinalEncoder, określamy tutaj porządek cechy atrybutów cechy, którą chcemy przetransformować, inaczej mogą one zostać po prostu posortowane alfabetycznie co najczęściej nie będzie odpowiadało ich znaczeniu biznesowemu</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oe</span><span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">(</span><span class="n">categories</span> <span class="o">=</span><span class="p">[[</span><span class="s1">&#39;very_bad&#39;</span><span class="p">,</span> <span class="s1">&#39;bad&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;good&#39;</span><span class="p">,</span> <span class="s1">&#39;very_good&#39;</span><span class="p">]],</span>
+                   <span class="n">handle_unknown</span> <span class="o">=</span><span class="s1">&#39;use_encoded_value&#39;</span><span class="p">,</span> <span class="n">unknown_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-danger">
+<b>Uwaga!</b> 
+<p>Kodując atrybuty należy mieć świadomość, że na nowych danych mogą pojawić się niewidziane wcześniej wartości, które należy w jakiś sposób obsłużyć. Domyślnym zachowaniem OrdinalEncoder w takiej sytuacji jest zwrócenie wyjątku, tutaj skorzystaliśmy z przypisania mu ustalonej wartości, gdzie wybraliśmy  przypisanie wartości pustej. Następnie taką wartość można zastąpić np. dominantą ze zbioru treningowego, lub przypisać jej wartość neutralną, którą tutaj byłoby 2 odpowiadające kategorii medium.</p>
+</div><p>Zdecydowanie najlepszym sposobem użycia wszystkich transformerów jest skorzystanie z <b>pipeline</b>, co zostanie zaprezentowane potem. Tutaj zaprezentujemy najprostsze wykorzystanie polegające na skorzystaniu z metod <b>fit</b> i <b>transform</b>. OrdinalEncoder stosujemy tylko do przekształcenia jednej cechy, gdyby było inaczej moglibyśmy wykonać fit na całym zbiorze treningowym a następnie przetransformować zbiory treningowy i testowy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">condition</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;condition_transformed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">oe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">condition</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;condition_transformed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">oe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">condition</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\kazim\AppData\Local\Temp/ipykernel_20656/1043533196.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  X_train[&quot;condition_transformed&quot;] = oe.transform(X_train.condition.values.reshape(-1, 1))
+C:\Users\kazim\AppData\Local\Temp/ipykernel_20656/1043533196.py:3: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  X_test[&quot;condition_transformed&quot;] = oe.transform(X_test.condition.values.reshape(-1, 1))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-danger">
+<b>Uwaga!</b> 
+<p>Jeśli nie korzystamy z pipeline należy zwrócić szczególną uwagę żeby metody fit używać tylko na zbiorze treningowym a następnie mając już “nauczony” transformer stosować metodę transform na pozostałych zbiorach. Inaczej może dojść do przecieku informacji ze zbioru testowego.</p>
+</div><p>możemy jeszcze sprawdzić czy przypisanie atrybutów na zbiorach treningowym i testowym jest prawidłowe, a następnie pozbyć się pierwotnej kolumny, wartości pierwotne mogą być łatwo odzyskane z przetransformowanych danych stosując metodę <b>inverse_transform</b></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">[[</span><span class="s2">&quot;condition&quot;</span><span class="p">,</span><span class="s2">&quot;condition_transformed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;condition_transformed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>condition_transformed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>789</th>
+      <td>very_bad</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>bad</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>medium</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>323</th>
+      <td>good</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>very_good</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_test</span><span class="p">[[</span><span class="s2">&quot;condition&quot;</span><span class="p">,</span><span class="s2">&quot;condition_transformed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;condition_transformed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>condition_transformed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>740</th>
+      <td>very_bad</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>521</th>
+      <td>bad</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>411</th>
+      <td>medium</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>811</th>
+      <td>good</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>626</th>
+      <td>very_good</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;condition&quot;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_test</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;condition&quot;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\kazim\.conda\envs\politechnika\lib\site-packages\pandas\core\frame.py:4163: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  return super().drop(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>selling_price</th>
+      <th>mileage</th>
+      <th>brand</th>
+      <th>year_manufactured</th>
+      <th>condition_transformed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>82</th>
+      <td>32158.0</td>
+      <td>59093</td>
+      <td>BMW</td>
+      <td>2015</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>12437.0</td>
+      <td>56445</td>
+      <td>Toyota</td>
+      <td>1990</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>25305.0</td>
+      <td>312058</td>
+      <td>Bugatti</td>
+      <td>1978</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>17835.0</td>
+      <td>23150</td>
+      <td>BMW</td>
+      <td>2017</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>7357.0</td>
+      <td>138958</td>
+      <td>Renault</td>
+      <td>2000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>11658.0</td>
+      <td>90034</td>
+      <td>Renault</td>
+      <td>2011</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>11296.0</td>
+      <td>110040</td>
+      <td>Toyota</td>
+      <td>2008</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>60956.0</td>
+      <td>18747</td>
+      <td>Bugatti</td>
+      <td>1977</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>435</th>
+      <td>9346.0</td>
+      <td>547899</td>
+      <td>Seat</td>
+      <td>1967</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>31597.0</td>
+      <td>70964</td>
+      <td>Mercedes</td>
+      <td>1961</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>750 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>widzimy, że do zakodowania pozostała nam jeszcze cecha - brand, w odróżnieniu od poprzednio rozważanej cechy tutaj nie ma oczywistego naturalnego porządku, dlatego należy tutaj zastosować inne podejście</p>
+<div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p><b>kodowania 1 z n</b> (ang. <em>One-hot encoding</em>) - reprezentacja każdego atrybutu kodowanej zmiennej jako osobnej zmiennej binarnej, gdzie występowanie rozważanego atrybutu dla danej obserwacji oznaczane jest jako 1 a wszystkie pozostałe atrybuty oznaczane są jako 0</p>
+</div><p>kodowanie 1 z n stanowi jeden z najczęściej używanych i najbardziej intuicyjnych sposobów kodowania, jednak jego główną wadą jest zwiększanie wymiarowości danych, co zaraz zaprezentujemy</p>
+<p>najpierw pokażemy jak posługiwać się transformerem OneHotEncoder</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>tworzymy obiekt klasy OneHotEncoder, podobnie jak w przypadku poprzedniego transformera, tu także domyślnym sposobem obsługi nieznanych atrybutów jest zwracanie wyjątku, my wybieramy handle_unknown=”ignore” co sprawi, że nieznane atrybuty reprezentowane będą po prostu jako 0 we wszystkich zakodowanych kolumnach.</p>
+<p>Natomiast ustawienie sparse=False sprawia, że zwracane dane będą typu np.array zamiast domyślnego sparse matrix</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ohe</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span><span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>należy zwrócić uwagę, że we wszystkich transformerach z biblioteki sklearn stosowane jest to samo API, w związku z tym tutaj analogicznie jak w poprzednim przypadku możemy skorzystać z metod <b>fit</b> i <b>transform</b></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ohe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">brand</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">brand_transformed_train</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">brand</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">brand_transformed_test</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">brand</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rozmiar zakodowanej kolumny brand na danych treningowych to: </span><span class="si">{</span><span class="n">brand_transformed_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rozmiar zakodowanej kolumny brand na danych testowych to: </span><span class="si">{</span><span class="n">brand_transformed_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">brand_transformed_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rozmiar zakodowanej kolumny brand na danych treningowych to: (750, 10)
+rozmiar zakodowanej kolumny brand na danych testowych to: (250, 10)
+[[0. 1. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 1. 0.]
+ [0. 0. 1. ... 0. 0. 0.]
+ ...
+ [0. 0. 1. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>jak widzimy kolumna brand reprezentowana jest teraz jako array gdzie każdy atrybut ze zbioru treningowego zaprezentowany jest w osobnej kolumnie binarnej. Można to sprawdzić zliczając liczbę unikalnych atrybutów tej kolumny na zbiorze treningowym</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">brand</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>kolejność atrybutów odpowiadających kolumnom wynikowego arraya można zobaczyć korzystając z atrybutu categories_</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ohe</span><span class="o">.</span><span class="n">categories_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([&#39;Audi&#39;, &#39;BMW&#39;, &#39;Bugatti&#39;, &#39;Fiat&#39;, &#39;Mercedes&#39;, &#39;Renault&#39;, &#39;Seat&#39;,
+        &#39;Skoda&#39;, &#39;Toyota&#39;, &#39;VW&#39;], dtype=object)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>całą transformację wraz z dodaniem przetransformowanej zmiennej do zbioru treningowego można zrealizować za pomocą prostej funkcji</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">OneHotEncode</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">encoded_column_name</span><span class="p">,</span> <span class="o">**</span><span class="n">encoder_kwargs</span><span class="p">):</span>
+    
+    <span class="n">ohe</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="o">**</span><span class="n">encoder_kwargs</span><span class="p">)</span>
+    <span class="n">ohe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">encoded_column_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">transformed_train</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">encoded_column_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">transformed_test</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">encoded_column_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    
+    <span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">encoded_column_name</span> <span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="n">category</span> <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">ohe</span><span class="o">.</span><span class="n">categories_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">]</span>
+    <span class="n">df_transformed_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">transformed_train</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">column_names</span><span class="p">)</span>
+    <span class="n">df_transformed_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">transformed_test</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">column_names</span><span class="p">)</span>
+    
+    <span class="n">df_out_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="n">encoded_column_name</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_out_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="n">encoded_column_name</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_out_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_out_train</span><span class="p">,</span> <span class="n">df_transformed_train</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_out_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_out_test</span><span class="p">,</span> <span class="n">df_transformed_test</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">df_out_train</span><span class="p">,</span> <span class="n">df_out_test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>powyższa funkcja zwraca zbiór treningowy i testowy po dodaniu odpowiednio nazwanych kolumn powstałych po transformacji obiektem OneHotEncoder i usunięciu pierwotnej zmiennej. Argumenty do OneHotEncoder przekazywane są z pomocą  **encoder_kwargs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_ohe</span><span class="p">,</span> <span class="n">X_test_ohe</span> <span class="o">=</span> <span class="n">OneHotEncode</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="s2">&quot;brand&quot;</span><span class="p">,</span> <span class="n">handle_unknown</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span><span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">X_train_ohe</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>selling_price</th>
+      <th>mileage</th>
+      <th>year_manufactured</th>
+      <th>condition_transformed</th>
+      <th>brand_Audi</th>
+      <th>brand_BMW</th>
+      <th>brand_Bugatti</th>
+      <th>brand_Fiat</th>
+      <th>brand_Mercedes</th>
+      <th>brand_Renault</th>
+      <th>brand_Seat</th>
+      <th>brand_Skoda</th>
+      <th>brand_Toyota</th>
+      <th>brand_VW</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>32158.0</td>
+      <td>59093</td>
+      <td>2015</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>12437.0</td>
+      <td>56445</td>
+      <td>1990</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>25305.0</td>
+      <td>312058</td>
+      <td>1978</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>17835.0</td>
+      <td>23150</td>
+      <td>2017</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7357.0</td>
+      <td>138958</td>
+      <td>2000</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>Alternatywnie zamiast OneHotEncoder można wykorzystać funkcję <b>get_dummies</b> z biblioteki pandas, która jest nieco prostsza w użyciu, jednak OneHotEncoder jest lepiej dostosowany do obsługi niewidzianych wartości a ponadto znacznie łatwiej go zastosować w ramach pipeline</p>
+</div><p>jak widzimy nawet przy tak niskiej liczbie atrybutów wymiarowość naszych danych znacznie wzrosła. W prawdziwych zastosowaniach możemy się spotkać ze zbiorami danych mającymi wiele zmiennych kategorycznych o dziesiątkach lub setkach unikalnych atrybutów, więc metodę OneHotEncoder zaleca się stosować tylko tam, gdzie atrybuty są niezbyt liczne, w pozostałych sytuacjach lepiej skorzystać z <b>kodowania zmienną celu</b></p>
+<div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p><b>kodowanie zmienną celu</b> (ang. <em>Target encoding</em>) - reprezentacja każdego atrybutu kodowanej zmiennej jako estymata średniej wartości zmiennej celu na danych treningowych</p>
+</div><p>Kodowanie zmienną celu stanowi jedną z najbardziej uniwersalnych metod kodowania zmiennych kategorycznych, nie wymaga naturalnego porządku w danych jak kodowanie porządkowe i nie zwiększa wymiarowości danych jak kodowanie 1 z n.</p>
+<p>Istnieje wiele różnych sposobów kodowania zmiennej celu, my tutaj posłużymy się metodą James-Stein Encoder dostępną w bibliotece category_encoders</p>
+<div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p>Formuła na zakodowaną wartość k-tego atrybutu kodowanej zmiennej:
+$<span class="math notranslate nohighlight">\(
+X_{k} = (1-B) *Avg(Y_{k}) +B*Avg(Y)
+\)</span>$</p>
+<p>gdzie:</p>
+<p><span class="math notranslate nohighlight">\(X_{k}\)</span> - wartość przypisana k-temu atrybutowi kodowanej zmiennej kategorycznej</p>
+<p><span class="math notranslate nohighlight">\(Avg(Y_{k})\)</span> - średnia wartości zmiennej celu dla k-tego atrybutu zmiennej kategorycznej</p>
+<p><span class="math notranslate nohighlight">\(Avg(Y)\)</span> - globalna średnia zmiennej celu na zbiorze treningowym</p>
+<p><span class="math notranslate nohighlight">\(B\)</span> -waga globalnej średniej, wyliczona według formuły:
+$<span class="math notranslate nohighlight">\(
+B = \frac{Var(Y_{k})}{Var(Y) + Var(Y_{k})}
+\)</span>$
+gdzie:</p>
+<p><span class="math notranslate nohighlight">\(Var(Y_{k})\)</span> - wariancja zmiennej celu dla k-tego atrybutu zmiennej kategorycznej</p>
+<p><span class="math notranslate nohighlight">\(Var(Y)\)</span> - wariancja zmiennej celu dla całego zbioru treningowego</p>
+<p>importujemy potrzebną klasę</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">category_encoders.james_stein</span> <span class="kn">import</span> <span class="n">JamesSteinEncoder</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_20656</span><span class="o">/</span><span class="mf">3407394618.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">category_encoders.james_stein</span> <span class="kn">import</span> <span class="n">JamesSteinEncoder</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;category_encoders&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>tworzymy obiekt klasy JamesSteinEncoder, wybierając kolumnę brand do przekształcenia, domyślnie przekształcone zostaną wszystkie kolumny kategoryczne</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jse</span> <span class="o">=</span> <span class="n">JamesSteinEncoder</span><span class="p">(</span><span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>tak jak w transformerach z biblioteki sklearn także tutaj posługujemy się metodami <b>fit</b> i <b>transform</b>, jednak jako, że jest to kodowanie zmienną celu niezbędne jest jej podanie do metody fit, dlatego najpierw wydzielimy zmienną celu</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">selling_price</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">selling_price</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;selling_price&quot;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;selling_price&quot;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jse</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">X_train_jse</span> <span class="o">=</span> <span class="n">jse</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_jse</span> <span class="o">=</span> <span class="n">jse</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">X_train_jse</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mileage</th>
+      <th>brand</th>
+      <th>year_manufactured</th>
+      <th>condition_transformed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>82</th>
+      <td>524486</td>
+      <td>9530.009707</td>
+      <td>1956</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>166856</td>
+      <td>10018.691398</td>
+      <td>1996</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>94191</td>
+      <td>9636.700001</td>
+      <td>2000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>54210</td>
+      <td>9530.009707</td>
+      <td>1954</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>264049</td>
+      <td>9636.700001</td>
+      <td>1985</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>jak widzimy zmienna brand została teraz zastąpiona estymatami średniej wartości zmiennej celu w zależności od brandu</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="laczenie-atrybutow-cech-kategorycznych">
+<h1>łączenie atrybutów cech kategorycznych<a class="headerlink" href="#laczenie-atrybutow-cech-kategorycznych" title="Permalink to this headline">¶</a></h1>
+<p>Oprócz standardowych metod transformacji zmiennych kategorycznych opisanych w poprzedniej sekcji można też stosować różne przekształcenia polegające na łączeniu pierwotnych atrybutów w podgrupy. Takie łączenie może być oparte na podobieństwie atrybutów pod katęm statystycznym np. zbliżony poziom średniej wartości zmiennej celu lub, co bardziej zalecane - na wiedzy domenowej.</p>
+<p>Tutaj zaprezentujemy prosty przykład łączenia atrybutów oparty na wiedzy domenowej - załóżmy, że znamy podział wszystkich marek samochodów ze zmiennej brand na 3 relatywnie jednolite podgrupy - marki podstawowe, marki premium i marki luksusowe. Na tej podstawie stworzymy nową zmienną korzystając z prostej funkcji:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">brand_binning</span><span class="p">(</span><span class="n">brand</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span><span class="s2">&quot;standard&quot;</span>
+    <span class="n">standard_brands</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Fiat&quot;</span><span class="p">,</span><span class="s2">&quot;Renault&quot;</span><span class="p">,</span><span class="s2">&quot;VW&quot;</span><span class="p">,</span> <span class="s2">&quot;Seat&quot;</span><span class="p">,</span> <span class="s2">&quot;Skoda&quot;</span><span class="p">,</span><span class="s2">&quot;Toyota&quot;</span><span class="p">]</span>
+    <span class="n">premium_brands</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Audi&quot;</span><span class="p">,</span><span class="s2">&quot;BMW&quot;</span><span class="p">,</span><span class="s2">&quot;Mercedes&quot;</span><span class="p">]</span>
+    <span class="n">luxury_brands</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bugatti&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">brand</span> <span class="ow">in</span> <span class="n">luxury_brands</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;luxury&quot;</span>
+    <span class="k">elif</span> <span class="n">brand</span> <span class="ow">in</span> <span class="n">premium_brands</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;premium&quot;</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;brand_binned&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">brand_binning</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;brand_binned&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">brand_binning</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">X_train</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mileage</th>
+      <th>brand</th>
+      <th>year_manufactured</th>
+      <th>condition_transformed</th>
+      <th>brand_binned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>82</th>
+      <td>524486</td>
+      <td>VW</td>
+      <td>1956</td>
+      <td>2.0</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>166856</td>
+      <td>Toyota</td>
+      <td>1996</td>
+      <td>3.0</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>94191</td>
+      <td>Skoda</td>
+      <td>2000</td>
+      <td>2.0</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>54210</td>
+      <td>VW</td>
+      <td>1954</td>
+      <td>1.0</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>264049</td>
+      <td>Skoda</td>
+      <td>1985</td>
+      <td>4.0</td>
+      <td>standard</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>możemy też sprawdzić jak wygląda unikalne przypisanie pomiędzy pierwotną a zgrupowaną zmienną:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">[[</span><span class="s2">&quot;brand&quot;</span><span class="p">,</span><span class="s2">&quot;brand_binned&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;brand_binned&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>brand</th>
+      <th>brand_binned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>Bugatti</td>
+      <td>luxury</td>
+    </tr>
+    <tr>
+      <th>323</th>
+      <td>Audi</td>
+      <td>premium</td>
+    </tr>
+    <tr>
+      <th>798</th>
+      <td>Mercedes</td>
+      <td>premium</td>
+    </tr>
+    <tr>
+      <th>717</th>
+      <td>BMW</td>
+      <td>premium</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>VW</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>Toyota</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>Skoda</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>731</th>
+      <td>Fiat</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Renault</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>523</th>
+      <td>Seat</td>
+      <td>standard</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>jak widzimy przypisanie zostało przeprowadzone poprawnie, nowa zmienna niesie mniej informacji niż zmienna pierwotna, dlatego zastąpienie nią pierwotnej zmiennej może być pomocne jeśli mamy problem z przeuczeniem modelu. Oczywiście tak powstałą zmienną należy potem jeszcze przetransformować zgodnie z wytycznymi z poprzedniej sekcji.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cechy-oparte-na-wiedzy-domenowej-oraz-cechy-interakcji">
+<h1>Cechy oparte na wiedzy domenowej oraz cechy interakcji<a class="headerlink" href="#cechy-oparte-na-wiedzy-domenowej-oraz-cechy-interakcji" title="Permalink to this headline">¶</a></h1>
+<p>Zaprezentowane powyżej grupowanie marek polegało na przekształceniu zmiennej kategorycznej w oparciu o wiedzę domenową. Tutaj pokażemy przykłady zastosowania wiedzy domenowej na zmiennych numerycznych i interakcji cech numerycznych i katgorycznych.</p>
+<p>Przykładem prostej cechy opartej na wiedzy domenowej może być wiek samochodu w momencie sprzedaży. Nie mamy tutaj informacji o dacie transakcji, dlatego można dla ułatwienia założyć, że wszystkie transakcje odbyły się w bieżącym roku.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2021</span> <span class="o">-</span> <span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;year_manufactured&quot;</span><span class="p">]</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2021</span> <span class="o">-</span> <span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;year_manufactured&quot;</span><span class="p">]</span>
+<span class="n">X_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mileage</th>
+      <th>brand</th>
+      <th>year_manufactured</th>
+      <th>condition_transformed</th>
+      <th>brand_binned</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>82</th>
+      <td>524486</td>
+      <td>VW</td>
+      <td>1956</td>
+      <td>2.0</td>
+      <td>standard</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>166856</td>
+      <td>Toyota</td>
+      <td>1996</td>
+      <td>3.0</td>
+      <td>standard</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>94191</td>
+      <td>Skoda</td>
+      <td>2000</td>
+      <td>2.0</td>
+      <td>standard</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>54210</td>
+      <td>VW</td>
+      <td>1954</td>
+      <td>1.0</td>
+      <td>standard</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>264049</td>
+      <td>Skoda</td>
+      <td>1985</td>
+      <td>4.0</td>
+      <td>standard</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>127914</td>
+      <td>Mercedes</td>
+      <td>1990</td>
+      <td>3.0</td>
+      <td>premium</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>185880</td>
+      <td>Seat</td>
+      <td>1962</td>
+      <td>3.0</td>
+      <td>standard</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>116011</td>
+      <td>VW</td>
+      <td>2007</td>
+      <td>0.0</td>
+      <td>standard</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>435</th>
+      <td>25782</td>
+      <td>Skoda</td>
+      <td>2014</td>
+      <td>2.0</td>
+      <td>standard</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>145116</td>
+      <td>Skoda</td>
+      <td>1979</td>
+      <td>2.0</td>
+      <td>standard</td>
+      <td>42</td>
+    </tr>
+  </tbody>
+</table>
+<p>750 rows × 6 columns</p>
+</div></div></div>
+</div>
+<p>Zmienne interakcji można wygenerować stosując np. iloczyny poszczególnych zmiennych numerycznych, tutaj wydaje się to nie być najlepszy pomysł, ponieważ intuicyjnie czujemy, że np mnożenie przebiegu * rok produkcji nie będzie zbyt dobrą cechą predykcyjną. Można natomiast wyliczyć np średni roczny przebieg dzieląc przebieg przez dodany powyżej wiek samochodu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;avg_yearly_mileage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;mileage&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;avg_yearly_mileage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;mileage&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+<span class="n">X_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mileage</th>
+      <th>brand</th>
+      <th>year_manufactured</th>
+      <th>condition_transformed</th>
+      <th>brand_binned</th>
+      <th>age</th>
+      <th>avg_yearly_mileage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>82</th>
+      <td>524486</td>
+      <td>VW</td>
+      <td>1956</td>
+      <td>2.0</td>
+      <td>standard</td>
+      <td>65</td>
+      <td>8069.0</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>166856</td>
+      <td>Toyota</td>
+      <td>1996</td>
+      <td>3.0</td>
+      <td>standard</td>
+      <td>25</td>
+      <td>6674.0</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>94191</td>
+      <td>Skoda</td>
+      <td>2000</td>
+      <td>2.0</td>
+      <td>standard</td>
+      <td>21</td>
+      <td>4485.0</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>54210</td>
+      <td>VW</td>
+      <td>1954</td>
+      <td>1.0</td>
+      <td>standard</td>
+      <td>67</td>
+      <td>809.0</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>264049</td>
+      <td>Skoda</td>
+      <td>1985</td>
+      <td>4.0</td>
+      <td>standard</td>
+      <td>36</td>
+      <td>7335.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>127914</td>
+      <td>Mercedes</td>
+      <td>1990</td>
+      <td>3.0</td>
+      <td>premium</td>
+      <td>31</td>
+      <td>4126.0</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>185880</td>
+      <td>Seat</td>
+      <td>1962</td>
+      <td>3.0</td>
+      <td>standard</td>
+      <td>59</td>
+      <td>3151.0</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>116011</td>
+      <td>VW</td>
+      <td>2007</td>
+      <td>0.0</td>
+      <td>standard</td>
+      <td>14</td>
+      <td>8286.0</td>
+    </tr>
+    <tr>
+      <th>435</th>
+      <td>25782</td>
+      <td>Skoda</td>
+      <td>2014</td>
+      <td>2.0</td>
+      <td>standard</td>
+      <td>7</td>
+      <td>3683.0</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>145116</td>
+      <td>Skoda</td>
+      <td>1979</td>
+      <td>2.0</td>
+      <td>standard</td>
+      <td>42</td>
+      <td>3455.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>750 rows × 7 columns</p>
+</div></div></div>
+</div>
+<p>Innym przykładem zmiennej opartej stricte na wiedzy domenowej łączecej ze sobą informacje ze zmiennych numerycznych i kategorycznych mogła by być informacja o klasycznych modelach. Załóżmy, że modele luksusowych marek wyprodukowane przed 1970 rokiem są modelami klasycznymi i jeśli ich stan jest co najmniej dobry to ich cena jest znacznie wyższa niż by to wynikało z wieku auta, gdzie normalnie spodziewamy się ujemnej relacji z ceną sprzedaży.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">X_train</span><span class="o">.</span><span class="n">brand_binned</span><span class="o">==</span><span class="s2">&quot;luxury&quot;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">year_manufactured</span><span class="o">&lt;=</span><span class="mi">1970</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">condition_transformed</span><span class="o">&gt;</span><span class="mf">2.0</span><span class="p">),</span><span class="s2">&quot;is_classic&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;is_classic&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;is_classic&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X_test</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">X_test</span><span class="o">.</span><span class="n">brand_binned</span><span class="o">==</span><span class="s2">&quot;luxury&quot;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">year_manufactured</span><span class="o">&lt;=</span><span class="mi">1970</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">condition_transformed</span><span class="o">&gt;</span><span class="mf">2.0</span><span class="p">),</span><span class="s2">&quot;is_classic&quot;</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;is_classic&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;is_classic&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;is_classic&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0    739
+1.0     11
+Name: is_classic, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Takie przypadki są stosunkowo rzadkie, ale tego typu zmienna może pomóc w dokładniejszym przewidzeniu tych obserwacji.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cechy-oparte-na-transformacji-zmiennych-numerycznych">
+<h1>Cechy oparte na transformacji zmiennych numerycznych<a class="headerlink" href="#cechy-oparte-na-transformacji-zmiennych-numerycznych" title="Permalink to this headline">¶</a></h1>
+<p>Dość powszechnie spotykaną praktyką jest stosowanie nieliniowych transformacji zmiennych numerycznych, co zazwyczaj sprzyja uzyskaniu lepszej jakości predykcji ze względu na fakt, że modele najlepiej radzą sobie gdy rozkłady zmiennych są zbliżone do rozkładu normalnego.</p>
+<p>Często spotykaną jest po prostu logarytmowanie zmiennych numerycznych, tutaj natomiast posłużymy się gotowym transformerem z biblioteki sklearn, a mianowicie <b>PowerTransformer</b></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PowerTransformer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>zanim dokonamy transformacji sprawdźmy jak wyglądają rozkłady zmiennych numerycznych, ograniczymy się tutaj do przebiegu, wieku i średniego przebiegu</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mileage&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span><span class="s2">&quot;avg_yearly_mileage&quot;</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">[</span><span class="n">num_columns</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot:title={&#39;center&#39;:&#39;mileage&#39;}&gt;,
+        &lt;AxesSubplot:title={&#39;center&#39;:&#39;age&#39;}&gt;],
+       [&lt;AxesSubplot:title={&#39;center&#39;:&#39;avg_yearly_mileage&#39;}&gt;,
+        &lt;AxesSubplot:&gt;]], dtype=object)
+</pre></div>
+</div>
+<img alt="../_images/6_Inzynieria cech_102_1.png" src="../_images/6_Inzynieria cech_102_1.png" />
+</div>
+</div>
+<p>można tu zaobserwować, że rozkład przebiegu jest silnie skośny, pozostałe 2 zmienne mają rozkład zbliżony do jednostajnego</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt</span><span class="o">=</span><span class="n">PowerTransformer</span><span class="p">(</span><span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>tworzymy obiekt klasy PowerTransformer, korzystamy tutaj z domyślnej transformacji Yeo-Johnson, zmieniamy natomiast ustawienie o sprowadzeniu do rozkładu o średniej równej 0 i odchyleniu standardowym równym 1, które domyślnie jest ustawione na True</p>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>Domyślna transformacja czyli metoda Yeo-Johnsona może być stosowana niezależnie od znaku transformowanych zmiennych, natomiast alternatywna transformacja Box-Cox wymaga ściśle dodatnich zmiennych na wejściu.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">num_columns</span><span class="p">])</span>
+<span class="n">X_train_num_transformed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pt</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">num_columns</span><span class="p">]),</span> <span class="n">columns</span> <span class="o">=</span><span class="n">num_columns</span><span class="p">)</span>
+<span class="n">X_test_num_transformed</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pt</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">num_columns</span><span class="p">]),</span> <span class="n">columns</span> <span class="o">=</span><span class="n">num_columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>analogicznie jak przy poprzednio stosowanych transformerach korzystamy tutaj z metod fit i transform, a następnie konwertujemy wynik na ramkę danych.</p>
+<p>Przeanalizujmy jak mocno zmieniły się rozkłady poszczególnych zmiennych:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_num_transformed</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot:title={&#39;center&#39;:&#39;mileage&#39;}&gt;,
+        &lt;AxesSubplot:title={&#39;center&#39;:&#39;age&#39;}&gt;],
+       [&lt;AxesSubplot:title={&#39;center&#39;:&#39;avg_yearly_mileage&#39;}&gt;,
+        &lt;AxesSubplot:&gt;]], dtype=object)
+</pre></div>
+</div>
+<img alt="../_images/6_Inzynieria cech_110_1.png" src="../_images/6_Inzynieria cech_110_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_test_num_transformed</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot:title={&#39;center&#39;:&#39;mileage&#39;}&gt;,
+        &lt;AxesSubplot:title={&#39;center&#39;:&#39;age&#39;}&gt;],
+       [&lt;AxesSubplot:title={&#39;center&#39;:&#39;avg_yearly_mileage&#39;}&gt;,
+        &lt;AxesSubplot:&gt;]], dtype=object)
+</pre></div>
+</div>
+<img alt="../_images/6_Inzynieria cech_111_1.png" src="../_images/6_Inzynieria cech_111_1.png" />
+</div>
+</div>
+<p>Zmienna mileage na zbiorze treningowym z silnie skośnej nabrała cech rozkładu normalnego, pozostałe przypadki nie wyglądają jednak na rozkład normalny.</p>
+<p>Wypróbujmy inny sposób modyfikacji rozkładu - <b>QuantileTransformer</b></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">QuantileTransformer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>tworzymy obiekt klasy QuantileTransformer, zamiast bazowego rozkładu jednostajnego wybierając rozkład normalny</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qt</span> <span class="o">=</span> <span class="n">QuantileTransformer</span><span class="p">(</span><span class="n">output_distribution</span><span class="o">=</span><span class="s2">&quot;normal&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">num_columns</span><span class="p">])</span>
+<span class="n">X_train_num_transformed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">qt</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">num_columns</span><span class="p">]),</span> <span class="n">columns</span> <span class="o">=</span><span class="n">num_columns</span><span class="p">)</span>
+<span class="n">X_test_num_transformed</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">qt</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">num_columns</span><span class="p">]),</span> <span class="n">columns</span> <span class="o">=</span><span class="n">num_columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_num_transformed</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot:title={&#39;center&#39;:&#39;mileage&#39;}&gt;,
+        &lt;AxesSubplot:title={&#39;center&#39;:&#39;age&#39;}&gt;],
+       [&lt;AxesSubplot:title={&#39;center&#39;:&#39;avg_yearly_mileage&#39;}&gt;,
+        &lt;AxesSubplot:&gt;]], dtype=object)
+</pre></div>
+</div>
+<img alt="../_images/6_Inzynieria cech_117_1.png" src="../_images/6_Inzynieria cech_117_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_test_num_transformed</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot:title={&#39;center&#39;:&#39;mileage&#39;}&gt;,
+        &lt;AxesSubplot:title={&#39;center&#39;:&#39;age&#39;}&gt;],
+       [&lt;AxesSubplot:title={&#39;center&#39;:&#39;avg_yearly_mileage&#39;}&gt;,
+        &lt;AxesSubplot:&gt;]], dtype=object)
+</pre></div>
+</div>
+<img alt="../_images/6_Inzynieria cech_118_1.png" src="../_images/6_Inzynieria cech_118_1.png" />
+</div>
+</div>
+<p>Jak widzimy rozkłady są teraz zupełnie inne, na zbiorze treningowym bardzo zbliżone do rozkładu normalnego, jednak na zbiorze testowym juz dość znacznie się różnią, co może wynikać po części z niewielkiego rozmiaru próby.</p>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>To jaki dokładnie zestaw transformacji ostatecznie wybrać powinno wynikać przede wszystkim z obserwacji ustalonej wcześniej metryki jakości modelu.</p>
+</div></div>
+<div class="tex2jax_ignore mathjax_ignore section" id="laczenie-zmiennych-numerycznych-w-przedzialy">
+<h1>łączenie zmiennych numerycznych w przedziały<a class="headerlink" href="#laczenie-zmiennych-numerycznych-w-przedzialy" title="Permalink to this headline">¶</a></h1>
+<p>podobnie jak w przypadku zmiennych kategorycznych, zmienne numeryczne również można przekształcać grupując razem pewne ich wartości. Proces taki nazywamy <b>kubełkowaniem</b>.</p>
+<div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p><b>Kubełkowanie</b> (ang. <em>binning</em>) polega na łączeniu wartości zmiennych numerycznych w przedziały, ma to na celu zmniejszenie możliwości przeuczenia modelu.</p>
+</div><p>Wybór takich przedziałów może występować zarówno na podstawie cech rozkładu zmiennych (np wartości kwartyli) jak i wiedzy domenowej, tutaj zaprezentujemy obie możliwości.</p>
+<p>do podziału wg statystyk pozycyjnych z rozkładu wykorzystamy funkcję <b>qcut</b> z biblioteki pandas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;mileage_binned_4&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;mileage&quot;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;mileage_binned_10&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;mileage&quot;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">[[</span><span class="s2">&quot;mileage&quot;</span><span class="p">,</span><span class="s2">&quot;mileage_binned_4&quot;</span><span class="p">,</span><span class="s2">&quot;mileage_binned_10&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mileage</th>
+      <th>mileage_binned_4</th>
+      <th>mileage_binned_10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>82</th>
+      <td>524486</td>
+      <td>(293524.25, 699892.0]</td>
+      <td>(429566.5, 699892.0]</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>166856</td>
+      <td>(162418.5, 293524.25]</td>
+      <td>(162418.5, 212552.8]</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>94191</td>
+      <td>(61161.25, 162418.5]</td>
+      <td>(78348.9, 116729.4]</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>54210</td>
+      <td>(3784.999, 61161.25]</td>
+      <td>(48631.6, 78348.9]</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>264049</td>
+      <td>(162418.5, 293524.25]</td>
+      <td>(212552.8, 265707.6]</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>127914</td>
+      <td>(61161.25, 162418.5]</td>
+      <td>(116729.4, 162418.5]</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>185880</td>
+      <td>(162418.5, 293524.25]</td>
+      <td>(162418.5, 212552.8]</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>116011</td>
+      <td>(61161.25, 162418.5]</td>
+      <td>(78348.9, 116729.4]</td>
+    </tr>
+    <tr>
+      <th>435</th>
+      <td>25782</td>
+      <td>(3784.999, 61161.25]</td>
+      <td>(25757.7, 48631.6]</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>145116</td>
+      <td>(61161.25, 162418.5]</td>
+      <td>(116729.4, 162418.5]</td>
+    </tr>
+  </tbody>
+</table>
+<p>750 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p>Stworzyliśmy tutaj 2 nowe cechy na zbiorze treningowym w oparciu o kwartyle i decyle rozkładu zmiennej mileage. Jak widzimy poszczególnym wartościom przypisane zostały wartości przedziałów do których one wpadają w danym podziale na kubełki.</p>
+<p>jeśli chcemy samodzielnie określić etykiety przedziałów można posłużyć się parametrem labels</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;mileage_binned_4&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;mileage&quot;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;mileage_binned_10&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;mileage&quot;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">X_train</span><span class="p">[[</span><span class="s2">&quot;mileage&quot;</span><span class="p">,</span><span class="s2">&quot;mileage_binned_4&quot;</span><span class="p">,</span><span class="s2">&quot;mileage_binned_10&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mileage</th>
+      <th>mileage_binned_4</th>
+      <th>mileage_binned_10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>82</th>
+      <td>524486</td>
+      <td>4</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>166856</td>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>94191</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>54210</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>264049</td>
+      <td>3</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>127914</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>185880</td>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>116011</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>435</th>
+      <td>25782</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>145116</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+<p>750 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="alert alert-block alert-danger">
+<b>Uwaga!</b> 
+<p>Wszystkie przekształcenia wykorzystujące informacje o rozkładach cech należy implementować najpierw na zbiorze treningowym, a następnie w oparciu o rozkład ze zbioru treningowego - na zbiorze testowym. Inaczej wykorzystujemy informacje ze zbioru testowego i przestaje on być niezależny.</p>
+</div><p>tutaj możemy skorzystać z parametru <b>retbins</b> i dostać granice kubełków a następnie w oparciu o te granice dokonać identycznego podziału na zbiorze testowym</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;mileage&quot;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">retbins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">bins</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  3785.  ,  61161.25, 162418.5 , 293524.25, 699892.  ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>alternatywnym podejściem jest użycie funkcji <b>cut</b> z biblioteki pandas, która pozwala podzielić wartości zmiennej na zdefiniowaną liczbę przedziałów o identycznej szerokości lub przypisać je do zdefiniowanych samodzielnie przedziałów</p>
+<p>załóżmy, że jeśli chodzi o wiek samochodu znaczenie mają przedziały do 3 lat, od 3 do 7, od 7 do 12, 12-25 oraz ponad 25. Możemy łatwo dokonać takiego przypisania przydzielając poszczególnym kubełkom odpowiednie nazwy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;age_binned&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">100</span><span class="p">],</span> <span class="n">labels</span> <span class="o">=</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">,</span><span class="s2">&quot;middle_age&quot;</span><span class="p">,</span><span class="s2">&quot;old&quot;</span><span class="p">,</span><span class="s2">&quot;very_old&quot;</span><span class="p">,</span><span class="s2">&quot;extremely_old&quot;</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">X_train</span><span class="p">[[</span><span class="s2">&quot;age&quot;</span><span class="p">,</span><span class="s2">&quot;age_binned&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>age_binned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>82</th>
+      <td>65</td>
+      <td>extremely_old</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>25</td>
+      <td>very_old</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>21</td>
+      <td>very_old</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>67</td>
+      <td>extremely_old</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>36</td>
+      <td>extremely_old</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>31</td>
+      <td>extremely_old</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>59</td>
+      <td>extremely_old</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>14</td>
+      <td>very_old</td>
+    </tr>
+    <tr>
+      <th>435</th>
+      <td>7</td>
+      <td>middle_age</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>42</td>
+      <td>extremely_old</td>
+    </tr>
+  </tbody>
+</table>
+<p>750 rows × 2 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="normalizacja-i-standaryzacja">
+<h1>Normalizacja i Standaryzacja<a class="headerlink" href="#normalizacja-i-standaryzacja" title="Permalink to this headline">¶</a></h1>
+<p>Załóżmy, że finalnie mamy zbiór danych złożony stricte ze zmiennych numerycznych:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s2">&quot;mileage&quot;</span><span class="p">,</span><span class="s2">&quot;condition_transformed&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span><span class="s2">&quot;avg_yearly_mileage&quot;</span><span class="p">,</span><span class="s2">&quot;is_classic&quot;</span><span class="p">]]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s2">&quot;mileage&quot;</span><span class="p">,</span><span class="s2">&quot;condition_transformed&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span><span class="s2">&quot;avg_yearly_mileage&quot;</span><span class="p">,</span><span class="s2">&quot;is_classic&quot;</span><span class="p">]]</span>
+<span class="n">X_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mileage</th>
+      <th>condition_transformed</th>
+      <th>age</th>
+      <th>avg_yearly_mileage</th>
+      <th>is_classic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>82</th>
+      <td>524486</td>
+      <td>2.0</td>
+      <td>65</td>
+      <td>8069.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>166856</td>
+      <td>3.0</td>
+      <td>25</td>
+      <td>6674.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>94191</td>
+      <td>2.0</td>
+      <td>21</td>
+      <td>4485.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>54210</td>
+      <td>1.0</td>
+      <td>67</td>
+      <td>809.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>264049</td>
+      <td>4.0</td>
+      <td>36</td>
+      <td>7335.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>127914</td>
+      <td>3.0</td>
+      <td>31</td>
+      <td>4126.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>185880</td>
+      <td>3.0</td>
+      <td>59</td>
+      <td>3151.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>116011</td>
+      <td>0.0</td>
+      <td>14</td>
+      <td>8286.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>435</th>
+      <td>25782</td>
+      <td>2.0</td>
+      <td>7</td>
+      <td>3683.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>145116</td>
+      <td>2.0</td>
+      <td>42</td>
+      <td>3455.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>750 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>możemy łatwo zaobserwować, że zmienne znacznie różnią się pod względem średniej czy wariancji:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mileage</th>
+      <th>condition_transformed</th>
+      <th>age</th>
+      <th>avg_yearly_mileage</th>
+      <th>is_classic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>750.00</td>
+      <td>750.00</td>
+      <td>750.00</td>
+      <td>750.00</td>
+      <td>750.00</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>198670.12</td>
+      <td>2.41</td>
+      <td>36.94</td>
+      <td>5458.12</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>158883.17</td>
+      <td>1.16</td>
+      <td>20.34</td>
+      <td>2766.60</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>3785.00</td>
+      <td>0.00</td>
+      <td>2.00</td>
+      <td>118.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>61161.25</td>
+      <td>2.00</td>
+      <td>19.00</td>
+      <td>3306.75</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>162418.50</td>
+      <td>2.00</td>
+      <td>37.00</td>
+      <td>5615.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>293524.25</td>
+      <td>3.00</td>
+      <td>55.00</td>
+      <td>7816.25</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>699892.00</td>
+      <td>4.00</td>
+      <td>71.00</td>
+      <td>12205.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Niektóre metody modelowania są zależne od odległości bądź wariancji zmiennych, więc chcąc aby wpływ danej zmiennej na predykcje wynikał przede wszystkim z jej związku ze zmienną celu, a nie ze skali, powinniśmy zastosować <b>normalizację</b> lub <b>standaryzację</b></p>
+<p>zacznijmy od normalizacji, zrealizujemy ją za pomocą kolejnego transformera z biblioteki sklearn: MinMaxScaler</p>
+<div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p><b>Normalizacja</b> polega na przekształcaniu zmiennej do zakresu wartości &lt;0,1&gt; poprzez odjęcie minumum i podzielenie przez różnicę pomiędzy maksimum a minimum z rozkładu.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>tworzymy obiekt klasy MinMaxScaler korzystając z bazowych ustawień, możliwa jest zmiana docelowego zakresu wartości z bazowego &lt;0,1&gt; na dowolnie wybrany poprzez użycie parametru <b>feature_range</b></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mm</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Metody są oczywiście analogiczne jak w poprzednich przypadkach, konwertujemy wyniki z powrotem na ramki danych aby łatwiej było je oglądać</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_train_mm_scaled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mm</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">X_test_mm_scaled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mm</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">X_train_mm_scaled</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mileage</th>
+      <th>condition_transformed</th>
+      <th>age</th>
+      <th>avg_yearly_mileage</th>
+      <th>is_classic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>750.00</td>
+      <td>750.00</td>
+      <td>750.00</td>
+      <td>750.00</td>
+      <td>750.00</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.28</td>
+      <td>0.60</td>
+      <td>0.51</td>
+      <td>0.44</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.23</td>
+      <td>0.29</td>
+      <td>0.29</td>
+      <td>0.23</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.08</td>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>0.26</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.23</td>
+      <td>0.50</td>
+      <td>0.51</td>
+      <td>0.45</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.42</td>
+      <td>0.75</td>
+      <td>0.77</td>
+      <td>0.64</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>jak widzimy wszystkie cechy zostały teraz przeniesione do tego samego zakresu wartości &lt;0,1&gt;, ale ich średnia i odchylenie standardowe nie są identyczne. Oczywiście nie mamy gwarancji, że na nowych danych nie pojawią się wartości spoza wykresu widzianego na zbiorze treningowym. Jeśli chcemy być pewni, że znormalizowane zmienne zachowają swój zakres wartości należy tworząc obiekt klasy MinMaxScaler ustawić parametr <b>clip</b> na True.</p>
+<div class="alert alert-block alert-danger">
+<b>Uwaga!</b> 
+<p>Nie zaleca się korzystania z MinMaxScaler dla zmiennych posiadających <b>wartości odstające</b>. Jeśli takie wartości nie zostaną wcześniej prawidłowo obsłużone, to większość “normalnych” wartości zmiennej będzie “upchana” w małym zakresie wartości co nie będzie sprzyjać jej wartości dla predykcji.</p>
+</div><p>zaprezentujemy teraz przykład standaryzacji z wykorzystaniem transformera StandardScaler z biblioteki sklearn</p>
+<div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p><b>Standaryzacja</b> polega na przekształcaniu zmiennej do rozkładu o wartości oczekiwanej 0 i odchyleniu standardowym 1 poprzez odjęcie średniej i podzielenie przez odchylenie standardowe</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>tworzymy obiekt klasy StandardScaler korzystając z bazowych ustawień</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span> <span class="o">=</span><span class="n">StandardScaler</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Metody rownież są analogiczne jak w poprzednich przypadkach, konwertujemy wyniki z powrotem na ramki danych aby łatwiej było je oglądać</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_train_ss_scaled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ss</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">X_test_ss_scaled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ss</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">X_train_ss_scaled</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mileage</th>
+      <th>condition_transformed</th>
+      <th>age</th>
+      <th>avg_yearly_mileage</th>
+      <th>is_classic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>750.00</td>
+      <td>750.00</td>
+      <td>750.00</td>
+      <td>750.00</td>
+      <td>750.00</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.00</td>
+      <td>-0.00</td>
+      <td>-0.00</td>
+      <td>-0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-1.23</td>
+      <td>-2.08</td>
+      <td>-1.72</td>
+      <td>-1.93</td>
+      <td>-0.12</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-0.87</td>
+      <td>-0.35</td>
+      <td>-0.88</td>
+      <td>-0.78</td>
+      <td>-0.12</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>-0.23</td>
+      <td>-0.35</td>
+      <td>0.00</td>
+      <td>0.06</td>
+      <td>-0.12</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.60</td>
+      <td>0.51</td>
+      <td>0.89</td>
+      <td>0.85</td>
+      <td>-0.12</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>3.16</td>
+      <td>1.37</td>
+      <td>1.68</td>
+      <td>2.44</td>
+      <td>8.20</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>W przeciwieństwie do poprzedniego przekształcenia zmienne mają identyczną średnią i odchylenie standardowe, za to różnią sie zakresami wartości.</p>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>Jako że StandardScaler opiera się na użyciu średniej i odchylenia standardowego z transformowanej zmiennej, również nie jest on wolny od wpływu wartości odstających. Jeśli chcemy być pewni, że wartości odstające nie będą miały wpływu na skalę przekształconej zmiennej można skorzystać z klasy <b>RobustScaler</b></p>
+</div></div>
+<div class="tex2jax_ignore mathjax_ignore section" id="laczenie-roznych-transformacji-w-ramach-pipeline">
+<h1>łączenie różnych transformacji w ramach pipeline<a class="headerlink" href="#laczenie-roznych-transformacji-w-ramach-pipeline" title="Permalink to this headline">¶</a></h1>
+<p>cofnijmy się teraz na chwilę do etapu generowania danych i zobaczmy jak można w łatwy i niezawodny sposób łączyć ze sobą różne transformacje z wykorzystaniem obiektów Pipeline oraz ColumnTransformer</p>
+<div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p><b>Pipeline</b> jest to przepływ danych przez ułożone w kolejności moduły wykonujące ustalone transformacje, zazwyczaj ostatnim elementem jest model predykcyjny</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsedCars_df</span> <span class="o">=</span><span class="n">generate_used_cars_data</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">UsedCars_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;selling_price&quot;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">UsedCars_df</span><span class="p">[</span><span class="s2">&quot;selling_price&quot;</span><span class="p">]</span>
+<span class="n">X</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2021</span> <span class="o">-</span> <span class="n">X</span><span class="p">[</span><span class="s2">&quot;year_manufactured&quot;</span><span class="p">]</span>
+<span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;year_manufactured&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>condition</th>
+      <th>mileage</th>
+      <th>brand</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>82</th>
+      <td>very_good</td>
+      <td>69205</td>
+      <td>Skoda</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>good</td>
+      <td>322639</td>
+      <td>VW</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>good</td>
+      <td>86970</td>
+      <td>Fiat</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>very_good</td>
+      <td>524559</td>
+      <td>Fiat</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>medium</td>
+      <td>18954</td>
+      <td>Audi</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>good</td>
+      <td>209892</td>
+      <td>Renault</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>very_good</td>
+      <td>108168</td>
+      <td>Seat</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>good</td>
+      <td>39632</td>
+      <td>Mercedes</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <th>435</th>
+      <td>medium</td>
+      <td>267041</td>
+      <td>Fiat</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>good</td>
+      <td>24438</td>
+      <td>Audi</td>
+      <td>26</td>
+    </tr>
+  </tbody>
+</table>
+<p>750 rows × 4 columns</p>
+</div></div></div>
+</div>
+<p>zdefiniujmy teraz grupy zmiennych, które będziemy poddawać poszczególnym transformacjom:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns_for_ordinal_encoding</span> <span class="o">=</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span>
+<span class="n">columns_for_target_encoding</span> <span class="o">=</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span>
+<span class="n">numerical_columns</span> <span class="o">=</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">,</span><span class="s2">&quot;mileage&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>następnie importujemy niezbędne klasy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>definiujemy pipeline do przetwarzania poszczególnych grup kolumn, pipeline mogą zawierać wiele kroków, tutaj dla uproszczenia wykorzystamy jednoelementowe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline_oe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span> <span class="o">=</span><span class="p">[(</span><span class="s2">&quot;OrdinalEncoder&quot;</span><span class="p">,</span>
+                            <span class="n">OrdinalEncoder</span><span class="p">(</span>
+                               <span class="n">categories</span> <span class="o">=</span><span class="p">[[</span><span class="s1">&#39;very_bad&#39;</span><span class="p">,</span> <span class="s1">&#39;bad&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;good&#39;</span><span class="p">,</span> <span class="s1">&#39;very_good&#39;</span><span class="p">]],</span>
+                               <span class="n">handle_unknown</span> <span class="o">=</span><span class="s1">&#39;use_encoded_value&#39;</span><span class="p">,</span> <span class="n">unknown_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">))])</span>
+
+<span class="n">pipeline_jse</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;JamesSteinEncoder&quot;</span><span class="p">,</span><span class="n">JamesSteinEncoder</span><span class="p">())])</span>
+
+<span class="n">pipeline_num</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;PowerTransformer&quot;</span><span class="p">,</span><span class="n">PowerTransformer</span><span class="p">(</span><span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">))])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>następnie przypisujemy zmienne do poszczególnych transformacji, korzystając z obiektu ColumnTransformer</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">column_transformer</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span>
+                        <span class="n">transformers</span><span class="o">=</span><span class="p">[</span>
+                         <span class="p">(</span><span class="s1">&#39;categorical_oe&#39;</span><span class="p">,</span> <span class="n">pipeline_oe</span><span class="p">,</span> <span class="n">columns_for_ordinal_encoding</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s1">&#39;categorical_jse&#39;</span><span class="p">,</span> <span class="n">pipeline_jse</span><span class="p">,</span> <span class="n">columns_for_target_encoding</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s1">&#39;numerical&#39;</span><span class="p">,</span> <span class="n">pipeline_num</span><span class="p">,</span> <span class="n">numerical_columns</span><span class="p">)</span>
+                         <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>sam ColumnTransformer również może być częścią pipeline, przykładowo możemy na koniec zastosować standaryzacje</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
+                        <span class="p">(</span><span class="s2">&quot;column_transformer&quot;</span><span class="p">,</span> <span class="n">column_transformer</span><span class="p">),</span>
+                        <span class="p">(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span><span class="n">StandardScaler</span><span class="p">())</span>
+                    <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>jeśli używamy pipeline bez modelu predykcyjnego na końcu to stosujemy te same metody co przy zwykłych transformerach</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing_pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pipeline(steps=[(&#39;column_transformer&#39;,
+                 ColumnTransformer(transformers=[(&#39;categorical_oe&#39;,
+                                                  Pipeline(steps=[(&#39;OrdinalEncoder&#39;,
+                                                                   OrdinalEncoder(categories=[[&#39;very_bad&#39;,
+                                                                                               &#39;bad&#39;,
+                                                                                               &#39;medium&#39;,
+                                                                                               &#39;good&#39;,
+                                                                                               &#39;very_good&#39;]],
+                                                                                  handle_unknown=&#39;use_encoded_value&#39;,
+                                                                                  unknown_value=nan))]),
+                                                  [&#39;condition&#39;]),
+                                                 (&#39;categorical_jse&#39;,
+                                                  Pipeline(steps=[(&#39;JamesSteinEncoder&#39;,
+                                                                   JamesSteinEncoder())]),
+                                                  [&#39;brand&#39;]),
+                                                 (&#39;numerical&#39;,
+                                                  Pipeline(steps=[(&#39;PowerTransformer&#39;,
+                                                                   PowerTransformer(standardize=False))]),
+                                                  [&#39;age&#39;, &#39;mileage&#39;])])),
+                (&#39;scaler&#39;, StandardScaler())])
+</pre></div>
+</div>
+</div>
+</div>
+<p>po uruchomieniu metody fit widzimy wszystkie kroki całego pipeline</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_transformed</span> <span class="o">=</span> <span class="n">preprocessing_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_transformed</span> <span class="o">=</span> <span class="n">preprocessing_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rozmiar zbioru treningowego po transformacji: </span><span class="si">{</span><span class="n">X_train_transformed</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rozmiar zbioru testowego po transformacji: </span><span class="si">{</span><span class="n">X_test_transformed</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_train_transformed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rozmiar zbioru treningowego po transformacji: (750, 4)
+rozmiar zbioru testowego po transformacji: (250, 4)
+[[ 1.34093122 -0.77016684 -1.5987142  -0.59924888]
+ [ 0.46641086 -0.80925124  0.58475157  0.97365003]
+ [ 0.46641086 -0.7939586  -0.68985786 -0.40448688]
+ ...
+ [ 0.46641086  0.70876962  1.13401097 -1.02756173]
+ [-0.4081095  -0.7939586   0.75822769  0.74397369]
+ [ 0.46641086  0.80959101 -0.36550292 -1.35095193]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>jak widzimy zwrócony zbiór treningowy ma typ danych array a jego wymiary odpowiadają tym przed transformacją, zgodność wymiarów zależy jednak od zastosowanych transformacji</p>
+<p>jeśli pipeline jest zakończony modelem predykcyjnym jego metody są identyczne jak metody modelu, czyli korzystamy z fit i predict, tak jak w poniższym przykładzie</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="n">final_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">(</span><span class="s2">&quot;preprocessing&quot;</span><span class="p">,</span> <span class="n">preprocessing_pipeline</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">LinearRegression</span><span class="p">())</span>
+                <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>poniżej pokazujemy jak wytrenować pipeline w oparciu o zbiór treningowy a następnie dokonać predykcji na zbiorze testowym</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">X_test_predicted</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">final_pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
+<span class="n">X_test_predicted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     9649.925584
+1    30782.788094
+2    44681.214268
+3     5967.815692
+4    45684.785298
+Name: prediction, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="podsumowanie">
+<h1>Podsumowanie<a class="headerlink" href="#podsumowanie" title="Permalink to this headline">¶</a></h1>
+<p>Powyżej zaprezentowaliśmy kilka różnych przykładów przekształcania surowych danych w cechy predykcyjne przydatne przy modelowaniu. Niektóre transformacje można z powodzeniem stosować przy pracy nad innymi problemami, inne należy raczej potraktować jako inspirację. Ważne aby prace nad Feature Engineering poprzedzone były dobrym zrozumieniem danych. Niezwykle ważne jest tutaj aby już na tym etapie stosować odpowiednią strategię walidacyjną, aby zapobiec korzystaniu z informacji ze zbioru testowego, inaczej nasze wyniki nie będą miarodajne.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./6. Inzynieria_cech"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Wykrywanie anomalii - tutorial</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../7.%20Klasteryzacja/7_Klasteryzacja.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Klasteryzacja w Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By codersi<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1666 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analiza statystyczna - tutorial &#8212; Silky Coders Data Science</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Wykrywanie anomalii - definicje" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html" />
+    <link rel="prev" title="Wizualizacja danych w Python" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/silky-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Silky Coders Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Przedmiot specjalistyczny, 1 semestr studiów magisterskich matematyki na Politechnice Gdańskiej
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">
+   Pakiet pandas - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">
+   Pakiet NumPy - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">
+   Wizualizacja danych w Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Analiza statystyczna - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">
+   Wykrywanie anomalii - definicje
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">
+   Wykrywanie anomalii - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">
+   Inżynieria cech
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
+   Klasteryzacja w Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">
+   Wyjaśnialność modeli - metryki statystyczne - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">
+   Wyjaśnialność modeli - definicje
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">
+   Wyjaśnialność modeli - XAI - tutorial
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/4. Analiza_statystyczna/4_Analiza statystyczna.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kikonPL/studia_PG"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F4. Analiza_statystyczna/4_Analiza statystyczna.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kikonPL/studia_PG/main?urlpath=tree/_build/4. Analiza_statystyczna/4_Analiza statystyczna.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wstep">
+   Wstęp
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pierwsze-spojrzenie-na-dane">
+   Pierwsze spojrzenie na dane
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ogolna-wiedza-o-danych">
+     Ogólna wiedza o danych
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analiza-poszczegolnych-kolumn">
+     Analiza poszczególnych kolumn
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#badanie-korelacji">
+   Badanie korelacji
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testy-statystyczne">
+   Testy statystyczne
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="analiza-statystyczna-tutorial">
+<h1>Analiza statystyczna - tutorial<a class="headerlink" href="#analiza-statystyczna-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="wstep">
+<h2>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this headline">¶</a></h2>
+<p>Przed rozpoczęciem prac nad modelami/ analizami warto poznać dane, na których będziemy pracować.
+W tym celu wykonujemy analizy statystyczne opisujące nam dane.</p>
+<div class="alert alert-block alert-success">
+<b>Cel</b> 
+Celem analizy statystycznej jest pozyskanie jak największej wiedzy z danych
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">normaltest</span><span class="p">,</span> <span class="n">anderson</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pobranie danych</p>
+<p>Pobieramy przykładowy dataset z biblioteki Scikit-Learn</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">as_frame</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;frame&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Odczytajmy informację o tych danych</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">as_frame</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;DESCR&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.. _california_housing_dataset:
+
+California Housing dataset
+--------------------------
+
+**Data Set Characteristics:**
+
+    :Number of Instances: 20640
+
+    :Number of Attributes: 8 numeric, predictive attributes and the target
+
+    :Attribute Information:
+        - MedInc        median income in block
+        - HouseAge      median house age in block
+        - AveRooms      average number of rooms
+        - AveBedrms     average number of bedrooms
+        - Population    block population
+        - AveOccup      average house occupancy
+        - Latitude      house block latitude
+        - Longitude     house block longitude
+
+    :Missing Attribute Values: None
+
+This dataset was obtained from the StatLib repository.
+http://lib.stat.cmu.edu/datasets/
+
+The target variable is the median house value for California districts.
+
+This dataset was derived from the 1990 U.S. census, using one row per census
+block group. A block group is the smallest geographical unit for which the U.S.
+Census Bureau publishes sample data (a block group typically has a population
+of 600 to 3,000 people).
+
+It can be downloaded/loaded using the
+:func:`sklearn.datasets.fetch_california_housing` function.
+
+.. topic:: References
+
+    - Pace, R. Kelley and Ronald Barry, Sparse Spatial Autoregressions,
+      Statistics and Probability Letters, 33 (1997) 291-297
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MedInc</th>
+      <th>HouseAge</th>
+      <th>AveRooms</th>
+      <th>AveBedrms</th>
+      <th>Population</th>
+      <th>AveOccup</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>MedHouseVal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8.3252</td>
+      <td>41.0</td>
+      <td>6.984127</td>
+      <td>1.023810</td>
+      <td>322.0</td>
+      <td>2.555556</td>
+      <td>37.88</td>
+      <td>-122.23</td>
+      <td>4.526</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8.3014</td>
+      <td>21.0</td>
+      <td>6.238137</td>
+      <td>0.971880</td>
+      <td>2401.0</td>
+      <td>2.109842</td>
+      <td>37.86</td>
+      <td>-122.22</td>
+      <td>3.585</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7.2574</td>
+      <td>52.0</td>
+      <td>8.288136</td>
+      <td>1.073446</td>
+      <td>496.0</td>
+      <td>2.802260</td>
+      <td>37.85</td>
+      <td>-122.24</td>
+      <td>3.521</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.6431</td>
+      <td>52.0</td>
+      <td>5.817352</td>
+      <td>1.073059</td>
+      <td>558.0</td>
+      <td>2.547945</td>
+      <td>37.85</td>
+      <td>-122.25</td>
+      <td>3.413</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.8462</td>
+      <td>52.0</td>
+      <td>6.281853</td>
+      <td>1.081081</td>
+      <td>565.0</td>
+      <td>2.181467</td>
+      <td>37.85</td>
+      <td>-122.25</td>
+      <td>3.422</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="pierwsze-spojrzenie-na-dane">
+<h2>Pierwsze spojrzenie na dane<a class="headerlink" href="#pierwsze-spojrzenie-na-dane" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-block alert-success">
+<b>Cel</b> 
+<p>Celem poniższego zadania jest analiza statystyczna danych <em>fetch_california_housing</em> przed tworzeniem modelu regresyjnego, w którym celem (zmienną objaśnianą) będzie wyznaczenie Mediany wartości domu (<strong>MedHouseVal</strong>)</p>
+</div><div class="section" id="ogolna-wiedza-o-danych">
+<h3>Ogólna wiedza o danych<a class="headerlink" href="#ogolna-wiedza-o-danych" title="Permalink to this headline">¶</a></h3>
+<p>Przy pierwszym spojrzeniu na dane warto sprawdzić jaka jest średnia, mediana, wartosci minimalne i maksymalne. Najprostszy sposób, aby to zbadać to wykorzystać metodę <em>describe()</em>. Przedstawia ona liczbę danych, średnią, odchylenie standardowe, minimalną wartość, maksymalną wartośc, mediane oraz 25 i 75 percentyl</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MedInc</th>
+      <th>HouseAge</th>
+      <th>AveRooms</th>
+      <th>AveBedrms</th>
+      <th>Population</th>
+      <th>AveOccup</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>MedHouseVal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.870671</td>
+      <td>28.639486</td>
+      <td>5.429000</td>
+      <td>1.096675</td>
+      <td>1425.476744</td>
+      <td>3.070655</td>
+      <td>35.631861</td>
+      <td>-119.569704</td>
+      <td>2.068558</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.899822</td>
+      <td>12.585558</td>
+      <td>2.474173</td>
+      <td>0.473911</td>
+      <td>1132.462122</td>
+      <td>10.386050</td>
+      <td>2.135952</td>
+      <td>2.003532</td>
+      <td>1.153956</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.499900</td>
+      <td>1.000000</td>
+      <td>0.846154</td>
+      <td>0.333333</td>
+      <td>3.000000</td>
+      <td>0.692308</td>
+      <td>32.540000</td>
+      <td>-124.350000</td>
+      <td>0.149990</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.563400</td>
+      <td>18.000000</td>
+      <td>4.440716</td>
+      <td>1.006079</td>
+      <td>787.000000</td>
+      <td>2.429741</td>
+      <td>33.930000</td>
+      <td>-121.800000</td>
+      <td>1.196000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.534800</td>
+      <td>29.000000</td>
+      <td>5.229129</td>
+      <td>1.048780</td>
+      <td>1166.000000</td>
+      <td>2.818116</td>
+      <td>34.260000</td>
+      <td>-118.490000</td>
+      <td>1.797000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4.743250</td>
+      <td>37.000000</td>
+      <td>6.052381</td>
+      <td>1.099526</td>
+      <td>1725.000000</td>
+      <td>3.282261</td>
+      <td>37.710000</td>
+      <td>-118.010000</td>
+      <td>2.647250</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>15.000100</td>
+      <td>52.000000</td>
+      <td>141.909091</td>
+      <td>34.066667</td>
+      <td>35682.000000</td>
+      <td>1243.333333</td>
+      <td>41.950000</td>
+      <td>-114.310000</td>
+      <td>5.000010</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Wsyztskie te informacje można oczywiście wydobyć osobnymi metodami:</p>
+<p><strong>Liczba wierszy:</strong></p>
+<ul class="simple">
+<li><p>dla wszystkich kolulumn <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.count.html"><em>pd.DataFrame.count()</em></a></p></li>
+<li><p>dla pojedynczej kolumny <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.count.html><em>pd.Series.count()</em></a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MedInc         20640
+HouseAge       20640
+AveRooms       20640
+AveBedrms      20640
+Population     20640
+AveOccup       20640
+Latitude       20640
+Longitude      20640
+MedHouseVal    20640
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20640
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Średnia:</strong></p>
+<ul class="simple">
+<li><p>dla wszytskich kolulumn <a href=https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mean.html><em>pd.DataFrame.mean()</em></a></p></li>
+<li><p>dla pojedynczej kolumny <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.mean.html><em>pd.Series.mean()</em></a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MedInc            3.870671
+HouseAge         28.639486
+AveRooms          5.429000
+AveBedrms         1.096675
+Population     1425.476744
+AveOccup          3.070655
+Latitude         35.631861
+Longitude      -119.569704
+MedHouseVal       2.068558
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.068558169089147
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Odchylenie standardowe:</strong></p>
+<ul class="simple">
+<li><p>dla wszytskich kolulumn <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.std.html"><em>pd.DataFrame.std()</em></a></p></li>
+<li><p>dla pojedynczej kolumny <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.std.html><em>pd.Series.std()</em></a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MedInc            1.899822
+HouseAge         12.585558
+AveRooms          2.474173
+AveBedrms         0.473911
+Population     1132.462122
+AveOccup         10.386050
+Latitude          2.135952
+Longitude         2.003532
+MedHouseVal       1.153956
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1539561587441387
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Wartość minimalna:</strong></p>
+<ul class="simple">
+<li><p>dla wszytskich kolulumn <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.min.html"><em>pd.DataFrame.min()</em></a></p></li>
+<li><p>dla pojedynczej kolumny <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.min.html><em>pd.Series.min()</em></a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MedInc           0.499900
+HouseAge         1.000000
+AveRooms         0.846154
+AveBedrms        0.333333
+Population       3.000000
+AveOccup         0.692308
+Latitude        32.540000
+Longitude     -124.350000
+MedHouseVal      0.149990
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.14999
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Wartość maksymalna:</strong></p>
+<ul class="simple">
+<li><p>dla wszystkich kolulumn <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.max.html"><em>pd.DataFrame.max()</em></a></p></li>
+<li><p>dla pojedynczej kolumny <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.max.html><em>pd.Series.max()</em></a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MedInc            15.000100
+HouseAge          52.000000
+AveRooms         141.909091
+AveBedrms         34.066667
+Population     35682.000000
+AveOccup        1243.333333
+Latitude          41.950000
+Longitude       -114.310000
+MedHouseVal        5.000010
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.00001
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Percentyle:</strong></p>
+<ul class="simple">
+<li><p>dla wszystkich kolulumn <a href=https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.quantile.html><em>pd.DataFrame.quantile()</em></a></p></li>
+<li><p>dla pojedynczej kolumny <a href = https://numpy.org/doc/stable/reference/generated/numpy.quantile.html><em>np.quantile()</em></a>, lub <a href = https://numpy.org/doc/stable/reference/generated/numpy.percentile.html> <em>np.percentile()</em> </a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MedInc</th>
+      <th>HouseAge</th>
+      <th>AveRooms</th>
+      <th>AveBedrms</th>
+      <th>Population</th>
+      <th>AveOccup</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>MedHouseVal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.25</th>
+      <td>2.56340</td>
+      <td>18.0</td>
+      <td>4.440716</td>
+      <td>1.006079</td>
+      <td>787.0</td>
+      <td>2.429741</td>
+      <td>33.93</td>
+      <td>-121.80</td>
+      <td>1.19600</td>
+    </tr>
+    <tr>
+      <th>0.50</th>
+      <td>3.53480</td>
+      <td>29.0</td>
+      <td>5.229129</td>
+      <td>1.048780</td>
+      <td>1166.0</td>
+      <td>2.818116</td>
+      <td>34.26</td>
+      <td>-118.49</td>
+      <td>1.79700</td>
+    </tr>
+    <tr>
+      <th>0.75</th>
+      <td>4.74325</td>
+      <td>37.0</td>
+      <td>6.052381</td>
+      <td>1.099526</td>
+      <td>1725.0</td>
+      <td>3.282261</td>
+      <td>37.71</td>
+      <td>-118.01</td>
+      <td>2.64725</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.50</span><span class="p">,</span><span class="mf">0.75</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.196  , 1.797  , 2.64725])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">75</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.196  , 1.797  , 2.64725])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">],</span> <span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.196
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">],</span> <span class="mf">0.25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.196
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mamy już pewną ogólną wiedze na temat naszych danych. Przyjżyjmy się teraz poszczególnym kolumnom i sprawdźmy jak rozkładają się  w nich dane</p>
+</div>
+<div class="section" id="analiza-poszczegolnych-kolumn">
+<h3>Analiza poszczególnych kolumn<a class="headerlink" href="#analiza-poszczegolnych-kolumn" title="Permalink to this headline">¶</a></h3>
+<p>W pierwszej kolejności sprawdźmy jak wyglada nasz cel, a więc mediana wartości domu</p>
+<p>Poniważ wartość mieszkania może przyjmować wszystkie wartości większe od 0, najlepszym sposobem na sprawdzenie rozkładu jest stworzenie histogramu</p>
+<p>Najprostszą metodą jest wygenerowanie automatycznego histogramy za pomocą metody <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.hist.html> <em>pd.Series.hist()</em> </a>, lub z pakietu matplotlib <a href = https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html> <em>plt.hist()</em> </a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;House Value histogram&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_Analiza statystyczna_40_0.png" src="../_images/4_Analiza statystyczna_40_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">],</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;House Value histogram&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_Analiza statystyczna_41_0.png" src="../_images/4_Analiza statystyczna_41_0.png" />
+</div>
+</div>
+<p>Najwięcej przypadków znajduje się w przedziale 1-2. Dodatkowo rozkład nie przypomina standardowego <a href = https://en.wikipedia.org/wiki/Normal_distribution> rozkładu normalnego </a>. W kolejnych częściach dowiemy się jak sprawdzić czy dane układają się w rozkład normalny, czy nie.</p>
+<p><strong>Wartości dyskretne</strong></p>
+<p>Jeżeli w kolumnie znajdują się wartości dyskretne, warto znać ilość poszczególnych wartości.
+W tym celu można wykorzystać funkcję <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.value_counts.html><em>pd.Series.count_values()</em></a>.</p>
+<p>Sprawdżmy jak często występują poszczególne mediany wieku domów w danych obszarach:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;HouseAge&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>52.0    1273
+36.0     862
+35.0     824
+16.0     771
+17.0     698
+34.0     689
+26.0     619
+33.0     615
+18.0     570
+25.0     566
+32.0     565
+37.0     537
+15.0     512
+19.0     502
+27.0     488
+24.0     478
+30.0     476
+28.0     471
+20.0     465
+29.0     461
+31.0     458
+23.0     448
+21.0     446
+14.0     412
+22.0     399
+38.0     394
+39.0     369
+42.0     368
+44.0     356
+43.0     353
+40.0     304
+13.0     302
+41.0     296
+45.0     294
+10.0     264
+11.0     254
+46.0     245
+5.0      244
+12.0     238
+8.0      206
+9.0      205
+47.0     198
+4.0      191
+48.0     177
+7.0      175
+6.0      160
+50.0     136
+49.0     134
+3.0       62
+2.0       58
+51.0      48
+1.0        4
+Name: HouseAge, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Otrzymane wyniki są automatycznie ustawiane od przypadków najczęściej do najrzadziej występujacych.</p>
+<p>Występuje 1273 obszarów z medianą wieku domów równą 52 lata. Co ciekawe mediana równa 51 lat występuje tylko w 48 obszarach. Najmniej, bo tylko 4 obszary, mają medianę wieku domów w wysokości 1 roku.</p>
+<p>Sprawdźmy jak wyglądają takie dane na wykresie</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">df_plot</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;HouseAge&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span> <span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="c1">#df_plot[&#39;index&#39;]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="s1">&#39;HouseAge&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df_plot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;House Age&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_Analiza statystyczna_46_0.png" src="../_images/4_Analiza statystyczna_46_0.png" />
+</div>
+</div>
+<p>Widać, że zdecydowanie 52 lata to najczęściej występująca mediana wieku domów. Widać także zwiększenie ilości danych w środkowych przedziale lat.</p>
+<p>Po wyglądzie można się zastanowić czy ta wartość 52 lata nie jest maksymalną wartością, która mogła zostać wpisana. Należy się zastanowić czy nie warto usunąć tych danych do dalszej analizy. Niestety w źródle danych nie ma informacji na ten temat, ale w rzeczywistych warunkach taka informacja powinna być opisana.</p>
+</div>
+</div>
+<div class="section" id="badanie-korelacji">
+<h2>Badanie korelacji<a class="headerlink" href="#badanie-korelacji" title="Permalink to this headline">¶</a></h2>
+<p>W analizie statystycznej ważnym elementem jest badanie korelacji zmiennych. To dzięki niej wiemy czy występuje jakaś zależność pomiędzy zbiorami danych.</p>
+<p>Bardzo istotne jest zbadanie korelacji podczas budowania modelu regresyjnego. Badając korelację naszego celu (w tym przykładzie ‘MedHouseVal’) z cechami, możemy dowiedzieć się która z cech jest naistotniejsza, a która nie pomoże nam w stworzeniu odpowiedniego modelu</p>
+<p>Najczęściej badanymi korelacjami są:</p>
+<ul class="simple">
+<li><p><a href = https://en.wikipedia.org/wiki/Pearson_correlation_coefficient> <strong>Pearsona</strong> </a> - bada zależność liniową w danych X i Y</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+r_{p}= \frac{cov(X,Y)}{\sigma_X \sigma_Y}
+\]</div>
+<ul class="simple">
+<li><p><a href = https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient> <strong>Spearmana</strong> </a> - bada zależność rank danych X i Y. Wysoka wartość współczynnika korelacji nie oznacza, że dane są liniowo skorelowane, ale wraz z wzrostem wartosci X, zwiększają się wartości Y, jednak niekoniecznie zawsze o taką samą wartość</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+ r_s = \frac{cov(R(X)R(Y))}{\sigma_{R(X)}\sigma_{R(Y)}}
+ \]</div>
+<p><em>gdzie</em>:</p>
+<p><span class="math notranslate nohighlight">\(cov()\)</span> - kowariancja,</p>
+<p><span class="math notranslate nohighlight">\(\sigma\)</span> - odchylenie standardowe</p>
+<p><span class="math notranslate nohighlight">\(R()\)</span> - rangi danych</p>
+<p>Najprostrzym sposobem na zbadanie korelacji w tabeli jest wykorzystanie metody <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.corr.html> <em>pd.DataFrame.corr()</em> </a></p>
+<p>Metoda stworzy macież korelacji pomiędzy wszystkimi kolumnami numerycznymi w DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MedInc</th>
+      <th>HouseAge</th>
+      <th>AveRooms</th>
+      <th>AveBedrms</th>
+      <th>Population</th>
+      <th>AveOccup</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>MedHouseVal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MedInc</th>
+      <td>1.000000</td>
+      <td>-0.119034</td>
+      <td>0.326895</td>
+      <td>-0.062040</td>
+      <td>0.004834</td>
+      <td>0.018766</td>
+      <td>-0.079809</td>
+      <td>-0.015176</td>
+      <td>0.688075</td>
+    </tr>
+    <tr>
+      <th>HouseAge</th>
+      <td>-0.119034</td>
+      <td>1.000000</td>
+      <td>-0.153277</td>
+      <td>-0.077747</td>
+      <td>-0.296244</td>
+      <td>0.013191</td>
+      <td>0.011173</td>
+      <td>-0.108197</td>
+      <td>0.105623</td>
+    </tr>
+    <tr>
+      <th>AveRooms</th>
+      <td>0.326895</td>
+      <td>-0.153277</td>
+      <td>1.000000</td>
+      <td>0.847621</td>
+      <td>-0.072213</td>
+      <td>-0.004852</td>
+      <td>0.106389</td>
+      <td>-0.027540</td>
+      <td>0.151948</td>
+    </tr>
+    <tr>
+      <th>AveBedrms</th>
+      <td>-0.062040</td>
+      <td>-0.077747</td>
+      <td>0.847621</td>
+      <td>1.000000</td>
+      <td>-0.066197</td>
+      <td>-0.006181</td>
+      <td>0.069721</td>
+      <td>0.013344</td>
+      <td>-0.046701</td>
+    </tr>
+    <tr>
+      <th>Population</th>
+      <td>0.004834</td>
+      <td>-0.296244</td>
+      <td>-0.072213</td>
+      <td>-0.066197</td>
+      <td>1.000000</td>
+      <td>0.069863</td>
+      <td>-0.108785</td>
+      <td>0.099773</td>
+      <td>-0.024650</td>
+    </tr>
+    <tr>
+      <th>AveOccup</th>
+      <td>0.018766</td>
+      <td>0.013191</td>
+      <td>-0.004852</td>
+      <td>-0.006181</td>
+      <td>0.069863</td>
+      <td>1.000000</td>
+      <td>0.002366</td>
+      <td>0.002476</td>
+      <td>-0.023737</td>
+    </tr>
+    <tr>
+      <th>Latitude</th>
+      <td>-0.079809</td>
+      <td>0.011173</td>
+      <td>0.106389</td>
+      <td>0.069721</td>
+      <td>-0.108785</td>
+      <td>0.002366</td>
+      <td>1.000000</td>
+      <td>-0.924664</td>
+      <td>-0.144160</td>
+    </tr>
+    <tr>
+      <th>Longitude</th>
+      <td>-0.015176</td>
+      <td>-0.108197</td>
+      <td>-0.027540</td>
+      <td>0.013344</td>
+      <td>0.099773</td>
+      <td>0.002476</td>
+      <td>-0.924664</td>
+      <td>1.000000</td>
+      <td>-0.045967</td>
+    </tr>
+    <tr>
+      <th>MedHouseVal</th>
+      <td>0.688075</td>
+      <td>0.105623</td>
+      <td>0.151948</td>
+      <td>-0.046701</td>
+      <td>-0.024650</td>
+      <td>-0.023737</td>
+      <td>-0.144160</td>
+      <td>-0.045967</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Jeżeli chcielibyśmy wyliczyć korelację Spearmana wystarczy dodać parametr <em><strong>method = ‘spearman’</strong></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;spearman&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MedInc</th>
+      <th>HouseAge</th>
+      <th>AveRooms</th>
+      <th>AveBedrms</th>
+      <th>Population</th>
+      <th>AveOccup</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>MedHouseVal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MedInc</th>
+      <td>1.000000</td>
+      <td>-0.147308</td>
+      <td>0.643671</td>
+      <td>-0.252426</td>
+      <td>0.006268</td>
+      <td>-0.044171</td>
+      <td>-0.088029</td>
+      <td>-0.009928</td>
+      <td>0.676778</td>
+    </tr>
+    <tr>
+      <th>HouseAge</th>
+      <td>-0.147308</td>
+      <td>1.000000</td>
+      <td>-0.231409</td>
+      <td>-0.120981</td>
+      <td>-0.283879</td>
+      <td>-0.024833</td>
+      <td>0.032440</td>
+      <td>-0.150752</td>
+      <td>0.074855</td>
+    </tr>
+    <tr>
+      <th>AveRooms</th>
+      <td>0.643671</td>
+      <td>-0.231409</td>
+      <td>1.000000</td>
+      <td>0.082046</td>
+      <td>-0.105385</td>
+      <td>0.018807</td>
+      <td>0.127134</td>
+      <td>-0.044783</td>
+      <td>0.263367</td>
+    </tr>
+    <tr>
+      <th>AveBedrms</th>
+      <td>-0.252426</td>
+      <td>-0.120981</td>
+      <td>0.082046</td>
+      <td>1.000000</td>
+      <td>0.027027</td>
+      <td>-0.132315</td>
+      <td>0.047197</td>
+      <td>0.010884</td>
+      <td>-0.125187</td>
+    </tr>
+    <tr>
+      <th>Population</th>
+      <td>0.006268</td>
+      <td>-0.283879</td>
+      <td>-0.105385</td>
+      <td>0.027027</td>
+      <td>1.000000</td>
+      <td>0.242337</td>
+      <td>-0.123626</td>
+      <td>0.123527</td>
+      <td>0.003839</td>
+    </tr>
+    <tr>
+      <th>AveOccup</th>
+      <td>-0.044171</td>
+      <td>-0.024833</td>
+      <td>0.018807</td>
+      <td>-0.132315</td>
+      <td>0.242337</td>
+      <td>1.000000</td>
+      <td>-0.150954</td>
+      <td>0.181468</td>
+      <td>-0.256594</td>
+    </tr>
+    <tr>
+      <th>Latitude</th>
+      <td>-0.088029</td>
+      <td>0.032440</td>
+      <td>0.127134</td>
+      <td>0.047197</td>
+      <td>-0.123626</td>
+      <td>-0.150954</td>
+      <td>1.000000</td>
+      <td>-0.879203</td>
+      <td>-0.165739</td>
+    </tr>
+    <tr>
+      <th>Longitude</th>
+      <td>-0.009928</td>
+      <td>-0.150752</td>
+      <td>-0.044783</td>
+      <td>0.010884</td>
+      <td>0.123527</td>
+      <td>0.181468</td>
+      <td>-0.879203</td>
+      <td>1.000000</td>
+      <td>-0.069667</td>
+    </tr>
+    <tr>
+      <th>MedHouseVal</th>
+      <td>0.676778</td>
+      <td>0.074855</td>
+      <td>0.263367</td>
+      <td>-0.125187</td>
+      <td>0.003839</td>
+      <td>-0.256594</td>
+      <td>-0.165739</td>
+      <td>-0.069667</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Z obu korelacji wynika, że najlepiej skorelowaną cechą z ceną domu (zmienną objaśniana) jest wysokość zarobków (zmienna objaśniająca). Przy budowie modelu regresyjnego, to ta cecha będzie jedną z najistotniejszych. To ona najlepiej swoimi wielkościami opisuje cenę domu.</p>
+<p>Skoro znamy najlepszą zmienną objaśniajacą, spójrzmy na wykres punktowy tych dwóch zmiennych.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedInc&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">],</span>  <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span> 
+<span class="c1"># parametr alpha wykorzystywany jest do ustawienia przejrzystosci punktów. </span>
+<span class="c1"># Im ciemniejszy obszar na wykresie tym więcej punktów się tam znajduje</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;MedInc&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wartość domu vs Wysokość zarobków&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_Analiza statystyczna_57_0.png" src="../_images/4_Analiza statystyczna_57_0.png" />
+</div>
+</div>
+<p>Na wykresie widać tendencję zwiększania się wartości domów przy zwiększajacych się zarobkach.</p>
+<p>Korelacji nie musimy liczyć dla wszystkich kolumn w tabeli. Możemy ją takze zmierzyć tylko dla dwóch wybranych kolumn.
+Służą do tego metody:</p>
+<ul class="simple">
+<li><p><a href= https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html> np.corrcoef()</a> (korelacja Pearsona)</p></li>
+<li><p><a href = https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html> scipy.stats.pearsonr()</a> (korelacja Pearsona)</p></li>
+<li><p><a href = https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html> scipy.stats.spearmanr()</a> (korelacja Spearmana)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedInc&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.        , 0.68807521],
+       [0.68807521, 1.        ]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span>
+
+<span class="n">pearsonr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedInc&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.6880752079585443, 0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">spearmanr</span>
+
+<span class="n">spearmanr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedInc&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SpearmanrResult(correlation=0.6767781095942506, pvalue=0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zwróćmy uwagę, że metody z biblioteki <em>scipy</em> zwracają dwie wartości. Pierwsza jest to współczynnik korelacji, a druga to <em><strong>P-value</strong></em>, której teraz dokładnie się przyjrzymy</p>
+</div>
+<div class="section" id="testy-statystyczne">
+<h2>Testy statystyczne<a class="headerlink" href="#testy-statystyczne" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-block alert-success">
+   <b> Definicje </b>
+<p><strong>Test statystyczny</strong> – formuła matematyczna pozwalająca oszacować prawdopodobieństwo spełnienia pewnej hipotezy statystycznej w populacji na podstawie próby losowej z tej populacji.</p>
+<p><span class="math notranslate nohighlight">\(\newline\)</span></p>
+<p><strong>Hipoteza statystyczna</strong> - dowolne przypuszczenie co do rozkładu populacji</p>
+<p><span class="math notranslate nohighlight">\(\newline\)</span></p>
+<p><strong>Hipoteza zerowa</strong> <span class="math notranslate nohighlight">\(H_0\)</span> - Przypuszczenie, które chcemy sprawdzić za pomocą testów statystycznych.</p>
+<p><em>Przykład:</em> w metodzie <em>pearsonr</em> hipotezą zerową jest założenie, że nie istnieje korelacja pomiędzy zbiorami danych
+<span class="math notranslate nohighlight">\(\newline\)</span></p>
+<p><strong>P-value</strong> - prawdopodobieństwo kumulatywne wylosowania próby takiej lub bardziej skrajnej jak zaobserwowana, przy założeniu, że hipoteza zerowa jest prawdziwa</p>
+<p><em>Przykład:</em> W korelacji pomiędzy wartoscią domu, a zarobkami P-value wynosi 0. Możemy więc stwierdzić, że nie istnieje możliwość wylosowania takiej próby, aby korelacja była wyższa lub taka sama z jednoczesnym założeniem, że korelacja ta nie istnieje.</p>
+</div><div class="alert alert-block alert-warning">
+    Przy wykorzystywaniu testów statystycznych ustala się pewien próg (<b>poziom istotności</b> $\alpha$ ). Jeżeli P-value jest mniejsze niż ten poziom można odrzucić hipotezę zerową. Zazwyczaj $\alpha$ = 0.05
+<p><em>Przykład</em> W korelacji pomiędzy wartoscią domu, a zarobkami P-value &lt; 0.05, więc odrzucamy hipotezę zerową.</p>
+</div><div class="alert alert-block alert-info">
+<p>Za pomocą P-value oraz poziomu istotności możemy odrzucić hipotezę zerową. Jednak, nie oznacza to, że potwierdzamy hipotezę alternatywną (<span class="math notranslate nohighlight">\(H_1\)</span>).</p>
+</div><p>Za pomocą testów statystycznych możemy także sprawdzić czy dane posiadają konkretny rozkład.</p>
+<p>Sprawdźmy więc, czy ceny domów posiadaja rozkład normalny. Możemy to zrobić za pomocą metody <a href = https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.normaltest.html> <em>scipy.stats.normaltest()</em> </a></p>
+<p>Hipotezą zerową w tej metodzie jest załozenie, że dane mają rozkład normalny.</p>
+<p>Przyjmijmy poziom istotności <span class="math notranslate nohighlight">\(\alpha\)</span> = 0.05.
+Jeżeli P-value &lt; 0.05 Będziemy mogli odrzucić tą hipotezę i powiedzieć, że cena domów nie posiada rozkładu normalnego</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normaltest</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NormaltestResult(statistic=2430.931051066072, pvalue=0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>P-value = 0, a więc odrzucamy hipotezę, że dane posiadają rozkład normalny</p>
+<p>Sprawdźmy co by jednak było, gdyby dane faktycznie były z rozkładu normalnego.</p>
+<p>Wylosujmy 10 000 próbek z rozkładu normalnego</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1">#pozwala na wylosowanie zawsze tych samych danych</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Spójrzmy na histogram</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">norm</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([4.0000e+00, 1.4000e+01, 6.8000e+01, 2.7800e+02, 9.2800e+02,
+        2.4550e+03, 5.3400e+03, 9.6380e+03, 1.4271e+04, 1.7163e+04,
+        1.7333e+04, 1.4015e+04, 9.5850e+03, 5.2420e+03, 2.4380e+03,
+        8.8000e+02, 2.6800e+02, 6.2000e+01, 1.7000e+01, 1.0000e+00]),
+ array([-4.46560386, -4.01836946, -3.57113505, -3.12390065, -2.67666624,
+        -2.22943183, -1.78219743, -1.33496302, -0.88772862, -0.44049421,
+         0.00674019,  0.4539746 ,  0.90120901,  1.34844341,  1.79567782,
+         2.24291222,  2.69014663,  3.13738103,  3.58461544,  4.03184985,
+         4.47908425]),
+ &lt;BarContainer object of 20 artists&gt;)
+</pre></div>
+</div>
+<img alt="../_images/4_Analiza statystyczna_74_1.png" src="../_images/4_Analiza statystyczna_74_1.png" />
+</div>
+</div>
+<p>A teraz sprawdźmy, czy za pomocą testu statystycznego możemy stwierdzić, że rozkład jest normalny</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normaltest</span><span class="p">(</span><span class="n">norm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NormaltestResult(statistic=0.31105797316869505, pvalue=0.8559622651469295)
+</pre></div>
+</div>
+</div>
+</div>
+<p>P-value &gt; 0.05, a więc nie możemy odrzucić hipotezy zerowej. Nie oznacza, to że rozkład musi być normalny, jednak jest to możliwe</p>
+<p>Sprawdźmy czy cena domu posiada inny rozkład.</p>
+<p>Metoda, która pozwala sprawdzić inne często występujące rozkłady to <a href = https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.anderson.html> <em>scipy.stats.anderson()</em> </a></p>
+<p>Za jej pomocą możemy sprawdzić takie rozkłady jak:</p>
+<ul class="simple">
+<li><p>norm - rozkład normalny</p></li>
+<li><p>expon - rozkład wykładniczy</p></li>
+<li><p>logistic - rozkład logistyczny</p></li>
+<li><p>gumbel - rozkład Gumbela</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;norm&#39;</span><span class="p">,</span> <span class="s1">&#39;expon&#39;</span><span class="p">,</span> <span class="s1">&#39;logistic&#39;</span><span class="p">,</span> <span class="s1">&#39;gumbel&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sprawdzamy czy rozkład jest &#39;</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">anderson</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">],</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">test</span><span class="p">))</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sprawdzamy czy rozkład jest  norm
+AndersonResult(statistic=501.7692781709593, critical_values=array([0.576, 0.656, 0.787, 0.918, 1.092]), significance_level=array([15. , 10. ,  5. ,  2.5,  1. ]))
+Sprawdzamy czy rozkład jest  expon
+AndersonResult(statistic=1999.7321503644089, critical_values=array([0.922, 1.078, 1.341, 1.606, 1.957]), significance_level=array([15. , 10. ,  5. ,  2.5,  1. ]))
+Sprawdzamy czy rozkład jest  logistic
+AndersonResult(statistic=346.8528191385558, critical_values=array([0.426, 0.563, 0.66 , 0.769, 0.906, 1.01 ]), significance_level=array([25. , 10. ,  5. ,  2.5,  1. ,  0.5]))
+Sprawdzamy czy rozkład jest  gumbel
+AndersonResult(statistic=1156.3864507171638, critical_values=array([0.473, 0.636, 0.756, 0.876, 1.037]), significance_level=array([25. , 10. ,  5. ,  2.5,  1. ]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>W dokumentacji danej metody można wyczytać, że jeżeli wartość testu (<em>statistic</em>) jest większa od wartości krytycznych (<em>critical_values</em>) to dane nie należą do testowanego rozkładu, co oznacza, że rozkład ceny domow nie należy do żadnego z wyżej wymienonych.</p>
+<p>W bibliotece <em>scipy.stats</em> można znaleść inne testy statystyczne.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./4. Analiza_statystyczna"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Wizualizacja danych w Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Wykrywanie anomalii - definicje</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By codersi<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,5656 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pakiet pandas - tutorial &#8212; Silky Coders Data Science</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pakiet NumPy - tutorial" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html" />
+    <link rel="prev" title="Przedmiot specjalistyczny, 1 semestr studiów magisterskich matematyki na Politechnice Gdańskiej" href="../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/silky-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Silky Coders Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Przedmiot specjalistyczny, 1 semestr studiów magisterskich matematyki na Politechnice Gdańskiej
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Pakiet pandas - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">
+   Pakiet NumPy - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">
+   Wizualizacja danych w Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">
+   Analiza statystyczna - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">
+   Wykrywanie anomalii - definicje
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">
+   Wykrywanie anomalii - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">
+   Inżynieria cech
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
+   Klasteryzacja w Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">
+   Wyjaśnialność modeli - metryki statystyczne - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">
+   Wyjaśnialność modeli - definicje
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">
+   Wyjaśnialność modeli - XAI - tutorial
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/1. Tutorial pandas/1_Tutorial pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kikonPL/studia_PG"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F1. Tutorial pandas/1_Tutorial pandas.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kikonPL/studia_PG/main?urlpath=tree/_build/1. Tutorial pandas/1_Tutorial pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wstep">
+   Wstęp
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tworzenie-dataframe">
+   Tworzenie DataFrame
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tworzenie-dataframe-ze-slownika">
+     Tworzenie DataFrame ze słownika
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tworzenie-dataframe-z-list">
+     Tworzenie DataFrame z list
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wczytywanie-dataframe-z-pliku">
+     Wczytywanie DataFrame z pliku
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#podstawowe-funkcje">
+   Podstawowe funkcje
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tworzenie-podzbiorow">
+   Tworzenie podzbiorów
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operacje-na-danych">
+   Operacje na danych
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nadpisanie-okreslonej-wartosci">
+     Nadpisanie określonej wartości
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sortowanie-i-resetowanie-indeksow">
+     Sortowanie i resetowanie indeksów
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grupowanie-danych">
+     Grupowanie danych
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dzialanie-roznymi-funkcjami-na-kazda-z-kolumn">
+       Działanie różnymi funkcjami na każdą z kolumn
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funkcja-lambda">
+     Funkcja lambda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tworzenie-nowych-kolumn">
+     Tworzenie nowych kolumn
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tworzenie-nowych-wierszy">
+     Tworzenie nowych wierszy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usuwanie-danych">
+     Usuwanie danych
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dzialania-na-wartosciach-nullowych">
+     Działania na wartościach nullowych
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usuwanie-duplikatow">
+     Usuwanie duplikatow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zmiana-nazw-kolumn">
+     Zmiana nazw kolumn
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zmiana-danych-liczbowych-na-kategorie">
+     Zmiana danych liczbowych na kategorie
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterowanie-po-kolejnych-wierszach">
+     Iterowanie po kolejnych wierszach
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#laczenie-i-transformacja-danych">
+   Lączenie i transformacja danych
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merge">
+     Merge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concat">
+     Concat
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#melt">
+     Melt
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pivottable">
+     PivotTable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#explode">
+     Explode
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="pakiet-pandas-tutorial">
+<h1>Pakiet pandas - tutorial<a class="headerlink" href="#pakiet-pandas-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="wstep">
+<h2>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this headline">¶</a></h2>
+<p>Pandas jest wykorzystywany do pracy z danymi tabelarycznymi - np. danymi z arkuszy kalkulacyjnych bądź baz danych. Pakiet jest przydatny w eksploracji, czyszczeniu i przetwarzaniu danych. W pandasie dane tabularyczne nazywa się <strong>DataFrame</strong>. Każda zmienna zapisywana jest w kolumnie, zaś każda obserwacja w wierszu.</p>
+</div>
+<div class="section" id="tworzenie-dataframe">
+<h2>Tworzenie DataFrame<a class="headerlink" href="#tworzenie-dataframe" title="Permalink to this headline">¶</a></h2>
+<p>Ramkę danych można stworzyć na wiele sposobów: z plików roznego rodzaju, słownika, listy, numpy.array, itp.</p>
+<div class="section" id="tworzenie-dataframe-ze-slownika">
+<h3>Tworzenie DataFrame ze słownika<a class="headerlink" href="#tworzenie-dataframe-ze-slownika" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;column_1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;variable_1&#39;</span><span class="p">,</span> <span class="s1">&#39;variable_2&#39;</span><span class="p">],</span> <span class="s1">&#39;column_2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;column_3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;variable_1&#39;</span><span class="p">,</span> <span class="s1">&#39;variable_2&#39;</span><span class="p">]}</span>
+<span class="n">df_from_dict</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_from_dict</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column_1</th>
+      <th>column_2</th>
+      <th>column_3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>variable_1</td>
+      <td>1</td>
+      <td>variable_1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>variable_2</td>
+      <td>3</td>
+      <td>variable_2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="tworzenie-dataframe-z-list">
+<h3>Tworzenie DataFrame z list<a class="headerlink" href="#tworzenie-dataframe-z-list" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_from_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;variable_1&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;variable_1&#39;</span><span class="p">],</span> <span class="c1"># przypisanie wierszy w formie listy</span>
+                                  <span class="p">[</span><span class="s1">&#39;variable_2&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;variable_2&#39;</span><span class="p">]],</span>
+                           <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;column_1&#39;</span><span class="p">,</span> <span class="s1">&#39;column_2&#39;</span><span class="p">,</span> <span class="s1">&#39;column_3&#39;</span><span class="p">],</span> <span class="c1"># zdefiniowanie nazw kolumn</span>
+                           <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;index_1&#39;</span><span class="p">,</span> <span class="s1">&#39;index_2&#39;</span><span class="p">]</span> <span class="c1"># zdefiniowanie nazw indeksow</span>
+                           <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_from_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column_1</th>
+      <th>column_2</th>
+      <th>column_3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>index_1</th>
+      <td>variable_1</td>
+      <td>1</td>
+      <td>variable_1</td>
+    </tr>
+    <tr>
+      <th>index_2</th>
+      <td>variable_2</td>
+      <td>3</td>
+      <td>variable_2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="wczytywanie-dataframe-z-pliku">
+<h3>Wczytywanie DataFrame z pliku<a class="headerlink" href="#wczytywanie-dataframe-z-pliku" title="Permalink to this headline">¶</a></h3>
+<p>DataFrame można wczytać z wszelkiego rodzaju plików: csv, xls, parquet, json, sql, gbq (tabela z Google BigQuery) i wielu innych. W tym celu wystarczy użyć funkcji <strong>read_</strong>* gdzie * oznacza rodzaj pliku. Na przykład chcąc wczytać plik csv użyjemy funkcji <strong>read_csv</strong>.</p>
+<p>Analogicznie chcąc zapisać DataFrame używa się funkcji <strong>to_</strong>* gdzie * oznacza rodzaj pliku.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="s1">&#39;mpg.csv&#39;</span><span class="p">,</span> <span class="c1"># sciezka do pliku</span>
+                <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="c1"># separator</span>
+                <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># naglowek (nazwy kolumn)</span>
+                <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># kolumna z indeksem</span>
+                <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wyswietlenie pierwszych 5 wierszy</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>307.0</td>
+      <td>130.0</td>
+      <td>3504</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>chevrolet chevelle malibu</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.0</td>
+      <td>8</td>
+      <td>350.0</td>
+      <td>165.0</td>
+      <td>3693</td>
+      <td>11.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>318.0</td>
+      <td>150.0</td>
+      <td>3436</td>
+      <td>11.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>plymouth satellite</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16.0</td>
+      <td>8</td>
+      <td>304.0</td>
+      <td>150.0</td>
+      <td>3433</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>amc rebel sst</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17.0</td>
+      <td>8</td>
+      <td>302.0</td>
+      <td>140.0</td>
+      <td>3449</td>
+      <td>10.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>ford torino</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="podstawowe-funkcje">
+<h2>Podstawowe funkcje<a class="headerlink" href="#podstawowe-funkcje" title="Permalink to this headline">¶</a></h2>
+<p>Pandas posiada wiele wbudowanych funkcji, dzięki którym można lepiej poznać dane. Poniżej przedstawiono część z nich.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rozmiar ramki danych</span>
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(398, 9)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Podsumowanie DataFrame - typy danych, ilosc, liczba wartosci niezerowych (tych ktore nie sa null)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 398 entries, 0 to 397
+Data columns (total 9 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   mpg           398 non-null    float64
+ 1   cylinders     398 non-null    int64  
+ 2   displacement  398 non-null    float64
+ 3   horsepower    392 non-null    float64
+ 4   weight        398 non-null    int64  
+ 5   acceleration  398 non-null    float64
+ 6   model_year    398 non-null    int64  
+ 7   origin        398 non-null    object 
+ 8   name          398 non-null    object 
+dtypes: float64(4), int64(3), object(2)
+memory usage: 31.1+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wyswietlenie typow danych</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg             float64
+cylinders         int64
+displacement    float64
+horsepower      float64
+weight            int64
+acceleration    float64
+model_year        int64
+origin           object
+name             object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Statystyki opisowych</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>398.000000</td>
+      <td>398.000000</td>
+      <td>398.000000</td>
+      <td>392.000000</td>
+      <td>398.000000</td>
+      <td>398.000000</td>
+      <td>398.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>23.514573</td>
+      <td>5.454774</td>
+      <td>193.425879</td>
+      <td>104.469388</td>
+      <td>2970.424623</td>
+      <td>15.568090</td>
+      <td>76.010050</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>7.815984</td>
+      <td>1.701004</td>
+      <td>104.269838</td>
+      <td>38.491160</td>
+      <td>846.841774</td>
+      <td>2.757689</td>
+      <td>3.697627</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>9.000000</td>
+      <td>3.000000</td>
+      <td>68.000000</td>
+      <td>46.000000</td>
+      <td>1613.000000</td>
+      <td>8.000000</td>
+      <td>70.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>17.500000</td>
+      <td>4.000000</td>
+      <td>104.250000</td>
+      <td>75.000000</td>
+      <td>2223.750000</td>
+      <td>13.825000</td>
+      <td>73.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>23.000000</td>
+      <td>4.000000</td>
+      <td>148.500000</td>
+      <td>93.500000</td>
+      <td>2803.500000</td>
+      <td>15.500000</td>
+      <td>76.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>29.000000</td>
+      <td>8.000000</td>
+      <td>262.000000</td>
+      <td>126.000000</td>
+      <td>3608.000000</td>
+      <td>17.175000</td>
+      <td>79.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>46.600000</td>
+      <td>8.000000</td>
+      <td>455.000000</td>
+      <td>230.000000</td>
+      <td>5140.000000</td>
+      <td>24.800000</td>
+      <td>82.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To samo tylko dla okreslonych typow danych (domyslnie bierze tylko zmienne numeryczne)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>398</td>
+      <td>398</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>3</td>
+      <td>305</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>usa</td>
+      <td>ford pinto</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>249</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lista nazw kolumn</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;mpg&#39;, &#39;cylinders&#39;, &#39;displacement&#39;, &#39;horsepower&#39;, &#39;weight&#39;,
+       &#39;acceleration&#39;, &#39;model_year&#39;, &#39;origin&#39;, &#39;name&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lista indeksow</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,
+            ...
+            388, 389, 390, 391, 392, 393, 394, 395, 396, 397],
+           dtype=&#39;int64&#39;, length=398)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ilosc unikalnych wartosci w okreslonych kolumnach</span>
+<span class="n">df</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg             129
+cylinders         5
+displacement     82
+horsepower       93
+weight          351
+acceleration     95
+model_year       13
+origin            3
+name            305
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unikalne wartosci w kolumnie cylinders wraz</span>
+<span class="c1"># z liczba wystapien w znormalizowanej formie (procent ogolu)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;cylinders&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4    0.512563
+8    0.258794
+6    0.211055
+3    0.010050
+5    0.007538
+Name: cylinders, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Inne podstawowe funkcje</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>funkcja</p></th>
+<th class="head"><p>opis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>min()</p></td>
+<td><p>wartosc minimalna</p></td>
+</tr>
+<tr class="row-odd"><td><p>max()</p></td>
+<td><p>wartosc maksymalna</p></td>
+</tr>
+<tr class="row-even"><td><p>count()</p></td>
+<td><p>liczba wartosci</p></td>
+</tr>
+<tr class="row-odd"><td><p>sum()</p></td>
+<td><p>suma wartosci</p></td>
+</tr>
+<tr class="row-even"><td><p>median()</p></td>
+<td><p>mediana</p></td>
+</tr>
+<tr class="row-odd"><td><p>quantile([0.25, 0.75])</p></td>
+<td><p>kwantyle (mozna wprowadzic inne niz [0.25, 0.75])</p></td>
+</tr>
+<tr class="row-even"><td><p>mean()</p></td>
+<td><p>srednia</p></td>
+</tr>
+<tr class="row-odd"><td><p>std()</p></td>
+<td><p>odchylenie standardowe</p></td>
+</tr>
+<tr class="row-even"><td><p>apply(<em>function</em>)</p></td>
+<td><p>dzialanie na DataFrame inna funkcja</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>846.8417741973268
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg                         46.6
+cylinders                      8
+displacement                 455
+horsepower                   230
+weight                      5140
+acceleration                24.8
+model_year                    82
+origin                       usa
+name            vw rabbit custom
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Macierz korelacji</span>
+<span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;spearman&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mpg</th>
+      <td>1.000000</td>
+      <td>-0.821864</td>
+      <td>-0.855692</td>
+      <td>-0.853616</td>
+      <td>-0.874947</td>
+      <td>0.438677</td>
+      <td>0.573469</td>
+    </tr>
+    <tr>
+      <th>cylinders</th>
+      <td>-0.821864</td>
+      <td>1.000000</td>
+      <td>0.911876</td>
+      <td>0.816188</td>
+      <td>0.873314</td>
+      <td>-0.474189</td>
+      <td>-0.335012</td>
+    </tr>
+    <tr>
+      <th>displacement</th>
+      <td>-0.855692</td>
+      <td>0.911876</td>
+      <td>1.000000</td>
+      <td>0.876171</td>
+      <td>0.945986</td>
+      <td>-0.496512</td>
+      <td>-0.305257</td>
+    </tr>
+    <tr>
+      <th>horsepower</th>
+      <td>-0.853616</td>
+      <td>0.816188</td>
+      <td>0.876171</td>
+      <td>1.000000</td>
+      <td>0.878819</td>
+      <td>-0.658142</td>
+      <td>-0.389498</td>
+    </tr>
+    <tr>
+      <th>weight</th>
+      <td>-0.874947</td>
+      <td>0.873314</td>
+      <td>0.945986</td>
+      <td>0.878819</td>
+      <td>1.000000</td>
+      <td>-0.404550</td>
+      <td>-0.277015</td>
+    </tr>
+    <tr>
+      <th>acceleration</th>
+      <td>0.438677</td>
+      <td>-0.474189</td>
+      <td>-0.496512</td>
+      <td>-0.658142</td>
+      <td>-0.404550</td>
+      <td>1.000000</td>
+      <td>0.274632</td>
+    </tr>
+    <tr>
+      <th>model_year</th>
+      <td>0.573469</td>
+      <td>-0.335012</td>
+      <td>-0.305257</td>
+      <td>-0.389498</td>
+      <td>-0.277015</td>
+      <td>0.274632</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="tworzenie-podzbiorow">
+<h2>Tworzenie podzbiorów<a class="headerlink" href="#tworzenie-podzbiorow" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pierwsze 3 wiersze (nie wpisujac zadnej liczby domyslnie brana jest 5)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>307.0</td>
+      <td>130.0</td>
+      <td>3504</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>chevrolet chevelle malibu</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.0</td>
+      <td>8</td>
+      <td>350.0</td>
+      <td>165.0</td>
+      <td>3693</td>
+      <td>11.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>318.0</td>
+      <td>150.0</td>
+      <td>3436</td>
+      <td>11.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>plymouth satellite</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wiersze z okreslonego zakresu indeksow</span>
+<span class="n">df</span><span class="p">[</span><span class="mi">27</span><span class="p">:</span><span class="mi">33</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>27</th>
+      <td>11.0</td>
+      <td>8</td>
+      <td>318.0</td>
+      <td>210.0</td>
+      <td>4382</td>
+      <td>13.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>dodge d200</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>9.0</td>
+      <td>8</td>
+      <td>304.0</td>
+      <td>193.0</td>
+      <td>4732</td>
+      <td>18.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>hi 1200d</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>27.0</td>
+      <td>4</td>
+      <td>97.0</td>
+      <td>88.0</td>
+      <td>2130</td>
+      <td>14.5</td>
+      <td>71</td>
+      <td>japan</td>
+      <td>datsun pl510</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>28.0</td>
+      <td>4</td>
+      <td>140.0</td>
+      <td>90.0</td>
+      <td>2264</td>
+      <td>15.5</td>
+      <td>71</td>
+      <td>usa</td>
+      <td>chevrolet vega 2300</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>25.0</td>
+      <td>4</td>
+      <td>113.0</td>
+      <td>95.0</td>
+      <td>2228</td>
+      <td>14.0</td>
+      <td>71</td>
+      <td>japan</td>
+      <td>toyota corona</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>25.0</td>
+      <td>4</td>
+      <td>98.0</td>
+      <td>NaN</td>
+      <td>2046</td>
+      <td>19.0</td>
+      <td>71</td>
+      <td>usa</td>
+      <td>ford pinto</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ostatnie 8 wierzy (nie wpisujac zadnej liczby domyslnie brana jest 5)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>390</th>
+      <td>32.0</td>
+      <td>4</td>
+      <td>144.0</td>
+      <td>96.0</td>
+      <td>2665</td>
+      <td>13.9</td>
+      <td>82</td>
+      <td>japan</td>
+      <td>toyota celica gt</td>
+    </tr>
+    <tr>
+      <th>391</th>
+      <td>36.0</td>
+      <td>4</td>
+      <td>135.0</td>
+      <td>84.0</td>
+      <td>2370</td>
+      <td>13.0</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>dodge charger 2.2</td>
+    </tr>
+    <tr>
+      <th>392</th>
+      <td>27.0</td>
+      <td>4</td>
+      <td>151.0</td>
+      <td>90.0</td>
+      <td>2950</td>
+      <td>17.3</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>chevrolet camaro</td>
+    </tr>
+    <tr>
+      <th>393</th>
+      <td>27.0</td>
+      <td>4</td>
+      <td>140.0</td>
+      <td>86.0</td>
+      <td>2790</td>
+      <td>15.6</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford mustang gl</td>
+    </tr>
+    <tr>
+      <th>394</th>
+      <td>44.0</td>
+      <td>4</td>
+      <td>97.0</td>
+      <td>52.0</td>
+      <td>2130</td>
+      <td>24.6</td>
+      <td>82</td>
+      <td>europe</td>
+      <td>vw pickup</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>32.0</td>
+      <td>4</td>
+      <td>135.0</td>
+      <td>84.0</td>
+      <td>2295</td>
+      <td>11.6</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>dodge rampage</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>28.0</td>
+      <td>4</td>
+      <td>120.0</td>
+      <td>79.0</td>
+      <td>2625</td>
+      <td>18.6</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford ranger</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>31.0</td>
+      <td>4</td>
+      <td>119.0</td>
+      <td>82.0</td>
+      <td>2720</td>
+      <td>19.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ostatnie 8 wierszy (drugi sposob)</span>
+<span class="n">df</span><span class="p">[</span><span class="o">-</span><span class="mi">8</span><span class="p">:]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>390</th>
+      <td>32.0</td>
+      <td>4</td>
+      <td>144.0</td>
+      <td>96.0</td>
+      <td>2665</td>
+      <td>13.9</td>
+      <td>82</td>
+      <td>japan</td>
+      <td>toyota celica gt</td>
+    </tr>
+    <tr>
+      <th>391</th>
+      <td>36.0</td>
+      <td>4</td>
+      <td>135.0</td>
+      <td>84.0</td>
+      <td>2370</td>
+      <td>13.0</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>dodge charger 2.2</td>
+    </tr>
+    <tr>
+      <th>392</th>
+      <td>27.0</td>
+      <td>4</td>
+      <td>151.0</td>
+      <td>90.0</td>
+      <td>2950</td>
+      <td>17.3</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>chevrolet camaro</td>
+    </tr>
+    <tr>
+      <th>393</th>
+      <td>27.0</td>
+      <td>4</td>
+      <td>140.0</td>
+      <td>86.0</td>
+      <td>2790</td>
+      <td>15.6</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford mustang gl</td>
+    </tr>
+    <tr>
+      <th>394</th>
+      <td>44.0</td>
+      <td>4</td>
+      <td>97.0</td>
+      <td>52.0</td>
+      <td>2130</td>
+      <td>24.6</td>
+      <td>82</td>
+      <td>europe</td>
+      <td>vw pickup</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>32.0</td>
+      <td>4</td>
+      <td>135.0</td>
+      <td>84.0</td>
+      <td>2295</td>
+      <td>11.6</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>dodge rampage</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>28.0</td>
+      <td>4</td>
+      <td>120.0</td>
+      <td>79.0</td>
+      <td>2625</td>
+      <td>18.6</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford ranger</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>31.0</td>
+      <td>4</td>
+      <td>119.0</td>
+      <td>82.0</td>
+      <td>2720</td>
+      <td>19.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># Wybranie specyficznych kolumn</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;cylinders&#39;</span><span class="p">,</span> <span class="s1">&#39;horsepower&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cylinders</th>
+      <th>horsepower</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8</td>
+      <td>130.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8</td>
+      <td>165.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8</td>
+      <td>150.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8</td>
+      <td>150.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>140.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wartosci specyficznej kolumny z okreslonego zakresu wierszy</span>
+<span class="n">df</span><span class="o">.</span><span class="n">cylinders</span><span class="p">[</span><span class="mi">15</span><span class="p">:</span><span class="mi">23</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15    6
+16    6
+17    6
+18    4
+19    4
+20    4
+21    4
+22    4
+Name: cylinders, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>Chcąc działać na wierszach spełniających specyficzne warunki warto tworzyć zmienną maskujacą (która zwraca wartość True/False dla każdego wiersza) i następnie pisać df[mask] zamiast df[((pierwszy warunek) | (drugi warunek)) &amp; (trzeci warunek)]. Wizualnie wygląda to dużo lepiej.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chcemy wiersze gdzie model_year jest co najwyzej 70 a zmienna origin miesci sie w zbiorze &#39;japan&#39; i &#39;europe&#39;</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;model_year&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="mi">70</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;origin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;japan&#39;</span><span class="p">,</span> <span class="s1">&#39;europe&#39;</span><span class="p">]))</span>
+<span class="n">mask</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      False
+1      False
+2      False
+3      False
+4      False
+       ...  
+393    False
+394    False
+395    False
+396    False
+397    False
+Length: 398, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14</th>
+      <td>24.0</td>
+      <td>4</td>
+      <td>113.0</td>
+      <td>95.0</td>
+      <td>2372</td>
+      <td>15.0</td>
+      <td>70</td>
+      <td>japan</td>
+      <td>toyota corona mark ii</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>27.0</td>
+      <td>4</td>
+      <td>97.0</td>
+      <td>88.0</td>
+      <td>2130</td>
+      <td>14.5</td>
+      <td>70</td>
+      <td>japan</td>
+      <td>datsun pl510</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>26.0</td>
+      <td>4</td>
+      <td>97.0</td>
+      <td>46.0</td>
+      <td>1835</td>
+      <td>20.5</td>
+      <td>70</td>
+      <td>europe</td>
+      <td>volkswagen 1131 deluxe sedan</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>25.0</td>
+      <td>4</td>
+      <td>110.0</td>
+      <td>87.0</td>
+      <td>2672</td>
+      <td>17.5</td>
+      <td>70</td>
+      <td>europe</td>
+      <td>peugeot 504</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>24.0</td>
+      <td>4</td>
+      <td>107.0</td>
+      <td>90.0</td>
+      <td>2430</td>
+      <td>14.5</td>
+      <td>70</td>
+      <td>europe</td>
+      <td>audi 100 ls</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>25.0</td>
+      <td>4</td>
+      <td>104.0</td>
+      <td>95.0</td>
+      <td>2375</td>
+      <td>17.5</td>
+      <td>70</td>
+      <td>europe</td>
+      <td>saab 99e</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>26.0</td>
+      <td>4</td>
+      <td>121.0</td>
+      <td>113.0</td>
+      <td>2234</td>
+      <td>12.5</td>
+      <td>70</td>
+      <td>europe</td>
+      <td>bmw 2002</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wybieranie losowych wierszy</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>386</th>
+      <td>25.0</td>
+      <td>6</td>
+      <td>181.0</td>
+      <td>110.0</td>
+      <td>2945</td>
+      <td>16.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>buick century limited</td>
+    </tr>
+    <tr>
+      <th>203</th>
+      <td>29.5</td>
+      <td>4</td>
+      <td>97.0</td>
+      <td>71.0</td>
+      <td>1825</td>
+      <td>12.2</td>
+      <td>76</td>
+      <td>europe</td>
+      <td>volkswagen rabbit</td>
+    </tr>
+    <tr>
+      <th>387</th>
+      <td>38.0</td>
+      <td>6</td>
+      <td>262.0</td>
+      <td>85.0</td>
+      <td>3015</td>
+      <td>17.0</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>oldsmobile cutlass ciera (diesel)</td>
+    </tr>
+    <tr>
+      <th>306</th>
+      <td>28.8</td>
+      <td>6</td>
+      <td>173.0</td>
+      <td>115.0</td>
+      <td>2595</td>
+      <td>11.3</td>
+      <td>79</td>
+      <td>usa</td>
+      <td>chevrolet citation</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>14.0</td>
+      <td>8</td>
+      <td>304.0</td>
+      <td>150.0</td>
+      <td>3672</td>
+      <td>11.5</td>
+      <td>73</td>
+      <td>usa</td>
+      <td>amc matador</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>Przydatnymi funkcjami w selekcji specyficznych wierszy/kolumn są .loc oraz .iloc. Zwłaszcza wtedy kiedy chcemy nadpisać jakąś wartość w DataFramie.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wybranie wszystkich wierszy i kolumn z zakresu 5:9</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">5</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>chevrolet chevelle malibu</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>11.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>plymouth satellite</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>amc rebel sst</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>ford torino</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>393</th>
+      <td>15.6</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford mustang gl</td>
+    </tr>
+    <tr>
+      <th>394</th>
+      <td>24.6</td>
+      <td>82</td>
+      <td>europe</td>
+      <td>vw pickup</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>11.6</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>dodge rampage</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>18.6</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford ranger</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>19.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+    </tr>
+  </tbody>
+</table>
+<p>398 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wybranie wszystkich wierszy i kolumn z zakresu 5:9 (po nazwach)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;acceleration&#39;</span><span class="p">:</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>chevrolet chevelle malibu</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>11.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>plymouth satellite</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>amc rebel sst</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>ford torino</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>393</th>
+      <td>15.6</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford mustang gl</td>
+    </tr>
+    <tr>
+      <th>394</th>
+      <td>24.6</td>
+      <td>82</td>
+      <td>europe</td>
+      <td>vw pickup</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>11.6</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>dodge rampage</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>18.6</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford ranger</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>19.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+    </tr>
+  </tbody>
+</table>
+<p>398 rows × 4 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="operacje-na-danych">
+<h2>Operacje na danych<a class="headerlink" href="#operacje-na-danych" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nadpisanie-okreslonej-wartosci">
+<h3>Nadpisanie określonej wartości<a class="headerlink" href="#nadpisanie-okreslonej-wartosci" title="Permalink to this headline">¶</a></h3>
+<p>W tym przypadku zmienimy wartość ‘horsepower’ dla drugiej obserwacji na null</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg                            15
+cylinders                       8
+displacement                  350
+horsepower                    165
+weight                       3693
+acceleration                 11.5
+model_year                     70
+origin                        usa
+name            buick skylark 320
+Name: 1, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;horsepower&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg                            15
+cylinders                       8
+displacement                  350
+horsepower                    NaN
+weight                       3693
+acceleration                 11.5
+model_year                     70
+origin                        usa
+name            buick skylark 320
+Name: 1, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sortowanie-i-resetowanie-indeksow">
+<h3>Sortowanie i resetowanie indeksów<a class="headerlink" href="#sortowanie-i-resetowanie-indeksow" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;model_year&#39;</span><span class="p">,</span> <span class="s1">&#39;horsepower&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="c1"># kolumny sortujace</span>
+              <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># kolejnosc malejaca</span>
+              <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span> <span class="c1"># nadpisanie aktualnej ramki danych</span>
+              <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wyswietlenie posortowanego DataFrame. Zauwazyc mozna, ze indeksy nie ukladaja sie od poczatku. Pozostal stary porzadek</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>389</th>
+      <td>22.0</td>
+      <td>6</td>
+      <td>232.0</td>
+      <td>112.0</td>
+      <td>2835</td>
+      <td>14.7</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford granada l</td>
+    </tr>
+    <tr>
+      <th>386</th>
+      <td>25.0</td>
+      <td>6</td>
+      <td>181.0</td>
+      <td>110.0</td>
+      <td>2945</td>
+      <td>16.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>buick century limited</td>
+    </tr>
+    <tr>
+      <th>390</th>
+      <td>32.0</td>
+      <td>4</td>
+      <td>144.0</td>
+      <td>96.0</td>
+      <td>2665</td>
+      <td>13.9</td>
+      <td>82</td>
+      <td>japan</td>
+      <td>toyota celica gt</td>
+    </tr>
+    <tr>
+      <th>373</th>
+      <td>24.0</td>
+      <td>4</td>
+      <td>140.0</td>
+      <td>92.0</td>
+      <td>2865</td>
+      <td>16.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford fairmont futura</td>
+    </tr>
+    <tr>
+      <th>388</th>
+      <td>26.0</td>
+      <td>4</td>
+      <td>156.0</td>
+      <td>92.0</td>
+      <td>2585</td>
+      <td>14.5</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>chrysler lebaron medallion</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># nadpisanie aktualnej ramki danych</span>
+              <span class="n">drop</span><span class="o">=</span><span class="kc">True</span> <span class="c1"># usuniecie poprzednich indeksow</span>
+              <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>22.0</td>
+      <td>6</td>
+      <td>232.0</td>
+      <td>112.0</td>
+      <td>2835</td>
+      <td>14.7</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford granada l</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.0</td>
+      <td>6</td>
+      <td>181.0</td>
+      <td>110.0</td>
+      <td>2945</td>
+      <td>16.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>buick century limited</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>32.0</td>
+      <td>4</td>
+      <td>144.0</td>
+      <td>96.0</td>
+      <td>2665</td>
+      <td>13.9</td>
+      <td>82</td>
+      <td>japan</td>
+      <td>toyota celica gt</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>24.0</td>
+      <td>4</td>
+      <td>140.0</td>
+      <td>92.0</td>
+      <td>2865</td>
+      <td>16.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford fairmont futura</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>26.0</td>
+      <td>4</td>
+      <td>156.0</td>
+      <td>92.0</td>
+      <td>2585</td>
+      <td>14.5</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>chrysler lebaron medallion</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="grupowanie-danych">
+<h3>Grupowanie danych<a class="headerlink" href="#grupowanie-danych" title="Permalink to this headline">¶</a></h3>
+<p>Poniżej przedstawiono przykład grupowania kolumny <strong>horsepower</strong> i <strong>model_year</strong> ze względu na kolumne <strong>cylinders</strong>.</p>
+<p>Funkcja max pokazuje jaką funkcją działamy na pogrupowane dane - w tym przypadku zostawiamy wartość maksymalną każdej podgrupy. Równie dobrze można użyć pozostałych funkcji, które zostały wcześniej przedstawione.</p>
+<p>Funkcja reset_index() przenosi indeksy (w tym przypadku cylinders) do kolumny.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;cylinders&#39;</span><span class="p">)[[</span><span class="s1">&#39;horsepower&#39;</span><span class="p">,</span><span class="s1">&#39;model_year&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>horsepower</th>
+      <th>model_year</th>
+    </tr>
+    <tr>
+      <th>cylinders</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>110.0</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>115.0</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>103.0</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>165.0</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>230.0</td>
+      <td>81</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">grouped</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cylinders</th>
+      <th>horsepower</th>
+      <th>model_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>110.0</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>115.0</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>103.0</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>165.0</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>230.0</td>
+      <td>81</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="dzialanie-roznymi-funkcjami-na-kazda-z-kolumn">
+<h4>Działanie różnymi funkcjami na każdą z kolumn<a class="headerlink" href="#dzialanie-roznymi-funkcjami-na-kazda-z-kolumn" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">median_mean</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">median</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;cylinders&#39;</span><span class="p">)[[</span><span class="s1">&#39;horsepower&#39;</span><span class="p">,</span><span class="s1">&#39;model_year&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;horsepower&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span> <span class="c1"># dzialanie lista funkcji</span>
+                                                             <span class="s1">&#39;model_year&#39;</span><span class="p">:</span> <span class="n">median_mean</span><span class="p">})</span> <span class="c1"># dzialanie wlasna funkcja                                                           </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">horsepower</th>
+      <th>model_year</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>sum</th>
+      <th>max</th>
+      <th>median_mean</th>
+    </tr>
+    <tr>
+      <th>cylinders</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>397.0</td>
+      <td>110.0</td>
+      <td>-0.500000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>15578.0</td>
+      <td>115.0</td>
+      <td>0.926471</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>247.0</td>
+      <td>103.0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>8425.0</td>
+      <td>165.0</td>
+      <td>0.071429</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>16140.0</td>
+      <td>230.0</td>
+      <td>-0.902913</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="funkcja-lambda">
+<h3>Funkcja lambda<a class="headerlink" href="#funkcja-lambda" title="Permalink to this headline">¶</a></h3>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>Funkcja lambda jest bardzo przydatnym narzędziem. Działając funkcją lambda na ramkę danych prawdopodobnie nasze obliczenia wykonaja się szybciej niż robienie pętli czy innych operacji.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Na poczatku przygotujemy pogrupowana ramke danych. </span>
+<span class="c1"># Tym razem na pogrupowane dane zadzialamy w taki sposob ze dla kazdej grupy utworzymy liste wartosci ktore naleza do grupy</span>
+<span class="n">grouped2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;cylinders&#39;</span><span class="p">)[</span><span class="s1">&#39;horsepower&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cylinders</th>
+      <th>horsepower</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>[100.0, 110.0, 90.0, 97.0]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>[96.0, 92.0, 92.0, 90.0, 90.0, 88.0, 88.0, 88....</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>[67.0, 77.0, 103.0]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>[112.0, 110.0, 85.0, 120.0, 116.0, 110.0, 110....</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>[105.0, 155.0, 150.0, 142.0, 138.0, 135.0, 130...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Zauwazyc mozna, ze wartosci w liscie sie powtarzaja. Pozbyc sie ich mozemy dzieki wyrazeniu lambda</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped2</span><span class="p">[</span><span class="s1">&#39;unique_horsepower&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grouped2</span><span class="p">[</span><span class="s1">&#39;horsepower&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cylinders</th>
+      <th>horsepower</th>
+      <th>unique_horsepower</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>[100.0, 110.0, 90.0, 97.0]</td>
+      <td>[100.0, 110.0, 90.0, 97.0]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>[96.0, 92.0, 92.0, 90.0, 90.0, 88.0, 88.0, 88....</td>
+      <td>[96.0, 92.0, 90.0, 88.0, 86.0, 85.0, 84.0, 82....</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>[67.0, 77.0, 103.0]</td>
+      <td>[67.0, 77.0, 103.0]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>[112.0, 110.0, 85.0, 120.0, 116.0, 110.0, 110....</td>
+      <td>[112.0, 110.0, 85.0, 120.0, 116.0, 88.0, 76.0,...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>[105.0, 155.0, 150.0, 142.0, 138.0, 135.0, 130...</td>
+      <td>[105.0, 155.0, 150.0, 142.0, 138.0, 135.0, 130...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">grouped2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;horsepower&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>204
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">grouped2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;unique_horsepower&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>56
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tworzenie-nowych-kolumn">
+<h3>Tworzenie nowych kolumn<a class="headerlink" href="#tworzenie-nowych-kolumn" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">horsepower</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>30</th>
+      <td>23.0</td>
+      <td>4</td>
+      <td>151.0</td>
+      <td>NaN</td>
+      <td>3035</td>
+      <td>20.5</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>amc concord dl</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>34.5</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>NaN</td>
+      <td>2320</td>
+      <td>15.8</td>
+      <td>81</td>
+      <td>europe</td>
+      <td>renault 18i</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>40.9</td>
+      <td>4</td>
+      <td>85.0</td>
+      <td>NaN</td>
+      <td>1835</td>
+      <td>17.3</td>
+      <td>80</td>
+      <td>europe</td>
+      <td>renault lecar deluxe</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>23.6</td>
+      <td>4</td>
+      <td>140.0</td>
+      <td>NaN</td>
+      <td>2905</td>
+      <td>14.3</td>
+      <td>80</td>
+      <td>usa</td>
+      <td>ford mustang cobra</td>
+    </tr>
+    <tr>
+      <th>272</th>
+      <td>21.0</td>
+      <td>6</td>
+      <td>200.0</td>
+      <td>NaN</td>
+      <td>2875</td>
+      <td>17.0</td>
+      <td>74</td>
+      <td>usa</td>
+      <td>ford maverick</td>
+    </tr>
+    <tr>
+      <th>368</th>
+      <td>25.0</td>
+      <td>4</td>
+      <td>98.0</td>
+      <td>NaN</td>
+      <td>2046</td>
+      <td>19.0</td>
+      <td>71</td>
+      <td>usa</td>
+      <td>ford pinto</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>15.0</td>
+      <td>8</td>
+      <td>350.0</td>
+      <td>NaN</td>
+      <td>3693</td>
+      <td>11.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>W wyrażeniu lambda tworząc instrukcję warunkową if-else nie używamy standardowej struktury:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">):</span>   
+  <span class="n">do</span> <span class="n">sth</span>    
+<span class="k">else</span><span class="p">:</span>    
+  <span class="n">do</span> <span class="n">sth</span>
+</pre></div>
+</div>
+<p>Zamiast tego używamy struktury jednowierszowej:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">do</span> <span class="n">sth</span> <span class="k">if</span> <span class="p">(</span><span class="n">condtion</span><span class="p">)</span> <span class="k">else</span> <span class="n">do</span> <span class="n">sth</span> 
+</pre></div>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tworzymy nowa kolumne w taki sposob, ze wartosc nowej kolumny jest</span>
+<span class="c1"># rowna kolumnie &#39;horsepower&#39; jesli &#39;acceleration&#39; jest null (lub odwrotnie)</span>
+<span class="c1"># albo mnozeniu horsepower i aceeleration jesli obie wartosci nie sa null</span>
+
+<span class="c1"># W tym przypadku tworzymy wyrazenie lambda na calej ramce danych (nie na kolumnie jak bylo to wyzej).</span>
+<span class="c1"># Wazne jest aby w tym przypadku na koncu dodac axis=1.</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;horsepower*acceleration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> 
+                                         <span class="n">row</span><span class="p">[</span><span class="s1">&#39;horsepower&#39;</span><span class="p">]</span> <span class="c1"># Tworzymy wyrazenie warunkowe (Zwroc uwage na strukture!)</span>
+                                         <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;acceleration&#39;</span><span class="p">])</span>
+                                         <span class="k">else</span>
+                                             <span class="n">row</span><span class="p">[</span><span class="s1">&#39;acceleration&#39;</span><span class="p">]</span> 
+                                             <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;horsepower&#39;</span><span class="p">])</span>
+                                             <span class="k">else</span>
+                                                 <span class="n">row</span><span class="p">[</span><span class="s1">&#39;horsepower&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;acceleration&#39;</span><span class="p">],</span>
+                                         <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+                                        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+      <th>horsepower*acceleration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>22.0</td>
+      <td>6</td>
+      <td>232.0</td>
+      <td>112.0</td>
+      <td>2835</td>
+      <td>14.7</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford granada l</td>
+      <td>1646.4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.0</td>
+      <td>6</td>
+      <td>181.0</td>
+      <td>110.0</td>
+      <td>2945</td>
+      <td>16.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>buick century limited</td>
+      <td>1804.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>32.0</td>
+      <td>4</td>
+      <td>144.0</td>
+      <td>96.0</td>
+      <td>2665</td>
+      <td>13.9</td>
+      <td>82</td>
+      <td>japan</td>
+      <td>toyota celica gt</td>
+      <td>1334.4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>24.0</td>
+      <td>4</td>
+      <td>140.0</td>
+      <td>92.0</td>
+      <td>2865</td>
+      <td>16.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford fairmont futura</td>
+      <td>1508.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>26.0</td>
+      <td>4</td>
+      <td>156.0</td>
+      <td>92.0</td>
+      <td>2585</td>
+      <td>14.5</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>chrysler lebaron medallion</td>
+      <td>1334.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>II sposób</strong></p>
+<p>Wyniesienie wnętrza funkcji lambda do osobnej funkcji. Sprawia to, że kod staje się bardziej przejrzysty.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">row_operation</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;acceleration&#39;</span><span class="p">]):</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;horsepower&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;horsepower&#39;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;acceleration&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;horsepower&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;acceleration&#39;</span><span class="p">]</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;horsepower*acceleration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row_operation</span><span class="p">(</span><span class="n">row</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+      <th>horsepower*acceleration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>22.0</td>
+      <td>6</td>
+      <td>232.0</td>
+      <td>112.0</td>
+      <td>2835</td>
+      <td>14.7</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford granada l</td>
+      <td>1646.4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.0</td>
+      <td>6</td>
+      <td>181.0</td>
+      <td>110.0</td>
+      <td>2945</td>
+      <td>16.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>buick century limited</td>
+      <td>1804.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>32.0</td>
+      <td>4</td>
+      <td>144.0</td>
+      <td>96.0</td>
+      <td>2665</td>
+      <td>13.9</td>
+      <td>82</td>
+      <td>japan</td>
+      <td>toyota celica gt</td>
+      <td>1334.4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>24.0</td>
+      <td>4</td>
+      <td>140.0</td>
+      <td>92.0</td>
+      <td>2865</td>
+      <td>16.4</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>ford fairmont futura</td>
+      <td>1508.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>26.0</td>
+      <td>4</td>
+      <td>156.0</td>
+      <td>92.0</td>
+      <td>2585</td>
+      <td>14.5</td>
+      <td>82</td>
+      <td>usa</td>
+      <td>chrysler lebaron medallion</td>
+      <td>1334.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="tworzenie-nowych-wierszy">
+<h3>Tworzenie nowych wierszy<a class="headerlink" href="#tworzenie-nowych-wierszy" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tworzymy liste wartosci, ktore chcemy dopisac do ramki danych</span>
+<span class="n">row_list</span> <span class="o">=</span> <span class="p">[</span><span class="mf">31.0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">119.0</span><span class="p">,</span> <span class="mf">82.0</span><span class="p">,</span> <span class="mi">2720</span><span class="p">,</span> <span class="mf">19.4</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="s1">&#39;usa&#39;</span><span class="p">,</span> <span class="s1">&#39;chevy s-10&#39;</span><span class="p">,</span> <span class="mf">1590.8</span><span class="p">]</span>
+
+<span class="c1"># Przy pomocy loc dopisujemy wiersz z indeksem 398</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">398</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">row_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tworzymy nowy DataFrame ze slownika po czym dolaczamy do naszej ramki danych</span>
+<span class="n">row_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">31.0</span><span class="p">],</span> <span class="s1">&#39;cylinders&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;displacement&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">119.0</span><span class="p">],</span>
+            <span class="s1">&#39;horsepower&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">82.0</span><span class="p">],</span> <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2720</span><span class="p">],</span> <span class="s1">&#39;acceleration&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">19.4</span><span class="p">],</span>
+            <span class="s1">&#39;model_year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">82</span><span class="p">],</span> <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;usa&#39;</span><span class="p">],</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;chevy s-10&#39;</span><span class="p">],</span> <span class="s1">&#39;horsepower*acceleration&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1590.8</span><span class="p">]}</span>
+<span class="n">df_to_append</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">row_dict</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_to_append</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dodajac nowa ramke danych zauwazyc mozna ze indeksy pozostaja takie same jak w oryginalnych ramkach danych</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+      <th>horsepower*acceleration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>395</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>200.0</td>
+      <td>85.0</td>
+      <td>2587.0</td>
+      <td>16.0</td>
+      <td>70.0</td>
+      <td>usa</td>
+      <td>ford maverick</td>
+      <td>1360.0</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>97.0</td>
+      <td>46.0</td>
+      <td>1835.0</td>
+      <td>20.5</td>
+      <td>70.0</td>
+      <td>europe</td>
+      <td>volkswagen 1131 deluxe sedan</td>
+      <td>943.0</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>15.0</td>
+      <td>8.0</td>
+      <td>350.0</td>
+      <td>NaN</td>
+      <td>3693.0</td>
+      <td>11.5</td>
+      <td>70.0</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
+      <td>11.5</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>31.0</td>
+      <td>4.0</td>
+      <td>119.0</td>
+      <td>82.0</td>
+      <td>2720.0</td>
+      <td>19.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+      <td>1590.8</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>31.0</td>
+      <td>4.0</td>
+      <td>119.0</td>
+      <td>82.0</td>
+      <td>2720.0</td>
+      <td>19.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+      <td>1590.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+      <th>horsepower*acceleration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>395</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>200.0</td>
+      <td>85.0</td>
+      <td>2587.0</td>
+      <td>16.0</td>
+      <td>70.0</td>
+      <td>usa</td>
+      <td>ford maverick</td>
+      <td>1360.0</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>97.0</td>
+      <td>46.0</td>
+      <td>1835.0</td>
+      <td>20.5</td>
+      <td>70.0</td>
+      <td>europe</td>
+      <td>volkswagen 1131 deluxe sedan</td>
+      <td>943.0</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>15.0</td>
+      <td>8.0</td>
+      <td>350.0</td>
+      <td>NaN</td>
+      <td>3693.0</td>
+      <td>11.5</td>
+      <td>70.0</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
+      <td>11.5</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>31.0</td>
+      <td>4.0</td>
+      <td>119.0</td>
+      <td>82.0</td>
+      <td>2720.0</td>
+      <td>19.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+      <td>1590.8</td>
+    </tr>
+    <tr>
+      <th>399</th>
+      <td>31.0</td>
+      <td>4.0</td>
+      <td>119.0</td>
+      <td>82.0</td>
+      <td>2720.0</td>
+      <td>19.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+      <td>1590.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="usuwanie-danych">
+<h3>Usuwanie danych<a class="headerlink" href="#usuwanie-danych" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uwsuwanie wierszy</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="mi">399</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+      <th>horsepower*acceleration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>394</th>
+      <td>25.0</td>
+      <td>4.0</td>
+      <td>110.0</td>
+      <td>87.0</td>
+      <td>2672.0</td>
+      <td>17.5</td>
+      <td>70.0</td>
+      <td>europe</td>
+      <td>peugeot 504</td>
+      <td>1522.5</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>200.0</td>
+      <td>85.0</td>
+      <td>2587.0</td>
+      <td>16.0</td>
+      <td>70.0</td>
+      <td>usa</td>
+      <td>ford maverick</td>
+      <td>1360.0</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>97.0</td>
+      <td>46.0</td>
+      <td>1835.0</td>
+      <td>20.5</td>
+      <td>70.0</td>
+      <td>europe</td>
+      <td>volkswagen 1131 deluxe sedan</td>
+      <td>943.0</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>15.0</td>
+      <td>8.0</td>
+      <td>350.0</td>
+      <td>NaN</td>
+      <td>3693.0</td>
+      <td>11.5</td>
+      <td>70.0</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
+      <td>11.5</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>31.0</td>
+      <td>4.0</td>
+      <td>119.0</td>
+      <td>82.0</td>
+      <td>2720.0</td>
+      <td>19.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+      <td>1590.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usuwanie kolumny</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;horsepower*acceleration&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>22.0</td>
+      <td>6.0</td>
+      <td>232.0</td>
+      <td>112.0</td>
+      <td>2835.0</td>
+      <td>14.7</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>ford granada l</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.0</td>
+      <td>6.0</td>
+      <td>181.0</td>
+      <td>110.0</td>
+      <td>2945.0</td>
+      <td>16.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>buick century limited</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>32.0</td>
+      <td>4.0</td>
+      <td>144.0</td>
+      <td>96.0</td>
+      <td>2665.0</td>
+      <td>13.9</td>
+      <td>82.0</td>
+      <td>japan</td>
+      <td>toyota celica gt</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>24.0</td>
+      <td>4.0</td>
+      <td>140.0</td>
+      <td>92.0</td>
+      <td>2865.0</td>
+      <td>16.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>ford fairmont futura</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>156.0</td>
+      <td>92.0</td>
+      <td>2585.0</td>
+      <td>14.5</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chrysler lebaron medallion</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="dzialania-na-wartosciach-nullowych">
+<h3>Działania na wartościach nullowych<a class="headerlink" href="#dzialania-na-wartosciach-nullowych" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Patrzymy czy ktorykolwiek (any) wiersz (axis=1) jest rowny null</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mask</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      False
+1      False
+2      False
+3      False
+4      False
+       ...  
+394    False
+395    False
+396    False
+397     True
+398    False
+Length: 399, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>30</th>
+      <td>23.0</td>
+      <td>4.0</td>
+      <td>151.0</td>
+      <td>NaN</td>
+      <td>3035.0</td>
+      <td>20.5</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>amc concord dl</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>34.5</td>
+      <td>4.0</td>
+      <td>100.0</td>
+      <td>NaN</td>
+      <td>2320.0</td>
+      <td>15.8</td>
+      <td>81.0</td>
+      <td>europe</td>
+      <td>renault 18i</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>40.9</td>
+      <td>4.0</td>
+      <td>85.0</td>
+      <td>NaN</td>
+      <td>1835.0</td>
+      <td>17.3</td>
+      <td>80.0</td>
+      <td>europe</td>
+      <td>renault lecar deluxe</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>23.6</td>
+      <td>4.0</td>
+      <td>140.0</td>
+      <td>NaN</td>
+      <td>2905.0</td>
+      <td>14.3</td>
+      <td>80.0</td>
+      <td>usa</td>
+      <td>ford mustang cobra</td>
+    </tr>
+    <tr>
+      <th>272</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>200.0</td>
+      <td>NaN</td>
+      <td>2875.0</td>
+      <td>17.0</td>
+      <td>74.0</td>
+      <td>usa</td>
+      <td>ford maverick</td>
+    </tr>
+    <tr>
+      <th>368</th>
+      <td>25.0</td>
+      <td>4.0</td>
+      <td>98.0</td>
+      <td>NaN</td>
+      <td>2046.0</td>
+      <td>19.0</td>
+      <td>71.0</td>
+      <td>usa</td>
+      <td>ford pinto</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>15.0</td>
+      <td>8.0</td>
+      <td>350.0</td>
+      <td>NaN</td>
+      <td>3693.0</td>
+      <td>11.5</td>
+      <td>70.0</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>Nie ma prostej odpowiedzi jak zastąpić wartości nullowe. Wszystko zależy od tego na jakim zbiorze pracujemy. Czasem wiersze posiadające nulle sa usuwane o ile ich liczebność stanowi odsetek całego zbioru. Prostą metodą jest zastąpienie nulli wartością średnią lub medianą dla danych grup (tj. np. średnia wartosc horsepower dla samochodów z 4 cylindrami gdzie model_year jest powyżej 80). Wszystko zalezy od badanego problemu.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>399.000000</td>
+      <td>399.000000</td>
+      <td>399.000000</td>
+      <td>392.000000</td>
+      <td>399.000000</td>
+      <td>399.000000</td>
+      <td>399.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>23.533333</td>
+      <td>5.451128</td>
+      <td>193.239348</td>
+      <td>104.257653</td>
+      <td>2969.796992</td>
+      <td>15.577694</td>
+      <td>76.025063</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>7.815149</td>
+      <td>1.700426</td>
+      <td>104.205397</td>
+      <td>38.385478</td>
+      <td>845.870145</td>
+      <td>2.760895</td>
+      <td>3.705133</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>9.000000</td>
+      <td>3.000000</td>
+      <td>68.000000</td>
+      <td>46.000000</td>
+      <td>1613.000000</td>
+      <td>8.000000</td>
+      <td>70.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>17.500000</td>
+      <td>4.000000</td>
+      <td>104.500000</td>
+      <td>75.000000</td>
+      <td>2224.500000</td>
+      <td>13.850000</td>
+      <td>73.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>23.000000</td>
+      <td>4.000000</td>
+      <td>146.000000</td>
+      <td>92.500000</td>
+      <td>2800.000000</td>
+      <td>15.500000</td>
+      <td>76.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>29.000000</td>
+      <td>8.000000</td>
+      <td>262.000000</td>
+      <td>125.000000</td>
+      <td>3607.000000</td>
+      <td>17.200000</td>
+      <td>79.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>46.600000</td>
+      <td>8.000000</td>
+      <td>455.000000</td>
+      <td>230.000000</td>
+      <td>5140.000000</td>
+      <td>24.800000</td>
+      <td>82.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">2000</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>43.000000</td>
+      <td>43.0</td>
+      <td>43.000000</td>
+      <td>42.000000</td>
+      <td>43.000000</td>
+      <td>43.000000</td>
+      <td>43.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>33.209302</td>
+      <td>4.0</td>
+      <td>87.534884</td>
+      <td>63.714286</td>
+      <td>1890.627907</td>
+      <td>16.932558</td>
+      <td>77.209302</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>4.545789</td>
+      <td>0.0</td>
+      <td>8.404502</td>
+      <td>8.267733</td>
+      <td>95.710880</td>
+      <td>2.278650</td>
+      <td>3.549367</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>26.000000</td>
+      <td>4.0</td>
+      <td>68.000000</td>
+      <td>46.000000</td>
+      <td>1613.000000</td>
+      <td>12.200000</td>
+      <td>70.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>29.900000</td>
+      <td>4.0</td>
+      <td>83.000000</td>
+      <td>60.000000</td>
+      <td>1829.500000</td>
+      <td>15.250000</td>
+      <td>74.500000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>32.800000</td>
+      <td>4.0</td>
+      <td>90.000000</td>
+      <td>66.500000</td>
+      <td>1937.000000</td>
+      <td>16.500000</td>
+      <td>78.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>36.050000</td>
+      <td>4.0</td>
+      <td>91.000000</td>
+      <td>69.750000</td>
+      <td>1969.000000</td>
+      <td>18.900000</td>
+      <td>80.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>44.600000</td>
+      <td>4.0</td>
+      <td>105.000000</td>
+      <td>80.000000</td>
+      <td>1995.000000</td>
+      <td>21.500000</td>
+      <td>82.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Widać, że konie mechaniczne samochodów z wagą poniżej 2000 różnią sie statystykami od reszty zbioru. Z tego względu wartość null dla wiersza 330 nadpiszemy średnią wartoscią ‘horsepower’ dla samochodów z wagą 2000 (zauważ, że mediana i średnia są do siebie zbliżone).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">low_weight_mean</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">2000</span><span class="p">][</span><span class="s1">&#39;horsepower&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1"># int bo nie moze byc polowa konia mechanicznego</span>
+
+<span class="c1"># Do nadpisywania wartosci nullowych sluzy funkcja fillna()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">2000</span><span class="p">,</span> <span class="s1">&#39;horsepower&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">2000</span><span class="p">,</span> <span class="s1">&#39;horsepower&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">low_weight_mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>30</th>
+      <td>23.0</td>
+      <td>4.0</td>
+      <td>151.0</td>
+      <td>NaN</td>
+      <td>3035.0</td>
+      <td>20.5</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>amc concord dl</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>34.5</td>
+      <td>4.0</td>
+      <td>100.0</td>
+      <td>NaN</td>
+      <td>2320.0</td>
+      <td>15.8</td>
+      <td>81.0</td>
+      <td>europe</td>
+      <td>renault 18i</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>40.9</td>
+      <td>4.0</td>
+      <td>85.0</td>
+      <td>63.0</td>
+      <td>1835.0</td>
+      <td>17.3</td>
+      <td>80.0</td>
+      <td>europe</td>
+      <td>renault lecar deluxe</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>23.6</td>
+      <td>4.0</td>
+      <td>140.0</td>
+      <td>NaN</td>
+      <td>2905.0</td>
+      <td>14.3</td>
+      <td>80.0</td>
+      <td>usa</td>
+      <td>ford mustang cobra</td>
+    </tr>
+    <tr>
+      <th>272</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>200.0</td>
+      <td>NaN</td>
+      <td>2875.0</td>
+      <td>17.0</td>
+      <td>74.0</td>
+      <td>usa</td>
+      <td>ford maverick</td>
+    </tr>
+    <tr>
+      <th>368</th>
+      <td>25.0</td>
+      <td>4.0</td>
+      <td>98.0</td>
+      <td>NaN</td>
+      <td>2046.0</td>
+      <td>19.0</td>
+      <td>71.0</td>
+      <td>usa</td>
+      <td>ford pinto</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>15.0</td>
+      <td>8.0</td>
+      <td>350.0</td>
+      <td>NaN</td>
+      <td>3693.0</td>
+      <td>11.5</td>
+      <td>70.0</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usuwanie wierszy z nullami</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="usuwanie-duplikatow">
+<h3>Usuwanie duplikatow<a class="headerlink" href="#usuwanie-duplikatow" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Zauwazmy ze mamy duplikat (indeks 392 i 17)</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;chevy s-10&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>17</th>
+      <td>31.0</td>
+      <td>4.0</td>
+      <td>119.0</td>
+      <td>82.0</td>
+      <td>2720.0</td>
+      <td>19.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+    </tr>
+    <tr>
+      <th>392</th>
+      <td>31.0</td>
+      <td>4.0</td>
+      <td>119.0</td>
+      <td>82.0</td>
+      <td>2720.0</td>
+      <td>19.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;chevy s-10&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>17</th>
+      <td>31.0</td>
+      <td>4.0</td>
+      <td>119.0</td>
+      <td>82.0</td>
+      <td>2720.0</td>
+      <td>19.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="zmiana-nazw-kolumn">
+<h3>Zmiana nazw kolumn<a class="headerlink" href="#zmiana-nazw-kolumn" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do parametru columns przypisujemy slownik gdzie klucze to aktualna nazwa kolumny a wartosci to nowe nazwy</span>
+<span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="s1">&#39;miles_per_gallon&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>miles_per_gallon</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>22.0</td>
+      <td>6.0</td>
+      <td>232.0</td>
+      <td>112.0</td>
+      <td>2835.0</td>
+      <td>14.7</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>ford granada l</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.0</td>
+      <td>6.0</td>
+      <td>181.0</td>
+      <td>110.0</td>
+      <td>2945.0</td>
+      <td>16.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>buick century limited</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>32.0</td>
+      <td>4.0</td>
+      <td>144.0</td>
+      <td>96.0</td>
+      <td>2665.0</td>
+      <td>13.9</td>
+      <td>82.0</td>
+      <td>japan</td>
+      <td>toyota celica gt</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>24.0</td>
+      <td>4.0</td>
+      <td>140.0</td>
+      <td>92.0</td>
+      <td>2865.0</td>
+      <td>16.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>ford fairmont futura</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>156.0</td>
+      <td>92.0</td>
+      <td>2585.0</td>
+      <td>14.5</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chrysler lebaron medallion</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="zmiana-danych-liczbowych-na-kategorie">
+<h3>Zmiana danych liczbowych na kategorie<a class="headerlink" href="#zmiana-danych-liczbowych-na-kategorie" title="Permalink to this headline">¶</a></h3>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>Czasem bardziej miarodajna jest informacja, że dany obiekt należy do jakiejś grupy zamiast przypisanej do niego konkretnej liczby. Np. znając wzrost i wagę danego pacjeta można stworzyć zmienną kategoryczną oznaczającą jak bardzo otyły jest pacjent.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;light weight count </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">weight</span><span class="o">&lt;=</span><span class="mi">2000</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;normal weight </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">weight</span><span class="o">&gt;</span><span class="mi">2000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">weight</span><span class="o">&lt;=</span><span class="mi">3600</span><span class="p">)])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;heavy weight count </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">weight</span><span class="o">&gt;</span><span class="mi">3600</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>light weight count 44
+normal weight 248
+heavy weight count 100
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stworzenie 3 przedzialow (waga do 2000, miedzy 2000 a 3600 i powyzej 3600)</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2000</span><span class="p">),(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">3600</span><span class="p">),(</span><span class="mi">3600</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+
+<span class="c1"># Przypisanie wartosci kolumny &#39;weight&#39; do odpowiedniego przedzialu</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="n">bins</span><span class="p">)</span>
+<span class="n">x</span><span class="o">.</span><span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;light_weight&#39;</span><span class="p">,</span> <span class="s1">&#39;normal_weight&#39;</span><span class="p">,</span> <span class="s1">&#39;heavy_weight&#39;</span><span class="p">]</span>
+
+<span class="c1"># Stworzenie nowej kolumny z kategoriami</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight_category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>miles_per_gallon</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+      <th>weight_category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>387</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>199.0</td>
+      <td>90.0</td>
+      <td>2648.0</td>
+      <td>15.0</td>
+      <td>70.0</td>
+      <td>usa</td>
+      <td>amc gremlin</td>
+      <td>normal_weight</td>
+    </tr>
+    <tr>
+      <th>388</th>
+      <td>27.0</td>
+      <td>4.0</td>
+      <td>97.0</td>
+      <td>88.0</td>
+      <td>2130.0</td>
+      <td>14.5</td>
+      <td>70.0</td>
+      <td>japan</td>
+      <td>datsun pl510</td>
+      <td>normal_weight</td>
+    </tr>
+    <tr>
+      <th>389</th>
+      <td>25.0</td>
+      <td>4.0</td>
+      <td>110.0</td>
+      <td>87.0</td>
+      <td>2672.0</td>
+      <td>17.5</td>
+      <td>70.0</td>
+      <td>europe</td>
+      <td>peugeot 504</td>
+      <td>normal_weight</td>
+    </tr>
+    <tr>
+      <th>390</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>200.0</td>
+      <td>85.0</td>
+      <td>2587.0</td>
+      <td>16.0</td>
+      <td>70.0</td>
+      <td>usa</td>
+      <td>ford maverick</td>
+      <td>normal_weight</td>
+    </tr>
+    <tr>
+      <th>391</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>97.0</td>
+      <td>46.0</td>
+      <td>1835.0</td>
+      <td>20.5</td>
+      <td>70.0</td>
+      <td>europe</td>
+      <td>volkswagen 1131 deluxe sedan</td>
+      <td>light_weight</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="iterowanie-po-kolejnych-wierszach">
+<h3>Iterowanie po kolejnych wierszach<a class="headerlink" href="#iterowanie-po-kolejnych-wierszach" title="Permalink to this headline">¶</a></h3>
+<p>Chcąc napisać pętlę, która będzie iterowana po kolejnych wierszach można użyć funkcji iterrows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Indeks: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">, Liczba koni mechanicznych: </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">horsepower</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Indeks: 0, Liczba koni mechanicznych: 112.0
+Indeks: 1, Liczba koni mechanicznych: 110.0
+Indeks: 2, Liczba koni mechanicznych: 96.0
+Indeks: 3, Liczba koni mechanicznych: 92.0
+Indeks: 4, Liczba koni mechanicznych: 92.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="laczenie-i-transformacja-danych">
+<h2>Lączenie i transformacja danych<a class="headerlink" href="#laczenie-i-transformacja-danych" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="merge">
+<h3>Merge<a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h3>
+<p>Funkcja merge łączy dwie ramki danych w analogiczny sposób jak dzieje się to w sqlu. Definiuje się, które ramki danych chce się połączyć, w jaki sposób (nazwy te same co w sql) oraz ze względu, na które kolumny.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Przypisanie pierwszych 50 wartosci df do oddzielnej ramki danych</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Stworzenie nowej kolumny name_origin</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;name_origin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39; from &#39;</span><span class="o">+</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;origin&#39;</span><span class="p">]),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Zostawienie tylko trzech kolumn</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="s1">&#39;name_origin&#39;</span><span class="p">]]</span>
+<span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>origin</th>
+      <th>name_origin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ford granada l</td>
+      <td>usa</td>
+      <td>ford granada l from usa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>buick century limited</td>
+      <td>usa</td>
+      <td>buick century limited from usa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>toyota celica gt</td>
+      <td>japan</td>
+      <td>toyota celica gt from japan</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ford fairmont futura</td>
+      <td>usa</td>
+      <td>ford fairmont futura from usa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chrysler lebaron medallion</td>
+      <td>usa</td>
+      <td>chrysler lebaron medallion from usa</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_merged</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> 
+                    <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="c1"># parametr how mowi jak dwie ramki danych maja byc polaczone</span>
+                    <span class="n">on</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;origin&#39;</span><span class="p">]</span><span class="c1"># parametr on mowi wg jakich kolumn laczone sa ramki danych </span>
+                    <span class="p">)</span>                     <span class="c1"># (jesli ich nazwy sie roznia to uzywamy left_on, right_on</span>
+<span class="n">df_merged</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>miles_per_gallon</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+      <th>weight_category</th>
+      <th>name_origin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>22.0</td>
+      <td>6.0</td>
+      <td>232.0</td>
+      <td>112.0</td>
+      <td>2835.0</td>
+      <td>14.7</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>ford granada l</td>
+      <td>normal_weight</td>
+      <td>ford granada l from usa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.0</td>
+      <td>6.0</td>
+      <td>181.0</td>
+      <td>110.0</td>
+      <td>2945.0</td>
+      <td>16.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>buick century limited</td>
+      <td>normal_weight</td>
+      <td>buick century limited from usa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>32.0</td>
+      <td>4.0</td>
+      <td>144.0</td>
+      <td>96.0</td>
+      <td>2665.0</td>
+      <td>13.9</td>
+      <td>82.0</td>
+      <td>japan</td>
+      <td>toyota celica gt</td>
+      <td>normal_weight</td>
+      <td>toyota celica gt from japan</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>24.0</td>
+      <td>4.0</td>
+      <td>140.0</td>
+      <td>92.0</td>
+      <td>2865.0</td>
+      <td>16.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>ford fairmont futura</td>
+      <td>normal_weight</td>
+      <td>ford fairmont futura from usa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>156.0</td>
+      <td>92.0</td>
+      <td>2585.0</td>
+      <td>14.5</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chrysler lebaron medallion</td>
+      <td>normal_weight</td>
+      <td>chrysler lebaron medallion from usa</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="concat">
+<h3>Concat<a class="headerlink" href="#concat" title="Permalink to this headline">¶</a></h3>
+<p>Funkcja concat działa podobnie do wyżej przedstawionego append lub do merge z parametrem how=’inner’ (zależy czy działamy na wierszach (axis=0) czy kolumnach (axis=1)).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Laczenie kolumn (podobne do merge z parametrem how=&#39;inner&#39;)</span>
+<span class="n">df_concat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_concat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>miles_per_gallon</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+      <th>weight_category</th>
+      <th>name</th>
+      <th>origin</th>
+      <th>name_origin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>22.0</td>
+      <td>6.0</td>
+      <td>232.0</td>
+      <td>112.0</td>
+      <td>2835.0</td>
+      <td>14.7</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>ford granada l</td>
+      <td>normal_weight</td>
+      <td>ford granada l</td>
+      <td>usa</td>
+      <td>ford granada l from usa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.0</td>
+      <td>6.0</td>
+      <td>181.0</td>
+      <td>110.0</td>
+      <td>2945.0</td>
+      <td>16.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>buick century limited</td>
+      <td>normal_weight</td>
+      <td>buick century limited</td>
+      <td>usa</td>
+      <td>buick century limited from usa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>32.0</td>
+      <td>4.0</td>
+      <td>144.0</td>
+      <td>96.0</td>
+      <td>2665.0</td>
+      <td>13.9</td>
+      <td>82.0</td>
+      <td>japan</td>
+      <td>toyota celica gt</td>
+      <td>normal_weight</td>
+      <td>toyota celica gt</td>
+      <td>japan</td>
+      <td>toyota celica gt from japan</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>24.0</td>
+      <td>4.0</td>
+      <td>140.0</td>
+      <td>92.0</td>
+      <td>2865.0</td>
+      <td>16.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>ford fairmont futura</td>
+      <td>normal_weight</td>
+      <td>ford fairmont futura</td>
+      <td>usa</td>
+      <td>ford fairmont futura from usa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>156.0</td>
+      <td>92.0</td>
+      <td>2585.0</td>
+      <td>14.5</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chrysler lebaron medallion</td>
+      <td>normal_weight</td>
+      <td>chrysler lebaron medallion</td>
+      <td>usa</td>
+      <td>chrysler lebaron medallion from usa</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dodawanie wierszy (wracamy do naszej wczesniejszej jednowierszowej ramki danych df_to_append) (podobne do append)</span>
+<span class="n">df_to_append</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="s1">&#39;miles_per_gallon&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_to_append</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;horsepower*acceleration&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_concat_row</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_to_append</span><span class="p">,</span> <span class="n">df</span><span class="p">])</span>
+<span class="n">df_concat_row</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>miles_per_gallon</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+      <th>weight_category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>31.0</td>
+      <td>4.0</td>
+      <td>119.0</td>
+      <td>82.0</td>
+      <td>2720.0</td>
+      <td>19.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>chevy s-10</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>22.0</td>
+      <td>6.0</td>
+      <td>232.0</td>
+      <td>112.0</td>
+      <td>2835.0</td>
+      <td>14.7</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>ford granada l</td>
+      <td>normal_weight</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.0</td>
+      <td>6.0</td>
+      <td>181.0</td>
+      <td>110.0</td>
+      <td>2945.0</td>
+      <td>16.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>buick century limited</td>
+      <td>normal_weight</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>32.0</td>
+      <td>4.0</td>
+      <td>144.0</td>
+      <td>96.0</td>
+      <td>2665.0</td>
+      <td>13.9</td>
+      <td>82.0</td>
+      <td>japan</td>
+      <td>toyota celica gt</td>
+      <td>normal_weight</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>24.0</td>
+      <td>4.0</td>
+      <td>140.0</td>
+      <td>92.0</td>
+      <td>2865.0</td>
+      <td>16.4</td>
+      <td>82.0</td>
+      <td>usa</td>
+      <td>ford fairmont futura</td>
+      <td>normal_weight</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="melt">
+<h3>Melt<a class="headerlink" href="#melt" title="Permalink to this headline">¶</a></h3>
+<p>Funkcja melt sprowadza kolumny do wierszy. Przykład poniżej.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>miles_per_gallon</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>miles_per_gallon</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>miles_per_gallon</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>miles_per_gallon</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>miles_per_gallon</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3915</th>
+      <td>weight_category</td>
+      <td>normal_weight</td>
+    </tr>
+    <tr>
+      <th>3916</th>
+      <td>weight_category</td>
+      <td>normal_weight</td>
+    </tr>
+    <tr>
+      <th>3917</th>
+      <td>weight_category</td>
+      <td>normal_weight</td>
+    </tr>
+    <tr>
+      <th>3918</th>
+      <td>weight_category</td>
+      <td>normal_weight</td>
+    </tr>
+    <tr>
+      <th>3919</th>
+      <td>weight_category</td>
+      <td>light_weight</td>
+    </tr>
+  </tbody>
+</table>
+<p>3920 rows × 2 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="pivottable">
+<h3>PivotTable<a class="headerlink" href="#pivottable" title="Permalink to this headline">¶</a></h3>
+<p>Tworzenie tabeli przestawnej analogicznie jak w excelu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;cylinders&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="5" halign="left">median</th>
+      <th colspan="5" halign="left">mean</th>
+    </tr>
+    <tr>
+      <th>cylinders</th>
+      <th>3.0</th>
+      <th>4.0</th>
+      <th>5.0</th>
+      <th>6.0</th>
+      <th>8.0</th>
+      <th>3.0</th>
+      <th>4.0</th>
+      <th>5.0</th>
+      <th>6.0</th>
+      <th>8.0</th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>amc ambassador brougham</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3821.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3821.0</td>
+    </tr>
+    <tr>
+      <th>amc ambassador dpl</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3850.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3850.0</td>
+    </tr>
+    <tr>
+      <th>amc ambassador sst</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3672.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3672.0</td>
+    </tr>
+    <tr>
+      <th>amc concord</th>
+      <td>NaN</td>
+      <td>3003.0</td>
+      <td>NaN</td>
+      <td>3210.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3003.0</td>
+      <td>NaN</td>
+      <td>3210.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>amc concord d/l</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3410.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3410.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>vw dasher (diesel)</th>
+      <td>NaN</td>
+      <td>2335.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2335.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>vw pickup</th>
+      <td>NaN</td>
+      <td>2130.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2130.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>vw rabbit</th>
+      <td>NaN</td>
+      <td>2040.5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2040.5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>vw rabbit c (diesel)</th>
+      <td>NaN</td>
+      <td>2085.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2085.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>vw rabbit custom</th>
+      <td>NaN</td>
+      <td>1925.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1925.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>301 rows × 10 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="explode">
+<h3>Explode<a class="headerlink" href="#explode" title="Permalink to this headline">¶</a></h3>
+<p>Możliwe, że mając dane w kolumnie zapisane w formie listy będziemy chcieli je rozbić na oddzielne kolumny. W tym przypadku przydatna będzie funkcja explode.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wrocmy do ramki danych grouped2</span>
+<span class="n">grouped2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cylinders</th>
+      <th>horsepower</th>
+      <th>unique_horsepower</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>[100.0, 110.0, 90.0, 97.0]</td>
+      <td>[100.0, 110.0, 90.0, 97.0]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>[96.0, 92.0, 92.0, 90.0, 90.0, 88.0, 88.0, 88....</td>
+      <td>[96.0, 92.0, 90.0, 88.0, 86.0, 85.0, 84.0, 82....</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>[67.0, 77.0, 103.0]</td>
+      <td>[67.0, 77.0, 103.0]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>[112.0, 110.0, 85.0, 120.0, 116.0, 110.0, 110....</td>
+      <td>[112.0, 110.0, 85.0, 120.0, 116.0, 88.0, 76.0,...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>[105.0, 155.0, 150.0, 142.0, 138.0, 135.0, 130...</td>
+      <td>[105.0, 155.0, 150.0, 142.0, 138.0, 135.0, 130...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_to_unstack</span> <span class="o">=</span> <span class="n">grouped2</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;horsepower&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_to_unstack</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;unique_horsepower&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cylinders</th>
+      <th>unique_horsepower</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>210</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>193</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>126 rows × 2 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./1. Tutorial pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Przedmiot specjalistyczny, 1 semestr studiów magisterskich matematyki na Politechnice Gdańskiej</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pakiet NumPy - tutorial</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By codersi<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
