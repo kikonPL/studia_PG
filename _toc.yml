@@ -1,0 +1,17 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: 1. Tutorial pandas/1_Tutorial pandas
+- file: 2. Numpy_tutorial/2_Tutorial numpy
+- file: 3. Wizualizacja_danych/3_Wizualizacja danych
+- file: 4. Analiza_statystyczna/4_Analiza statystyczna
+- file: 5. Wykrywanie_anomalii/Wykrywanie_anomalii_teoria
+- file: 5. Wykrywanie_anomalii/5_Wykrywanie anomalii tutorial
+- file: 6. Inzynieria_cech/6_Inzynieria cech
+- file: 7. Klasteryzacja/7_Klasteryzacja
+- file: 8. Wyjasnialnosc/8_Tutorial metryki statystyczne
+- file: 9. XAI/Wyjasnialnosc_modeli_definicje
+- file: 9. XAI/9_Wyjasnialnosc modeli
