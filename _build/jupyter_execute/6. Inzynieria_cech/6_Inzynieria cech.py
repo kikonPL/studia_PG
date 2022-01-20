@@ -420,7 +420,7 @@ from category_encoders.james_stein import JamesSteinEncoder
 
 # tworzymy obiekt klasy JamesSteinEncoder, wybierając kolumnę brand do przekształcenia, domyślnie przekształcone zostaną wszystkie kolumny kategoryczne
 
-# In[ ]:
+# In[30]:
 
 
 jse = JamesSteinEncoder(cols=["brand"])
@@ -428,7 +428,7 @@ jse = JamesSteinEncoder(cols=["brand"])
 
 # tak jak w transformerach z biblioteki sklearn także tutaj posługujemy się metodami <b>fit</b> i <b>transform</b>, jednak jako, że jest to kodowanie zmienną celu niezbędne jest jej podanie do metody fit, dlatego najpierw wydzielimy zmienną celu
 
-# In[ ]:
+# In[31]:
 
 
 y_train = X_train.selling_price
@@ -437,7 +437,7 @@ X_train = X_train.drop("selling_price",axis=1)
 X_test = X_test.drop("selling_price",axis=1)
 
 
-# In[ ]:
+# In[32]:
 
 
 jse.fit(X_train,y_train)
@@ -448,13 +448,13 @@ X_train_jse.head()
 
 # jak widzimy zmienna brand została teraz zastąpiona estymatami średniej wartości zmiennej celu w zależności od brandu
 
-# # łączenie atrybutów cech kategorycznych
+# # Łączenie atrybutów cech kategorycznych
 
 # Oprócz standardowych metod transformacji zmiennych kategorycznych opisanych w poprzedniej sekcji można też stosować różne przekształcenia polegające na łączeniu pierwotnych atrybutów w podgrupy. Takie łączenie może być oparte na podobieństwie atrybutów pod katęm statystycznym np. zbliżony poziom średniej wartości zmiennej celu lub, co bardziej zalecane - na wiedzy domenowej.
 
 # Tutaj zaprezentujemy prosty przykład łączenia atrybutów oparty na wiedzy domenowej - załóżmy, że znamy podział wszystkich marek samochodów ze zmiennej brand na 3 relatywnie jednolite podgrupy - marki podstawowe, marki premium i marki luksusowe. Na tej podstawie stworzymy nową zmienną korzystając z prostej funkcji:
 
-# In[ ]:
+# In[33]:
 
 
 def brand_binning(brand):
@@ -469,7 +469,7 @@ def brand_binning(brand):
     return result
 
 
-# In[ ]:
+# In[34]:
 
 
 X_train["brand_binned"] = X_train["brand"].map(lambda x:brand_binning(x))
@@ -479,7 +479,7 @@ X_train.head()
 
 # możemy też sprawdzić jak wygląda unikalne przypisanie pomiędzy pierwotną a zgrupowaną zmienną:
 
-# In[ ]:
+# In[35]:
 
 
 X_train[["brand","brand_binned"]].drop_duplicates().sort_values(by="brand_binned")
@@ -493,7 +493,7 @@ X_train[["brand","brand_binned"]].drop_duplicates().sort_values(by="brand_binned
 
 # Przykładem prostej cechy opartej na wiedzy domenowej może być wiek samochodu w momencie sprzedaży. Nie mamy tutaj informacji o dacie transakcji, dlatego można dla ułatwienia założyć, że wszystkie transakcje odbyły się w bieżącym roku.
 
-# In[ ]:
+# In[36]:
 
 
 X_train["age"] = 2021 - X_train["year_manufactured"]
@@ -503,7 +503,7 @@ X_train
 
 # Zmienne interakcji można wygenerować stosując np. iloczyny poszczególnych zmiennych numerycznych, tutaj wydaje się to nie być najlepszy pomysł, ponieważ intuicyjnie czujemy, że np mnożenie przebiegu * rok produkcji nie będzie zbyt dobrą cechą predykcyjną. Można natomiast wyliczyć np średni roczny przebieg dzieląc przebieg przez dodany powyżej wiek samochodu.
 
-# In[ ]:
+# In[37]:
 
 
 X_train["avg_yearly_mileage"] = np.round(X_train["mileage"]/X_train["age"])
@@ -513,7 +513,7 @@ X_train
 
 # Innym przykładem zmiennej opartej stricte na wiedzy domenowej łączecej ze sobą informacje ze zmiennych numerycznych i kategorycznych mogła by być informacja o klasycznych modelach. Załóżmy, że modele luksusowych marek wyprodukowane przed 1970 rokiem są modelami klasycznymi i jeśli ich stan jest co najmniej dobry to ich cena jest znacznie wyższa niż by to wynikało z wieku auta, gdzie normalnie spodziewamy się ujemnej relacji z ceną sprzedaży.
 
-# In[ ]:
+# In[38]:
 
 
 X_train.loc[(X_train.brand_binned=="luxury")&(X_train.year_manufactured<=1970)&(X_train.condition_transformed>2.0),"is_classic"]=1
@@ -531,7 +531,7 @@ X_train["is_classic"].value_counts()
 
 # Często spotykaną jest po prostu logarytmowanie zmiennych numerycznych, tutaj natomiast posłużymy się gotowym transformerem z biblioteki sklearn, a mianowicie <b>PowerTransformer</b>
 
-# In[ ]:
+# In[39]:
 
 
 from sklearn.preprocessing import PowerTransformer
@@ -539,7 +539,7 @@ from sklearn.preprocessing import PowerTransformer
 
 # zanim dokonamy transformacji sprawdźmy jak wyglądają rozkłady zmiennych numerycznych, ograniczymy się tutaj do przebiegu, wieku i średniego przebiegu
 
-# In[ ]:
+# In[40]:
 
 
 num_columns = ["mileage", "age","avg_yearly_mileage"]
@@ -548,7 +548,7 @@ X_train[num_columns].hist(figsize=(15,9), bins=30)
 
 # można tu zaobserwować, że rozkład przebiegu jest silnie skośny, pozostałe 2 zmienne mają rozkład zbliżony do jednostajnego
 
-# In[ ]:
+# In[41]:
 
 
 pt=PowerTransformer(standardize=False)
@@ -562,7 +562,7 @@ pt=PowerTransformer(standardize=False)
 # Domyślna transformacja czyli metoda Yeo-Johnsona może być stosowana niezależnie od znaku transformowanych zmiennych, natomiast alternatywna transformacja Box-Cox wymaga ściśle dodatnich zmiennych na wejściu.
 # </div>
 
-# In[ ]:
+# In[42]:
 
 
 pt.fit(X_train[num_columns])
@@ -574,13 +574,13 @@ X_test_num_transformed =  pd.DataFrame(pt.transform(X_test[num_columns]), column
 
 # Przeanalizujmy jak mocno zmieniły się rozkłady poszczególnych zmiennych:
 
-# In[ ]:
+# In[43]:
 
 
 X_train_num_transformed.hist(figsize=(15,9), bins=30)
 
 
-# In[ ]:
+# In[44]:
 
 
 X_test_num_transformed.hist(figsize=(15,9), bins=30)
@@ -590,7 +590,7 @@ X_test_num_transformed.hist(figsize=(15,9), bins=30)
 # 
 # Wypróbujmy inny sposób modyfikacji rozkładu - <b>QuantileTransformer</b>
 
-# In[ ]:
+# In[45]:
 
 
 from sklearn.preprocessing import QuantileTransformer
@@ -598,13 +598,13 @@ from sklearn.preprocessing import QuantileTransformer
 
 # tworzymy obiekt klasy QuantileTransformer, zamiast bazowego rozkładu jednostajnego wybierając rozkład normalny
 
-# In[ ]:
+# In[46]:
 
 
 qt = QuantileTransformer(output_distribution="normal")
 
 
-# In[ ]:
+# In[47]:
 
 
 qt.fit(X_train[num_columns])
@@ -612,13 +612,13 @@ X_train_num_transformed = pd.DataFrame(qt.transform(X_train[num_columns]), colum
 X_test_num_transformed =  pd.DataFrame(qt.transform(X_test[num_columns]), columns =num_columns)
 
 
-# In[ ]:
+# In[48]:
 
 
 X_train_num_transformed.hist(figsize=(15,9), bins=30)
 
 
-# In[ ]:
+# In[49]:
 
 
 X_test_num_transformed.hist(figsize=(15,9), bins=30)
@@ -646,7 +646,7 @@ X_test_num_transformed.hist(figsize=(15,9), bins=30)
 
 # do podziału wg statystyk pozycyjnych z rozkładu wykorzystamy funkcję <b>qcut</b> z biblioteki pandas
 
-# In[ ]:
+# In[50]:
 
 
 X_train["mileage_binned_4"] = pd.qcut(X_train["mileage"], q=4)
@@ -658,7 +658,7 @@ X_train[["mileage","mileage_binned_4","mileage_binned_10"]]
 
 # jeśli chcemy samodzielnie określić etykiety przedziałów można posłużyć się parametrem labels
 
-# In[ ]:
+# In[51]:
 
 
 X_train["mileage_binned_4"] = pd.qcut(X_train["mileage"], q=4, labels=np.arange(1,5))
@@ -674,7 +674,7 @@ X_train[["mileage","mileage_binned_4","mileage_binned_10"]]
 
 # tutaj możemy skorzystać z parametru <b>retbins</b> i dostać granice kubełków a następnie w oparciu o te granice dokonać identycznego podziału na zbiorze testowym
 
-# In[ ]:
+# In[52]:
 
 
 _, bins = pd.qcut(X_train["mileage"], q=4, retbins=True)
@@ -685,7 +685,7 @@ bins
 
 # załóżmy, że jeśli chodzi o wiek samochodu znaczenie mają przedziały do 3 lat, od 3 do 7, od 7 do 12, 12-25 oraz ponad 25. Możemy łatwo dokonać takiego przypisania przydzielając poszczególnym kubełkom odpowiednie nazwy:
 
-# In[ ]:
+# In[53]:
 
 
 X_train["age_binned"] = pd.cut(X_train["age"],[0,3,7,12,25,100], labels =["new","middle_age","old","very_old","extremely_old"] )
@@ -696,7 +696,7 @@ X_train[["age","age_binned"]]
 
 # Załóżmy, że finalnie mamy zbiór danych złożony stricte ze zmiennych numerycznych:
 
-# In[ ]:
+# In[54]:
 
 
 X_train = X_train.loc[:,["mileage","condition_transformed", "age","avg_yearly_mileage","is_classic"]]
@@ -706,7 +706,7 @@ X_train
 
 # możemy łatwo zaobserwować, że zmienne znacznie różnią się pod względem średniej czy wariancji:
 
-# In[ ]:
+# In[55]:
 
 
 np.round(X_train.describe(),2)
@@ -722,7 +722,7 @@ np.round(X_train.describe(),2)
 # <b>Normalizacja</b> polega na przekształcaniu zmiennej do zakresu wartości <0,1> poprzez odjęcie minumum i podzielenie przez różnicę pomiędzy maksimum a minimum z rozkładu.
 # </div>
 
-# In[ ]:
+# In[56]:
 
 
 from sklearn.preprocessing import MinMaxScaler
@@ -730,7 +730,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 # tworzymy obiekt klasy MinMaxScaler korzystając z bazowych ustawień, możliwa jest zmiana docelowego zakresu wartości z bazowego <0,1> na dowolnie wybrany poprzez użycie parametru <b>feature_range</b>
 
-# In[ ]:
+# In[57]:
 
 
 mm = MinMaxScaler()
@@ -738,7 +738,7 @@ mm = MinMaxScaler()
 
 # Metody są oczywiście analogiczne jak w poprzednich przypadkach, konwertujemy wyniki z powrotem na ramki danych aby łatwiej było je oglądać
 
-# In[ ]:
+# In[58]:
 
 
 mm.fit(X_train)
@@ -763,7 +763,7 @@ np.round(X_train_mm_scaled.describe(),2)
 # <b>Standaryzacja</b> polega na przekształcaniu zmiennej do rozkładu o wartości oczekiwanej 0 i odchyleniu standardowym 1 poprzez odjęcie średniej i podzielenie przez odchylenie standardowe
 # </div>
 
-# In[ ]:
+# In[59]:
 
 
 from sklearn.preprocessing import StandardScaler
@@ -771,7 +771,7 @@ from sklearn.preprocessing import StandardScaler
 
 # tworzymy obiekt klasy StandardScaler korzystając z bazowych ustawień
 
-# In[ ]:
+# In[60]:
 
 
 ss =StandardScaler()
@@ -779,7 +779,7 @@ ss =StandardScaler()
 
 # Metody rownież są analogiczne jak w poprzednich przypadkach, konwertujemy wyniki z powrotem na ramki danych aby łatwiej było je oglądać
 
-# In[ ]:
+# In[61]:
 
 
 ss.fit(X_train)
@@ -806,7 +806,7 @@ np.round(X_train_ss_scaled.describe(),2)
 # <b>Pipeline</b> jest to przepływ danych przez ułożone w kolejności moduły wykonujące ustalone transformacje, zazwyczaj ostatnim elementem jest model predykcyjny
 # </div>
 
-# In[ ]:
+# In[62]:
 
 
 UsedCars_df =generate_used_cars_data()
@@ -820,7 +820,7 @@ X_train
 
 # zdefiniujmy teraz grupy zmiennych, które będziemy poddawać poszczególnym transformacjom:
 
-# In[ ]:
+# In[63]:
 
 
 columns_for_ordinal_encoding =["condition"]
@@ -830,7 +830,7 @@ numerical_columns =["age","mileage"]
 
 # następnie importujemy niezbędne klasy
 
-# In[ ]:
+# In[64]:
 
 
 from sklearn.compose import ColumnTransformer
@@ -839,7 +839,7 @@ from sklearn.pipeline import Pipeline
 
 # definiujemy pipeline do przetwarzania poszczególnych grup kolumn, pipeline mogą zawierać wiele kroków, tutaj dla uproszczenia wykorzystamy jednoelementowe
 
-# In[ ]:
+# In[65]:
 
 
 pipeline_oe = Pipeline(steps =[("OrdinalEncoder",
@@ -854,7 +854,7 @@ pipeline_num = Pipeline(steps=[("PowerTransformer",PowerTransformer(standardize=
 
 # następnie przypisujemy zmienne do poszczególnych transformacji, korzystając z obiektu ColumnTransformer
 
-# In[ ]:
+# In[66]:
 
 
 column_transformer = ColumnTransformer(
@@ -867,7 +867,7 @@ column_transformer = ColumnTransformer(
 
 # sam ColumnTransformer również może być częścią pipeline, przykładowo możemy na koniec zastosować standaryzacje
 
-# In[ ]:
+# In[67]:
 
 
 preprocessing_pipeline = Pipeline(steps = [
@@ -878,7 +878,7 @@ preprocessing_pipeline = Pipeline(steps = [
 
 # jeśli używamy pipeline bez modelu predykcyjnego na końcu to stosujemy te same metody co przy zwykłych transformerach
 
-# In[ ]:
+# In[68]:
 
 
 preprocessing_pipeline.fit(X_train,y_train)
@@ -886,7 +886,7 @@ preprocessing_pipeline.fit(X_train,y_train)
 
 # po uruchomieniu metody fit widzimy wszystkie kroki całego pipeline
 
-# In[ ]:
+# In[69]:
 
 
 X_train_transformed = preprocessing_pipeline.transform(X_train)
@@ -900,7 +900,7 @@ print(X_train_transformed)
 
 # jeśli pipeline jest zakończony modelem predykcyjnym jego metody są identyczne jak metody modelu, czyli korzystamy z fit i predict, tak jak w poniższym przykładzie
 
-# In[ ]:
+# In[70]:
 
 
 from sklearn.linear_model import LinearRegression
@@ -913,7 +913,7 @@ final_pipeline = Pipeline(steps = [
 
 # poniżej pokazujemy jak wytrenować pipeline w oparciu o zbiór treningowy a następnie dokonać predykcji na zbiorze testowym
 
-# In[ ]:
+# In[71]:
 
 
 final_pipeline.fit(X_train, y_train)
