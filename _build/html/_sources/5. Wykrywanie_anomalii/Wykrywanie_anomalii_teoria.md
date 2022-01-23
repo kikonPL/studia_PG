@@ -22,9 +22,9 @@ Przy uczeniu poszczególnych drzew w lesie stosujemy próbkowanie, uczymy drzewo
 
 
 Do oznaczenia, które elementy zbioru są anomaliami potrzebujemy jeszcze miary odstawania. Dla lasu izolacji, którego pojedncze drzewo ma głębokość $n$, wyraża ona się w poniższy sposób dla punktu $x$. 
-$$
+$
 \large s(x, n) = 2^{-\frac{E(h(x))}{c(n)}}
-$$
+$
 
 Wyjasnijmy co oznaczaja poszczególne elementy równania. $E(h(x))$ to wartość oczekiwana długości ścieżki od korzenia drzewa do końcowego węzła drzewa zawierającego punkt $x$. Wartość c(n) wywodzi się z teorii binarnych drzew poszukiwań i oznaczan przeciętną długość sciezki dla danego n. Wzór na c(n) to :
 

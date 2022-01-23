@@ -1,4 +1,6 @@
-# Przedmiot specjalistyczny, 1 semestr studiów magisterskich matematyki na Politechnice Gdańskiej
+# Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
 
-Niniejsza wykonywana ksiązką jest wspólną pracą pracowników polskiego software houseu z branży fashion tech [Silky Coders](https://www.silkycoders.com/), wykonana na potrzeby prowadzenia przedmiotu specjalistycznego dla studentów matematyki na Politechnice Gdańskiej. Ksiązka wprowadza w różnorodne koncepty uczenia maszynowego i składa się z 9 działów podnoszących najbardziej kluczowe tematy, które każdy chcący rozpocząć swoje kroki w Data Science powinien poznać. 
+Książka wprowadza w podstawowe koncepty uczenia maszynowego.
+Składa się z 9 rozdziałów poruszających najbardziej kluczowe tematy, które będą przydatne każdemu, kto chce rozpocząć swoją karierę w Data Science.
+Materiały zostały stworzone przez pracowników [Silky Coders](https://www.silkycoders.com/) na potrzeby zajęć dydaktycznych dla studentów Matematyki na Politechnice Gdańskiej.
 Autorzy życza przyjemnej nauki.
