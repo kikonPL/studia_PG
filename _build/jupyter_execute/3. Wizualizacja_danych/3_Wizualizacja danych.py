@@ -19,9 +19,7 @@
 # 
 # </div>
 
-# ## Biblioteki
-
-# Do poniższego _Tutorialu_ niezbędne będzie zaistalowanie poniższych bibliotek. Wersję każdych z nich wypisane są w pliku _viz_requirements.txt_.
+# Importujemy biblioteki przydatne do wizualizacji.
 
 # In[1]:
 
@@ -50,7 +48,7 @@ import datetime as dt
 
 # **Opis:** Zestaw danych _California Housing_ zawiera informacje ze spisu powszechnego w Kalifornii z 1990 roku. 
 # 
-# Dane nie są w żaden sposób wyczyszcone, stąd posłużą jako dobry materiał do eksploracyjnej analizy danych.
+# Dane nie są w żaden sposób wyczyszczone, stąd posłużą jako dobry materiał do eksploracyjnej analizy danych.
 
 # In[2]:
 
@@ -439,7 +437,7 @@ plt.xlabel('Time')
 plt.ylabel('Signal')
 
 
-# ## Prezentaja wielu relacji na róznych polach wykresu
+# ## Prezentacja wielu relacji na róznych polach wykresu
 
 # Czasami chcemy zrozumieć jakie zachodzą relację między zmiennymi wizualizując je na oddzienlych polach wykresu. W tym przypadku przydatnym staję się parametr ```col``` lub ```row```.
 

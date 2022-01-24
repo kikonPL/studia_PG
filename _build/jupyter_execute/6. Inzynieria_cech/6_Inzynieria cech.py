@@ -632,7 +632,7 @@ X_test_num_transformed.hist(figsize=(15,9), bins=30)
 # To jaki dokładnie zestaw transformacji ostatecznie wybrać powinno wynikać przede wszystkim z obserwacji ustalonej wcześniej metryki jakości modelu.
 # </div>
 
-# # łączenie zmiennych numerycznych w przedziały
+# # Łączenie zmiennych numerycznych w przedziały
 
 # podobnie jak w przypadku zmiennych kategorycznych, zmienne numeryczne również można przekształcać grupując razem pewne ich wartości. Proces taki nazywamy <b>kubełkowaniem</b>.
 
@@ -796,7 +796,7 @@ np.round(X_train_ss_scaled.describe(),2)
 # Jako że StandardScaler opiera się na użyciu średniej i odchylenia standardowego z transformowanej zmiennej, również nie jest on wolny od wpływu wartości odstających. Jeśli chcemy być pewni, że wartości odstające nie będą miały wpływu na skalę przekształconej zmiennej można skorzystać z klasy <b>RobustScaler</b> 
 # </div>
 
-# # łączenie różnych transformacji w ramach pipeline
+# # Łączenie różnych transformacji w ramach pipeline
 
 # cofnijmy się teraz na chwilę do etapu generowania danych i zobaczmy jak można w łatwy i niezawodny sposób łączyć ze sobą różne transformacje z wykorzystaniem obiektów Pipeline oraz ColumnTransformer
 
