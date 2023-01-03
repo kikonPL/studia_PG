@@ -21,9 +21,15 @@ parts:
   - caption: Inżynieria cech
     chapters:
     - file: 6. Inzynieria_cech/6_Inzynieria cech
+  - caption: Czyszczenie danych
+    chapters: 
+    - file: 10. Czyszczenie_danych/Czyszczenie danych
   - caption: Klasteryzacja
     chapters: 
     - file: 7. Klasteryzacja/7_Klasteryzacja
+  - caption: Regresja
+    chapters: 
+    - file: 11. Regresja/Regresja-Part2
   - caption: Wyjaśnialność modeli
     chapters:
     - file: 8. Wyjasnialnosc/8_Tutorial metryki statystyczne

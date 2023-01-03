@@ -54,8 +54,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Wyjaśnialność modeli - metryki statystyczne - tutorial" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html" />
-    <link rel="prev" title="Inżynieria cech" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html" />
+    <link rel="next" title="Analiza regresji" href="../11.%20Regresja/Regresja-Part2.html" />
+    <link rel="prev" title="Czyszczenie danych" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -171,6 +171,18 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Czyszczenie danych
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">
+   Czyszczenie danych
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Klasteryzacja
  </span>
 </p>
@@ -178,6 +190,18 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Klasteryzacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Regresja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11.%20Regresja/Regresja-Part2.html">
+   Analiza regresji
   </a>
  </li>
 </ul>
@@ -291,6 +315,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/_build/7. Klasteryzacja/7_Klasteryzacja.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -946,8 +975,8 @@ Wymiar obiektu array: (10000, 2)
 <div class="cell_output docutils container">
 <img alt="../_images/7_Klasteryzacja_42_0.png" src="../_images/7_Klasteryzacja_42_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data frame shape: (1500, 2)
-[WARD] Duration: 0:00:00.004992
-[AVERAGE] Duration: 0:00:00.000995
+[WARD] Duration: 0:00:00.015645
+[AVERAGE] Duration: 0:00:00
 </pre></div>
 </div>
 </div>
@@ -1005,8 +1034,8 @@ Wymiar obiektu array: (10000, 2)
 <div class="cell_output docutils container">
 <img alt="../_images/7_Klasteryzacja_46_0.png" src="../_images/7_Klasteryzacja_46_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data frame shape: (1500, 2)
-[KMEANS_RANDOM] Duration: 0:00:00.003076
-[KMEANS_++] Duration: 0:00:00.000998
+[KMEANS_RANDOM] Duration: 0:00:00
+[KMEANS_++] Duration: 0:00:00
 </pre></div>
 </div>
 </div>
@@ -1063,8 +1092,8 @@ Wymiar obiektu array: (10000, 2)
 <div class="cell_output docutils container">
 <img alt="../_images/7_Klasteryzacja_49_0.png" src="../_images/7_Klasteryzacja_49_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data frame shape: (1500, 2)
-[KMEANS_RANDOM] Duration: 0:00:00.023000
-[KMEANS_++] Duration: 0:00:00.017000
+[KMEANS_RANDOM] Duration: 0:00:00.018222
+[KMEANS_++] Duration: 0:00:00.031250
 </pre></div>
 </div>
 </div>
@@ -1140,8 +1169,8 @@ Wymiar obiektu array: (10000, 2)
 <div class="cell_output docutils container">
 <img alt="../_images/7_Klasteryzacja_56_0.png" src="../_images/7_Klasteryzacja_56_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data frame shape: (1000000, 2)
-[KMEANS_++] Duration: 0:00:04.884010
-[MINIBATCH_KMEANS] Duration: 0:00:01.233012
+[KMEANS_++] Duration: 0:00:07.365608
+[MINIBATCH_KMEANS] Duration: 0:00:02.317686
 </pre></div>
 </div>
 </div>
@@ -1222,8 +1251,8 @@ Wymiar obiektu array: (10000, 2)
 <div class="cell_output docutils container">
 <img alt="../_images/7_Klasteryzacja_64_0.png" src="../_images/7_Klasteryzacja_64_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data frame shape: (1500, 2)
-[WARD] Duration: 0:00:00.047997
-[AVERAGE] Duration: 0:00:00.027001
+[WARD] Duration: 0:00:00.051175
+[AVERAGE] Duration: 0:00:00.040803
 </pre></div>
 </div>
 </div>
@@ -1277,8 +1306,8 @@ Wymiar obiektu array: (10000, 2)
 <div class="cell_output docutils container">
 <img alt="../_images/7_Klasteryzacja_67_0.png" src="../_images/7_Klasteryzacja_67_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data frame shape: (1000, 2)
-[WARD] Duration: 0:00:00.013999
-[AVERAGE] Duration: 0:00:00.012001
+[WARD] Duration: 0:00:00.028436
+[AVERAGE] Duration: 0:00:00.012286
 </pre></div>
 </div>
 </div>
@@ -1367,9 +1396,9 @@ Wymiar obiektu array: (10000, 2)
 <div class="cell_output docutils container">
 <img alt="../_images/7_Klasteryzacja_78_0.png" src="../_images/7_Klasteryzacja_78_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data frame shape: (1000, 2)
-[SPECTRAL_KNN] Duration: 0:00:01.023467
-[SPECTRAL_RBF] Duration: 0:00:00.605106
-[KMEANS] Duration: 0:00:00.013992
+[SPECTRAL_KNN] Duration: 0:00:00.262626
+[SPECTRAL_RBF] Duration: 0:00:00.215653
+[KMEANS] Duration: 0:00:00.015586
 </pre></div>
 </div>
 </div>
@@ -1456,9 +1485,9 @@ Wymiar obiektu array: (10000, 2)
 <div class="cell_output docutils container">
 <img alt="../_images/7_Klasteryzacja_87_0.png" src="../_images/7_Klasteryzacja_87_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data frame shape: (1000, 2)
-[DBSCAN] Duration: 0:00:00.292658
-[SPECTRAL] Duration: 0:00:00.097611
-[KMEANS++] Duration: 0:00:00.013999
+[DBSCAN] Duration: 0:00:00.008083
+[SPECTRAL] Duration: 0:00:00.185183
+[KMEANS++] Duration: 0:00:00.031287
 </pre></div>
 </div>
 </div>
@@ -1527,9 +1556,9 @@ Wymiar obiektu array: (10000, 2)
 <div class="cell_output docutils container">
 <img alt="../_images/7_Klasteryzacja_92_0.png" src="../_images/7_Klasteryzacja_92_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data frame shape: (3000, 2)
-[DBSCAN] Duration: 0:00:00.014990
-[SPECTRAL] Duration: 0:00:05.775587
-[KMEANS++] Duration: 0:00:00.048000
+[DBSCAN] Duration: 0:00:00.031158
+[SPECTRAL] Duration: 0:00:08.771742
+[KMEANS++] Duration: 0:00:00.115893
 </pre></div>
 </div>
 </div>
@@ -1611,8 +1640,8 @@ Wymiar obiektu array: (10000, 2)
 <div class="cell_output docutils container">
 <img alt="../_images/7_Klasteryzacja_99_0.png" src="../_images/7_Klasteryzacja_99_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data frame shape: (1000000, 2)
-[BIRCH] Duration: 0:00:23.614134
-[MINIBATCH_KMEANS] Duration: 0:00:00.626000
+[BIRCH] Duration: 0:00:37.442120
+[MINIBATCH_KMEANS] Duration: 0:00:01.228000
 </pre></div>
 </div>
 </div>
@@ -1667,8 +1696,8 @@ Wymiar obiektu array: (10000, 2)
 <div class="cell_output docutils container">
 <img alt="../_images/7_Klasteryzacja_101_0.png" src="../_images/7_Klasteryzacja_101_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data frame shape: (10000, 2)
-[BIRCH] Duration: 0:00:00.124001
-[MINIBATCH_KMEANS] Duration: 0:00:00.033000
+[BIRCH] Duration: 0:00:00.204655
+[MINIBATCH_KMEANS] Duration: 0:00:00.101986
 </pre></div>
 </div>
 </div>
@@ -1861,24 +1890,24 @@ Wymiar obiektu array: (10000, 2)
 
 
 -----------[KMEANS_RANDOM]-----------
-Duration: 0:00:00.002994
+Duration: 0:00:00.015636
 Silhouette coeffcient: 0.3490213397936618
 Calinski-Harabasz coeffcient: 1842.6378071189322
 Davies-Bouldin index: 1.0000636224579476
 
 
 -----------[KMEANS++(3)]-----------
-Duration: 0:00:00.014993
+Duration: 0:00:00.031250
 Silhouette coeffcient: 0.7333423486262539
 Calinski-Harabasz coeffcient: 10633.868943793219
 Davies-Bouldin index: 0.3645102673195062
 
 
 -----------[KMEANS++(4)]-----------
-Duration: 0:00:00.024992
+Duration: 0:00:00.032446
 Silhouette coeffcient: 0.5853530244304029
 Calinski-Harabasz coeffcient: 8089.376315003494
-Davies-Bouldin index: 0.8003205978526378
+Davies-Bouldin index: 0.800320597852641
 </pre></div>
 </div>
 </div>
@@ -1972,24 +2001,24 @@ Davies-Bouldin index: 0.8003205978526378
 
 
 -----------[KMEANS++]-----------
-Duration: 0:00:00.019017
+Duration: 0:00:00.041268
 Silhouette coeffcient: 0.4270730877908618
 Calinski-Harabasz coeffcient: 886.9661372979564
 Davies-Bouldin index: 0.9324389060600777
 
 
 -----------[SPECTRAL_RBF]-----------
-Duration: 0:00:00.168001
+Duration: 0:00:00.176059
 Silhouette coeffcient: 0.42967355323274
 Calinski-Harabasz coeffcient: 658.0643390191713
 Davies-Bouldin index: 0.9970552748687121
 
 
 -----------[DBSCAN]-----------
-Duration: 0:00:00.005002
-Silhouette coeffcient: 0.4157241178607081
+Duration: 0:00:00
+Silhouette coeffcient: 0.41572411786070823
 Calinski-Harabasz coeffcient: 310.90990033808214
-Davies-Bouldin index: 10.006292286691144
+Davies-Bouldin index: 10.006292286691176
 </pre></div>
 </div>
 </div>
@@ -2023,17 +2052,17 @@ Davies-Bouldin index: 10.006292286691144
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Inżynieria cech</p>
+            <p class="prev-next-title">Czyszczenie danych</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html" title="next page">
+    <a class='right-next' id="next-link" href="../11.%20Regresja/Regresja-Part2.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Wyjaśnialność modeli - metryki statystyczne - tutorial</p>
+        <p class="prev-next-title">Analiza regresji</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

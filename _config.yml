@@ -28,6 +28,8 @@ repository:
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
 html:
   use_issues_button: true
   use_repository_button: true

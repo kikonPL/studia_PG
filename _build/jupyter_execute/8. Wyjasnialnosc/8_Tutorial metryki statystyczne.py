@@ -402,7 +402,7 @@ print(f"Błąd Symetric Mean Absolute Percentage Error dla model_2: {np.round(sy
 # **Macierz pomyłek**
 # ![title](media/confusion_matrix.png)
 # 
-# ![image.png](attachment:image.png)
+# <!-- ![image.png](attachment:image.png) -->
 # 
 # 
 # Macierz pomyłek może reprezentować zarówno problem ze zbiorem klas binarnym, bądź wieloklasowy.

@@ -11,9 +11,9 @@ dependencies:
   - backports=1.0=py_2
   - backports.functools_lru_cache=1.6.4=pyhd8ed1ab_0
   - bleach=4.1.0=pyhd8ed1ab_0
-  - ca-certificates=2021.10.8=h5b45459_0
+  - ca-certificates=2022.12.7=h5b45459_0
   - category_encoders=2.3.0=pyhd8ed1ab_0
-  - certifi=2021.10.8=py39hcbf5309_1
+  - certifi=2022.12.7=pyhd8ed1ab_0
   - cffi=1.15.0=py39h0878f49_0
   - cloudpickle=2.0.0=pyhd3eb1b0_0
   - colorama=0.4.4=pyh9f0ad1d_0
@@ -67,6 +67,7 @@ dependencies:
   - matplotlib=3.3.2=py39hcbf5309_1
   - matplotlib-base=3.3.2=py39h62a766e_1
   - matplotlib-inline=0.1.3=pyhd8ed1ab_0
+  - missingno=0.4.2=py_1
   - mistune=0.8.4=py39hb82d6ee_1005
   - mkl=2021.4.0=h0e2418a_729
   - msys2-conda-epoch=20160418=1
@@ -77,7 +78,6 @@ dependencies:
   - networkx=2.6.3=pyhd3eb1b0_0
   - notebook=6.4.6=pyha770c72_0
   - numba=0.54.1=py39hf11a4ad_0
-  - numpy=1.19.2=py39h5659d19_1
   - olefile=0.46=pyh9f0ad1d_1
   - openjpeg=2.4.0=hb211442_1
   - openssl=1.1.1l=h8ffe710_0
@@ -91,6 +91,7 @@ dependencies:
   - pickleshare=0.7.5=py_1003
   - pillow=8.4.0=py39h916092e_0
   - pip=21.3.1=pyhd8ed1ab_0
+  - pkgutil-resolve-name=1.3.10=pyhd8ed1ab_0
   - plotly=4.12.0=pyh9f0ad1d_0
   - prettytable=3.0.0=pyhd8ed1ab_0
   - prometheus_client=0.12.0=pyhd8ed1ab_0
@@ -110,11 +111,13 @@ dependencies:
   - pytz=2021.3=pyhd8ed1ab_0
   - pywavelets=1.1.1=py39h080aedc_4
   - pywinpty=1.1.6=py39h99910a6_0
+  - pyyaml=6.0=py39hb82d6ee_4
   - pyzmq=22.3.0=py39hd77b12b_2
   - qt=5.12.9=h5909a2a_4
   - retrying=1.3.3=py_2
   - scikit-image=0.16.2=py39hf11a4ad_0
   - scikit-learn=0.24.2=py39hf11a4ad_1
+  - scipy=1.5.3=py39hc0c34ad_0
   - seaborn=0.11.0=h57928b3_1
   - seaborn-base=0.11.0=pyhd8ed1ab_1
   - send2trash=1.8.0=pyhd8ed1ab_0
@@ -133,6 +136,7 @@ dependencies:
   - tornado=6.1=py39hb82d6ee_2
   - tqdm=4.62.3=pyhd8ed1ab_0
   - traitlets=5.1.1=pyhd8ed1ab_0
+  - typing_extensions=4.4.0=pyha770c72_0
   - tzdata=2021e=he74cb21_0
   - ucrt=10.0.20348.0=h57928b3_0
   - vc=14.2=hb210afc_5
@@ -191,6 +195,7 @@ dependencies:
     - myst-nb==0.13.1
     - myst-parser==0.15.2
     - nbdime==3.1.1
+    - numpy==1.20.3
     - oauthlib==3.1.1
     - opt-einsum==3.3.0
     - protobuf==3.19.1
@@ -201,11 +206,9 @@ dependencies:
     - pydata-sphinx-theme==0.7.2
     - pyod==0.9.6
     - pywin32==302
-    - pyyaml==6.0
     - requests==2.26.0
     - requests-oauthlib==1.3.0
     - rsa==4.8
-    - scipy==1.7.3
     - smmap==5.0.0
     - sniffio==1.2.0
     - snowballstemmer==2.2.0

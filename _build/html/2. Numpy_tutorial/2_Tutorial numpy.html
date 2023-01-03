@@ -169,6 +169,18 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Czyszczenie danych
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">
+   Czyszczenie danych
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Klasteryzacja
  </span>
 </p>
@@ -176,6 +188,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
    Klasteryzacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Regresja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11.%20Regresja/Regresja-Part2.html">
+   Analiza regresji
   </a>
  </li>
 </ul>
@@ -289,6 +313,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/_build/2. Numpy_tutorial/2_Tutorial numpy.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -594,9 +623,8 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([         0,          0,          0,          0,          0,
-                0,          0,          0,          0,          0,
-             1444,          0,          0, 1847616872,          0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   0,    0,    0,    0,    0,    0,    0,    0,    0,    0, 1484,
+          0,    0,  599,    0])
 </pre></div>
 </div>
 </div>
@@ -1227,7 +1255,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6, 6, 2, 1, 6, 6, 7, 5, 1, 3])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 3, 7, 1, 6, 3, 5, 7, 6, 9])
 </pre></div>
 </div>
 </div>
@@ -1239,7 +1267,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 2, 3, 5, 6, 6, 6, 6, 7])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 3, 3, 5, 6, 6, 7, 7, 9])
 </pre></div>
 </div>
 </div>
@@ -1252,7 +1280,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([7, 6, 6, 6, 6, 5, 3, 2, 1, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 7, 7, 6, 6, 5, 3, 3, 1, 1])
 </pre></div>
 </div>
 </div>
@@ -1265,7 +1293,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([7, 6, 6, 6, 6, 5, 3, 2, 1, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 7, 7, 6, 6, 5, 3, 3, 1, 1])
 </pre></div>
 </div>
 </div>
@@ -1361,7 +1389,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6,  6,  2,  1,  6,  6,  7,  5,  1,  3, 10])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  3,  7,  1,  6,  3,  5,  7,  6,  9, 10])
 </pre></div>
 </div>
 </div>
@@ -1374,7 +1402,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6,  6,  2,  1,  6,  6,  7,  5,  1,  3, 10, 15, 13])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  3,  7,  1,  6,  3,  5,  7,  6,  9, 10, 15, 13])
 </pre></div>
 </div>
 </div>
@@ -1387,7 +1415,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6,  6,  2,  1,  6,  6,  7,  5,  1,  3, 10, 15, 13])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  3,  7,  1,  6,  3,  5,  7,  6,  9, 10, 15, 13])
 </pre></div>
 </div>
 </div>
@@ -1400,7 +1428,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6,  6,  2,  1,  1, 23,  6,  6,  7,  5,  1,  3])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  3,  7,  1,  1, 23,  6,  3,  5,  7,  6,  9])
 </pre></div>
 </div>
 </div>
@@ -1539,7 +1567,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6, 6, 2, 1, 6, 6, 7, 5, 1, 3])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 3, 7, 1, 6, 3, 5, 7, 6, 9])
 </pre></div>
 </div>
 </div>
@@ -1551,7 +1579,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 </div>
@@ -1752,7 +1780,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x25640a13a00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x257951c7cd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2_Tutorial numpy_100_1.png" src="../_images/2_Tutorial numpy_100_1.png" />
@@ -1793,7 +1821,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x25642587940&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x25796d3b130&gt;
 </pre></div>
 </div>
 <img alt="../_images/2_Tutorial numpy_104_1.png" src="../_images/2_Tutorial numpy_104_1.png" />
@@ -1986,7 +2014,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Czas wykonania: 0.007000446319580078
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Czas wykonania: 0.03196263313293457
 </pre></div>
 </div>
 </div>

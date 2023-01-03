@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analiza regresji &#8212; Silky Coders Data Science</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/silky-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Silky Coders Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wprowadzenie do pakietów numpy i pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">
+   Pakiet pandas - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">
+   Pakiet NumPy - tutorial
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wizualizacja danych
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">
+   Wizualizacja danych w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Analiza statystyczna
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">
+   Analiza statystyczna - tutorial
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wykrywanie anomalii
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">
+   Wykrywanie anomalii - definicje
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">
+   Wykrywanie anomalii - tutorial
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inżynieria cech
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">
+   Inżynieria cech
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Czyszczenie danych
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">
+   Czyszczenie danych
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Klasteryzacja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
+   Klasteryzacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Regresja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Regresja-Part2.html">
+   Analiza regresji
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wyjaśnialność modeli
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">
+   Wyjaśnialność modeli - metryki statystyczne - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">
+   Wyjaśnialność modeli - definicje
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">
+   Wyjaśnialność modeli - XAI - tutorial
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/11. Regresja/Regresja.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kikonPL/studia_PG"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F11. Regresja/Regresja.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kikonPL/studia_PG/main?urlpath=tree/_build/11. Regresja/Regresja.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/_build/11. Regresja/Regresja.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wstep">
+   Wstęp
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modele-regresyjne">
+   Modele regresyjne
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-regression">
+     Linear Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ridge-regression">
+     Ridge Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lasso-regression">
+     Lasso Regression
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="analiza-regresji">
+<h1>Analiza regresji<a class="headerlink" href="#analiza-regresji" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="wstep">
+<h2>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this headline">¶</a></h2>
+<p>Algorytmy regresyjne należą do grupy <em>uczenia nadzorowanego</em> (Supervised Learning), inaczej mówiąc, są to algorytmy mające określoną zmienną celu (target) oraz zdefiniowane zmienne wejściowe. W odróżnieniu od klasyfikacji, w regresji zmienna celu jest liczbą rzeczywistą. Analiza regresji jest jedną z metod analizy statystycznej pozwalających opisać zależność między zmienną objaśnianą <span class="math notranslate nohighlight">\(y \in \mathbb{R}\)</span> (zmienna celu, zmienna zależna) oraz zmienną, bądź kilkoma, zmiennymi objaśniającymi (niezależnymi) <span class="math notranslate nohighlight">\(x \in \mathbb{R}^d\)</span>.</p>
+<p>Załóżmy, że chcemy wystawić na sprzedaż dom, ale nie znamy jego wartości. Powinniśmy zatem przyjrzeć się innym domom w okolicy, sprzedanym w niedalekiej przeszłości i na podstawie cen sprzedaży oraz innych czynników, takich jak ilość sypialni czy powierzchnia użytkowa, określić wartość domu, który chcemy sprzedać.</p>
+<p>W badanym przypadku, zmienną zależną będzie cena domu, natomiast zmiennymi niezależnymi będą ilość sypialni, ilość łazienek, powierzchnia w m2, rok budowy itd. Znajdując zależność między tymi zmiennymi, będziemy w stanie określić jakie czynniki mają faktyczny wpływ na wartość domu oraz który czynnik jest najbardziej istotny, a także przewidzieć cenę za jaką sprzedamy nasz dom.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="modele-regresyjne">
+<h2>Modele regresyjne<a class="headerlink" href="#modele-regresyjne" title="Permalink to this headline">¶</a></h2>
+<p>Zostanie przedstawionych 6 następujących algorytmów regresyjnych:</p>
+<ul class="simple">
+<li><p>Linear Regression</p></li>
+<li><p>Ridge Regression</p></li>
+<li><p>Lasso Regression</p></li>
+<li><p>Decision Tree</p></li>
+<li><p>Random Forest</p></li>
+<li><p>LGBM</p></li>
+</ul>
+<div class="section" id="linear-regression">
+<h3>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h3>
+<p>Załóżmy, że mamy wektor <span class="math notranslate nohighlight">\(X^T = (1, x_1, x_2,\dots, x_p)\)</span> i chcemy przewidzieć wartość zmiennej <span class="math notranslate nohighlight">\(y\)</span>. Model regresji liniowej przedstawia się następująco:
+$<span class="math notranslate nohighlight">\(f(X) = \sum_{j=0}^p x_j \beta_j + \epsilon_j,\)</span>$</p>
+<p>gdzie <span class="math notranslate nohighlight">\(\beta_j\)</span> nazywane są współczynnikami, a <span class="math notranslate nohighlight">\(\epsilon_j\)</span> jest składnikiem losowym.</p>
+<p>Model regresji liniowej zakłada, że warunkowa wartość oczekiwana <span class="math notranslate nohighlight">\(E(Y|X)\)</span> jest funkcją liniową.</p>
+<p>Najpopularniejszą metodą estymacji liniowej zależności jest <b>metoda najmniejszych kwadratów</b>, która wyznacza współczynniki <span class="math notranslate nohighlight">\(\beta\)</span> funkcji</p>
+<div class="math notranslate nohighlight">
+\[\hat{f}(X) = \sum_{j=0}^p x_j \beta_j\]</div>
+<p>tak, aby zminimalizować błąd kwadratowy
+$<span class="math notranslate nohighlight">\(RSS(\beta) = \sum_{i=1}^N \bigg(y_i - \sum_{j=0}^p x_{ij} \beta_j\bigg)^2 = \big(X \beta - y\big)^T \big(X \beta - y\big).\)</span>$</p>
+<p>Matematycznie problem ten można opisać wzorem:</p>
+<div class="math notranslate nohighlight">
+\[ 	\frac{\partial RSS}{\partial \hat{\beta}} = 0\]</div>
+<p>Po zróżniczkowaniu i po przekształceniach otrzymujemy wzór na współczynniki <span class="math notranslate nohighlight">\(\hat{\beta}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{\beta} = (X^TX)^{-1} X^T y\]</div>
+<p>Poniższa ramka danych zawiera informację o cenie sprzedaży domów oraz ich powierzchni.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Załadowanie bibliotek</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">Lasso</span>
+<span class="kn">import</span> <span class="nn">sklearn.metrics</span> <span class="k">as</span> <span class="nn">metrics</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Parametry do wizualizacji</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Stworzenie ramki danych</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(([</span><span class="mi">76</span><span class="p">,</span> <span class="mi">350</span><span class="p">],</span> <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">370</span><span class="p">],</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">540</span><span class="p">],</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">800</span><span class="p">],</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">490</span><span class="p">],</span> <span class="p">[</span><span class="mi">130</span><span class="p">,</span> <span class="mi">500</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mi">250</span><span class="p">,</span> <span class="mi">700</span><span class="p">],</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">700</span><span class="p">]),</span> 
+                   <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">,</span> <span class="s1">&#39;Cena&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Wizualizacja danych</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Cena&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkmagenta&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Regresja_12_0.png" src="../_images/Regresja_12_0.png" />
+</div>
+</div>
+<p>Możemy założyć, że istnieje liniowa zależność pomiędzy ceną domu, a powierzchnią w m2. Czyli, szukamy funkcji <span class="math notranslate nohighlight">\(\hat{f}\)</span> takiej, że:</p>
+<div class="math notranslate nohighlight">
+\[cena \approx \hat{ \beta}_0 + \hat{\beta}_1 \cdot m2 \\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;M2&#39;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Cena&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Cena&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkmagenta&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">250</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;lightseagreen&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;B0 = 250, B1 = 3, RSS = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">250</span> <span class="o">-</span> <span class="n">y</span><span class="p">))))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;B0 = 100, B1 = 5, RSS = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">y</span><span class="p">))))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">500</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;pink&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;B0 = 500, B1 = 1, RSS = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">500</span> <span class="o">-</span> <span class="n">y</span><span class="p">))))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Regresja_15_0.png" src="../_images/Regresja_15_0.png" />
+</div>
+</div>
+<p>Widzimy, że najmniejszy błąd kwadratowy daje nam różowa linia.
+Aby znaleźć najlepsze z możliwych rozwiązań, wykorzystamy funkcję LinearRegression z biblioteki scikit-learn do znalezienia wartości współczynników <span class="math notranslate nohighlight">\( \hat{ \beta}_0, \hat{ \beta}_1\)</span> metodą najmniejszych kwadratów.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>        <span class="c1">#positive = True may be useful when all the coefficients have to be non-negative, e.g. prices of goods.</span>
+                       <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    <span class="c1">#if set to False, no intercept will be used in calculations</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearRegression()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Współczynnik</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.83141395])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Wyraz wolny</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">intercept_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>264.68330134356995
+</pre></div>
+</div>
+</div>
+</div>
+<p>Znaleziona funkcja przedstawia się następująco:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Cena&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkmagenta&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">reg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;skyblue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Regresja_21_0.png" src="../_images/Regresja_21_0.png" />
+</div>
+</div>
+<p>Błąd kwadratowy w tym przypadku wynosi:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55928.85476647472
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="ridge-regression">
+<h3>Ridge Regression<a class="headerlink" href="#ridge-regression" title="Permalink to this headline">¶</a></h3>
+<p><em>Overtfitting</em> to nadmierne dopasowanie modelu do danych, przez co na zbiorze treningowym błąd kwadratowy będzie bliski zeru, natomiast na zbiorze testowym będzie bardzo duży. W regresji liniowej zjawisko to, wystąpić może w przypadku, gdy mamy mniej obserwacji niż predyktorów.</p>
+<p><img src="Bias_and_variance_contributing_to_total_error.svg.png" width=700 height=400 /> <em>Źródło: <a class="reference external" href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">https://en.wikipedia.org/wiki/Bias–variance_tradeoff</a></em></p>
+<p>W celu rozwiązania problemu przeuczenia modelu, należy znaleźć kompromis między wariancją a przeciążeniem. Dokonać tego można dodając regularyzację do modelu.</p>
+<p><strong>Norma <span class="math notranslate nohighlight">\(Lp\)</span></strong></p>
+<p>Niech <span class="math notranslate nohighlight">\(x = (x_1, x_2, ..., x_n) \in \mathbf{X}\)</span>. Funkcje postaci
+$<span class="math notranslate nohighlight">\( ||x||_p = (|x_1|^p + |x_2|^p + ... |x_n|^p ) ^{\frac{1}{p}} \)</span>$</p>
+<p>są normami dla <span class="math notranslate nohighlight">\( 1 \leq p &lt; \infty \)</span>. Normę <span class="math notranslate nohighlight">\(||x||_2 \)</span> nazywa się <em>normą euklidesową</em>.</p>
+<p><b> Ridge Regression</b> wykorzystuje normę euklidesową <span class="math notranslate nohighlight">\(L2\)</span>, aby “ukarać” model za wielkość współczynników. Wtedy zamiast minimalizacji błędu resztowych sum kwadratów, minimalizowana jest funkcja:</p>
+<div class="math notranslate nohighlight">
+\[RSS_{Ridge} (\beta) = \sum_{i=1}^N \bigg(y_i - \sum_{j=0}^p x_{ij} \beta_j\bigg)^2 + \alpha \sum_{j=1}^{p} \beta_j^2, \]</div>
+<p>gdzie <span class="math notranslate nohighlight">\(\alpha\)</span> jest hiperparametrem, nazywanym współczynnikiem kary. Przyjmuje wartości <span class="math notranslate nohighlight">\(\alpha \geq 0\)</span>. Im wyższa jego wartość, tym model jest bardziej “karany”.</p>
+<hr class="docutils" />
+<p>Dla celów edukacyjnych podzielimy zbiór tak, aby w zbiorze treningowym były tylko 2 obserwacje. Jest to zabieg celowy, gdyż chcemy pokazać przykład overtfittingu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_train</span><span class="p">,</span> <span class="n">data_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">data_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;M2&#39;</span><span class="p">]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">data_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Cena&#39;</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">data_test</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;M2&#39;</span><span class="p">]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">data_test</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Cena&#39;</span><span class="p">]</span>
+
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Często <span class="math notranslate nohighlight">\(\alpha\)</span> wybiera się z przedziału <span class="math notranslate nohighlight">\([0,1]\)</span>. W naszym przypadku wartości te są zbyt małe, więc musieliśmy ją znacznie zwiększyć. Ponieważ <span class="math notranslate nohighlight">\(\alpha\)</span> jest hiperparametrem, w celu znalezienia najlepszej wartości można wykorzystać <em>walidację krzyżową</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridge1</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>       <span class="c1">#warto zwrócić uwagę, że alpha = 0 daje nam zwykłą regresję liniową</span>
+<span class="n">ridge1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ridge(alpha=0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridge2</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">ridge2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ridge(alpha=200)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridge3</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">ridge3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ridge(alpha=1000)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridge4</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">ridge4</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ridge(alpha=5000)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;Cena&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ridge1</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ridge1</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;alpha = 0&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ridge2</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ridge2</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;lightseagreen&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;alpha = 200&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ridge3</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ridge3</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;plum&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;alpha = 1000&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ridge4</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ridge4</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;mediumvioletred&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;alpha = 5000&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Zbiór treningowy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Regresja_38_0.png" src="../_images/Regresja_38_0.png" />
+</div>
+</div>
+<p>Możemy zauważyć, że na zbiorze treningowym regresja liniowa dopasowuje się idealnie do obserwacji, gdzie regresja grzbietowa wraz ze wzrostem parametru <span class="math notranslate nohighlight">\(\alpha\)</span> wydaje się mieć coraz gorsze dopasowanie. Zobaczmy jak to wygląda na zbiorze testowym.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data_test</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data_test</span><span class="p">[</span><span class="s1">&#39;Cena&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkmagenta&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;Cena&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ridge1</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ridge1</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;alpha = 0&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ridge2</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ridge2</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;lightseagreen&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;alpha = 200&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ridge3</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ridge3</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;plum&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;alpha = 1000&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ridge4</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ridge4</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;mediumvioletred&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;alpha = 5000&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Zbiór testowy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Regresja_40_0.png" src="../_images/Regresja_40_0.png" />
+</div>
+</div>
+<p>W przypadku regresji liniowej widoczny jest <strong>overfittting</strong>. Linia przechodzi dokładnie przez dwie obserwacje ze zbioru treningowego, zatem błąd kwadratowy będzie równy zero, natomiast na zbiorze testowym błąd ten będzie bardzo duży. Aby zapobiec takiej sytuacji, została wykorzystana Ridge Regression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wyniki</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;RSS&#39;</span><span class="p">:[</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">ridge1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)),</span><span class="mi">0</span><span class="p">),</span> 
+                                     <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">ridge2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)),</span><span class="mi">0</span><span class="p">),</span>
+                                     <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">ridge3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)),</span><span class="mi">0</span><span class="p">),</span>
+                                     <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">ridge4</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)),</span><span class="mi">0</span><span class="p">)</span>
+                                    <span class="p">],</span>
+                             <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">ridge1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                                   <span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">ridge2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                                   <span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">ridge3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                                   <span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">ridge4</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))],</span>
+                             <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">ridge1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                                    <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">ridge2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                                    <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">ridge3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                                    <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">ridge4</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))]},</span> 
+                      <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;alpha = 0&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha = 200&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha = 1000&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha = 5000&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">wyniki</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+#T_11c98b8a_8baa_11ed_a41f_a029197581d7row0_col0,#T_11c98b8a_8baa_11ed_a41f_a029197581d7row0_col2,#T_11c98b8a_8baa_11ed_a41f_a029197581d7row3_col1{
+            background-color:  #08306b;
+            color:  #f1f1f1;
+        }#T_11c98b8a_8baa_11ed_a41f_a029197581d7row0_col1,#T_11c98b8a_8baa_11ed_a41f_a029197581d7row3_col0,#T_11c98b8a_8baa_11ed_a41f_a029197581d7row3_col2{
+            background-color:  #f7fbff;
+            color:  #000000;
+        }#T_11c98b8a_8baa_11ed_a41f_a029197581d7row1_col0{
+            background-color:  #1460a8;
+            color:  #f1f1f1;
+        }#T_11c98b8a_8baa_11ed_a41f_a029197581d7row1_col1{
+            background-color:  #d3e3f3;
+            color:  #000000;
+        }#T_11c98b8a_8baa_11ed_a41f_a029197581d7row1_col2{
+            background-color:  #084d96;
+            color:  #f1f1f1;
+        }#T_11c98b8a_8baa_11ed_a41f_a029197581d7row2_col0{
+            background-color:  #99c7e0;
+            color:  #000000;
+        }#T_11c98b8a_8baa_11ed_a41f_a029197581d7row2_col1{
+            background-color:  #4695c8;
+            color:  #000000;
+        }#T_11c98b8a_8baa_11ed_a41f_a029197581d7row2_col2{
+            background-color:  #549fcd;
+            color:  #000000;
+        }</style><table id="T_11c98b8a_8baa_11ed_a41f_a029197581d7" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >RSS</th>        <th class="col_heading level0 col1" >R2</th>        <th class="col_heading level0 col2" >MAE</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_11c98b8a_8baa_11ed_a41f_a029197581d7level0_row0" class="row_heading level0 row0" >alpha = 0</th>
+                        <td id="T_11c98b8a_8baa_11ed_a41f_a029197581d7row0_col0" class="data row0 col0" >1964561.000000</td>
+                        <td id="T_11c98b8a_8baa_11ed_a41f_a029197581d7row0_col1" class="data row0 col1" >-10.849875</td>
+                        <td id="T_11c98b8a_8baa_11ed_a41f_a029197581d7row0_col2" class="data row0 col2" >403.392857</td>
+            </tr>
+            <tr>
+                        <th id="T_11c98b8a_8baa_11ed_a41f_a029197581d7level0_row1" class="row_heading level0 row1" >alpha = 200</th>
+                        <td id="T_11c98b8a_8baa_11ed_a41f_a029197581d7row1_col0" class="data row1 col0" >1615208.000000</td>
+                        <td id="T_11c98b8a_8baa_11ed_a41f_a029197581d7row1_col1" class="data row1 col1" >-8.742643</td>
+                        <td id="T_11c98b8a_8baa_11ed_a41f_a029197581d7row1_col2" class="data row1 col2" >369.646226</td>
+            </tr>
+            <tr>
+                        <th id="T_11c98b8a_8baa_11ed_a41f_a029197581d7level0_row2" class="row_heading level0 row2" >alpha = 1000</th>
+                        <td id="T_11c98b8a_8baa_11ed_a41f_a029197581d7row2_col0" class="data row2 col0" >814095.000000</td>
+                        <td id="T_11c98b8a_8baa_11ed_a41f_a029197581d7row2_col1" class="data row2 col1" >-3.910474</td>
+                        <td id="T_11c98b8a_8baa_11ed_a41f_a029197581d7row2_col2" class="data row2 col2" >273.786232</td>
+            </tr>
+            <tr>
+                        <th id="T_11c98b8a_8baa_11ed_a41f_a029197581d7level0_row3" class="row_heading level0 row3" >alpha = 5000</th>
+                        <td id="T_11c98b8a_8baa_11ed_a41f_a029197581d7row3_col0" class="data row3 col0" >88315.000000</td>
+                        <td id="T_11c98b8a_8baa_11ed_a41f_a029197581d7row3_col1" class="data row3 col1" >0.467297</td>
+                        <td id="T_11c98b8a_8baa_11ed_a41f_a029197581d7row3_col2" class="data row3 col2" >103.296980</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<p>Widzimy, że im większy współczynnik kary, tym model jest bardziej dopasowany do pozostałych obserwacji.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="lasso-regression">
+<h3>Lasso Regression<a class="headerlink" href="#lasso-regression" title="Permalink to this headline">¶</a></h3>
+<p><strong>Lasso Regression</strong> jest kolejną metodą służącą do redukcji overfittingu, ale tym razem wykorzystującą do regularyzacji normę <span class="math notranslate nohighlight">\(L1\)</span>.</p>
+<p>Funkcja celu modelu Lasso Regression wygląda następująco:</p>
+<div class="math notranslate nohighlight">
+\[RSS_{Lasso} (\beta) = \sum_{i=1}^N \bigg(y_i - \sum_{j=0}^p x_{ij} \beta_j\bigg)^2 + \alpha \sum_{j=1}^{p} |\beta_j|, \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso1</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">)</span>
+<span class="n">lasso1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lasso(alpha=0.001)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso2</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">lasso2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lasso(alpha=200)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso3</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">lasso3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lasso(alpha=1000)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso4</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">lasso4</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lasso(alpha=5000)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data_test</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data_test</span><span class="p">[</span><span class="s1">&#39;Cena&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkmagenta&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;Cena&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">lasso1</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">lasso1</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;alpha = 0&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">lasso2</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">lasso2</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;lightseagreen&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;alpha = 200&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">lasso3</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">lasso3</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;plum&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;alpha = 1000&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">lasso4</span><span class="o">.</span><span class="n">coef_</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;M2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">lasso4</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;mediumvioletred&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;alpha = 5000&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Zbiór testowy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Regresja_52_0.png" src="../_images/Regresja_52_0.png" />
+</div>
+</div>
+<p>Tutaj również możemy wyciągnąć wniosek, że im większy współczynnik kary, tym dopasowanie modelu jest lepsze.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wyniki2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;RSS&#39;</span><span class="p">:[</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">lasso1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)),</span><span class="mi">0</span><span class="p">),</span> 
+                                     <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">lasso2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)),</span><span class="mi">0</span><span class="p">),</span>
+                                     <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">lasso3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)),</span><span class="mi">0</span><span class="p">),</span>
+                                     <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">lasso4</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)),</span><span class="mi">0</span><span class="p">)</span>
+                                    <span class="p">],</span>
+                             <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lasso1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                                   <span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lasso2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                                   <span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lasso3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                                   <span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lasso4</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))],</span>
+                             <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lasso1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                                    <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lasso2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                                    <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lasso3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span>
+                                    <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">lasso4</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))]},</span> 
+                      <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;alpha = 0&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha = 200&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha = 1000&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha = 5000&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">wyniki2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+#T_12377c48_8baa_11ed_aa0c_a029197581d7row0_col0,#T_12377c48_8baa_11ed_aa0c_a029197581d7row0_col2,#T_12377c48_8baa_11ed_aa0c_a029197581d7row3_col1{
+            background-color:  #08306b;
+            color:  #f1f1f1;
+        }#T_12377c48_8baa_11ed_aa0c_a029197581d7row0_col1,#T_12377c48_8baa_11ed_aa0c_a029197581d7row3_col0,#T_12377c48_8baa_11ed_aa0c_a029197581d7row3_col2{
+            background-color:  #f7fbff;
+            color:  #000000;
+        }#T_12377c48_8baa_11ed_aa0c_a029197581d7row1_col0{
+            background-color:  #084387;
+            color:  #f1f1f1;
+        }#T_12377c48_8baa_11ed_aa0c_a029197581d7row1_col1{
+            background-color:  #e9f2fa;
+            color:  #000000;
+        }#T_12377c48_8baa_11ed_aa0c_a029197581d7row1_col2{
+            background-color:  #083a7a;
+            color:  #f1f1f1;
+        }#T_12377c48_8baa_11ed_aa0c_a029197581d7row2_col0{
+            background-color:  #3787c0;
+            color:  #000000;
+        }#T_12377c48_8baa_11ed_aa0c_a029197581d7row2_col1{
+            background-color:  #abd0e6;
+            color:  #000000;
+        }#T_12377c48_8baa_11ed_aa0c_a029197581d7row2_col2{
+            background-color:  #1764ab;
+            color:  #f1f1f1;
+        }</style><table id="T_12377c48_8baa_11ed_aa0c_a029197581d7" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >RSS</th>        <th class="col_heading level0 col1" >R2</th>        <th class="col_heading level0 col2" >MAE</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_12377c48_8baa_11ed_aa0c_a029197581d7level0_row0" class="row_heading level0 row0" >alpha = 0</th>
+                        <td id="T_12377c48_8baa_11ed_aa0c_a029197581d7row0_col0" class="data row0 col0" >1964561.000000</td>
+                        <td id="T_12377c48_8baa_11ed_aa0c_a029197581d7row0_col1" class="data row0 col1" >-10.849871</td>
+                        <td id="T_12377c48_8baa_11ed_aa0c_a029197581d7row0_col2" class="data row0 col2" >403.392793</td>
+            </tr>
+            <tr>
+                        <th id="T_12377c48_8baa_11ed_aa0c_a029197581d7level0_row1" class="row_heading level0 row1" >alpha = 200</th>
+                        <td id="T_12377c48_8baa_11ed_aa0c_a029197581d7row1_col0" class="data row1 col0" >1828182.000000</td>
+                        <td id="T_12377c48_8baa_11ed_aa0c_a029197581d7row1_col1" class="data row1 col1" >-10.027261</td>
+                        <td id="T_12377c48_8baa_11ed_aa0c_a029197581d7row1_col2" class="data row1 col2" >390.617347</td>
+            </tr>
+            <tr>
+                        <th id="T_12377c48_8baa_11ed_aa0c_a029197581d7level0_row2" class="row_heading level0 row2" >alpha = 1000</th>
+                        <td id="T_12377c48_8baa_11ed_aa0c_a029197581d7row2_col0" class="data row2 col0" >1332914.000000</td>
+                        <td id="T_12377c48_8baa_11ed_aa0c_a029197581d7row2_col1" class="data row2 col1" >-7.039895</td>
+                        <td id="T_12377c48_8baa_11ed_aa0c_a029197581d7row2_col2" class="data row2 col2" >339.515306</td>
+            </tr>
+            <tr>
+                        <th id="T_12377c48_8baa_11ed_aa0c_a029197581d7level0_row3" class="row_heading level0 row3" >alpha = 5000</th>
+                        <td id="T_12377c48_8baa_11ed_aa0c_a029197581d7row3_col0" class="data row3 col0" >62549.000000</td>
+                        <td id="T_12377c48_8baa_11ed_aa0c_a029197581d7row3_col1" class="data row3 col1" >0.622717</td>
+                        <td id="T_12377c48_8baa_11ed_aa0c_a029197581d7row3_col2" class="data row3 col2" >84.005102</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<p>Używanie normy <span class="math notranslate nohighlight">\(L1\)</span> może także spowodować, że w przypadku modelu o kilku zmiennych objaśniających, współczynniki dla niektórych z nich zostaną wyzerowane.</p>
+<p><strong>Interpretacja geometryczna</strong></p>
+<p><img alt="image.png" src="11. Regresja/attachment:image.png" /></p>
+<p>Źródło: <em>The Elements of Statistical Learning</em> Trevor Hastie, Robert Tibshirani, Jerome Friedman, Second Edition.</p>
+<p>Czerwone elipsy odpowiadają za błąd kwadratowy, natomiast niebieskie kolory przedstawiają kulę w metrykach <span class="math notranslate nohighlight">\(L1\)</span> i <span class="math notranslate nohighlight">\(L2\)</span> odpowiednio. W związku z tym, że kula w metryce <span class="math notranslate nohighlight">\(L1\)</span> ma kwadratowy kształt, to kiedy suma resztowa kwadratów znajdzie się w jednym z rogów, współczynnik jest zerowany. W Ridge Regression współczynniki te zbliżają się do zera, ale nigdy nie osiągają wartości równej 0.</p>
+<p>Z tego też względu <strong>Lasso Regression</strong> jest często wykorzystywane również do wyboru zmiennych modelu.</p>
+<hr class="docutils" />
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./11. Regresja"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By codersi<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
