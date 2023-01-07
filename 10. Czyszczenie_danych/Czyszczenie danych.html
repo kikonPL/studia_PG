@@ -1,0 +1,3173 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Czyszczenie danych &#8212; Silky Coders Data Science</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Klasteryzacja w Python" href="../7.%20Klasteryzacja/7_Klasteryzacja.html" />
+    <link rel="prev" title="Inżynieria cech" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/silky-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Silky Coders Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wprowadzenie do pakietów numpy i pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">
+   Pakiet pandas - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">
+   Pakiet NumPy - tutorial
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wizualizacja danych
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">
+   Wizualizacja danych w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Analiza statystyczna
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">
+   Analiza statystyczna - tutorial
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wykrywanie anomalii
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">
+   Wykrywanie anomalii - definicje
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">
+   Wykrywanie anomalii - tutorial
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inżynieria cech
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">
+   Inżynieria cech
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Czyszczenie danych
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Czyszczenie danych
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Klasteryzacja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
+   Klasteryzacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Klasyfikacja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">
+   Klasyfikacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Regresja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11.%20Regresja/Regresja-Part2.html">
+   Analiza regresji
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wyjaśnialność modeli
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">
+   Wyjaśnialność modeli - metryki statystyczne - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">
+   Wyjaśnialność modeli - definicje
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">
+   Wyjaśnialność modeli - XAI - tutorial
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/10. Czyszczenie_danych/Czyszczenie danych.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kikonPL/studia_PG"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F10. Czyszczenie_danych/Czyszczenie danych.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kikonPL/studia_PG/main?urlpath=tree/_build/10. Czyszczenie_danych/Czyszczenie danych.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/_build/10. Czyszczenie_danych/Czyszczenie danych.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Czyszczenie danych
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wygenerowanie-danych">
+   Wygenerowanie danych
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#czyszczenie-danych-tabularycznych">
+   Czyszczenie danych tabularycznych
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#formaty-danych">
+     Formaty danych
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#atrybuty-zmiennych-kategorycznych">
+     Atrybuty zmiennych kategorycznych
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weryfikacja-duplikatow">
+     Weryfikacja duplikatów
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sprawdzanie-zmiennych-numerycznych">
+     Sprawdzanie zmiennych numerycznych
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relacje-pomiedzy-zmiennymi">
+     Relacje pomiędzy zmiennymi
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imputacja-wartosci-brakujacych">
+     Imputacja wartości brakujących
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metody-imputacji-brakujacych-wartosci">
+     Metody imputacji brakujących wartości
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#przyklady-imputacji">
+       Przykłady imputacji
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#iimputacja-wartoscia-specjalna">
+         iImputacja wartością specjalną
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#imputacja-wartoscia-stala">
+         Imputacja wartością stałą
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#imputacja-zmiennych-kategorycznych">
+           Imputacja zmiennych kategorycznych
+          </a>
+         </li>
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#imputacja-zmiennych-numerycznych">
+           Imputacja zmiennych numerycznych
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#laczenie-roznych-metod-imputacji-z-wykorzystaniem-pipeline">
+         Łączenie różnych metod imputacji z wykorzystaniem pipeline
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#imputacja-wg-grupy">
+         Imputacja wg grupy
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#imputacja-z-wykorzystaniem-modelu">
+         Imputacja z wykorzystaniem modelu
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metody-usuwania-brakujacych-wartosci">
+     Metody usuwania brakujących wartości
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#czyszczenie-szeregow-czasowych">
+   Czyszczenie szeregów czasowych
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="czyszczenie-danych">
+<h1>Czyszczenie danych<a class="headerlink" href="#czyszczenie-danych" title="Permalink to this headline">¶</a></h1>
+<div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p><b>Czyszczenie danych</b> jest to proces polegający na identyfikacji i naprawie różnego rodzaju błędów w danych.</p>
+</div><div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>Czyszczenie danych obejmuje zazwyczaj następujące elementy:</p>
+<ul class="simple">
+<li><p>czyszczenie formatów danych</p></li>
+<li><p>czyszczenie kodowania zmiennych kategorycznych</p></li>
+<li><p>czyszczenie nieprawidłowych wartości zmiennych numerycznych</p></li>
+<li><p>czyszczenie wartości odstających</p></li>
+<li><p>usuwanie duplikatów</p></li>
+<li><p>imputacja wartości brakujących</p></li>
+</ul>
+</div><div class="alert alert-block alert-danger">
+<b>Uwaga!</b> 
+<p><b>Czyszczenie danych</b> stanowi jeden z ważniejszych etapów w procesie budowy modeli uczenia maszynowego, dlatego należy mu poświęcić dużo uwagi. Zazwyczaj stanowi też jedną z najbardziej czasochłonnych faz i może wymagać czasem wielu iteracji polegających na identyfikacji i naprawie kolejnych nieprawidłowości a następnie analizy impaktu zmian na wyniki modelu.
+Należy również pamiętać, że czyszczenie danych musi być poprzedzone ich dobrym zrozumieniem, inaczej nie będzie możliwe uzyskanie danych poprawnych pod kątem logiki biznesowej.</p>
+</div><p>W tym notebooku przedstawione zostaną 2 przypadki - czyszczenie danych tabularycznych oraz czyszczenie szeregu czasowego. Najpierw jednak import bibliotek i wygenerowanie danych</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="wygenerowanie-danych">
+<h1>Wygenerowanie danych<a class="headerlink" href="#wygenerowanie-danych" title="Permalink to this headline">¶</a></h1>
+<p>Posłużymy się tutaj dwoma przykładami danych wymagających wyczyszczenia - danymi tabularycznymi reprezentującymi dane pacjentów oraz szeregiem czasowym pokazującym sprzedaż produktu o silnej sezonowości</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_ts_data</span><span class="p">(</span><span class="n">month_coef</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">week_coef</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">day_coef</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_coef</span> <span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2016-01-01&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2020-12-31&quot;</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SalesDate&quot;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">SalesDate</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Week&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">SalesDate</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">()</span><span class="o">.</span><span class="n">week</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">SalesDate</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;WeekDay&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">SalesDate</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">6.5</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">Month</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">month_coef</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">26.5</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">Week</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">week_coef</span> <span class="o">+</span><span class="n">df</span><span class="o">.</span><span class="n">WeekDay</span><span class="o">*</span><span class="n">day_coef</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;SalesDate&quot;</span><span class="p">]</span><span class="o">&gt;=</span><span class="s2">&quot;2019-11-01&quot;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;SalesDate&quot;</span><span class="p">]</span><span class="o">&lt;=</span><span class="s2">&quot;2020-03-01&quot;</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mf">0.2</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.998</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s2">&quot;SalesDate&quot;</span><span class="p">,</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_tabular_data</span><span class="p">(</span><span class="n">len_data</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">len_data</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">len_data</span><span class="p">)</span>
+    <span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">len_data</span><span class="p">))</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">len_data</span><span class="p">))</span>
+    <span class="n">bmi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">weight</span><span class="o">/</span><span class="p">(</span><span class="n">height</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">city</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;Gdańsk&quot;</span><span class="p">,</span><span class="s2">&quot;Gdynia&quot;</span><span class="p">,</span> <span class="s2">&quot;Wejherowo&quot;</span><span class="p">,</span> <span class="s2">&quot;Kościerzyna&quot;</span><span class="p">,</span><span class="s2">&quot;Gdansk&quot;</span><span class="p">,</span> <span class="s2">&quot;Koscierzyna&quot;</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">len_data</span><span class="p">)</span>
+    <span class="n">num_covid_tests</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">len_data</span><span class="p">)</span>
+    <span class="n">num_positive_tests</span> <span class="o">=</span> <span class="p">(</span><span class="n">num_covid_tests</span> <span class="o">-</span> <span class="n">num_covid_tests</span> <span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">len_data</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">len_data</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+    <span class="n">sex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">len_data</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+    <span class="n">dict_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;unique_id&quot;</span><span class="p">:</span><span class="nb">id</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span><span class="n">age</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">:</span><span class="n">weight</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">:</span><span class="n">height</span><span class="p">,</span> <span class="s2">&quot;bmi&quot;</span><span class="p">:</span><span class="n">bmi</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span><span class="n">city</span><span class="p">,</span>
+                <span class="s2">&quot;num_covid_tests&quot;</span><span class="p">:</span><span class="n">num_covid_tests</span><span class="p">,</span> <span class="s2">&quot;num_positive_tests&quot;</span><span class="p">:</span><span class="n">num_positive_tests</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">:</span><span class="n">sex</span><span class="p">}</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dict_data</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_covid_tests&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_covid_tests&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_covid_tests&quot;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">p</span> <span class="o">=</span><span class="p">[</span><span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">len_data</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;bmi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;bmi&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()],</span> <span class="n">p</span> <span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">len_data</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">65</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bmi&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">30</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bmi&quot;</span><span class="p">]</span><span class="o">&lt;=</span><span class="mi">20</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;bmi&quot;</span><span class="p">]</span><span class="o">&lt;=</span><span class="mi">30</span><span class="p">],[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="czyszczenie-danych-tabularycznych">
+<h1>Czyszczenie danych tabularycznych<a class="headerlink" href="#czyszczenie-danych-tabularycznych" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">generate_tabular_data</span><span class="p">(</span><span class="n">len_data</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pierwszym krokiem w czyszczeniu danych powinno zawsze być przyjrzenie się wycinkowi danych oraz podstawowym informacjom o naszej ramce danych:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique_id</th>
+      <th>age</th>
+      <th>weight</th>
+      <th>height</th>
+      <th>bmi</th>
+      <th>city</th>
+      <th>num_covid_tests</th>
+      <th>num_positive_tests</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>41.0</td>
+      <td>64.0</td>
+      <td>141.0</td>
+      <td>32.2</td>
+      <td>wejherowo</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>39.0</td>
+      <td>48.0</td>
+      <td>184.0</td>
+      <td>14.2</td>
+      <td>GDAŃSK</td>
+      <td>4.0</td>
+      <td>4</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>58.0</td>
+      <td>63.0</td>
+      <td>179.0</td>
+      <td>19.7</td>
+      <td>GDAŃSK</td>
+      <td>1.0</td>
+      <td>-1</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>NaN</td>
+      <td>41.0</td>
+      <td>175.0</td>
+      <td>13.4</td>
+      <td>GDANSK</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>NaN</td>
+      <td>54.0</td>
+      <td>191.0</td>
+      <td>14.8</td>
+      <td>GDAŃSK</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>M</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 315 entries, 0 to 208
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           315 non-null    int64  
+ 1   age                 218 non-null    float64
+ 2   weight              315 non-null    object 
+ 3   height              315 non-null    float64
+ 4   bmi                 315 non-null    float64
+ 5   city                315 non-null    object 
+ 6   num_covid_tests     248 non-null    float64
+ 7   num_positive_tests  315 non-null    int32  
+ 8   sex                 315 non-null    object 
+dtypes: float64(4), int32(1), int64(1), object(3)
+memory usage: 23.4+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="formaty-danych">
+<h2>Formaty danych<a class="headerlink" href="#formaty-danych" title="Permalink to this headline">¶</a></h2>
+<p>najczęściej występującym problemem jest formatowanie zmiennych numerycznych jako kategorycznych, tutaj widzimy to np. dla zmiennej weight, może to wynikać również z nieprawidłowych wartości występujących w takich kolumnach.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="s2">&quot;object&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weight</th>
+      <th>city</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>64.0</td>
+      <td>wejherowo</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>48.0</td>
+      <td>GDAŃSK</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>63.0</td>
+      <td>GDAŃSK</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>41.0</td>
+      <td>GDANSK</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>54.0</td>
+      <td>GDAŃSK</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>252</th>
+      <td>62.0</td>
+      <td>Gdańsk</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>231</th>
+      <td>58.0</td>
+      <td>Wejherowo</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>229</th>
+      <td>57.0</td>
+      <td>Kościerzyna</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>55.0</td>
+      <td>WEJHEROWO</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>208</th>
+      <td>65.0</td>
+      <td>Kościerzyna</td>
+      <td>F</td>
+    </tr>
+  </tbody>
+</table>
+<p>315 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>bmi</th>
+      <th>num_covid_tests</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>41.0</td>
+      <td>141.0</td>
+      <td>32.2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>39.0</td>
+      <td>184.0</td>
+      <td>14.2</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>58.0</td>
+      <td>179.0</td>
+      <td>19.7</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>175.0</td>
+      <td>13.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>191.0</td>
+      <td>14.8</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>252</th>
+      <td>52.0</td>
+      <td>158.0</td>
+      <td>24.8</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>231</th>
+      <td>20.0</td>
+      <td>152.0</td>
+      <td>25.1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>229</th>
+      <td>55.0</td>
+      <td>155.0</td>
+      <td>23.7</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>33.0</td>
+      <td>179.0</td>
+      <td>17.2</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>208</th>
+      <td>51.0</td>
+      <td>169.0</td>
+      <td>22.8</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>315 rows × 4 columns</p>
+</div></div></div>
+</div>
+<p>Ponadto niektóre z powyższych zmiennych np. num_covid_tests wydają się bardziej pasować do formatu int niż float, jednak należy pamiętać, że zmienne zawierające brakujące wartości są automatycznie konwertowane na format float, dlatego na razie ograniczymy się do konwersji dla zmiennej weight.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns_to_convert</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">columns_to_convert</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columns_to_convert</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 315 entries, 0 to 208
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           315 non-null    int64  
+ 1   age                 218 non-null    float64
+ 2   weight              315 non-null    float64
+ 3   height              315 non-null    float64
+ 4   bmi                 315 non-null    float64
+ 5   city                315 non-null    object 
+ 6   num_covid_tests     248 non-null    float64
+ 7   num_positive_tests  315 non-null    int32  
+ 8   sex                 315 non-null    object 
+dtypes: float64(5), int32(1), int64(1), object(2)
+memory usage: 23.4+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="atrybuty-zmiennych-kategorycznych">
+<h2>Atrybuty zmiennych kategorycznych<a class="headerlink" href="#atrybuty-zmiennych-kategorycznych" title="Permalink to this headline">¶</a></h2>
+<p>Zmienne kategoryczne są szczególnie narażone na błędy wynikające z literówek lub nieprawidłowego kodowania, co prowadzi do błędnego zwiększenia liczby ich unikalnych atrybutów. Można to zaobserwować dla przedstawionych poniżej zmiennych:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="s2">&quot;object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>********************
+CITY
+********************
+Gdańsk         66
+GDAŃSK         50
+Gdynia         31
+Wejherowo      20
+GDYNIA         19
+Kościerzyna    17
+Gdansk         15
+gdańsk         15
+WEJHEROWO      15
+GDANSK         13
+KOŚCIERZYNA    12
+Koscierzyna    12
+gdynia         11
+KOSCIERZYNA     8
+wejherowo       4
+gdansk          3
+kościerzyna     3
+koscierzyna     1
+Name: city, dtype: int64
+********************
+SEX
+********************
+F    146
+M    130
+N     39
+Name: sex, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jak widać zmienna city jest obarczona licznymi błędami wynikającymi z literówek oraz używania róznej wielkości liter. Tutaj błędy mogą stosunkowo łatwo zostać naprawione, jednak najczęściej do takiej poprawy niezbędna jest wiedza biznesowa odnośnie tego jakie atrybuty powinna dana zmienna posiadać i co one oznaczają.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s2">&quot;Gdansk&quot;</span><span class="p">:</span><span class="s2">&quot;Gdańsk&quot;</span><span class="p">,</span> <span class="s2">&quot;Koscierzyna&quot;</span><span class="p">:</span><span class="s2">&quot;Kościerzyna&quot;</span><span class="p">})</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gdańsk         162
+Gdynia          61
+Kościerzyna     53
+Wejherowo       39
+Name: city, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>W przypadku zmiennej oznaczającej płeć pacjenta poza oczekiwanymi atrybutami M i F występuje jeszcze jedno oznaczenie - N. Przy założeniu, że nie ma żadnych wytycznych biznesowych określających, że taka wartość w tej kolumnie oznacza np. brak danych, musimy potraktować tą wartość jako błędną i oznaczyć jako brakującą. Tutaj zamienimy tę wartość na pustą a wypełnieniem jej zajmiemy się w kolejnych sekcjach.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;N&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>F      146
+M      130
+NaN     39
+Name: sex, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="weryfikacja-duplikatow">
+<h2>Weryfikacja duplikatów<a class="headerlink" href="#weryfikacja-duplikatow" title="Permalink to this headline">¶</a></h2>
+<p>Kolejnym istotnym krokiem jest weryfikacja czy w danych nie występują duplikaty. Aby zbadać występowanie duplikatów dla danych niezbędna jest wiedza jakie kolumny wyznaczają unikalne kombinacje. W tym wypadku zakładamy, że odpowiada za to kolumna unique_id, zatem wystarczy porównać liczbę jej unikalnych wartości z liczebnością ramki danych.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;unique_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(300, 315)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jak widać w danych występują duplikaty, do ich usunięcia najprościej wykorzystać funkcję drop_duplicates, wybierając jako subset unique_id. Funkcja daje również możliwość wyboru, który rekord zachować przy wykryciu duplikatów, załóżmy, że tutaj interesuje nas ostatni rekord bo reprezentuje np. najnowszy wpis w danych.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;unique_id&quot;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 300 entries, 0 to 208
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           300 non-null    int64  
+ 1   age                 205 non-null    float64
+ 2   weight              300 non-null    float64
+ 3   height              300 non-null    float64
+ 4   bmi                 300 non-null    float64
+ 5   city                300 non-null    object 
+ 6   num_covid_tests     236 non-null    float64
+ 7   num_positive_tests  300 non-null    int32  
+ 8   sex                 264 non-null    object 
+dtypes: float64(5), int32(1), int64(1), object(2)
+memory usage: 22.3+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sprawdzanie-zmiennych-numerycznych">
+<h2>Sprawdzanie zmiennych numerycznych<a class="headerlink" href="#sprawdzanie-zmiennych-numerycznych" title="Permalink to this headline">¶</a></h2>
+<p>Kolejnym krokiem jest czyszczenie zmiennych numerycznych, co obejmować będzie identyfikację i naprawianie wartości nieprawidłowych z punktu widzenia logiki biznesowej oraz wartości odstających.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique_id</th>
+      <th>age</th>
+      <th>weight</th>
+      <th>height</th>
+      <th>bmi</th>
+      <th>num_covid_tests</th>
+      <th>num_positive_tests</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>300.000000</td>
+      <td>205.000000</td>
+      <td>300.000000</td>
+      <td>300.000000</td>
+      <td>300.000000</td>
+      <td>236.000000</td>
+      <td>300.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>149.500000</td>
+      <td>36.512195</td>
+      <td>59.726667</td>
+      <td>163.090000</td>
+      <td>21.686225</td>
+      <td>2.559322</td>
+      <td>1.040000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>86.746758</td>
+      <td>18.061607</td>
+      <td>10.080543</td>
+      <td>23.571323</td>
+      <td>7.833113</td>
+      <td>1.126413</td>
+      <td>2.532412</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>5.000000</td>
+      <td>33.000000</td>
+      <td>123.000000</td>
+      <td>2.858319</td>
+      <td>1.000000</td>
+      <td>-16.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>74.750000</td>
+      <td>21.000000</td>
+      <td>53.000000</td>
+      <td>152.000000</td>
+      <td>18.050000</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>149.500000</td>
+      <td>38.000000</td>
+      <td>60.000000</td>
+      <td>161.000000</td>
+      <td>22.500000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>224.250000</td>
+      <td>52.000000</td>
+      <td>66.250000</td>
+      <td>169.250000</td>
+      <td>26.600000</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>299.000000</td>
+      <td>65.000000</td>
+      <td>87.000000</td>
+      <td>324.000000</td>
+      <td>41.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>analizując powyższe statystyki dla zmiennych numerycznych możemy łatwo zauważyć występowanie wartości nieprawidłowych w postaci ujemnych wartości dla zmiennej num_positive_tests, która z założenia powinna być nieujemna. Ponadto można tutaj łatwo zauważyć występowanie wartości odstających dla zmiennej height. Dokładny proces identyfikacji wartości odstających został bardziej szczegółowo omówiony w osobnym notebooku, zatem tutaj ograniczymy się do oznaczenia takich wartosci jako brakujące, przyjmując arbitralnie wielkość progu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">230</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_positive_tests&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_positive_tests&quot;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_positive_tests&quot;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique_id</th>
+      <th>age</th>
+      <th>weight</th>
+      <th>height</th>
+      <th>bmi</th>
+      <th>num_covid_tests</th>
+      <th>num_positive_tests</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>300.000000</td>
+      <td>205.000000</td>
+      <td>300.000000</td>
+      <td>295.000000</td>
+      <td>300.000000</td>
+      <td>236.000000</td>
+      <td>270.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>149.500000</td>
+      <td>36.512195</td>
+      <td>59.726667</td>
+      <td>160.505085</td>
+      <td>21.686225</td>
+      <td>2.559322</td>
+      <td>1.603704</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>86.746758</td>
+      <td>18.061607</td>
+      <td>10.080543</td>
+      <td>12.704884</td>
+      <td>7.833113</td>
+      <td>1.126413</td>
+      <td>1.569453</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>5.000000</td>
+      <td>33.000000</td>
+      <td>123.000000</td>
+      <td>2.858319</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>74.750000</td>
+      <td>21.000000</td>
+      <td>53.000000</td>
+      <td>152.000000</td>
+      <td>18.050000</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>149.500000</td>
+      <td>38.000000</td>
+      <td>60.000000</td>
+      <td>161.000000</td>
+      <td>22.500000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>224.250000</td>
+      <td>52.000000</td>
+      <td>66.250000</td>
+      <td>169.000000</td>
+      <td>26.600000</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>299.000000</td>
+      <td>65.000000</td>
+      <td>87.000000</td>
+      <td>194.000000</td>
+      <td>41.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="relacje-pomiedzy-zmiennymi">
+<h2>Relacje pomiędzy zmiennymi<a class="headerlink" href="#relacje-pomiedzy-zmiennymi" title="Permalink to this headline">¶</a></h2>
+<p>Oprócz analizy pojedynczych zmiennych czyszczenie danych powinno obejmować również analizę relacji logicznych pomiędzy poszczególnymi zmiennymi, wynikające z logiki biznesowej. Takie relacje mogą obejmować zarówno zestawienie wartości pojedynczych zmiennych jak i weryfikacje zmiennych wyliczanych na ich podstwie.</p>
+<p>Przykładem takiej relacji w poniższych danych są zmienne num_covid_tests i num_positive_tests, za nieprawidłowe należy uznać wszystkie rekordy, dla których ta pierwsza zmienna jest mniejsza od drugiej</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_covid_tests&quot;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_positive_tests&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique_id</th>
+      <th>age</th>
+      <th>weight</th>
+      <th>height</th>
+      <th>bmi</th>
+      <th>city</th>
+      <th>num_covid_tests</th>
+      <th>num_positive_tests</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>13</th>
+      <td>13</td>
+      <td>44.0</td>
+      <td>76.0</td>
+      <td>150.0</td>
+      <td>33.800000</td>
+      <td>Gdańsk</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>33</td>
+      <td>NaN</td>
+      <td>55.0</td>
+      <td>153.0</td>
+      <td>23.500000</td>
+      <td>Gdańsk</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>62</td>
+      <td>32.0</td>
+      <td>61.0</td>
+      <td>147.0</td>
+      <td>28.200000</td>
+      <td>Kościerzyna</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>85</td>
+      <td>11.0</td>
+      <td>66.0</td>
+      <td>151.0</td>
+      <td>28.900000</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>89</td>
+      <td>9.0</td>
+      <td>82.0</td>
+      <td>179.0</td>
+      <td>25.600000</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>96</td>
+      <td>64.0</td>
+      <td>65.0</td>
+      <td>149.0</td>
+      <td>29.300000</td>
+      <td>Gdańsk</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>100</td>
+      <td>14.0</td>
+      <td>48.0</td>
+      <td>139.0</td>
+      <td>24.800000</td>
+      <td>Kościerzyna</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>126</th>
+      <td>126</td>
+      <td>NaN</td>
+      <td>59.0</td>
+      <td>173.0</td>
+      <td>19.700000</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>135</td>
+      <td>NaN</td>
+      <td>56.0</td>
+      <td>157.0</td>
+      <td>22.700000</td>
+      <td>Kościerzyna</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>169</td>
+      <td>9.0</td>
+      <td>61.0</td>
+      <td>157.0</td>
+      <td>24.700000</td>
+      <td>Kościerzyna</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>191</th>
+      <td>191</td>
+      <td>52.0</td>
+      <td>52.0</td>
+      <td>194.0</td>
+      <td>13.800000</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>192</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>162.0</td>
+      <td>4.380281</td>
+      <td>Gdynia</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>195</td>
+      <td>NaN</td>
+      <td>51.0</td>
+      <td>152.0</td>
+      <td>4.101874</td>
+      <td>Kościerzyna</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>199</td>
+      <td>NaN</td>
+      <td>77.0</td>
+      <td>169.0</td>
+      <td>27.000000</td>
+      <td>Gdańsk</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>210</th>
+      <td>210</td>
+      <td>NaN</td>
+      <td>55.0</td>
+      <td>166.0</td>
+      <td>20.000000</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>248</th>
+      <td>248</td>
+      <td>NaN</td>
+      <td>53.0</td>
+      <td>172.0</td>
+      <td>17.900000</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>231</th>
+      <td>231</td>
+      <td>20.0</td>
+      <td>58.0</td>
+      <td>152.0</td>
+      <td>25.100000</td>
+      <td>Wejherowo</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>M</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Przy założeniu, że wiemy iż bardziej wiarygodne są zapisy wartości zmiennej num_covid_tests można dokonać poprawy jak poniżej, alternatywą byłoby przypisanie takim przypadkom wartości pustej dla zmiennej num_positive_tests, ewentualnie usunięcie takich rekordów.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_positive_tests&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_positive_tests&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_covid_tests&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_covid_tests&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_positive_tests&quot;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_covid_tests&quot;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_positive_tests&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique_id</th>
+      <th>age</th>
+      <th>weight</th>
+      <th>height</th>
+      <th>bmi</th>
+      <th>city</th>
+      <th>num_covid_tests</th>
+      <th>num_positive_tests</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>zmienną wyliczoną na podstawie innych zmiennych reprezentuje tutaj bmi, znając formułę można zweryfikować czy wszędzie jest ona wyliczona prawidłowo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bmi&quot;</span><span class="p">])</span><span class="o">!=</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unique_id</th>
+      <th>age</th>
+      <th>weight</th>
+      <th>height</th>
+      <th>bmi</th>
+      <th>city</th>
+      <th>num_covid_tests</th>
+      <th>num_positive_tests</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18</th>
+      <td>18</td>
+      <td>38.0</td>
+      <td>49.0</td>
+      <td>167.0</td>
+      <td>3.266650</td>
+      <td>Gdańsk</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>21</td>
+      <td>44.0</td>
+      <td>71.0</td>
+      <td>NaN</td>
+      <td>27.100000</td>
+      <td>Wejherowo</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>27</td>
+      <td>NaN</td>
+      <td>68.0</td>
+      <td>NaN</td>
+      <td>25.900000</td>
+      <td>Gdynia</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>33</td>
+      <td>NaN</td>
+      <td>55.0</td>
+      <td>153.0</td>
+      <td>23.500000</td>
+      <td>Gdańsk</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>35</td>
+      <td>NaN</td>
+      <td>50.0</td>
+      <td>145.0</td>
+      <td>4.417402</td>
+      <td>Kościerzyna</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>45</td>
+      <td>48.0</td>
+      <td>51.0</td>
+      <td>132.0</td>
+      <td>5.438231</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>54</td>
+      <td>27.0</td>
+      <td>73.0</td>
+      <td>160.0</td>
+      <td>28.500000</td>
+      <td>Wejherowo</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>64</td>
+      <td>63.0</td>
+      <td>67.0</td>
+      <td>NaN</td>
+      <td>29.800000</td>
+      <td>Gdańsk</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>68</td>
+      <td>36.0</td>
+      <td>51.0</td>
+      <td>138.0</td>
+      <td>4.974218</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>73</td>
+      <td>19.0</td>
+      <td>44.0</td>
+      <td>151.0</td>
+      <td>3.582179</td>
+      <td>Kościerzyna</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>83</td>
+      <td>63.0</td>
+      <td>65.0</td>
+      <td>145.0</td>
+      <td>5.735199</td>
+      <td>Gdańsk</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>84</td>
+      <td>NaN</td>
+      <td>87.0</td>
+      <td>166.0</td>
+      <td>5.865122</td>
+      <td>Gdańsk</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>86</td>
+      <td>NaN</td>
+      <td>58.0</td>
+      <td>149.0</td>
+      <td>4.844294</td>
+      <td>Gdańsk</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>99</td>
+      <td>NaN</td>
+      <td>50.0</td>
+      <td>164.0</td>
+      <td>3.452256</td>
+      <td>Wejherowo</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>112</td>
+      <td>64.0</td>
+      <td>57.0</td>
+      <td>161.0</td>
+      <td>4.083313</td>
+      <td>Kościerzyna</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>120</td>
+      <td>NaN</td>
+      <td>68.0</td>
+      <td>147.0</td>
+      <td>31.500000</td>
+      <td>Gdańsk</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>132</th>
+      <td>132</td>
+      <td>63.0</td>
+      <td>66.0</td>
+      <td>147.0</td>
+      <td>30.500000</td>
+      <td>Gdynia</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>146</td>
+      <td>NaN</td>
+      <td>55.0</td>
+      <td>153.0</td>
+      <td>23.500000</td>
+      <td>Gdańsk</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>156</td>
+      <td>14.0</td>
+      <td>69.0</td>
+      <td>150.0</td>
+      <td>5.698078</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>167</th>
+      <td>167</td>
+      <td>NaN</td>
+      <td>68.0</td>
+      <td>182.0</td>
+      <td>20.500000</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>171</td>
+      <td>NaN</td>
+      <td>53.0</td>
+      <td>NaN</td>
+      <td>21.000000</td>
+      <td>Gdańsk</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>172</td>
+      <td>64.0</td>
+      <td>72.0</td>
+      <td>146.0</td>
+      <td>6.273454</td>
+      <td>Kościerzyna</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>176</td>
+      <td>NaN</td>
+      <td>57.0</td>
+      <td>NaN</td>
+      <td>23.400000</td>
+      <td>Wejherowo</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>182</th>
+      <td>182</td>
+      <td>16.0</td>
+      <td>52.0</td>
+      <td>174.0</td>
+      <td>3.192408</td>
+      <td>Gdańsk</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>183</th>
+      <td>183</td>
+      <td>NaN</td>
+      <td>62.0</td>
+      <td>165.0</td>
+      <td>4.231797</td>
+      <td>Kościerzyna</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>187</th>
+      <td>187</td>
+      <td>NaN</td>
+      <td>51.0</td>
+      <td>166.0</td>
+      <td>18.500000</td>
+      <td>Gdańsk</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>192</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>162.0</td>
+      <td>4.380281</td>
+      <td>Gdynia</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>193</td>
+      <td>57.0</td>
+      <td>64.0</td>
+      <td>158.0</td>
+      <td>4.751492</td>
+      <td>Gdynia</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>195</td>
+      <td>NaN</td>
+      <td>51.0</td>
+      <td>152.0</td>
+      <td>4.101874</td>
+      <td>Kościerzyna</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>198</td>
+      <td>52.0</td>
+      <td>53.0</td>
+      <td>164.0</td>
+      <td>3.656421</td>
+      <td>Wejherowo</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>215</td>
+      <td>19.0</td>
+      <td>80.0</td>
+      <td>173.0</td>
+      <td>4.955657</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>216</th>
+      <td>216</td>
+      <td>51.0</td>
+      <td>53.0</td>
+      <td>152.0</td>
+      <td>4.250358</td>
+      <td>Gdynia</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>224</th>
+      <td>224</td>
+      <td>NaN</td>
+      <td>49.0</td>
+      <td>163.0</td>
+      <td>3.415135</td>
+      <td>Kościerzyna</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>235</th>
+      <td>235</td>
+      <td>27.0</td>
+      <td>40.0</td>
+      <td>131.0</td>
+      <td>4.324600</td>
+      <td>Wejherowo</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>236</th>
+      <td>236</td>
+      <td>NaN</td>
+      <td>74.0</td>
+      <td>165.0</td>
+      <td>5.048460</td>
+      <td>Gdańsk</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>239</th>
+      <td>239</td>
+      <td>NaN</td>
+      <td>57.0</td>
+      <td>144.0</td>
+      <td>27.500000</td>
+      <td>Gdynia</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>245</th>
+      <td>245</td>
+      <td>40.0</td>
+      <td>58.0</td>
+      <td>161.0</td>
+      <td>4.157555</td>
+      <td>Kościerzyna</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>254</th>
+      <td>254</td>
+      <td>13.0</td>
+      <td>54.0</td>
+      <td>152.0</td>
+      <td>4.343160</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>260</th>
+      <td>260</td>
+      <td>58.0</td>
+      <td>61.0</td>
+      <td>135.0</td>
+      <td>33.500000</td>
+      <td>Gdynia</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>280</th>
+      <td>280</td>
+      <td>21.0</td>
+      <td>59.0</td>
+      <td>169.0</td>
+      <td>3.842026</td>
+      <td>Gdańsk</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>282</th>
+      <td>282</td>
+      <td>12.0</td>
+      <td>56.0</td>
+      <td>160.0</td>
+      <td>4.064753</td>
+      <td>Gdańsk</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>293</th>
+      <td>293</td>
+      <td>46.0</td>
+      <td>46.0</td>
+      <td>173.0</td>
+      <td>2.858319</td>
+      <td>Wejherowo</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>234</th>
+      <td>234</td>
+      <td>NaN</td>
+      <td>62.0</td>
+      <td>158.0</td>
+      <td>4.603007</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>87</td>
+      <td>5.0</td>
+      <td>72.0</td>
+      <td>161.0</td>
+      <td>5.159823</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>M</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>jak widać istnieją rekordy, dla których wartość nie zgadza się z formułą, wprowadzamy zatem poprawki:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;bmi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="imputacja-wartosci-brakujacych">
+<h2>Imputacja wartości brakujących<a class="headerlink" href="#imputacja-wartosci-brakujacych" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>rodzaje wartości brakujących</p>
+<ul class="simple">
+<li><p>MCAR - Missing Completely At Random</p></li>
+<li><p>MAR - Missing At Random</p></li>
+<li><p>MNAR - Missing Not At Random</p></li>
+</ul>
+</div><div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p><b>MCAR</b> wartości brakujące powstały w sposób całkowicie losowy, co oznacza, że nie istnieje związek pomiędzy występowaniem wartości brakujących w danej a zmiennej a ich występowaniem w pozostałych zmiennych ani pomiędzy wartościami jakiejkolwiek zmiennej a wartościami brakującymi rozważanej zmiennej</p>
+</div>
+<div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p><b>MAR</b>
+wartości brakujące występują losowo, ale można się dopatrzeć związków pomiędzy ich występowaniem a wartościami którejś z pozostałych zmiennych</p>
+</div><div class="alert alert-block alert-success">
+<b>Definicja</b> 
+<p><b>MNAR</b> wartości brakujące występują w sposób systematyczny, co ma związek np. ze sposobem zbierania danych, pozostałe zmienne nie mówią nic na podstawie czego można by dokonać imputacji tych wartości, natomiast prawdopodobieństwo wystąpienia braku danych jest wprost związane z wartościami omawianej zmiennej.</p>
+</div><p>na początek importujemy bibliotekę missingno, która posiada szereg przydatnych wizualizacji do zrozumienia natury wartości brakujących</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">missingno</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>podstawowa wizualizacja daje intuicję na temat liczby wartości brakujących, a co więcej pokazuje też relacje pomiędzy ich występowanie w poszczególnych zmiennych</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missingno</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/Czyszczenie danych_56_1.png" src="../_images/Czyszczenie danych_56_1.png" />
+</div>
+</div>
+<p>tutaj można zauważyć relację między zmiennymi height i bmi, co jest oczywiście konsekwencją tego, że bmi jest liczone w oparciu o height. Ponadto widać też, że wartości brakujące zdecydowanie najczęściej występują dla zmiennej age.</p>
+<p>Można również zaobserwować, że dla zmiennej age nie występują wartości wyższe niż 65 lat, zatem sposób potraktowania wartości brakujących zależy od istnienia informacji o maksymalnym wieku pacejentów w tym zbiorze danych - gdyby np okazało, że próba obejmuje również starsze osoby, ale przez jakiś błąd przy wprowadzaniu danych ich wiek się nie zapisał, należałoby potraktować taki przypadek jako MNAR i zastąpić wartością specjalną lub oznaczyć w osobnej kolumnie, w przeciwnym razie będzie to MCAR lub MAR.</p>
+<p>Lepszemu wglądowi w to czy wartości brakujące dla danej zmiennej zależą od innych zmiennych może służyć również przedstawienie powyższej wizualizacji po posortowaniu wg wybranej zmiennej</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missingno</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;weight&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Czyszczenie danych_60_0.png" src="../_images/Czyszczenie danych_60_0.png" />
+</div>
+</div>
+<p>znalezieniu relacji może służyć również heatmap macierzy korelacji</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missingno</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Czyszczenie danych_62_0.png" src="../_images/Czyszczenie danych_62_0.png" />
+</div>
+</div>
+<p>Przyjmijmy, że faktycznie wystąpił systematyczny błąd przy zapisywaniu zmiennej age zatem reprezentuje ona MNAR, zmienna bmi w oczywisty sposób będzie MAR jako, że odwołuje się teraz wprost do innej zmiennej, pozostałe zmienne jeśli nie mamy jakiejś dodatkowej informacji co do natury powstania wartości brakujących należy uznać za MCAR</p>
+</div>
+<div class="section" id="metody-imputacji-brakujacych-wartosci">
+<h2>Metody imputacji brakujących wartości<a class="headerlink" href="#metody-imputacji-brakujacych-wartosci" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-block alert-danger">
+<b>Uwaga!</b> 
+<p>Wszystkie przekształcenia wykorzystujące informacje o rozkładach cech należy implementować najpierw na zbiorze treningowym, a następnie w oparciu o rozkład ze zbioru treningowego - na zbiorze testowym. Inaczej wykorzystujemy informacje ze zbioru testowego i przestaje on być niezależny.</p>
+</div><div class="alert alert-block alert-info">
+<b>imputacja wartością specjalną</b> 
+<ul class="simple">
+<li><p>każdej brakującej obserwacji danej zmiennej przypisujemy np -1, -999 lub “N/A”, świadomie stosując wartość niewystępującą w obserwacjach bez brakującej wartości</p></li>
+<li><p>przede wszystkim dla typu MNAR, gdzie zazwyczaj jest to jedyne prawidłowe podejście</p></li>
+<li><p>można zastosować tutaj również 0 jeśli w naturalny sposób oznacza ono brak danego zjawiska i logika biznesowa nakazuje tak interpretować wartość brakującą</p></li>
+</ul>
+</div>
+<div class="alert alert-block alert-info">
+<b>imputacja wartością stałą</b> 
+<ul class="simple">
+<li><p>każdej brakującej obserwacji danej zmiennej przypisujemy tę samą wartość, w odróżnieniu od poprzedniej metody jest ona wyliczona w oparciu o dane treningowe</p></li>
+<li><p>imputacja średnią - zachowuje średnią z danych, ale zaniża wariancję, może być narażona na wpływ wartości odstających</p></li>
+<li><p>imputacja medianą - wolna od wpływu wartości odstających, ale wpływa na średnią i wariancję</p></li>
+<li><p>imputacja modą - najczęściej stosowana dla zmiennych kategorycznych, jeśli nie mają charakteru MNAR</p></li>
+</ul>
+</div>
+<div class="alert alert-block alert-info">
+<b>imputacja wg grup</b> 
+<ul class="simple">
+<li><p>podobna do opisanej wyżej imputacji wartością stałą lecz realizowana osobno dla każdej zdefiniowanej w danych grupy</p></li>
+<li><p>to jak dobrać grupy może wynikać z wiedzy biznesowej lub z EDA</p></li>
+</ul>
+</div><div class="alert alert-block alert-info">
+<b>Imputacja wartością losową</b> 
+<ul class="simple">
+<li><p>w odróżnieniu od omówienych wcześniej metod, nie używamy tu tej samej wartości do wypełniania wszystkich obserwacji</p></li>
+<li><p>może polegać na losowaniu wartości spośród niepustych obserwacji danej zmiennej lub dopasowaniu do niej rozkładu statystycznego i losowaniu z rozkładu</p></li>
+</ul>
+</div><div class="alert alert-block alert-info">
+<b>Imputacja na podstawie kolejności</b> 
+<ul class="simple">
+<li><p>do stosowania w szeregach czasowych</p></li>
+<li><p>może obejmować zastąpienie brakujących obserwacji za pomocą poprzedniej wartości lub kolejnej wartości</p></li>
+<li><p>można stosować również metody oparte o większą liczbę poprzednich obserwacji np średnia krocząca</p></li>
+<li><p>dobrze może się sprawdzać również interpolacja</p></li>
+</ul>
+</div><div class="alert alert-block alert-info">
+<b>imputacja wartością specjalną</b> 
+<p>Imputacja z wykorzystaniem modelu</p>
+<ul class="simple">
+<li><p>obejmuje przewidywanie brakujących wartości zmiennej na podstawie pozostałych zmiennych lub ich podgrupy</p></li>
+<li><p>stosowane są tu zarówno algorytmy regresji jak i KNN lub modele drzewiaste</p></li>
+</ul>
+</div><div class="section" id="przyklady-imputacji">
+<h3>Przykłady imputacji<a class="headerlink" href="#przyklady-imputacji" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="iimputacja-wartoscia-specjalna">
+<h4>iImputacja wartością specjalną<a class="headerlink" href="#iimputacja-wartoscia-specjalna" title="Permalink to this headline">¶</a></h4>
+<p>Zmienną age uznaliśmy za MNAR, co sugeruje, że nie można się posłużyć statystykami z próbki, tylko należy użyć wartości specjalnej. Jeśli wiemy, że wartości brakujące reprezentują starsze osoby wstawienie tutaj wartości np -1 może nie być najlepszym rozwiązaniem, ponieważ takie podejście może zaburzyć monotoniczność relacji tej zmiennej ze zmienną celu, zamiast tego można spróbować wartości większej niż maksimum z obecnych danych np 70</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 300 entries, 0 to 208
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           300 non-null    int64  
+ 1   age                 300 non-null    float64
+ 2   weight              300 non-null    float64
+ 3   height              295 non-null    float64
+ 4   bmi                 295 non-null    float64
+ 5   city                300 non-null    object 
+ 6   num_covid_tests     236 non-null    float64
+ 7   num_positive_tests  270 non-null    float64
+ 8   sex                 264 non-null    object 
+dtypes: float64(6), int64(1), object(2)
+memory usage: 23.4+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="imputacja-wartoscia-stala">
+<h4>Imputacja wartością stałą<a class="headerlink" href="#imputacja-wartoscia-stala" title="Permalink to this headline">¶</a></h4>
+<p>Pozostałe zmienne z brakującymi wartościami należy wypełnić w oparciu o wartości z danych treningowych, zanim do tego przystąpimy należy podzielić próbkę, co będzie reprezentowało rzeczywistą sytuację, gdy na podstawie dostępnych danych będziemy uzupełniać te przyszłe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>tutaj dla uproszczenia stosujemy tylko prosty podział na zbiór treningowy i testowy, generalnie najlepszą praktyką jest wydzielenie osobnego zbioru testowego reprezentującego zdolność modelu do generalizacji na nowych, niewidzianych wcześniej danych i dobór najlepszego zestawu parametrów i transformacji stosując crosswalidację na zbiorze treningowym.</p>
+<div class="section" id="imputacja-zmiennych-kategorycznych">
+<h5>Imputacja zmiennych kategorycznych<a class="headerlink" href="#imputacja-zmiennych-kategorycznych" title="Permalink to this headline">¶</a></h5>
+<p>w przypadku zmiennych kategorycznych, gdy nie stosujemy imputacji wartością specjalną najczęściej spotykaną strategią jest wypełnianie najczęściej występującą wartością w danych treningowych</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_sex_mode</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">X_train_sex_mode</span><span class="p">)</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">X_train_sex_mode</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\KNAJMA~1\AppData\Local\Temp/ipykernel_13396/1313340584.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  X_train[&quot;sex&quot;] = X_train[&quot;sex&quot;].fillna(X_train_sex_mode)
+C:\Users\KNAJMA~1\AppData\Local\Temp/ipykernel_13396/1313340584.py:3: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  X_test[&quot;sex&quot;] = X_test[&quot;sex&quot;].fillna(X_train_sex_mode)
+</pre></div>
+</div>
+</div>
+</div>
+<p>alternatywnie można też skorzystać z klasy SimpleImputer z biblioteki sklearn. Użycie tego typu transformerów stanowi dobrą praktykę, ponieważ można je potem łączyć w pipeline co ułatwia development i zmniejsza ryzyko popełnienia błędów takich jak np data leakage. Poniżej zaprezentujemy ponowny podział na zbiór treningowy i testowy oraz wypełnienie tej samej zmiennej z użyciem klasy SimpleImputer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">si_mode</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;most_frequent&quot;</span><span class="p">)</span>
+<span class="n">si_mode</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">si_mode</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">si_mode</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">X_train</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 225 entries, 297 to 103
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           225 non-null    int64  
+ 1   age                 225 non-null    float64
+ 2   weight              225 non-null    float64
+ 3   height              220 non-null    float64
+ 4   bmi                 220 non-null    float64
+ 5   city                225 non-null    object 
+ 6   num_covid_tests     177 non-null    float64
+ 7   num_positive_tests  203 non-null    float64
+ 8   sex                 225 non-null    object 
+dtypes: float64(6), int64(1), object(2)
+memory usage: 17.6+ KB
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\KNAJMA~1\AppData\Local\Temp/ipykernel_13396/2045433211.py:5: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  X_train[&quot;sex&quot;] = si_mode.transform(X_train[&quot;sex&quot;].values.reshape(-1, 1))
+C:\Users\KNAJMA~1\AppData\Local\Temp/ipykernel_13396/2045433211.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  X_test[&quot;sex&quot;] = si_mode.transform(X_test[&quot;sex&quot;].values.reshape(-1, 1))
+</pre></div>
+</div>
+</div>
+</div>
+<p>powyżej stosujemy SimpleImputer na tylko jednej kolumnie, inaczej wszystkie zmienne z brakującymi wartościami zostałyby wypełnione swoją najczęstszą wartością. Standardową praktyką jest użycie klasy ColumnTransformer do przypisywania odpowiednich transformacji poszczególnym grupom zmiennych, co zostanie zaprezentowane później.</p>
+</div>
+<div class="section" id="imputacja-zmiennych-numerycznych">
+<h5>Imputacja zmiennych numerycznych<a class="headerlink" href="#imputacja-zmiennych-numerycznych" title="Permalink to this headline">¶</a></h5>
+<p>załóżmy, że chcemy zainputować zmienne numeryczne korzystając z mediany, użycie mediany może być dobrą alternatywą dla używania średniej jeśli obawiamy się wpływu wartości odstających na średnią</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">si_median</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;median&quot;</span><span class="p">)</span>
+<span class="n">X_train_num</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span>
+<span class="n">X_test_num</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span>
+<span class="n">si_median</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_num</span><span class="p">)</span>
+<span class="n">X_train_num</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">si_median</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train_num</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span><span class="n">X_train_num</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">X_test_num</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">si_median</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test_num</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span><span class="n">X_test_num</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_train_num</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_test_num</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_train</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 280 entries, 0 to 299
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           225 non-null    float64
+ 1   age                 225 non-null    float64
+ 2   weight              225 non-null    float64
+ 3   height              225 non-null    float64
+ 4   bmi                 225 non-null    float64
+ 5   num_covid_tests     225 non-null    float64
+ 6   num_positive_tests  225 non-null    float64
+ 7   city                225 non-null    object 
+ 8   sex                 225 non-null    object 
+dtypes: float64(7), object(2)
+memory usage: 21.9+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="laczenie-roznych-metod-imputacji-z-wykorzystaniem-pipeline">
+<h4>Łączenie różnych metod imputacji z wykorzystaniem pipeline<a class="headerlink" href="#laczenie-roznych-metod-imputacji-z-wykorzystaniem-pipeline" title="Permalink to this headline">¶</a></h4>
+<p>jak już wspomniano najlepszą praktykę przy stosowaniu imputacji stanowi łączenie poszczególnych transformacji w Pipeline będący ciągiem transformacji, który może też na końcu zawierać model predykcyjny. Tutaj pokażemy pipeline łączący wszystkie wcześniej stosowane operacje imputacji danych.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+
+<span class="c1"># przywrócenie danych do postaci sprzed imputacji</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">65</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">columns_to_impute_special_value</span> <span class="o">=</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span>
+<span class="n">columns_to_impute_mode</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">columns_to_impute_median</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span> <span class="o">-</span><span class="nb">set</span><span class="p">(</span><span class="n">columns_to_impute_special_value</span><span class="p">))</span>
+
+<span class="n">pipeline_sv</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;special_value_imputer&quot;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;constant&quot;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">70</span><span class="p">))])</span>
+<span class="n">pipeline_mode</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;mode_imputer&quot;</span><span class="p">,</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;most_frequent&quot;</span><span class="p">))])</span>
+<span class="n">pipeline_num</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;median_imputer&quot;</span><span class="p">,</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;median&quot;</span><span class="p">))])</span>
+
+<span class="n">column_transformer</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span>
+                        <span class="n">transformers</span><span class="o">=</span><span class="p">[</span>
+                         <span class="p">(</span><span class="s1">&#39;special_value_imputation&#39;</span><span class="p">,</span> <span class="n">pipeline_sv</span><span class="p">,</span> <span class="n">columns_to_impute_special_value</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s1">&#39;mode_imputation&#39;</span><span class="p">,</span> <span class="n">pipeline_mode</span><span class="p">,</span> <span class="n">columns_to_impute_mode</span><span class="p">),</span>
+                         <span class="p">(</span><span class="s1">&#39;median_imputation&#39;</span><span class="p">,</span> <span class="n">pipeline_num</span><span class="p">,</span> <span class="n">columns_to_impute_median</span><span class="p">)</span>
+                         <span class="p">])</span>
+<span class="n">imputation_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;imputation&quot;</span><span class="p">,</span> <span class="n">column_transformer</span><span class="p">)])</span>
+
+<span class="n">imputation_pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">imputation_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">imputation_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">X_test</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 75 entries, 0 to 74
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype 
+---  ------              --------------  ----- 
+ 0   unique_id           75 non-null     object
+ 1   age                 75 non-null     object
+ 2   weight              75 non-null     object
+ 3   height              75 non-null     object
+ 4   bmi                 75 non-null     object
+ 5   city                75 non-null     object
+ 6   num_covid_tests     75 non-null     object
+ 7   num_positive_tests  75 non-null     object
+ 8   sex                 75 non-null     object
+dtypes: object(9)
+memory usage: 5.4+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="imputacja-wg-grupy">
+<h4>Imputacja wg grupy<a class="headerlink" href="#imputacja-wg-grupy" title="Permalink to this headline">¶</a></h4>
+<p>Wróćmy na chwilę do zmiennej age, załóżmy że jej braki danych nie są jednak wynikiem systematycznego błędu lecz występują losowo, a co więcej wiemy, że każde z miast ze zmiennej city charakteryzuje się specyficznym rozkładem dla zmiennej age. Wówczas imputacja mogłaby tutaj wyglądać następująco</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">mean_age_by_city</span> <span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;city&quot;</span><span class="p">)[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">mean_age_by_city</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span><span class="s2">&quot;city&quot;</span><span class="p">,</span><span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;_mean&quot;</span><span class="p">))</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">mean_age_by_city</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span><span class="s2">&quot;city&quot;</span><span class="p">,</span><span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;_mean&quot;</span><span class="p">))</span>
+<span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;age_mean&quot;</span><span class="p">])</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="s2">&quot;age_mean&quot;</span><span class="p">])</span>
+<span class="n">X_train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;age_mean&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;age_mean&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_test</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 75 entries, 0 to 74
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           75 non-null     int64  
+ 1   age                 75 non-null     float64
+ 2   weight              75 non-null     float64
+ 3   height              75 non-null     float64
+ 4   bmi                 75 non-null     float64
+ 5   city                75 non-null     object 
+ 6   num_covid_tests     59 non-null     float64
+ 7   num_positive_tests  67 non-null     float64
+ 8   sex                 70 non-null     object 
+dtypes: float64(6), int64(1), object(2)
+memory usage: 5.9+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="imputacja-z-wykorzystaniem-modelu">
+<h4>Imputacja z wykorzystaniem modelu<a class="headerlink" href="#imputacja-z-wykorzystaniem-modelu" title="Permalink to this headline">¶</a></h4>
+<p>poniżej pokażemy jeszcze jak można do imputacji wykorzystać model ML na przykładzie klasy KNNImputer, która wykonuje imputację na podstawie wartości najbliższych obserwacji</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">KNNImputer</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train_num</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span>
+<span class="n">X_test_num</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNNImputer</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_num</span><span class="p">)</span>
+<span class="n">X_train_num</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">knn</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train_num</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span> <span class="n">X_train_num</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">X_test_num</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">knn</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test_num</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span> <span class="n">X_test_num</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_train_num</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_test_num</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_train</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 280 entries, 0 to 299
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           225 non-null    float64
+ 1   age                 225 non-null    float64
+ 2   weight              225 non-null    float64
+ 3   height              225 non-null    float64
+ 4   bmi                 225 non-null    float64
+ 5   num_covid_tests     225 non-null    float64
+ 6   num_positive_tests  225 non-null    float64
+ 7   city                225 non-null    object 
+ 8   sex                 194 non-null    object 
+dtypes: float64(7), object(2)
+memory usage: 21.9+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="metody-usuwania-brakujacych-wartosci">
+<h2>Metody usuwania brakujących wartości<a class="headerlink" href="#metody-usuwania-brakujacych-wartosci" title="Permalink to this headline">¶</a></h2>
+<p>Drugim oprócz imputacji sposobem radzenia sobie z wartościami brakującymi jest ich usuwanie. Wybór pomiędzy usuwaniem a imputacją zależy w dużym stopniu od ilości dostępnych danych oraz poziomu koncentracji wartości brakujących, a także tego jak istotne są dla nas dane zmienne lub obserwacje.</p>
+<div class="alert alert-block alert-danger">
+<b>Uwaga!</b> 
+<p>Należy pamiętać, żeby w przypadku stosowania usuwania brakujących obserwacji zacząć od usunięcia wszystkich niepotrzebnych kolumn, ponieważ mogą one potem niepotrzebnie wpłynąć na usuwanie obserwacji.</p>
+</div><p>najwygodniejszą opcją usuwania w bibliotece pandas jest funkcja dropna, kilka przykładów poniżej</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># usuwanie wszystkich obserwacji z jakimikolwiek wartościami brakującymi</span>
+<span class="n">df_nonull</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;any&quot;</span><span class="p">)</span>
+<span class="n">df_nonull</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 128 entries, 0 to 208
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           128 non-null    int64  
+ 1   age                 128 non-null    float64
+ 2   weight              128 non-null    float64
+ 3   height              128 non-null    float64
+ 4   bmi                 128 non-null    float64
+ 5   city                128 non-null    object 
+ 6   num_covid_tests     128 non-null    float64
+ 7   num_positive_tests  128 non-null    float64
+ 8   sex                 128 non-null    object 
+dtypes: float64(6), int64(1), object(2)
+memory usage: 10.0+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># usuwanie wszystkich obserwacji z progiem co najmniej 2 wartości brakujących</span>
+<span class="n">df_nonull</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">df_nonull</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 294 entries, 0 to 208
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           294 non-null    int64  
+ 1   age                 204 non-null    float64
+ 2   weight              294 non-null    float64
+ 3   height              293 non-null    float64
+ 4   bmi                 293 non-null    float64
+ 5   city                294 non-null    object 
+ 6   num_covid_tests     234 non-null    float64
+ 7   num_positive_tests  264 non-null    float64
+ 8   sex                 261 non-null    object 
+dtypes: float64(6), int64(1), object(2)
+memory usage: 23.0+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># usuwanie wszystkich obserwacji z progiem co najmniej 1 wartością brakującą dla kolumn age, num_covid_tests i num_positive_tests</span>
+<span class="n">df_nonull</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;num_covid_tests&quot;</span><span class="p">,</span> <span class="s2">&quot;num_positive_tests&quot;</span><span class="p">])</span>
+<span class="n">df_nonull</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 269 entries, 0 to 208
+Data columns (total 9 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           269 non-null    int64  
+ 1   age                 205 non-null    float64
+ 2   weight              269 non-null    float64
+ 3   height              266 non-null    float64
+ 4   bmi                 266 non-null    float64
+ 5   city                269 non-null    object 
+ 6   num_covid_tests     229 non-null    float64
+ 7   num_positive_tests  246 non-null    float64
+ 8   sex                 235 non-null    object 
+dtypes: float64(6), int64(1), object(2)
+memory usage: 21.0+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># usuwanie kolumn mających co najmniej 10% wartości brakujących</span>
+<span class="n">df_nonull</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mf">0.9</span><span class="o">*</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">df_nonull</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 300 entries, 0 to 208
+Data columns (total 6 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           300 non-null    int64  
+ 1   weight              300 non-null    float64
+ 2   height              295 non-null    float64
+ 3   bmi                 295 non-null    float64
+ 4   city                300 non-null    object 
+ 5   num_positive_tests  270 non-null    float64
+dtypes: float64(4), int64(1), object(1)
+memory usage: 16.4+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="czyszczenie-szeregow-czasowych">
+<h1>Czyszczenie szeregów czasowych<a class="headerlink" href="#czyszczenie-szeregow-czasowych" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span> <span class="o">=</span> <span class="n">generate_ts_data</span><span class="p">()</span>
+<span class="n">df_ts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;SalesDate&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Czyszczenie danych_100_0.png" src="../_images/Czyszczenie danych_100_0.png" />
+</div>
+</div>
+<p>W czyszczeniu danych o charakterze szeregu czasowego bardzo użyteczna jest wizualna analiza danych. Analizując powyższy wykres można dostrzec dość regularny szereg czasowy z rocznym okresem sezonowości i trendem rosnącym. Widać również zaburzenia w postaci nieregularnie rozlokowanych pików w pojedynczych dniach oraz silnie zaburzony okres na przełomie 2019 i 2020.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1827 entries, 0 to 1826
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   SalesDate  1827 non-null   datetime64[ns]
+ 1   SLSU       1827 non-null   float64       
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 28.7 KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Przed przejściem do dalszej analizy należy jeszcze upewnić się, że dane mają prawidłowe formaty i są odpowiednio posortowane, inaczej łatwo o błędne wnioski.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+<span class="n">df_ts</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1827 entries, 0 to 1826
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype         
+---  ------     --------------  -----         
+ 0   SalesDate  1827 non-null   datetime64[ns]
+ 1   SLSU       1827 non-null   float64       
+dtypes: datetime64[ns](1), float64(1)
+memory usage: 28.7 KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span> <span class="o">=</span> <span class="n">df_ts</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;SalesDate&quot;</span><span class="p">)</span>
+<span class="n">df_ts</span> <span class="o">=</span> <span class="n">df_ts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;SalesDate&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;SalesDate&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/Czyszczenie danych_106_1.png" src="../_images/Czyszczenie danych_106_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span> <span class="n">df_ts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1827, 1827)
+</pre></div>
+</div>
+</div>
+</div>
+<p>dane nie mają duplikatów, są posortowane a formaty są już poprawne, możemy się zatem skupić na oznaczaniu i imputacji wartości zaburzonych</p>
+<div class="alert alert-block alert-info">
+<b>Info</b> 
+<p>Podstawą do oznaczenia danego zjawiska jako zaburzonego a następnie jego imputacji powinna być zawsze wiedza biznesowa odnośnie tego czy dane zjawisko ma charakter jednorazowy i już się nie powtórzy w analogicznym okresie</p>
+</div><p>Istnieje wiele metod oznaczania anomalii w szeregach czasowych, mogą one też być mocno zależne od wiedzy na tematy powodu wystąpienia takiej anomali. Tutaj najpierw spróbujemy automatycznie wykryć pojedyńcze zaburzenia w oparciu o porównanie z medianą z sąsiednich obserwacji.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;moving_SLSU_median_3&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">df_ts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Czyszczenie danych_111_0.png" src="../_images/Czyszczenie danych_111_0.png" />
+</div>
+</div>
+<p>jak widać takie podejście dobrze oddziela naturalne obserwacje od pojedynczych zaburzeń, można za jego pomocą oznaczyć wartości odstające jeśli np zauważymy, że różnica pomiędzy wyliczoną medianą a wartością pierwotną wynosi ponad 15%</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df_ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;moving_SLSU_median_3&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">])</span><span class="o">&gt;</span><span class="mf">0.15</span><span class="o">*</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span> <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;moving_SLSU_median_3&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">])</span><span class="o">&gt;</span><span class="mf">0.15</span><span class="o">*</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">])</span>
+<span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Czyszczenie danych_114_0.png" src="../_images/Czyszczenie danych_114_0.png" />
+</div>
+</div>
+<div class="alert alert-block alert-danger">
+<b>Uwaga!</b> 
+<p>Należy mieć świadomość, że przedstawiona powyżej metoda może również oznaczyć jako anomalia zupełnie naturalnie występujące obserwacje, wszystko zależy od konkretnej potrzeby przy czyszczeniu szeregu czasowego.</p>
+</div><p>obserwacje oznaczone jako puste można następnie zaimputować za pomocą wyliczonej wcześniej mediany lub dokonać interpolacji liniowej</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+<span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;SalesDate&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/Czyszczenie danych_117_1.png" src="../_images/Czyszczenie danych_117_1.png" />
+</div>
+</div>
+<p>jak widać z poniższego wykresu, interpolacja liniowa nie będzie jednak użyteczna w celu wypełnienia dłuższych zaburzeń, w szczególności w przypadku gdy przypadają one w okresie sezonowego szczytu. Zamiast tego spróbujmy dokonać prognozy modelem szeregu czasowego w oparciu o wcześniejsze, niezaburzone dane.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">])</span>
+<span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;SalesDate&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/Czyszczenie danych_119_1.png" src="../_images/Czyszczenie danych_119_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>automatycznym sposobem na oznaczenie wartości odstających przy założeniu, że nie można tutaj po prostu patrzeć na obserwacje z wartością 0 jest porównanie z wartością sprzed roku a jeszcze lepiej z wygładzoną wartością, więc wygodnie jest użyć wyliczonej już wcześniej mediany kroczącej sprzed roku.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;moving_SLSU_median_3_lag_1y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;moving_SLSU_median_3&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">365</span><span class="p">)</span>
+<span class="n">df_ts</span><span class="p">[[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">,</span> <span class="s2">&quot;moving_SLSU_median_3_lag_1y&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Czyszczenie danych_122_0.png" src="../_images/Czyszczenie danych_122_0.png" />
+</div>
+</div>
+<p>następnie można wyliczyć różnice pomiędzy wartością SLSU a medianą i oznaczyć jako puste wartości odstające wyznaczone np metodą IQR, przyjmując dodatkowo warunek, że interesują nas tylko wartości większe od IQR, aby nie wyzerować wartości rok po zaburzeniu</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;moving_SLSU_median_3_lag_1y_DIFF_VS_SLSU&quot;</span><span class="p">]</span> <span class="o">=</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;moving_SLSU_median_3_lag_1y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span> 
+<span class="n">df_ts</span><span class="p">[[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">,</span> <span class="s2">&quot;moving_SLSU_median_3_lag_1y&quot;</span><span class="p">,</span> <span class="s2">&quot;moving_SLSU_median_3_lag_1y_DIFF_VS_SLSU&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Czyszczenie danych_124_0.png" src="../_images/Czyszczenie danych_124_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;IQR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;moving_SLSU_median_3_lag_1y_DIFF_VS_SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">-</span> <span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;moving_SLSU_median_3_lag_1y_DIFF_VS_SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">))</span><span class="o">*</span><span class="mf">1.5</span>
+<span class="n">df_ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;moving_SLSU_median_3_lag_1y_DIFF_VS_SLSU&quot;</span><span class="p">]</span> <span class="o">&gt;</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;IQR&quot;</span><span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SLSU</th>
+      <th>moving_SLSU_median_3</th>
+      <th>moving_SLSU_median_3_lag_1y</th>
+      <th>moving_SLSU_median_3_lag_1y_DIFF_VS_SLSU</th>
+      <th>IQR</th>
+    </tr>
+    <tr>
+      <th>SalesDate</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-11-01</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>8818.736687</td>
+      <td>8818.736687</td>
+      <td>2249.224099</td>
+    </tr>
+    <tr>
+      <th>2019-11-02</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>8820.468738</td>
+      <td>8820.468738</td>
+      <td>2249.224099</td>
+    </tr>
+    <tr>
+      <th>2019-11-03</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>8822.200788</td>
+      <td>8822.200788</td>
+      <td>2249.224099</td>
+    </tr>
+    <tr>
+      <th>2019-11-04</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>8823.932839</td>
+      <td>8823.932839</td>
+      <td>2249.224099</td>
+    </tr>
+    <tr>
+      <th>2019-11-05</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>9437.078825</td>
+      <td>9437.078825</td>
+      <td>2249.224099</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-02-26</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10179.000000</td>
+      <td>10179.000000</td>
+      <td>2249.224099</td>
+    </tr>
+    <tr>
+      <th>2020-02-27</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10181.000000</td>
+      <td>10181.000000</td>
+      <td>2249.224099</td>
+    </tr>
+    <tr>
+      <th>2020-02-28</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10181.000000</td>
+      <td>10181.000000</td>
+      <td>2249.224099</td>
+    </tr>
+    <tr>
+      <th>2020-02-29</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>8587.000000</td>
+      <td>8587.000000</td>
+      <td>2249.224099</td>
+    </tr>
+    <tr>
+      <th>2020-03-01</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>8587.000000</td>
+      <td>8587.000000</td>
+      <td>2249.224099</td>
+    </tr>
+  </tbody>
+</table>
+<p>122 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;moving_SLSU_median_3_lag_1y_DIFF_VS_SLSU&quot;</span><span class="p">]</span> <span class="o">&gt;</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;IQR&quot;</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">])</span>
+<span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Czyszczenie danych_126_0.png" src="../_images/Czyszczenie danych_126_0.png" />
+</div>
+</div>
+<p>następnie można uzupełnić dane dokonując predykcji np w oparciu od dane do połowy roku 2019, jakość predykcji ocenić można przez porównanie z niezaburzonymi obserwacjami, Do predykcji użyjemy tutaj modelu STLForecast, który dekomponuje szereg czasowy na trend, sezonowość i czynnik losowy i wykonuje predykcję odsezonowionych danych z użyciem modelu ARIMA</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.api</span> <span class="kn">import</span> <span class="n">STLForecast</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima.model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
+<span class="n">test_start</span> <span class="o">=</span> <span class="s2">&quot;2019-07-01&quot;</span>
+<span class="n">df_ts_train</span> <span class="o">=</span> <span class="n">df_ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_ts</span><span class="o">.</span><span class="n">index</span><span class="o">&lt;</span><span class="n">test_start</span><span class="p">,</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span>
+<span class="n">df_ts_test</span> <span class="o">=</span> <span class="n">df_ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_ts</span><span class="o">.</span><span class="n">index</span><span class="o">&gt;=</span><span class="n">test_start</span><span class="p">,</span> <span class="s2">&quot;SLSU&quot;</span><span class="p">]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">STLForecast</span><span class="p">(</span><span class="n">df_ts_train</span><span class="p">,</span> <span class="n">ARIMA</span><span class="p">,</span> <span class="n">model_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)},</span> <span class="n">period</span><span class="o">=</span><span class="mi">365</span><span class="p">)</span>
+<span class="n">stl</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">df_ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_ts</span><span class="o">.</span><span class="n">index</span><span class="o">&gt;=</span><span class="n">test_start</span><span class="p">,</span> <span class="s2">&quot;prediction&quot;</span><span class="p">]</span> <span class="o">=</span><span class="n">stl</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_ts_test</span><span class="p">))</span>
+<span class="n">df_ts</span><span class="p">[[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">,</span> <span class="s2">&quot;prediction&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\knajmajer\.conda\envs\politechnika\lib\site-packages\statsmodels\tsa\base\tsa_model.py:524: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
+  warnings.warn(&#39;No frequency information was&#39;
+C:\Users\knajmajer\.conda\envs\politechnika\lib\site-packages\statsmodels\tsa\base\tsa_model.py:524: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
+  warnings.warn(&#39;No frequency information was&#39;
+C:\Users\knajmajer\.conda\envs\politechnika\lib\site-packages\statsmodels\tsa\base\tsa_model.py:524: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
+  warnings.warn(&#39;No frequency information was&#39;
+C:\Users\knajmajer\.conda\envs\politechnika\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:978: UserWarning: Non-invertible starting MA parameters found. Using zeros as starting parameters.
+  warn(&#39;Non-invertible starting MA parameters found.&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;SalesDate&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/Czyszczenie danych_128_2.png" src="../_images/Czyszczenie danych_128_2.png" />
+</div>
+</div>
+<p>tym sposobem otrzymujemy oczyszczony szereg czasowy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;prediction&quot;</span><span class="p">])</span>
+<span class="n">df_ts</span><span class="p">[</span><span class="s2">&quot;SLSU&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;SalesDate&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/Czyszczenie danych_130_1.png" src="../_images/Czyszczenie danych_130_1.png" />
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./10. Czyszczenie_danych"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Inżynieria cech</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../7.%20Klasteryzacja/7_Klasteryzacja.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Klasteryzacja w Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By codersi<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

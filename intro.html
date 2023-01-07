@@ -42,6 +42,8 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -168,6 +170,18 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Czyszczenie danych
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.%20Czyszczenie_danych/Czyszczenie%20danych.html">
+   Czyszczenie danych
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Klasteryzacja
  </span>
 </p>
@@ -175,6 +189,30 @@
  <li class="toctree-l1">
   <a class="reference internal" href="7.%20Klasteryzacja/7_Klasteryzacja.html">
    Klasteryzacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Klasyfikacja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="12.%20Klasyfikacja/Klasyfikacja.html">
+   Klasyfikacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Regresja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="11.%20Regresja/Regresja-Part2.html">
+   Analiza regresji
   </a>
  </li>
 </ul>
@@ -287,6 +325,11 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wstep">
+   Wstęp
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#o-ksiazce">
    O książce
   </a>
@@ -309,16 +352,35 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="laboratorium-specjalistyczne-data-science-w-branzy-modowej-1-semestr-studiow-magisterskich-matematyki-na-wydziale-fizyki-technicznej-i-matematyki-stosowanej-na-politechnice-gdanskiej">
 <h1>Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej<a class="headerlink" href="#laboratorium-specjalistyczne-data-science-w-branzy-modowej-1-semestr-studiow-magisterskich-matematyki-na-wydziale-fizyki-technicznej-i-matematyki-stosowanej-na-politechnice-gdanskiej" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="wstep">
+<h2>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this headline">¶</a></h2>
+<p>To już druga edycja prowadzonych przez Silky Coders zajęć na Politechnice Gdanskiej podczas której studenci mogą zapoznać się z tematyką uczenia maszynowego i analizy danych.
+Ksiązka została skompilowana przez Kazimierza Najmajera z notatników stworzonych wspólnym wysiłkiem przez Data Scientistów Silky Coders.
+W tym roku prowadzącymi są</p>
+<ul class="simple">
+<li><p>Grzegorz Jarantowski</p></li>
+<li><p>Jędrzej Smulski</p></li>
+<li><p>Kazimierz Najmajer</p></li>
+<li><p>Maciej Płużyński</p></li>
+<li><p>Piotr Patrzałek</p></li>
+</ul>
+</div>
 <div class="section" id="o-ksiazce">
 <h2>O książce<a class="headerlink" href="#o-ksiazce" title="Permalink to this headline">¶</a></h2>
 <p>Książka wprowadza w podstawowe koncepty uczenia maszynowego.
-Składa się z 9 rozdziałów poruszających najbardziej kluczowe tematy, które będą przydatne każdemu, kto chce rozpocząć swoją karierę w Data Science.
-Materiały zostały stworzone przez pracowników <a class="reference external" href="https://www.silkycoders.com/">Silky Coders</a> na potrzeby zajęć dydaktycznych dla studentów Matematyki na Politechnice Gdańskiej.
+Składa się z 11 rozdziałów poruszających najbardziej kluczowe tematy, które będą przydatne każdemu, kto chce rozpocząć swoją karierę w Data Science.
+Materiały zostały stworzone przez data scientistów <a class="reference external" href="https://www.silkycoders.com/">Silky Coders</a> na potrzeby zajęć dydaktycznych dla studentów Matematyki na Politechnice Gdańskiej.
 Autorzy życza przyjemnej nauki.</p>
 </div>
 <div class="section" id="srodowiska">
 <h2>Środowiska<a class="headerlink" href="#srodowiska" title="Permalink to this headline">¶</a></h2>
 <p>W celu uruchomienia przykładów na swoich komputerze sugerujemy wykorzystanie <a class="reference external" href="https://github.com/kikonPL/studia_PG/blob/main/politechnika.yml">środowiska conda</a> które zostało użyte do zbudowania niniejszej książki.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>

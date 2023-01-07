@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -169,6 +171,18 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Czyszczenie danych
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">
+   Czyszczenie danych
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Klasteryzacja
  </span>
 </p>
@@ -176,6 +190,30 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
    Klasteryzacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Klasyfikacja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">
+   Klasyfikacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Regresja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11.%20Regresja/Regresja-Part2.html">
+   Analiza regresji
   </a>
  </li>
 </ul>
@@ -289,6 +327,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/_build/2. Numpy_tutorial/2_Tutorial numpy.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -594,9 +637,9 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([         0,          0,          0,          0,          0,
-                0,          0,          0,          0,          0,
-             1444,          0,          0, 1847616872,          0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([      0,       0,       0,       0,       0,       0,       0,
+             0,       0,       0,    1540,       0,       0, 7077999,
+             0])
 </pre></div>
 </div>
 </div>
@@ -1227,7 +1270,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6, 6, 2, 1, 6, 6, 7, 5, 1, 3])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 3, 9, 1, 3, 7, 7, 5, 9, 2])
 </pre></div>
 </div>
 </div>
@@ -1239,7 +1282,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 2, 3, 5, 6, 6, 6, 6, 7])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 3, 4, 5, 7, 7, 9, 9])
 </pre></div>
 </div>
 </div>
@@ -1252,7 +1295,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([7, 6, 6, 6, 6, 5, 3, 2, 1, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 9, 7, 7, 5, 4, 3, 3, 2, 1])
 </pre></div>
 </div>
 </div>
@@ -1265,7 +1308,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([7, 6, 6, 6, 6, 5, 3, 2, 1, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 9, 7, 7, 5, 4, 3, 3, 2, 1])
 </pre></div>
 </div>
 </div>
@@ -1361,7 +1404,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6,  6,  2,  1,  6,  6,  7,  5,  1,  3, 10])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4,  3,  9,  1,  3,  7,  7,  5,  9,  2, 10])
 </pre></div>
 </div>
 </div>
@@ -1374,7 +1417,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6,  6,  2,  1,  6,  6,  7,  5,  1,  3, 10, 15, 13])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4,  3,  9,  1,  3,  7,  7,  5,  9,  2, 10, 15, 13])
 </pre></div>
 </div>
 </div>
@@ -1387,7 +1430,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6,  6,  2,  1,  6,  6,  7,  5,  1,  3, 10, 15, 13])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4,  3,  9,  1,  3,  7,  7,  5,  9,  2, 10, 15, 13])
 </pre></div>
 </div>
 </div>
@@ -1400,7 +1443,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6,  6,  2,  1,  1, 23,  6,  6,  7,  5,  1,  3])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4,  3,  9,  1,  1, 23,  3,  7,  7,  5,  9,  2])
 </pre></div>
 </div>
 </div>
@@ -1539,7 +1582,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6, 6, 2, 1, 6, 6, 7, 5, 1, 3])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 3, 9, 1, 3, 7, 7, 5, 9, 2])
 </pre></div>
 </div>
 </div>
@@ -1551,7 +1594,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -1752,7 +1795,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x25640a13a00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1e65cbe5cd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2_Tutorial numpy_100_1.png" src="../_images/2_Tutorial numpy_100_1.png" />
@@ -1793,7 +1836,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x25642587940&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1e65e750c10&gt;
 </pre></div>
 </div>
 <img alt="../_images/2_Tutorial numpy_104_1.png" src="../_images/2_Tutorial numpy_104_1.png" />
@@ -1986,7 +2029,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Czas wykonania: 0.007000446319580078
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Czas wykonania: 0.018826961517333984
 </pre></div>
 </div>
 </div>

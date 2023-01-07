@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -55,7 +57,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Wyjaśnialność modeli - definicje" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html" />
-    <link rel="prev" title="Klasteryzacja w Python" href="../7.%20Klasteryzacja/7_Klasteryzacja.html" />
+    <link rel="prev" title="Analiza regresji" href="../11.%20Regresja/Regresja-Part2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -171,6 +173,18 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Czyszczenie danych
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">
+   Czyszczenie danych
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Klasteryzacja
  </span>
 </p>
@@ -178,6 +192,30 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
    Klasteryzacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Klasyfikacja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">
+   Klasyfikacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Regresja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11.%20Regresja/Regresja-Part2.html">
+   Analiza regresji
   </a>
  </li>
 </ul>
@@ -291,6 +329,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/_build/8. Wyjasnialnosc/8_Tutorial metryki statystyczne.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -618,7 +661,7 @@ O ile błąd MAE trafniej pozwoli określić nam o ile się średnio mylimy podc
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/8_Tutorial metryki statystyczne_11_0.png" src="../_images/8_Tutorial metryki statystyczne_11_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Błąd Mean Error dla regresji liniowej: 0.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Błąd Mean Error dla regresji liniowej: -0.0
 Błąd Mean Error dla regresji liniowej zawyżonej: -2.0
 Błąd Mean Error dla regresji liniowej zaniżonej: 1.0 
 
@@ -911,7 +954,7 @@ Błąd Symetric Mean Absolute Percentage Error dla model_2: 0.3
 <br></p>
 <p><strong>Macierz pomyłek</strong>
 <img alt="title" src="../_images/confusion_matrix.png" /></p>
-<p><img alt="image.png" src="8. Wyjasnialnosc/attachment:image.png" /></p>
+<!-- ![image.png](attachment:image.png) -->
 <p>Macierz pomyłek może reprezentować zarówno problem ze zbiorem klas binarnym, bądź wieloklasowy.
 <br></p>
 <p>W pierwszym przypadku klasyfikator ma za zadanie określić, czy dane zwierzę to kot. Klasy które naturalnie wynikają z tego problemu to ‘Kot’ i ‘nie-Kot’. W związku z dodatkową wiedzą o zbiorze możemy stwierdzić, że jeśli to nie jest ‘Kot’ to to będzie ‘Pies’ i dla podanych poniżej wartości macierze pomyłek prezentuje się w następujący sposób.</p>
@@ -1417,11 +1460,11 @@ Przyjmuje on wartości od -1 do 1, gdzie:</p>
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../7.%20Klasteryzacja/7_Klasteryzacja.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../11.%20Regresja/Regresja-Part2.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Klasteryzacja w Python</p>
+            <p class="prev-next-title">Analiza regresji</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html" title="next page">
