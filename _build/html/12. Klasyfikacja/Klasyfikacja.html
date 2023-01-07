@@ -1,0 +1,1340 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Klasyfikacja w Python &#8212; Silky Coders Data Science</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Analiza regresji" href="../11.%20Regresja/Regresja-Part2.html" />
+    <link rel="prev" title="Klasteryzacja w Python" href="../7.%20Klasteryzacja/7_Klasteryzacja.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/silky-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Silky Coders Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wprowadzenie do pakietów numpy i pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">
+   Pakiet pandas - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">
+   Pakiet NumPy - tutorial
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wizualizacja danych
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">
+   Wizualizacja danych w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Analiza statystyczna
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">
+   Analiza statystyczna - tutorial
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wykrywanie anomalii
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">
+   Wykrywanie anomalii - definicje
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">
+   Wykrywanie anomalii - tutorial
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inżynieria cech
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">
+   Inżynieria cech
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Czyszczenie danych
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">
+   Czyszczenie danych
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Klasteryzacja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
+   Klasteryzacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Klasyfikacja
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Klasyfikacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Regresja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11.%20Regresja/Regresja-Part2.html">
+   Analiza regresji
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Wyjaśnialność modeli
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">
+   Wyjaśnialność modeli - metryki statystyczne - tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">
+   Wyjaśnialność modeli - definicje
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">
+   Wyjaśnialność modeli - XAI - tutorial
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/12. Klasyfikacja/Klasyfikacja.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kikonPL/studia_PG"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F12. Klasyfikacja/Klasyfikacja.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kikonPL/studia_PG/main?urlpath=tree/_build/12. Klasyfikacja/Klasyfikacja.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/_build/12. Klasyfikacja/Klasyfikacja.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wstep">
+   Wstęp
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#macierz-pomylek">
+   Macierz pomyłek
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#biblioteki">
+   Biblioteki
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#przygotowanie-danych">
+   Przygotowanie danych
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#losowe-dane">
+     Losowe dane
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia">
+   Bibliografia
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modele-klasyfikacyjne">
+   Modele klasyfikacyjne
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-nearest-neighbors">
+   K-Nearest Neighbors
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#przyklad">
+     Przykład
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia-k-nearest-neighbors">
+   Bibliografia K-Nearest Neighbors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logistic-regression">
+   Logistic Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia-logistic-regression">
+   Bibliografia Logistic Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decision-trees">
+   Decision Trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia-decision-trees">
+   Bibliografia Decision Trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-forests">
+   Random Forests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia-random-forest">
+   Bibliografia Random Forest
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#support-vector-machines">
+   Support Vector Machines
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#przyklad-z-jadrem-liniowym">
+     Przykład z jądrem liniowym.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#przyklad-z-jadrem-radialnym">
+     Przykład z jądrem radialnym.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliografia-support-vector-machines">
+   Bibliografia Support Vector Machines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dodatkowe-informacje">
+   Dodatkowe informacje
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="klasyfikacja-w-python">
+<h1>Klasyfikacja w Python<a class="headerlink" href="#klasyfikacja-w-python" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="wstep">
+<h2>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this headline">¶</a></h2>
+<p>Algorytmy klasyfikacyjne, w przeciwieństwie do klasteryzacji, należą do modeli uczenia maszynowego z nadzorem (ang. <em>supervised learning</em>), to znaczy, że w zbiorze uczącym mamy określoną zmienną celu (target) oraz zdefiniowane zmienne objaśniające. Przykładem klasyfikacji może być wykrywanie spamu w poczcie, czy też rozpoznawanie obiektów na obrazie. Algorytmów klasyfikacyjnych możemy też użyć do wykrywania anomalii np. przy pomocy algorytmu KNN.</p>
+<p>Rozdzielamy klasyfikację binarną oraz wielowymiarowa, gdzie w przypadku klasyfikacji binarnej mamy zmienną objaśnianą z dwiema możliwymi wartościami (np. pacjent zdrowy lub chory). Dla wariantu klasyfikacji wielomianowej zmienna objaśniana może mieć wiele różnych wartości (np. klasyfikując owoce rozróżniamy jabłka, gruszki i pomarańcze). Klasyfikacja jest procesem przypisywania wcześniej zdefiniowanych klas, opierając się na ich atrybutach.</p>
+<p>Do wyjaśnialności modeli klasyfikujących używamy głównie macierzy pomyłek (ang. <em>confusion matrix</em>), na której podstawie możemy policzyć takie metryki jak <em>accuracy</em>, <em>precision</em> czy też <em>sensitivity</em>.
+Poniżej przedstawiono pięć algorytmów klasyfikacyjnych, ich działanie oraz w jakich przypadkach są one użyteczne.</p>
+</div>
+<div class="section" id="macierz-pomylek">
+<h2>Macierz pomyłek<a class="headerlink" href="#macierz-pomylek" title="Permalink to this headline">¶</a></h2>
+<p>Pojęcie macierzy pomyłek, wraz z metrykami, które się na niej opierają, zostało przedstawione w rozdziale wyjaśnialności modeli (<a class="reference external" href="https://kikonpl.github.io/studia_PG/8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html#podejscie-klasyfikacyjne">Macierz pomyłek</a>). Z tego względu w tym rozdziale ograniczono się wyłącznie do jej stosowania, bez dokładnego wytłumaczenia tego pojęcia.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="biblioteki">
+<h2>Biblioteki<a class="headerlink" href="#biblioteki" title="Permalink to this headline">¶</a></h2>
+<p>Wczytujemy potrzebne biblioteki.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manipulacja danych i operacje statystyczne</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Przykladowe ramki danych</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+
+<span class="c1"># Wizualizacja danych</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Podział na zbiór uczący i testowy</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># liczenie metryk oceniających model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+
+<span class="c1"># Klasyfikacja algorytmem k najbliższych sąsiadów</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+
+<span class="c1"># Klasyfikacja regresją logistyczną</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="c1"># Klasyfikacja drzewami decyzyjnymi</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+
+<span class="c1"># Klasyfikacja lasami losowymi</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="c1"># Klasyfikacja przy pomocy algorytmu support vector machines</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+
+<span class="c1"># Metryki oceniające model</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">plot_confusion_matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="przygotowanie-danych">
+<h2>Przygotowanie danych<a class="headerlink" href="#przygotowanie-danych" title="Permalink to this headline">¶</a></h2>
+<p>W celu zaprezentowania działania algorytmów klasyfikujących, wygenerujemy przykładowy zbiór danych, zawierający 2 zmienne liczbowe oraz 1 zmienną binarną, która w tym przypadku będzie oznaczała daną klasę.</p>
+<div class="section" id="losowe-dane">
+<h3>Losowe dane<a class="headerlink" href="#losowe-dane" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stworzenie losowego obiektu np.array</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>         <span class="c1"># ilość danych</span>
+                           <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>           <span class="c1"># liczba zmiennych objaśniających</span>
+                           <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>        <span class="c1"># liczba &#39;użytecznych&#39; zmiennych</span>
+                           <span class="n">n_redundant</span> <span class="o">=</span><span class="mi">0</span><span class="p">,</span>         <span class="c1"># liczba zmiennych &#39;nieużytecznych&#39;</span>
+                           <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>            <span class="c1"># liczba klas</span>
+                           <span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span>   <span class="c1"># zbalansowanie danych</span>
+                           <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+
+<span class="c1"># Sprawdzenie czy dane na pewno są zbalansowane</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Ilość poszczególnych wartości zmiennej y&quot;</span><span class="p">,(</span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Typ obiektu: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Typ danych: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Wymiar obiektu array: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja powyższego zbioru danych z wyróżnieniem zmiennej y</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;X2&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>  <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wykres punktowy&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Ilość poszczególnych wartości zmiennej y&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1397
+1     603
+Name: y, dtype: int64
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------
+Typ obiektu: &lt;class &#39;numpy.ndarray&#39;&gt;
+Typ danych: float64
+Wymiar obiektu array: (2000, 2)
+------------------------------
+</pre></div>
+</div>
+<img alt="../_images/Klasyfikacja_10_3.png" src="../_images/Klasyfikacja_10_3.png" />
+</div>
+</div>
+<p>Za pomocą powyższego kodu otrzymaliśmy niezbalansowany zbiór danych, posiadający 2 klasy. 1397 punktów należy do klasy 0, a 603 do klasy 1.
+W celu zaprezentowania metod działania algorytmów klasyfikacyjnych, zbiór ten zostanie podzielony na zbiór uczący i testowy w proporcjach odpowiednio 8:2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dzielimy nasze dane na zbiory uczący i testowy</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bibliografia">
+<h2>Bibliografia<a class="headerlink" href="#bibliografia" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html">https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html</a></p>
+<p><a class="reference external" href="https://proclusacademy.com/blog/sklearn_make_classification/">https://proclusacademy.com/blog/sklearn_make_classification/</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="modele-klasyfikacyjne">
+<h2>Modele klasyfikacyjne<a class="headerlink" href="#modele-klasyfikacyjne" title="Permalink to this headline">¶</a></h2>
+<p>W poniższym notatniku, wykorzystanych zostanie 5 algorytmów klasyfikujących, a będą to:</p>
+<ul class="simple">
+<li><p>K-Nearest Neighbors (Metoda K Najbliższych Sąsiadów)</p></li>
+<li><p>Logistic Regression (Regresja Logistyczna)</p></li>
+<li><p>Decision Trees (Drzewa Decyzyjne)</p></li>
+<li><p>Random Forests (Lasy Losowe)</p></li>
+<li><p>Support Vector Machines (Maszyna Wektorów Nosnych)</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="k-nearest-neighbors">
+<h2>K-Nearest Neighbors<a class="headerlink" href="#k-nearest-neighbors" title="Permalink to this headline">¶</a></h2>
+<p>Algorytm K-najbliższych sąsiadów opiera się na sprawdzaniu odległości pomiędzy pewnymi testowymi przykładami, a wartościami ze zbioru uczącego. Wybór liczby k, definiuje ilość najbliższych sąsiadów ze zbioru uczącego. Uśredniając wartości zmiennej objaśnianej dla wybranych obserwacji, otrzymujemy prognozę. Określenie “najbliższy” nie zawsze musi być jednoznaczne, w algorytmie istnieje możliwość stosowania różnych metryk liczących odległości (np. metryka euklidesowa, czy też taksówkowa).
+Algorytm ten najlepiej stosować, gdy zmienne objaśniające i objaśniane nie posiadają prostych zależności między sobą (np. zależność ta nie jest liniowa).</p>
+<p>Na poniżczym przykładzie, punkt testowy, oznaczony kolorem zielonym, zostanie zaklasyfikowany jako czerwony, gdy za k przyjmiemy 3 oraz jako niebieski, gdy za k weźmiemy 5.</p>
+<p><img alt="Przykład" src="../_images/KNN.png" /></p>
+<p><a href="https://pl.wikipedia.org/wiki/K_najbli%C5%BCszych_s%C4%85siad%C3%B3w#/media/Plik:KnnClassification.svg" target="_blank">źródło</a></p>
+<p><strong>Podstawowe metryki</strong></p>
+<p><strong>Metryka euklidesowa</strong></p>
+<p>Metrykę euklidesową w przestrzeni <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> definiuje się wzorem
+$<span class="math notranslate nohighlight">\(d_e(x,y)=\sqrt{(y_1-x_1)^2+...+(y_n-x_n)^2}\)</span>$
+<strong>Metryka taksówkowa (manhattan)</strong></p>
+<p>Metrykę taksówkową w przestrzeni <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> definiujemy za pomocą poniższego wzoru
+$<span class="math notranslate nohighlight">\(d_m(x,y)=\sum\limits^{n}_{k=1}|x_k-y_k|\)</span>$</p>
+<p><strong>Kroki działania algorytmu</strong></p>
+<p>Zakładamy, że mamy podział na zbiór uczący i testowy, wtedy algorytm prezentuję się następująco</p>
+<ol class="simple">
+<li><p>Wybór wartośći <em>k</em></p></li>
+<li><p>Kalkulacja macierzy odległości pomiędzy obserwacjami</p></li>
+<li><p>Określenie predykcji <em>y</em> na podstawie k-najbliższych sąsiadów</p></li>
+<li><p>Kalkulacja skuteczności</p></li>
+</ol>
+<p>Weźmy pod uwagę przykładowe zbiory <span class="math notranslate nohighlight">\(X_{\textrm{ucz}} = [x_1=(1,3,4),\;x_2=(2,3,1),\;x_3=(3,2,3),\;x_4=(5,1,3)]\)</span>, <span class="math notranslate nohighlight">\(Y_{\textrm{ucz}}=[y_1=1,y_2=0,y_3=0,y_4=1]\)</span> oraz za wartość k przyjmijmy k=3.
+Za metrykę określającą odległości pomiędzy zmiennymi wybierzemy metrykę euklidesową.
+Naszą nową wartością do zaklasyfikowania będzie <span class="math notranslate nohighlight">\(x_5=(2,2,2)\)</span>
+wtedy macierz odległości będzie wyglądała następująco.</p>
+<p><span class="math notranslate nohighlight">\(d_e(x_1,x_5)=\sqrt{(1-2)^2+(3-2)^2+(4-2)^2}=\sqrt{6}\)</span></p>
+<p><span class="math notranslate nohighlight">\(d_e(x_2,x_5)=\sqrt{(2-2)^2+(3-2)^2+(1-2)^2}=\sqrt{2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(d_e(x_3,x_5)=\sqrt{(3-2)^2+(2-2)^2+(3-2)^2}=\sqrt{2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(d_e(x_4,x_5)=\sqrt{(5-2)^2+(1-2)^2+(3-2)^2}=\sqrt{11}\)</span></p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky">d</th>
+    <th class="tg-0pky">x5</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">x1</td>
+    <td class="tg-0pky">&#8730 6</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">x2</td>
+    <td class="tg-0pky">&#8730 2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">x3</td>
+    <td class="tg-0pky">&#8730 2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">x4</td>
+    <td class="tg-0pky">&#8730 11</td>
+  </tr>
+</tbody>
+</table><p>Ponieważ k=3, to sprawdzamy do jakich klas należą trzej najbliżsi sąsiędzi, są to <span class="math notranslate nohighlight">\(x_1,\;x_2,\;x_3\)</span> o klasach odpowiednio <span class="math notranslate nohighlight">\(1,\;0,\;0\)</span>, zatem obserwacji <span class="math notranslate nohighlight">\(x_5\)</span> zostanie przypisana klasa 0.</p>
+<div class="section" id="przyklad">
+<h3>Przykład<a class="headerlink" href="#przyklad" title="Permalink to this headline">¶</a></h3>
+<p>W celu lepszego zrozumienia algorytmu posłużymy się poniższym przykładem. Użyjemy danych wygenerowanych wcześniej do zbioru X i y, które następne zostały podzielone na zbiory treningowy i testowy. Przedstawiono 3 warianty algorytmu, dla różnej liczby sąsiadów. Patrząc na wykresy widać, że w tym przypadku większa liczba sąsiadów daje lepsze rezultaty. Jednak w celu potwierdzenia tej hipotezy najlepiej sprawdzić metryki określające wiarygodność tego modelu i wtedy wyznaczyć najoptymalniejszą liczbę sąsiadów.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+    <span class="c1"># Definiujemy model klasyfikujący, bazujący na algorytmie k najbliższych sąsiadów.  </span>
+    <span class="n">KNN_clf</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k</span><span class="p">)</span>  <span class="c1"># liczba sąsiadów</span>
+
+    <span class="c1"># Uczymy powyższy model na naszych danych</span>
+    <span class="n">KNN_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+    <span class="c1"># Stosujemy powyższy model na danych testowych</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">KNN_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+      
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;k=&quot;</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+    <span class="c1"># Wizualizacja działania algorytmu</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">dataset</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]</span>
+    <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;X2&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>  <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wykres punktowy&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+    <span class="c1"># Tworzymy macierz pomyłek dla ostatnio stworzonego modelu</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+    <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">KNN_clf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>  
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>k= 3
+</pre></div>
+</div>
+<img alt="../_images/Klasyfikacja_24_1.png" src="../_images/Klasyfikacja_24_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.955
+Precision: 0.913
+Recall: 0.943
+F1: 0.927
+</pre></div>
+</div>
+<img alt="../_images/Klasyfikacja_24_3.png" src="../_images/Klasyfikacja_24_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------------------------------------
+k= 5
+</pre></div>
+</div>
+<img alt="../_images/Klasyfikacja_24_5.png" src="../_images/Klasyfikacja_24_5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.948
+Precision: 0.891
+Recall: 0.943
+F1: 0.916
+</pre></div>
+</div>
+<img alt="../_images/Klasyfikacja_24_7.png" src="../_images/Klasyfikacja_24_7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------------------------------------
+k= 21
+</pre></div>
+</div>
+<img alt="../_images/Klasyfikacja_24_9.png" src="../_images/Klasyfikacja_24_9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.95
+Precision: 0.905
+Recall: 0.934
+F1: 0.919
+</pre></div>
+</div>
+<img alt="../_images/Klasyfikacja_24_11.png" src="../_images/Klasyfikacja_24_11.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+<p>W celu wyznaczenia najoptymalniejszej wartośći k możemy sprawdzić jak zmienia się wartość metryki F1 w zależności od tej liczby. Jest to metryka, która jest dokładniejszą metryką, niż Accuracy pozwalająca zachować odpowiednia równowagę pomiędzy Recall, a Precision.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">error_rate</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">60</span><span class="p">):</span>
+    <span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+    <span class="n">pred_i</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">error_rate</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f1_score</span><span class="p">(</span><span class="n">pred_i</span><span class="p">,</span><span class="n">y_test</span><span class="p">))</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">60</span><span class="p">),</span><span class="n">error_rate</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
+ <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;F1-score vs. K Value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;F1-score&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Klasyfikacja_26_0.png" src="../_images/Klasyfikacja_26_0.png" />
+</div>
+</div>
+<p>Z powyższego wykresu widzimy, że najstabilniejszy wzrost F1-score zachodzi od k=20 do k=32, gdzie dla k=32 osiągamy maksimum, dlatego tę wartość możemy uznać za najlepszą.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">KNN_clf</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">KNN_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">KNN_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Tworzymy macierz pomyłek dla ostatnio stworzonego modelu</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">pred</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">pred</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+<span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">KNN_clf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.96
+Precision: 0.927
+Recall: 0.943
+F1: 0.935
+</pre></div>
+</div>
+<img alt="../_images/Klasyfikacja_28_1.png" src="../_images/Klasyfikacja_28_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bibliografia-k-nearest-neighbors">
+<h2>Bibliografia K-Nearest Neighbors<a class="headerlink" href="#bibliografia-k-nearest-neighbors" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html</a></p>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/neighbors.html#classification">https://scikit-learn.org/stable/modules/neighbors.html#classification</a></p>
+<p><a class="reference external" href="https://stackabuse.com/k-nearest-neighbors-algorithm-in-python-and-scikit-learn/">https://stackabuse.com/k-nearest-neighbors-algorithm-in-python-and-scikit-learn/</a></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="logistic-regression">
+<h2>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h2>
+<p>Jest to jeden z najważniejszych modeli z rodziny uogólnionych modeli liniowych (GLM). Regresji logistycznej używamy, gdy chcemy przewidzieć zmienną binarną. Niezależne zmienne podlegają analizie, na podstawie której określany jest rezultat działania algorytmu. Jest to algorytm liniowy, który na podstawie prawdopodobieństwa przypisuje predykcji jedną z dwóch wartości zmiennej objaśnianej. Stanowi ona dobry pierwszy wybór przy klasyfikacji binarnej. Warto wiedzieć, że regresja logistyczna jest dobrze skalibrowana, tzn. odtwarza prawdopodobieństwa marginalne danych. Nie nadaje się ona w przypadku, gdy mamy dużo zmiennych lub zmienne kategoryczne mają bardzo dużą liczbę poziomów.</p>
+<p>Modele liniowe możemy opisać za pomocą wzoru <span class="math notranslate nohighlight">\(\hat{y}(w,x)=w_0+w_1x_1+...+w_px_p\)</span>, gdzie wektor <span class="math notranslate nohighlight">\(w=(w_1,...,w_p)\)</span> oznacza wektor współczynników, <span class="math notranslate nohighlight">\(w_0\)</span> to wyraz wolny (ang. <em>intercept</em>), a <span class="math notranslate nohighlight">\(\hat{y}\)</span> oznacza predykcje modelu.</p>
+<p>Regresja logistyczna opiera się na pojęciu szansy (ang. <em>odds</em>). Wyraża się ją za pomocą wzoru $<span class="math notranslate nohighlight">\(Odds = \frac{p}{1-p}\)</span>$</p>
+<p>Szansa, w porównanu do prawdopodobieństwa, przyjmuje dla <span class="math notranslate nohighlight">\(0&lt;p&lt;1\)</span> wartości z przedziału <span class="math notranslate nohighlight">\((0,+\infty)\)</span>, a jej logarytm wartości z zakresu <span class="math notranslate nohighlight">\((-\infty,+\infty)\)</span>. Funkcja przekształcająca prawdopodobieństwo na logarytm szansy zwana jest <em>logitem</em> i przyjmuje postać:
+$<span class="math notranslate nohighlight">\(\textrm{logit}(p)=\textrm{ln}\frac{p}{1-p}\)</span>$</p>
+<p>Wtedy logit nieznanego prawdopodobieństwa sukcesu <span class="math notranslate nohighlight">\(p_{i}\)</span> jest modelowany jako liniowa funkcja <span class="math notranslate nohighlight">\(x_{i}\)</span>:
+$<span class="math notranslate nohighlight">\(\textrm{ln}\frac{p}{1-p}=w_0+w_1x_1+...+w_px_p\)</span>$</p>
+<p><img alt="Logit" src="../_images/Logit.png" /></p>
+<p><a href="https://en.wikipedia.org/wiki/File:Logit.svg" target="_blank">źródło</a></p>
+<p>Zakładamy, że zmienna celu <span class="math notranslate nohighlight">\(y_i\)</span> przyjmuje wartości ze zbioru <span class="math notranslate nohighlight">\(\{0,1\}\)</span>, dla punktu <span class="math notranslate nohighlight">\(i\)</span>. Po dopasowaniu modelu, przewidujemy prawdopodobieństwa pozytywnych klas <span class="math notranslate nohighlight">\(P(y_i=1|X_i)\)</span> jako $<span class="math notranslate nohighlight">\(\hat{p}(X_i)=\frac{1}{1+\textrm{exp}(-X_iw-w_0)}.\)</span>$</p>
+<p>Regresja logistyczna z regularyzacją <span class="math notranslate nohighlight">\(r(w)\)</span> minimalizuje poniższą funkcję:
+$<span class="math notranslate nohighlight">\(\underset{w}{\textrm{min}}C\sum\limits^{n}_{i=1}(-y_i\textrm{log}(\hat{p}(X_i))-(1-y_i)\textrm{log}(1-\hat{p}(X_i)))+r(w)\)</span>$</p>
+<p>Przykłady funkcji kary <span class="math notranslate nohighlight">\(r(w)\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(l_1\)</span>) <span class="math notranslate nohighlight">\(r(w)=||w||_1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(l_2\)</span>) <span class="math notranslate nohighlight">\(r(w)=\frac{1}{2}||w||^2_2=\frac{1}{2}w^Tw\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definiujemy model klasyfikujący, bazujący na regresji logistycznej.  </span>
+<span class="n">LR_clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span> <span class="o">=</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span>                  <span class="c1"># funkcja kary</span>
+                            <span class="n">C</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>                         <span class="c1"># odwrotność siły regularyzacji, mniejsza wartość oznacza silniejszą regularyzacje</span>
+                            <span class="n">fit_intercept</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>            <span class="c1"># oznacza, czy ma być dodany bias do funkcji decyzyjnej</span>
+                            <span class="n">class_weight</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mf">0.7</span><span class="p">},</span>   <span class="c1"># wagi powiązane z klasami, parametr przekazywany w formie słownika</span>
+                            <span class="n">solver</span> <span class="o">=</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">,</span>            <span class="c1"># algorytm używany w problemie optymalizacji, </span>
+                                                             <span class="c1"># dla małych zbiorów dobry wyborem jest &#39;liblinear&#39;, natomiast &#39;sag&#39; i &#39;saga&#39; są szybsze dla większych zbiorów</span>
+                                                             <span class="c1"># nie każdy wybór jest kompatybilny z funkcją kary</span>
+                            <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>                  <span class="c1"># maksymalna liczba iteracji</span>
+                            <span class="n">random_state</span> <span class="o">=</span> <span class="mi">123</span><span class="p">)</span>
+
+<span class="c1"># Uczymy powyższy model na naszych danych</span>
+<span class="n">LR_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Stosujemy powyższy model na danych testowych</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">LR_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja działania algorytmu</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;X2&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>  <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wykres punktowy&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Klasyfikacja_39_0.png" src="../_images/Klasyfikacja_39_0.png" />
+</div>
+</div>
+<p>W celu sprawdzenia działania powyższego algorytmu ponownie możemy posłużyć się metrykami opisanymi w osobnym rozdziale.</p>
+</div>
+<div class="section" id="bibliografia-logistic-regression">
+<h2>Bibliografia Logistic Regression<a class="headerlink" href="#bibliografia-logistic-regression" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html?highlight=logisticregression">https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html?highlight=logisticregression</a></p>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression">https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="decision-trees">
+<h2>Decision Trees<a class="headerlink" href="#decision-trees" title="Permalink to this headline">¶</a></h2>
+<p>Drzewa decyzyjne nadają się zarówno do klasyfikacji, jak i regresji. Przyjmują one dowolne typy danych, numeryczne i kategorialne, bez założeń dotyczących rozkładu i bez potrzeby ich wstępnego przetwarzania. Algorytm ten jest względnie łatwy w użyciu, a jego wyniki są w miare prostę w interpretacji. Po dopasowaniu modelu, przewidywanie wyników jest szybkim procesem. Jednak drzewa decyzyjne mają też swoje wady, mają one tendencję do przeuczania (zwłaszcza, gdy nie są przycinane).</p>
+<p><strong>Budowa drzewa decyzyjnego</strong></p>
+<p>Przykład drzewa decyzyjnego. Drzewo decyzyjne składa się z węzłów i gałęzi. Konstrukcję drzewa zaczynamy od korzenia, czyli pierwszego węzła (w przykładzie poniżej jest to “Warunek 1”). Następnie tworzymy gałęzie odpowiadające różnym możliwością spełnienia pierwszego warunku. W ten sposób powstają 3 kolejne węzły (“Tak”, “Warunek 2”, “Nie”). Węzły, od których nie rozchodzą się już kolejne gałęzie nazywamy liścmi, w zaprezentowanym przykładzie, są to wszystkie węzły z wartościami “Tak” i “Nie”.</p>
+<img src="DT.png" alt="DT" style="width: 400px;"/>
+<p><strong>Działanie algorytmu budującego drzewo decyzyjne</strong></p>
+<p>Istnieją różne algorytmy budujące drzewa decyzyjne, są to np.</p>
+<ul class="simple">
+<li><p>ID3</p></li>
+<li><p>C4.5</p></li>
+<li><p>CART</p></li>
+<li><p>CHAID</p></li>
+<li><p>MARS</p></li>
+</ul>
+<p><em>Etapy działania algorytmu C4.5</em></p>
+<ol class="simple">
+<li><p>Wybór zbioru danych z podziałem na zmienne objaśniające i zmienną objaśnianą,</p></li>
+<li><p>policzenie metryki <em>Information Gain</em>, która pomaga stwierdzić, które zmienne w zbiorze treningowym są najużyteczniejsze w rozdzielaniu klas zmiennej celu oraz <em>entropii</em>,</p></li>
+<li><p>Wybranie zmiennej z najwyższym Information Gain i uznanie jej za węzeł decyzyjny w drzewie,</p></li>
+<li><p>policzenie Information Gain dla pozostałych zmiennych,</p></li>
+<li><p>stworzenie węzłow wychodzących od węzła decyzyjnego,</p></li>
+<li><p>powtarzanie powyższych kroków, dopóki wszystkie atrybuty nie zostaną użyte,</p></li>
+<li><p>przycięcie drzewa w celu zapobiegnięcia przeuczeniu.</p></li>
+</ol>
+<p><strong>Przycinanie liści</strong></p>
+<p>Żeby zapobiec zbyt dużemu rozrostowi drzewa decyzyjnego, który może doprowadzić do małego poziomu generalizacji oraz spowolnienia działania algorytmu, stosuje się tak zwane przycianie drzewa (ang <em>pruning</em>). Polega ono na usuwaniu zbędnych elementów z drzewa po jego utworzeniu.
+Wyróżnia się dwa podstawowe rodzaje przycinania:</p>
+<ol class="simple">
+<li><p>przycinanie wsteczne, polegające na wygenerowaniu drzewa, które jest bardzo dobrze dopasowane do zbioru treningowego, a następnie usuwanie od dołu najmniej efektywnych węzłów,</p></li>
+<li><p>przycinanie w przód, polegające na wstrzymaniu dalszej rozbudowy danej gałęzi jeśli na węźle znajduje się ilość próbek zaklasyfikowanych do danej klasy, przekracza wyznaczony próg.</p></li>
+</ol>
+<p><strong>Miary podziału drzewa</strong></p>
+<ul class="simple">
+<li><p>Entropia - miara ilości informacji.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ E = -\sum\frac{|C_i|}{|X|}log\frac{|C_i|}{|X|}\]</div>
+<p><span class="math notranslate nohighlight">\(C_i\)</span> - przykłady danej klasy</p>
+<p>X - wszystkie przykłady</p>
+<ul class="simple">
+<li><p>Informatio Gain - ilość pozyskanej informacji w węzłach przed ich rozdzieleniem, miara ta mówi nam jak istotna jest zmienna. Jest to oczekiwana redukcja entropii zmiennej <span class="math notranslate nohighlight">\(X\)</span> osiągana za pomocą uczenia się stanu zmiennej losowej <span class="math notranslate nohighlight">\(Y\)</span>. Im większe Information Gain, tym tracimy na entropii.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[I(X,Y)=E(X)-E(X|Y)=E(Y)-H(Y|X)\]</div>
+<div class="math notranslate nohighlight">
+\[I=1-E\]</div>
+<p><span class="math notranslate nohighlight">\(E(X|Y) - \)</span>entropia warunkowa</p>
+<ul class="simple">
+<li><p>Indeks Giniego, miara koncentracji (nierównomierności) rozkładu zmiennej losowej.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[gini(X)=1-\sum(\frac{|C_i|}{|X|})^2\]</div>
+<p>przyjmje wartośći ze zbioru <span class="math notranslate nohighlight">\([0,1]\)</span></p>
+<p>gini = 0 oznacza, że wszystkie obiekty należą do danej klasy</p>
+<p>wzrost wartości współczynnika oznacza wzrost nierówności rozkładu</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definiujemy model klasyfikujący, bazujący na drzewach decyzyjnych.  </span>
+<span class="n">DT_clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>              <span class="c1"># maksymalna głebokość drzewa</span>
+                                <span class="n">criterion</span> <span class="o">=</span> <span class="s1">&#39;gini&#39;</span><span class="p">,</span>         <span class="c1"># funkcja mierząca jakość rozdzielenia węzła</span>
+                                <span class="n">splitter</span> <span class="o">=</span> <span class="s1">&#39;best&#39;</span><span class="p">,</span>          <span class="c1"># strategia wyboru podziału w każdym węźle, &quot;best&quot; dla najlepszego podziałi i &quot;random&quot; dla losowego</span>
+                                <span class="n">min_samples_split</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>      <span class="c1"># minimalna ilość próbek potrzebna do dokonania podziałi węzła</span>
+                                <span class="n">min_samples_leaf</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>       <span class="c1"># minimalna liczba próbek wymagana w liściu</span>
+                                <span class="n">max_features</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>        <span class="c1"># maksymalna liczba rozważanych zmiennych podczas szukania najlepszego podziału węzła</span>
+                                <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="c1"># Uczymy powyższy model na naszych danych</span>
+<span class="n">DT_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Stosujemy powyższy model na danych testowych</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">DT_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja działania algorytmu</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;X2&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>  <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wykres punktowy&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Klasyfikacja_45_0.png" src="../_images/Klasyfikacja_45_0.png" />
+</div>
+</div>
+<p>Działanie algorytmu możemy zwizualizować w formie tekstowej, jak i graficznie.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">export_text</span><span class="p">(</span><span class="n">DT_clf</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">DT_clf</span><span class="p">,</span>         <span class="c1"># dodanie fragmentu _= sprawia, że nie wyświetlany jest tekst nad rysunkiem drzewa decyzyjnego, który odpowiada wartościom w liściach i węzłach drzew</span>
+                   <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|--- feature_1 &lt;= 0.23
+|   |--- feature_1 &lt;= -0.23
+|   |   |--- feature_1 &lt;= -0.56
+|   |   |   |--- class: 0
+|   |   |--- feature_1 &gt;  -0.56
+|   |   |   |--- class: 0
+|   |--- feature_1 &gt;  -0.23
+|   |   |--- feature_1 &lt;= 0.10
+|   |   |   |--- class: 0
+|   |   |--- feature_1 &gt;  0.10
+|   |   |   |--- class: 0
+|--- feature_1 &gt;  0.23
+|   |--- feature_1 &lt;= 0.35
+|   |   |--- feature_0 &lt;= -1.67
+|   |   |   |--- class: 1
+|   |   |--- feature_0 &gt;  -1.67
+|   |   |   |--- class: 0
+|   |--- feature_1 &gt;  0.35
+|   |   |--- feature_1 &lt;= 0.68
+|   |   |   |--- class: 1
+|   |   |--- feature_1 &gt;  0.68
+|   |   |   |--- class: 1
+</pre></div>
+</div>
+<img alt="../_images/Klasyfikacja_47_1.png" src="../_images/Klasyfikacja_47_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="bibliografia-decision-trees">
+<h2>Bibliografia Decision Trees<a class="headerlink" href="#bibliografia-decision-trees" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html?highlight=decisiontreeclassifier#sklearn.tree.DecisionTreeClassifier">https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html?highlight=decisiontreeclassifier#sklearn.tree.DecisionTreeClassifier</a></p>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/tree.html#tree">https://scikit-learn.org/stable/modules/tree.html#tree</a></p>
+<p><a class="reference external" href="https://stackabuse.com/decision-trees-in-python-with-scikit-learn/">https://stackabuse.com/decision-trees-in-python-with-scikit-learn/</a></p>
+<p><a class="reference external" href="https://pl.wikipedia.org/wiki/Drzewo_decyzyjne">https://pl.wikipedia.org/wiki/Drzewo_decyzyjne</a></p>
+<p><a class="reference external" href="https://medium.com/analytics-vidhya/decision-trees-explained-in-simple-steps-39ee1a6b00a2">https://medium.com/analytics-vidhya/decision-trees-explained-in-simple-steps-39ee1a6b00a2</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="random-forests">
+<h2>Random Forests<a class="headerlink" href="#random-forests" title="Permalink to this headline">¶</a></h2>
+<p>Lasy losowe przydają sie tam gdzie mamy do czynienia z dużą liczbą cech, można je określić jako uogólnienie drzew decyzyjnych. Ich działanie polega na klasyfikacji przy pomocy grupy drzew decyzyjnych (stąd nazwa las), a ostateczny wynik jest podejmowany za pomocą głosowania na tę cechę, która częściej pojawiała się dla drzew decyzyjnych.</p>
+<p>Metodę działania lasów losowych można przedstawić w paru krokach:</p>
+<ul class="simple">
+<li><p>losowanie ze zwracaniem podzbioru danych z dostępnego zbioru treningowego</p></li>
+<li><p>stworzenie drzewa decyzyjnego dla każdego podzbioru</p></li>
+<li><p>predykcja następuje poprzez wybranie cechy, którą częściej wskazywały wszystkie drzewa decyzyjne</p></li>
+</ul>
+<p>Innymi słowy, gdy dla zmiennej testowej “T”, kiedy las składa się z 11 drzew i 3 drzewa uznają, że zmienna ta powinna zostać oznaczona jako 0, a 8 drzew przypisze jej klasę 1, to ostatecznie zostanie ona zakwalifikowana jako 1.
+Zaletą lasów losowych jest to, że są one odporne na braki danych, różne typy zmiennych czy istnienie wartości odstających. Są one odporne na przeuczenie oraz zachowują stabilność.</p>
+<p>Ponieważ lasy losowe korzystają z drzew decyzyjnych, które powstają na podstawie różnych podzbiorów zmiennych objaśniających, w pierwszym kroku wygenerujemy nowy zbiór danych zawierający większą liczbę zmiennych. Mając teraz 6 zmiennych objaśniających, nie jesteśmy w stanie przedstawić ich na pojedynczym wykresie. Dlatego w celu zobrazowania jak wygląda nasz zbiór posłuzymy się funkcją pairplot, przedstawi nam ona zależności pomiędzy każdymi dwiema zmiennymi.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stworzenie losowego obiektu np.array</span>
+<span class="n">X_RF</span><span class="p">,</span> <span class="n">y_RF</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>  <span class="c1"># ilość danych</span>
+                           <span class="n">n_features</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>    <span class="c1"># liczba zmiennych objaśniających</span>
+                           <span class="n">n_informative</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="c1"># liczba &#39;użytecznych&#39; zmiennych</span>
+                           <span class="n">n_redundant</span> <span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># liczba zmiennych &#39;nieużytecznych&#39;</span>
+                           <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>     <span class="c1"># liczba klas</span>
+                           <span class="n">class_sep</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>     <span class="c1"># liczba określająca jak bardzo klasy powinny być od siebie odseparowane</span>
+                           <span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span>   <span class="c1"># zbalansowanie danych</span>
+                           <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_RF</span><span class="p">)</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">,</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span> <span class="s1">&#39;X4&#39;</span><span class="p">,</span> <span class="s1">&#39;X5&#39;</span><span class="p">,</span> <span class="s1">&#39;X6&#39;</span><span class="p">]</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_RF</span>
+
+<span class="c1"># Sprawdzenie czy dane na pewno są zbalansowane</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Ilość poszczególnych wartości zmiennej y&quot;</span><span class="p">,(</span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja powyższego zbioru danych z wyróżnieniem zmiennej y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>  <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Ilość poszczególnych wartości zmiennej y&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1395
+1     605
+Name: y, dtype: int64
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1080x1080 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/Klasyfikacja_51_4.png" src="../_images/Klasyfikacja_51_4.png" />
+</div>
+</div>
+<p>Jak widać na powyższym wykresie, otrzymaliśmy niezbalansowany zbiór danych względnie podzielony na 2 klasy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dzielimy nasze dane na zbiory uczący i testowy</span>
+<span class="n">X_RF_train</span><span class="p">,</span> <span class="n">X_RF_test</span><span class="p">,</span> <span class="n">y_RF_train</span><span class="p">,</span> <span class="n">y_RF_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_RF</span><span class="p">,</span> <span class="n">y_RF</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>W modelu lasów losowych możemy zastosować metodę <em>bootstrapu</em>, która polega na tym, że zamiast trenować model na całym zbiorze danych, to każde drzewo w lesie losowym jest tworzone na podstawie podzbioru zbioru obserwacji. Następnie rezultaty są agregowane. Bootstrap stosuje się by zapewnić różnorodność w lasach losowych, pomaga to w zapobieganiu przeuczania się modelu oraz redukuje wariancję w predykcjach, jednak dostajemy pewien bias w każdym drzewie na skutek użycia mniejszej ilości danych do ich stworzenia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definiujemy model klasyfikujący, bazujący na lasach losowych.</span>
+<span class="n">RF_clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>          <span class="c1"># liczba drzew w lesie</span>
+                                <span class="n">criterion</span> <span class="o">=</span> <span class="s1">&#39;gini&#39;</span><span class="p">,</span>         <span class="c1"># funkcja mierząca jakość rozdzielenia węzła</span>
+                                <span class="n">min_samples_split</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>      <span class="c1"># minimalna ilość próbek potrzebna do dokonania podziałi węzła</span>
+                                <span class="n">min_samples_leaf</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>       <span class="c1"># minimalna liczba próbek wymagana w liściu</span>
+                                <span class="n">max_features</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>        <span class="c1"># maksymalna liczba rozważanych zmiennych podczas szukania najlepszego podziału węzła</span>
+                                <span class="n">bootstrap</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>           <span class="c1"># określa czy próbki bootstrapowe są stosowane, gdy ustawione na False, to cały zbiór jest</span>
+                                                            <span class="c1"># uwzględniany podczas tworzenia każdego drzewa</span>
+                                <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>                <span class="c1"># maksymalna głębokość pojedynczego drzewa</span>
+                                <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Uczymy powyższy model na naszych danych</span>
+<span class="n">RF_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_RF_train</span><span class="p">,</span> <span class="n">y_RF_train</span><span class="p">)</span>
+
+<span class="c1"># Stosujemy powyższy model na danych testowych</span>
+<span class="n">y_RF_pred</span> <span class="o">=</span> <span class="n">RF_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_RF_test</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja działania algorytmu</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_RF_test</span><span class="p">)</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">,</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span> <span class="s1">&#39;X4&#39;</span><span class="p">,</span> <span class="s1">&#39;X5&#39;</span><span class="p">,</span> <span class="s1">&#39;X6&#39;</span><span class="p">]</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_RF_pred</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>  <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1080x1080 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/Klasyfikacja_55_1.png" src="../_images/Klasyfikacja_55_1.png" />
+</div>
+</div>
+<p>Po zastosowaniu algorytmu lasów losowych, widzimy jak zmiennę w miarę poprawnie zostały oznaczone jako dana klasa. Dodatkowo możemy też sprawdzić jak wygląda każde drzewo w lesie, poniżej zaprezentowano pierwsze z 20 drzew.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wykres pierwszego z 20 drzew w lesie losowym.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">RF_clf</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                   <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Klasyfikacja_57_0.png" src="../_images/Klasyfikacja_57_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="bibliografia-random-forest">
+<h2>Bibliografia Random Forest<a class="headerlink" href="#bibliografia-random-forest" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a></p>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html#forest">https://scikit-learn.org/stable/modules/ensemble.html#forest</a></p>
+<p><a class="reference external" href="https://stackabuse.com/random-forest-algorithm-with-python-and-scikit-learn/">https://stackabuse.com/random-forest-algorithm-with-python-and-scikit-learn/</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="support-vector-machines">
+<h2>Support Vector Machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this headline">¶</a></h2>
+<p>Pewne problemy klasyfikacji są nierozdzielne, tzn. przykłady z klasy 1 znajdują się w obszarze otoczonym przez przykłady z klasy 0, co uniemożliwia rozdzielenie obydwu klas za pomocą prostej granicy. Z tego powodu metody liniowe nie są w stanie całkowicie rozdzielić dwóch klas.</p>
+<p>Maszyny wektorów nośnych radzą sobie z tym problemem, jednak bez wyboru odpowiedniego jądra mogą one nie dawać najlepszych rezultatów.</p>
+<p>Maszyna wektorów nośnych opiera się na stworzeniu lini pomiędzy różnymi skupiskami danych, by następnie pogrupować je w klasy. Punkty po jednej stronie lini będą należeć do jednej klasy, a punkty po drugiej do innej klasy. Algorytm próbuje zmaksymalizować odległość pomiędzy linią, którą wyznacza, a punktami na jej zewnętrzu. Następnie wartości testowe klasyfikowane są przy pomocy tych lini.</p>
+<p>Zaletami SVM jest ich skuteczność w przestrzeniach wielowymiarowych, wciąż sprawdzają się tam gdzie wymiar przestrzeni jest większy niż liczba próbek, nie zużywają dużo pamięci oraz można dopasować samodzielnie zdefiniowane jądro do algorytmu. Efekty zastosowania różnego rodzaju jądra na tym samym zbiorze danych przedstawiono na poniższym rysunku.</p>
+<p><img alt="Przykład" src="../_images/kernels.png" /></p>
+<p><a href="https://scikit-learn.org/stable/modules/svm.html#svm-classification" target="_blank">źródło</a></p>
+<p><strong>Polynomial Kernel Function</strong></p>
+<p>Jądra wielomianowe są uogólnioną reprezentacją jąder o stopniu większym niż 1. Są przydatne w przetwarzaniu obrazów.</p>
+<p>Istnieją dwa typy jąder wielomianowych:</p>
+<ol class="simple">
+<li><p>homogeniczne jądra wielomianowe</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ K(x_i,x_j)=(x_i\cdot x_j),\]</div>
+<p>gdzie <span class="math notranslate nohighlight">\(\cdot\)</span> oznacza iloczyn skalarny obu wektorów, a <span class="math notranslate nohighlight">\(d\)</span> jest stopniem wielomianu.</p>
+<ol class="simple">
+<li><p>niehomogeniczne jądra wielomianowe</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[K(x_i,x_j)=(x_i\cdot x_j+c)^d,\]</div>
+<p>gdzie <span class="math notranslate nohighlight">\(c\)</span> jest jakąś stałą.</p>
+<p><strong>Gaussian Radial Basis Function (RBF) Kernel</strong></p>
+<p>Jądra radialnego używa się, gdy nie mamy dużej wiedzy na temat danych. Wyraża się je za pomocą wzoru</p>
+<div class="math notranslate nohighlight">
+\[K(x_i,x_j)=\textrm{exp}(-\frac{||x_i-x_j||}{2 \sigma ^2})^2,\]</div>
+<p>gdzie <span class="math notranslate nohighlight">\(\sigma\)</span> oznacza wariancje, a <span class="math notranslate nohighlight">\(||x_i-x_j||\)</span> określa odległość euklidesową pomiędzy dwoma punktami.</p>
+<p><strong>Linear Kernel Function</strong></p>
+<p>Jest to jądro jednowymiarowe o najprostszej formie. Określa je poniższy wzór</p>
+<div class="math notranslate nohighlight">
+\[K(x_i,x_j)=x_i\cdot x_j+c\]</div>
+<p>W celu zaprezentowania metody działania algorytmu SVM, stworzymy zbiór, który będzię posiadał punkty odpowiadające jednej klasie, zagnieżdżone w zbiorze z drugiej klasy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_moons</span>
+
+<span class="n">X_svm</span><span class="p">,</span> <span class="n">y_svm</span> <span class="o">=</span> <span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>  <span class="c1"># ilość danych</span>
+                          <span class="n">noise</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>    <span class="c1"># poziom szumu</span>
+
+<span class="c1"># Wizualizacja powyższego zbioru danych z wyróżnieniem zmiennej y</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_svm</span><span class="p">)</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_svm</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;X2&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>  <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wykres punktowy&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Klasyfikacja_64_0.png" src="../_images/Klasyfikacja_64_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dzielimy nasze dane na zbiory uczący i testowy</span>
+<span class="n">X_svm_train</span><span class="p">,</span> <span class="n">X_svm_test</span><span class="p">,</span> <span class="n">y_svm_train</span><span class="p">,</span> <span class="n">y_svm_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_svm</span><span class="p">,</span> <span class="n">y_svm</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="przyklad-z-jadrem-liniowym">
+<h3>Przykład z jądrem liniowym.<a class="headerlink" href="#przyklad-z-jadrem-liniowym" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definiujemy model klasyfikujący, bazujący na algorytmie support vector machines.</span>
+<span class="n">SVM_clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">C</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>               <span class="c1"># parametr określający złożoność modelu</span>
+              <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>     <span class="c1"># typ jądra</span>
+              <span class="n">random_state</span> <span class="o">=</span> <span class="mi">123</span><span class="p">)</span>  
+
+<span class="c1"># Uczymy powyższy model na naszych danych</span>
+<span class="n">SVM_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_svm_train</span><span class="p">,</span> <span class="n">y_svm_train</span><span class="p">)</span>
+
+<span class="c1"># Stosujemy powyższy model na danych testowych</span>
+<span class="n">y_svm_pred</span> <span class="o">=</span> <span class="n">SVM_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_svm_test</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja działania algorytmu</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_svm_test</span><span class="p">)</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_svm_pred</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;X2&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>  <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wykres punktowy&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Klasyfikacja_67_0.png" src="../_images/Klasyfikacja_67_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="przyklad-z-jadrem-radialnym">
+<h3>Przykład z jądrem radialnym.<a class="headerlink" href="#przyklad-z-jadrem-radialnym" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definiujemy model klasyfikujący, bazujący na algorytmie support vector machines.</span>
+<span class="n">SVM_clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">C</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>               <span class="c1"># parametr określający złożoność modelu</span>
+              <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span>        <span class="c1"># typ jądra</span>
+              <span class="n">random_state</span> <span class="o">=</span> <span class="mi">123</span><span class="p">)</span>  
+
+<span class="c1"># Uczymy powyższy model na naszych danych</span>
+<span class="n">SVM_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_svm_train</span><span class="p">,</span> <span class="n">y_svm_train</span><span class="p">)</span>
+
+<span class="c1"># Stosujemy powyższy model na danych testowych</span>
+<span class="n">y_svm_pred</span> <span class="o">=</span> <span class="n">SVM_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_svm_test</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja działania algorytmu</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_svm_test</span><span class="p">)</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;y_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_svm_pred</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;X2&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>  <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wykres punktowy&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Klasyfikacja_69_0.png" src="../_images/Klasyfikacja_69_0.png" />
+</div>
+</div>
+<p>Na pierwszym przykładzie widać, że jądro liniowe nie do końca się sprawdza. Jednak po zastosowaniu jądra radialnego, rezultaty są o wiele lepsze. Maszyny wektorów nośnych z jądrem radialnym są bardzo dobrymi klasyfikatorami rozpoznającymi najbliższych sąsiadów.</p>
+</div>
+</div>
+<div class="section" id="bibliografia-support-vector-machines">
+<h2>Bibliografia Support Vector Machines<a class="headerlink" href="#bibliografia-support-vector-machines" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html?highlight=svc#sklearn.svm.SVC">https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html?highlight=svc#sklearn.svm.SVC</a></p>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/svm.html#svm-classification">https://scikit-learn.org/stable/modules/svm.html#svm-classification</a></p>
+<p><a class="reference external" href="https://stackabuse.com/implementing-svm-and-kernel-svm-with-pythons-scikit-learn/">https://stackabuse.com/implementing-svm-and-kernel-svm-with-pythons-scikit-learn/</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="dodatkowe-informacje">
+<h2>Dodatkowe informacje<a class="headerlink" href="#dodatkowe-informacje" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html#sphx-glr-auto-examples-classification-plot-classifier-comparison-py">https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html#sphx-glr-auto-examples-classification-plot-classifier-comparison-py</a></p></li>
+<li><p><a class="reference external" href="https://stackabuse.com/overview-of-classification-methods-in-python-with-scikit-learn/">https://stackabuse.com/overview-of-classification-methods-in-python-with-scikit-learn/</a></p></li>
+<li><p><a class="reference external" href="https://vitalflux.com/classification-problems-real-world-examples/">https://vitalflux.com/classification-problems-real-world-examples/</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./12. Klasyfikacja"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../7.%20Klasteryzacja/7_Klasteryzacja.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Klasteryzacja w Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../11.%20Regresja/Regresja-Part2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Analiza regresji</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By codersi<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

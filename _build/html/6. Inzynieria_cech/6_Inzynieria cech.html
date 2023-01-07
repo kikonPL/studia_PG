@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -190,6 +192,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
    Klasteryzacja w Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Klasyfikacja
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">
+   Klasyfikacja w Python
   </a>
  </li>
 </ul>
@@ -485,27 +499,27 @@
     <tr>
       <th>0</th>
       <td>2018-01-01</td>
-      <td>253100</td>
+      <td>183100</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2018-01-02</td>
-      <td>173200</td>
+      <td>233200</td>
     </tr>
     <tr>
       <th>2</th>
       <td>2018-01-03</td>
-      <td>243300</td>
+      <td>233300</td>
     </tr>
     <tr>
       <th>3</th>
       <td>2018-01-04</td>
-      <td>173400</td>
+      <td>203400</td>
     </tr>
     <tr>
       <th>4</th>
       <td>2018-01-05</td>
-      <td>223500</td>
+      <td>193500</td>
     </tr>
     <tr>
       <th>...</th>
@@ -515,27 +529,27 @@
     <tr>
       <th>1091</th>
       <td>2020-12-27</td>
-      <td>154700</td>
+      <td>164700</td>
     </tr>
     <tr>
       <th>1092</th>
       <td>2020-12-28</td>
-      <td>103100</td>
+      <td>123100</td>
     </tr>
     <tr>
       <th>1093</th>
       <td>2020-12-29</td>
-      <td>83200</td>
+      <td>93200</td>
     </tr>
     <tr>
       <th>1094</th>
       <td>2020-12-30</td>
-      <td>133300</td>
+      <td>123300</td>
     </tr>
     <tr>
       <th>1095</th>
       <td>2020-12-31</td>
-      <td>123400</td>
+      <td>143400</td>
     </tr>
   </tbody>
 </table>
@@ -606,43 +620,43 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5185.0</td>
-      <td>very_bad</td>
-      <td>16814</td>
-      <td>Renault</td>
-      <td>1984</td>
+      <td>9724.0</td>
+      <td>good</td>
+      <td>237110</td>
+      <td>VW</td>
+      <td>1957</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>11446.0</td>
-      <td>very_good</td>
-      <td>146261</td>
-      <td>Toyota</td>
-      <td>1979</td>
+      <td>31357.0</td>
+      <td>good</td>
+      <td>135188</td>
+      <td>Audi</td>
+      <td>1986</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>4495.0</td>
+      <td>4068.0</td>
       <td>very_bad</td>
-      <td>191108</td>
+      <td>432500</td>
       <td>Seat</td>
-      <td>1996</td>
+      <td>1964</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>9120.0</td>
-      <td>medium</td>
-      <td>166396</td>
-      <td>VW</td>
-      <td>1998</td>
+      <td>12422.0</td>
+      <td>very_good</td>
+      <td>63353</td>
+      <td>Skoda</td>
+      <td>1993</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>9171.0</td>
+      <td>8091.0</td>
       <td>medium</td>
-      <td>159693</td>
+      <td>424824</td>
       <td>Seat</td>
-      <td>1999</td>
+      <td>1957</td>
     </tr>
     <tr>
       <th>...</th>
@@ -654,43 +668,43 @@
     </tr>
     <tr>
       <th>995</th>
-      <td>9261.0</td>
-      <td>good</td>
-      <td>550838</td>
-      <td>Renault</td>
-      <td>1958</td>
+      <td>4531.0</td>
+      <td>very_bad</td>
+      <td>64802</td>
+      <td>Fiat</td>
+      <td>1954</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>9310.0</td>
-      <td>medium</td>
-      <td>146366</td>
+      <td>11131.0</td>
+      <td>very_good</td>
+      <td>257754</td>
       <td>Seat</td>
-      <td>2002</td>
+      <td>1984</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>4510.0</td>
-      <td>very_bad</td>
-      <td>89197</td>
-      <td>VW</td>
-      <td>1969</td>
+      <td>10018.0</td>
+      <td>good</td>
+      <td>256309</td>
+      <td>Fiat</td>
+      <td>1985</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>7109.0</td>
-      <td>bad</td>
-      <td>190758</td>
-      <td>Fiat</td>
-      <td>1995</td>
+      <td>11703.0</td>
+      <td>very_good</td>
+      <td>139378</td>
+      <td>Skoda</td>
+      <td>1990</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>8291.0</td>
+      <td>7992.0</td>
       <td>medium</td>
-      <td>304692</td>
-      <td>VW</td>
-      <td>1962</td>
+      <td>578293</td>
+      <td>Skoda</td>
+      <td>1963</td>
     </tr>
   </tbody>
 </table>
@@ -771,7 +785,7 @@
     <tr>
       <th>0</th>
       <td>2018-01-01</td>
-      <td>253100</td>
+      <td>183100</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
@@ -782,7 +796,7 @@
     <tr>
       <th>1</th>
       <td>2018-01-02</td>
-      <td>173200</td>
+      <td>233200</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
@@ -793,7 +807,7 @@
     <tr>
       <th>2</th>
       <td>2018-01-03</td>
-      <td>243300</td>
+      <td>233300</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
@@ -804,7 +818,7 @@
     <tr>
       <th>3</th>
       <td>2018-01-04</td>
-      <td>173400</td>
+      <td>203400</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
@@ -815,7 +829,7 @@
     <tr>
       <th>4</th>
       <td>2018-01-05</td>
-      <td>223500</td>
+      <td>193500</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
@@ -837,7 +851,7 @@
     <tr>
       <th>1091</th>
       <td>2020-12-27</td>
-      <td>154700</td>
+      <td>164700</td>
       <td>4</td>
       <td>12</td>
       <td>52</td>
@@ -848,7 +862,7 @@
     <tr>
       <th>1092</th>
       <td>2020-12-28</td>
-      <td>103100</td>
+      <td>123100</td>
       <td>4</td>
       <td>12</td>
       <td>53</td>
@@ -859,7 +873,7 @@
     <tr>
       <th>1093</th>
       <td>2020-12-29</td>
-      <td>83200</td>
+      <td>93200</td>
       <td>4</td>
       <td>12</td>
       <td>53</td>
@@ -870,7 +884,7 @@
     <tr>
       <th>1094</th>
       <td>2020-12-30</td>
-      <td>133300</td>
+      <td>123300</td>
       <td>4</td>
       <td>12</td>
       <td>53</td>
@@ -881,7 +895,7 @@
     <tr>
       <th>1095</th>
       <td>2020-12-31</td>
-      <td>123400</td>
+      <td>143400</td>
       <td>4</td>
       <td>12</td>
       <td>53</td>
@@ -959,7 +973,7 @@ Przy założeniu, że mamy przewidywać sprzedaż lodów np na rok do przodu wyk
     <tr>
       <th>0</th>
       <td>2018-01-01</td>
-      <td>253100</td>
+      <td>183100</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
@@ -973,56 +987,56 @@ Przy założeniu, że mamy przewidywać sprzedaż lodów np na rok do przodu wyk
     <tr>
       <th>1</th>
       <td>2018-01-02</td>
-      <td>173200</td>
+      <td>233200</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>2</td>
       <td>2</td>
       <td>0</td>
-      <td>253100</td>
+      <td>183100</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
     </tr>
     <tr>
       <th>2</th>
       <td>2018-01-03</td>
-      <td>243300</td>
+      <td>233300</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>3</td>
       <td>3</td>
       <td>0</td>
-      <td>173200</td>
+      <td>233200</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
     </tr>
     <tr>
       <th>3</th>
       <td>2018-01-04</td>
-      <td>173400</td>
+      <td>203400</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>4</td>
       <td>4</td>
       <td>0</td>
-      <td>243300</td>
+      <td>233300</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
     </tr>
     <tr>
       <th>4</th>
       <td>2018-01-05</td>
-      <td>223500</td>
+      <td>193500</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>5</td>
       <td>5</td>
       <td>0</td>
-      <td>173400</td>
+      <td>203400</td>
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
     </tr>
@@ -1043,72 +1057,72 @@ Przy założeniu, że mamy przewidywać sprzedaż lodów np na rok do przodu wyk
     <tr>
       <th>1091</th>
       <td>2020-12-27</td>
-      <td>154700</td>
+      <td>164700</td>
       <td>4</td>
       <td>12</td>
       <td>52</td>
       <td>7</td>
       <td>362</td>
       <td>1</td>
-      <td>154600</td>
-      <td>163700</td>
-      <td>154600</td>
+      <td>134600</td>
+      <td>243700</td>
+      <td>144600</td>
     </tr>
     <tr>
       <th>1092</th>
       <td>2020-12-28</td>
-      <td>103100</td>
+      <td>123100</td>
       <td>4</td>
       <td>12</td>
       <td>53</td>
       <td>1</td>
       <td>363</td>
       <td>0</td>
-      <td>154700</td>
-      <td>114100</td>
-      <td>134700</td>
+      <td>164700</td>
+      <td>144100</td>
+      <td>184700</td>
     </tr>
     <tr>
       <th>1093</th>
       <td>2020-12-29</td>
-      <td>83200</td>
+      <td>93200</td>
       <td>4</td>
       <td>12</td>
       <td>53</td>
       <td>2</td>
       <td>364</td>
       <td>0</td>
-      <td>103100</td>
-      <td>154200</td>
-      <td>83100</td>
+      <td>123100</td>
+      <td>194200</td>
+      <td>93100</td>
     </tr>
     <tr>
       <th>1094</th>
       <td>2020-12-30</td>
-      <td>133300</td>
+      <td>123300</td>
       <td>4</td>
       <td>12</td>
       <td>53</td>
       <td>3</td>
       <td>365</td>
       <td>0</td>
-      <td>83200</td>
-      <td>164300</td>
       <td>93200</td>
+      <td>144300</td>
+      <td>103200</td>
     </tr>
     <tr>
       <th>1095</th>
       <td>2020-12-31</td>
-      <td>123400</td>
+      <td>143400</td>
       <td>4</td>
       <td>12</td>
       <td>53</td>
       <td>4</td>
       <td>366</td>
       <td>0</td>
-      <td>133300</td>
-      <td>134400</td>
-      <td>203300</td>
+      <td>123300</td>
+      <td>144400</td>
+      <td>183300</td>
     </tr>
   </tbody>
 </table>
@@ -1188,43 +1202,43 @@ memory usage: 99.5 KB
   <tbody>
     <tr>
       <th>0</th>
-      <td>5185.0</td>
-      <td>very_bad</td>
-      <td>16814</td>
-      <td>Renault</td>
-      <td>1984</td>
+      <td>9724.0</td>
+      <td>good</td>
+      <td>237110</td>
+      <td>VW</td>
+      <td>1957</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>11446.0</td>
-      <td>very_good</td>
-      <td>146261</td>
-      <td>Toyota</td>
-      <td>1979</td>
+      <td>31357.0</td>
+      <td>good</td>
+      <td>135188</td>
+      <td>Audi</td>
+      <td>1986</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>4495.0</td>
+      <td>4068.0</td>
       <td>very_bad</td>
-      <td>191108</td>
+      <td>432500</td>
       <td>Seat</td>
-      <td>1996</td>
+      <td>1964</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>9120.0</td>
-      <td>medium</td>
-      <td>166396</td>
-      <td>VW</td>
-      <td>1998</td>
+      <td>12422.0</td>
+      <td>very_good</td>
+      <td>63353</td>
+      <td>Skoda</td>
+      <td>1993</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>9171.0</td>
+      <td>8091.0</td>
       <td>medium</td>
-      <td>159693</td>
+      <td>424824</td>
       <td>Seat</td>
-      <td>1999</td>
+      <td>1957</td>
     </tr>
   </tbody>
 </table>
@@ -1238,7 +1252,7 @@ memory usage: 99.5 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;very_bad&#39;, &#39;very_good&#39;, &#39;medium&#39;, &#39;good&#39;, &#39;bad&#39;], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;good&#39;, &#39;very_bad&#39;, &#39;very_good&#39;, &#39;medium&#39;, &#39;bad&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -1286,13 +1300,13 @@ memory usage: 99.5 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\KNAJMA~1\AppData\Local\Temp/ipykernel_20120/1043533196.py:2: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\KNAJMA~1\AppData\Local\Temp/ipykernel_11688/1043533196.py:2: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   X_train[&quot;condition_transformed&quot;] = oe.transform(X_train.condition.values.reshape(-1, 1))
-C:\Users\KNAJMA~1\AppData\Local\Temp/ipykernel_20120/1043533196.py:3: SettingWithCopyWarning: 
+C:\Users\KNAJMA~1\AppData\Local\Temp/ipykernel_11688/1043533196.py:3: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -1337,17 +1351,17 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   </thead>
   <tbody>
     <tr>
-      <th>789</th>
+      <th>250</th>
       <td>very_bad</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>323</th>
+      <th>519</th>
       <td>bad</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>991</th>
+      <th>789</th>
       <td>medium</td>
       <td>2.0</td>
     </tr>
@@ -1396,17 +1410,17 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   </thead>
   <tbody>
     <tr>
-      <th>761</th>
+      <th>521</th>
       <td>very_bad</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>521</th>
+      <th>513</th>
       <td>bad</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>626</th>
+      <th>411</th>
       <td>medium</td>
       <td>2.0</td>
     </tr>
@@ -1476,42 +1490,42 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   <tbody>
     <tr>
       <th>82</th>
-      <td>10794.0</td>
-      <td>157339</td>
-      <td>Fiat</td>
-      <td>2003</td>
+      <td>9614.0</td>
+      <td>372672</td>
+      <td>Renault</td>
+      <td>1972</td>
       <td>3.0</td>
     </tr>
     <tr>
       <th>991</th>
-      <td>48920.0</td>
-      <td>440362</td>
-      <td>Bugatti</td>
-      <td>1967</td>
-      <td>2.0</td>
+      <td>10467.0</td>
+      <td>91527</td>
+      <td>Seat</td>
+      <td>1970</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>789</th>
-      <td>4427.0</td>
-      <td>161906</td>
-      <td>Toyota</td>
-      <td>1983</td>
-      <td>0.0</td>
+      <td>26411.0</td>
+      <td>246350</td>
+      <td>BMW</td>
+      <td>1994</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>894</th>
-      <td>4185.0</td>
-      <td>370880</td>
-      <td>Seat</td>
-      <td>1980</td>
-      <td>0.0</td>
+      <td>27586.0</td>
+      <td>596233</td>
+      <td>Audi</td>
+      <td>1955</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>398</th>
-      <td>11803.0</td>
-      <td>93180</td>
-      <td>Fiat</td>
-      <td>1980</td>
+      <td>37872.0</td>
+      <td>112234</td>
+      <td>BMW</td>
+      <td>2009</td>
       <td>4.0</td>
     </tr>
     <tr>
@@ -1524,42 +1538,42 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
     </tr>
     <tr>
       <th>106</th>
-      <td>11119.0</td>
-      <td>269156</td>
-      <td>Renault</td>
-      <td>1985</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>270</th>
-      <td>7492.0</td>
-      <td>129711</td>
-      <td>Toyota</td>
-      <td>2004</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>860</th>
-      <td>10109.0</td>
-      <td>170989</td>
-      <td>Fiat</td>
-      <td>1974</td>
+      <td>78410.0</td>
+      <td>31878</td>
+      <td>Bugatti</td>
+      <td>2015</td>
       <td>3.0</td>
     </tr>
     <tr>
+      <th>270</th>
+      <td>8451.0</td>
+      <td>187503</td>
+      <td>Fiat</td>
+      <td>1951</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>6770.0</td>
+      <td>318814</td>
+      <td>Skoda</td>
+      <td>1987</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
       <th>435</th>
-      <td>13080.0</td>
-      <td>74121</td>
-      <td>Toyota</td>
-      <td>2010</td>
-      <td>4.0</td>
+      <td>33319.0</td>
+      <td>103451</td>
+      <td>Mercedes</td>
+      <td>2003</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>102</th>
-      <td>10316.0</td>
-      <td>14059</td>
-      <td>Seat</td>
-      <td>2019</td>
+      <td>8265.0</td>
+      <td>53915</td>
+      <td>Renault</td>
+      <td>2011</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -1605,11 +1619,11 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rozmiar zakodowanej kolumny brand na danych treningowych to: (750, 10)
 rozmiar zakodowanej kolumny brand na danych testowych to: (250, 10)
 [[0. 0. 0. ... 0. 0. 0.]
- [0. 0. 1. ... 0. 0. 0.]
- [0. 0. 0. ... 0. 1. 0.]
- ...
  [0. 0. 0. ... 0. 0. 0.]
- [0. 0. 0. ... 0. 1. 0.]
+ [0. 1. 0. ... 0. 0. 0.]
+ ...
+ [0. 0. 0. ... 1. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
  [0. 0. 0. ... 0. 0. 0.]]
 </pre></div>
 </div>
@@ -1712,16 +1726,16 @@ rozmiar zakodowanej kolumny brand na danych testowych to: (250, 10)
   <tbody>
     <tr>
       <th>0</th>
-      <td>10794.0</td>
-      <td>157339</td>
-      <td>2003</td>
+      <td>9614.0</td>
+      <td>372672</td>
+      <td>1972</td>
       <td>3.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1729,65 +1743,65 @@ rozmiar zakodowanej kolumny brand na danych testowych to: (250, 10)
     </tr>
     <tr>
       <th>1</th>
-      <td>48920.0</td>
-      <td>440362</td>
-      <td>1967</td>
-      <td>2.0</td>
+      <td>10467.0</td>
+      <td>91527</td>
+      <td>1970</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>4427.0</td>
-      <td>161906</td>
-      <td>1983</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>26411.0</td>
+      <td>246350</td>
+      <td>1994</td>
+      <td>2.0</td>
       <td>0.0</td>
       <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>4185.0</td>
-      <td>370880</td>
-      <td>1980</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>27586.0</td>
+      <td>596233</td>
+      <td>1955</td>
+      <td>3.0</td>
       <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>11803.0</td>
-      <td>93180</td>
-      <td>1980</td>
+      <td>37872.0</td>
+      <td>112234</td>
+      <td>2009</td>
       <td>4.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1889,37 +1903,37 @@ gdzie:</p>
   <tbody>
     <tr>
       <th>82</th>
-      <td>157339</td>
-      <td>10057.925449</td>
-      <td>2003</td>
+      <td>372672</td>
+      <td>9616.303599</td>
+      <td>1972</td>
       <td>3.0</td>
     </tr>
     <tr>
       <th>991</th>
-      <td>440362</td>
-      <td>55192.785005</td>
-      <td>1967</td>
-      <td>2.0</td>
+      <td>91527</td>
+      <td>10130.350200</td>
+      <td>1970</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>789</th>
-      <td>161906</td>
-      <td>10097.210801</td>
-      <td>1983</td>
-      <td>0.0</td>
+      <td>246350</td>
+      <td>29876.349281</td>
+      <td>1994</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>894</th>
-      <td>370880</td>
-      <td>9586.117974</td>
-      <td>1980</td>
-      <td>0.0</td>
+      <td>596233</td>
+      <td>28614.354954</td>
+      <td>1955</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>398</th>
-      <td>93180</td>
-      <td>10057.925449</td>
-      <td>1980</td>
+      <td>112234</td>
+      <td>29876.349281</td>
+      <td>2009</td>
       <td>4.0</td>
     </tr>
   </tbody>
@@ -1985,43 +1999,43 @@ gdzie:</p>
   <tbody>
     <tr>
       <th>82</th>
-      <td>157339</td>
-      <td>Fiat</td>
-      <td>2003</td>
+      <td>372672</td>
+      <td>Renault</td>
+      <td>1972</td>
       <td>3.0</td>
       <td>standard</td>
     </tr>
     <tr>
       <th>991</th>
-      <td>440362</td>
-      <td>Bugatti</td>
-      <td>1967</td>
-      <td>2.0</td>
-      <td>luxury</td>
+      <td>91527</td>
+      <td>Seat</td>
+      <td>1970</td>
+      <td>3.0</td>
+      <td>standard</td>
     </tr>
     <tr>
       <th>789</th>
-      <td>161906</td>
-      <td>Toyota</td>
-      <td>1983</td>
-      <td>0.0</td>
-      <td>standard</td>
+      <td>246350</td>
+      <td>BMW</td>
+      <td>1994</td>
+      <td>2.0</td>
+      <td>premium</td>
     </tr>
     <tr>
       <th>894</th>
-      <td>370880</td>
-      <td>Seat</td>
-      <td>1980</td>
-      <td>0.0</td>
-      <td>standard</td>
+      <td>596233</td>
+      <td>Audi</td>
+      <td>1955</td>
+      <td>3.0</td>
+      <td>premium</td>
     </tr>
     <tr>
       <th>398</th>
-      <td>93180</td>
-      <td>Fiat</td>
-      <td>1980</td>
+      <td>112234</td>
+      <td>BMW</td>
+      <td>2009</td>
       <td>4.0</td>
-      <td>standard</td>
+      <td>premium</td>
     </tr>
   </tbody>
 </table>
@@ -2059,53 +2073,53 @@ gdzie:</p>
   </thead>
   <tbody>
     <tr>
-      <th>991</th>
+      <th>519</th>
       <td>Bugatti</td>
       <td>luxury</td>
     </tr>
     <tr>
-      <th>519</th>
+      <th>789</th>
       <td>BMW</td>
       <td>premium</td>
     </tr>
     <tr>
-      <th>357</th>
-      <td>Mercedes</td>
-      <td>premium</td>
-    </tr>
-    <tr>
-      <th>631</th>
+      <th>894</th>
       <td>Audi</td>
       <td>premium</td>
     </tr>
     <tr>
+      <th>5</th>
+      <td>Mercedes</td>
+      <td>premium</td>
+    </tr>
+    <tr>
       <th>82</th>
-      <td>Fiat</td>
+      <td>Renault</td>
       <td>standard</td>
     </tr>
     <tr>
-      <th>789</th>
-      <td>Toyota</td>
-      <td>standard</td>
-    </tr>
-    <tr>
-      <th>894</th>
+      <th>991</th>
       <td>Seat</td>
       <td>standard</td>
     </tr>
     <tr>
-      <th>916</th>
+      <th>323</th>
       <td>VW</td>
       <td>standard</td>
     </tr>
     <tr>
       <th>922</th>
-      <td>Skoda</td>
+      <td>Fiat</td>
       <td>standard</td>
     </tr>
     <tr>
-      <th>380</th>
-      <td>Renault</td>
+      <th>97</th>
+      <td>Toyota</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Skoda</td>
       <td>standard</td>
     </tr>
   </tbody>
@@ -2156,48 +2170,48 @@ gdzie:</p>
   <tbody>
     <tr>
       <th>82</th>
-      <td>157339</td>
-      <td>Fiat</td>
-      <td>2003</td>
+      <td>372672</td>
+      <td>Renault</td>
+      <td>1972</td>
       <td>3.0</td>
       <td>standard</td>
-      <td>18</td>
+      <td>49</td>
     </tr>
     <tr>
       <th>991</th>
-      <td>440362</td>
-      <td>Bugatti</td>
-      <td>1967</td>
-      <td>2.0</td>
-      <td>luxury</td>
-      <td>54</td>
+      <td>91527</td>
+      <td>Seat</td>
+      <td>1970</td>
+      <td>3.0</td>
+      <td>standard</td>
+      <td>51</td>
     </tr>
     <tr>
       <th>789</th>
-      <td>161906</td>
-      <td>Toyota</td>
-      <td>1983</td>
-      <td>0.0</td>
-      <td>standard</td>
-      <td>38</td>
+      <td>246350</td>
+      <td>BMW</td>
+      <td>1994</td>
+      <td>2.0</td>
+      <td>premium</td>
+      <td>27</td>
     </tr>
     <tr>
       <th>894</th>
-      <td>370880</td>
-      <td>Seat</td>
-      <td>1980</td>
-      <td>0.0</td>
-      <td>standard</td>
-      <td>41</td>
+      <td>596233</td>
+      <td>Audi</td>
+      <td>1955</td>
+      <td>3.0</td>
+      <td>premium</td>
+      <td>66</td>
     </tr>
     <tr>
       <th>398</th>
-      <td>93180</td>
-      <td>Fiat</td>
-      <td>1980</td>
+      <td>112234</td>
+      <td>BMW</td>
+      <td>2009</td>
       <td>4.0</td>
-      <td>standard</td>
-      <td>41</td>
+      <td>premium</td>
+      <td>12</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2210,48 +2224,48 @@ gdzie:</p>
     </tr>
     <tr>
       <th>106</th>
-      <td>269156</td>
-      <td>Renault</td>
-      <td>1985</td>
-      <td>4.0</td>
-      <td>standard</td>
-      <td>36</td>
+      <td>31878</td>
+      <td>Bugatti</td>
+      <td>2015</td>
+      <td>3.0</td>
+      <td>luxury</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>270</th>
-      <td>129711</td>
-      <td>Toyota</td>
-      <td>2004</td>
-      <td>1.0</td>
+      <td>187503</td>
+      <td>Fiat</td>
+      <td>1951</td>
+      <td>2.0</td>
       <td>standard</td>
-      <td>17</td>
+      <td>70</td>
     </tr>
     <tr>
       <th>860</th>
-      <td>170989</td>
-      <td>Fiat</td>
-      <td>1974</td>
-      <td>3.0</td>
+      <td>318814</td>
+      <td>Skoda</td>
+      <td>1987</td>
+      <td>1.0</td>
       <td>standard</td>
-      <td>47</td>
+      <td>34</td>
     </tr>
     <tr>
       <th>435</th>
-      <td>74121</td>
-      <td>Toyota</td>
-      <td>2010</td>
-      <td>4.0</td>
-      <td>standard</td>
-      <td>11</td>
+      <td>103451</td>
+      <td>Mercedes</td>
+      <td>2003</td>
+      <td>3.0</td>
+      <td>premium</td>
+      <td>18</td>
     </tr>
     <tr>
       <th>102</th>
-      <td>14059</td>
-      <td>Seat</td>
-      <td>2019</td>
+      <td>53915</td>
+      <td>Renault</td>
+      <td>2011</td>
       <td>1.0</td>
       <td>standard</td>
-      <td>2</td>
+      <td>10</td>
     </tr>
   </tbody>
 </table>
@@ -2298,53 +2312,53 @@ gdzie:</p>
   <tbody>
     <tr>
       <th>82</th>
-      <td>157339</td>
-      <td>Fiat</td>
-      <td>2003</td>
+      <td>372672</td>
+      <td>Renault</td>
+      <td>1972</td>
       <td>3.0</td>
       <td>standard</td>
-      <td>18</td>
-      <td>8741.0</td>
+      <td>49</td>
+      <td>7606.0</td>
     </tr>
     <tr>
       <th>991</th>
-      <td>440362</td>
-      <td>Bugatti</td>
-      <td>1967</td>
-      <td>2.0</td>
-      <td>luxury</td>
-      <td>54</td>
-      <td>8155.0</td>
+      <td>91527</td>
+      <td>Seat</td>
+      <td>1970</td>
+      <td>3.0</td>
+      <td>standard</td>
+      <td>51</td>
+      <td>1795.0</td>
     </tr>
     <tr>
       <th>789</th>
-      <td>161906</td>
-      <td>Toyota</td>
-      <td>1983</td>
-      <td>0.0</td>
-      <td>standard</td>
-      <td>38</td>
-      <td>4261.0</td>
+      <td>246350</td>
+      <td>BMW</td>
+      <td>1994</td>
+      <td>2.0</td>
+      <td>premium</td>
+      <td>27</td>
+      <td>9124.0</td>
     </tr>
     <tr>
       <th>894</th>
-      <td>370880</td>
-      <td>Seat</td>
-      <td>1980</td>
-      <td>0.0</td>
-      <td>standard</td>
-      <td>41</td>
-      <td>9046.0</td>
+      <td>596233</td>
+      <td>Audi</td>
+      <td>1955</td>
+      <td>3.0</td>
+      <td>premium</td>
+      <td>66</td>
+      <td>9034.0</td>
     </tr>
     <tr>
       <th>398</th>
-      <td>93180</td>
-      <td>Fiat</td>
-      <td>1980</td>
+      <td>112234</td>
+      <td>BMW</td>
+      <td>2009</td>
       <td>4.0</td>
-      <td>standard</td>
-      <td>41</td>
-      <td>2273.0</td>
+      <td>premium</td>
+      <td>12</td>
+      <td>9353.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2358,53 +2372,53 @@ gdzie:</p>
     </tr>
     <tr>
       <th>106</th>
-      <td>269156</td>
-      <td>Renault</td>
-      <td>1985</td>
-      <td>4.0</td>
-      <td>standard</td>
-      <td>36</td>
-      <td>7477.0</td>
+      <td>31878</td>
+      <td>Bugatti</td>
+      <td>2015</td>
+      <td>3.0</td>
+      <td>luxury</td>
+      <td>6</td>
+      <td>5313.0</td>
     </tr>
     <tr>
       <th>270</th>
-      <td>129711</td>
-      <td>Toyota</td>
-      <td>2004</td>
-      <td>1.0</td>
+      <td>187503</td>
+      <td>Fiat</td>
+      <td>1951</td>
+      <td>2.0</td>
       <td>standard</td>
-      <td>17</td>
-      <td>7630.0</td>
+      <td>70</td>
+      <td>2679.0</td>
     </tr>
     <tr>
       <th>860</th>
-      <td>170989</td>
-      <td>Fiat</td>
-      <td>1974</td>
-      <td>3.0</td>
+      <td>318814</td>
+      <td>Skoda</td>
+      <td>1987</td>
+      <td>1.0</td>
       <td>standard</td>
-      <td>47</td>
-      <td>3638.0</td>
+      <td>34</td>
+      <td>9377.0</td>
     </tr>
     <tr>
       <th>435</th>
-      <td>74121</td>
-      <td>Toyota</td>
-      <td>2010</td>
-      <td>4.0</td>
-      <td>standard</td>
-      <td>11</td>
-      <td>6738.0</td>
+      <td>103451</td>
+      <td>Mercedes</td>
+      <td>2003</td>
+      <td>3.0</td>
+      <td>premium</td>
+      <td>18</td>
+      <td>5747.0</td>
     </tr>
     <tr>
       <th>102</th>
-      <td>14059</td>
-      <td>Seat</td>
-      <td>2019</td>
+      <td>53915</td>
+      <td>Renault</td>
+      <td>2011</td>
       <td>1.0</td>
       <td>standard</td>
-      <td>2</td>
-      <td>7030.0</td>
+      <td>10</td>
+      <td>5392.0</td>
     </tr>
   </tbody>
 </table>
@@ -2423,8 +2437,8 @@ gdzie:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0    730
-1.0     20
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0    742
+1.0      8
 Name: is_classic, dtype: int64
 </pre></div>
 </div>
@@ -2628,33 +2642,33 @@ Name: is_classic, dtype: int64
   <tbody>
     <tr>
       <th>82</th>
-      <td>157339</td>
-      <td>(152047.0, 290464.25]</td>
-      <td>(152047.0, 200893.4]</td>
+      <td>372672</td>
+      <td>(282680.75, 681205.0]</td>
+      <td>(322830.8, 414821.3]</td>
     </tr>
     <tr>
       <th>991</th>
-      <td>440362</td>
-      <td>(290464.25, 711196.0]</td>
-      <td>(425762.9, 711196.0]</td>
+      <td>91527</td>
+      <td>(64578.5, 151917.5]</td>
+      <td>(83551.2, 111968.8]</td>
     </tr>
     <tr>
       <th>789</th>
-      <td>161906</td>
-      <td>(152047.0, 290464.25]</td>
-      <td>(152047.0, 200893.4]</td>
+      <td>246350</td>
+      <td>(151917.5, 282680.75]</td>
+      <td>(195449.8, 246451.1]</td>
     </tr>
     <tr>
       <th>894</th>
-      <td>370880</td>
-      <td>(290464.25, 711196.0]</td>
-      <td>(327731.8, 425762.9]</td>
+      <td>596233</td>
+      <td>(282680.75, 681205.0]</td>
+      <td>(414821.3, 681205.0]</td>
     </tr>
     <tr>
       <th>398</th>
-      <td>93180</td>
-      <td>(61575.0, 152047.0]</td>
-      <td>(78299.5, 112749.6]</td>
+      <td>112234</td>
+      <td>(64578.5, 151917.5]</td>
+      <td>(111968.8, 151917.5]</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2664,33 +2678,33 @@ Name: is_classic, dtype: int64
     </tr>
     <tr>
       <th>106</th>
-      <td>269156</td>
-      <td>(152047.0, 290464.25]</td>
-      <td>(263646.5, 327731.8]</td>
+      <td>31878</td>
+      <td>(5120.999, 64578.5]</td>
+      <td>(25335.4, 52790.0]</td>
     </tr>
     <tr>
       <th>270</th>
-      <td>129711</td>
-      <td>(61575.0, 152047.0]</td>
-      <td>(112749.6, 152047.0]</td>
+      <td>187503</td>
+      <td>(151917.5, 282680.75]</td>
+      <td>(151917.5, 195449.8]</td>
     </tr>
     <tr>
       <th>860</th>
-      <td>170989</td>
-      <td>(152047.0, 290464.25]</td>
-      <td>(152047.0, 200893.4]</td>
+      <td>318814</td>
+      <td>(282680.75, 681205.0]</td>
+      <td>(246451.1, 322830.8]</td>
     </tr>
     <tr>
       <th>435</th>
-      <td>74121</td>
-      <td>(61575.0, 152047.0]</td>
-      <td>(45777.4, 78299.5]</td>
+      <td>103451</td>
+      <td>(64578.5, 151917.5]</td>
+      <td>(83551.2, 111968.8]</td>
     </tr>
     <tr>
       <th>102</th>
-      <td>14059</td>
-      <td>(4982.999, 61575.0]</td>
-      <td>(4982.999, 21360.9]</td>
+      <td>53915</td>
+      <td>(5120.999, 64578.5]</td>
+      <td>(52790.0, 83551.2]</td>
     </tr>
   </tbody>
 </table>
@@ -2734,33 +2748,33 @@ Name: is_classic, dtype: int64
   <tbody>
     <tr>
       <th>82</th>
-      <td>157339</td>
-      <td>3</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>991</th>
-      <td>440362</td>
-      <td>4</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>789</th>
-      <td>161906</td>
-      <td>3</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>894</th>
-      <td>370880</td>
+      <td>372672</td>
       <td>4</td>
       <td>9</td>
     </tr>
     <tr>
-      <th>398</th>
-      <td>93180</td>
+      <th>991</th>
+      <td>91527</td>
       <td>2</td>
       <td>4</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>246350</td>
+      <td>3</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>596233</td>
+      <td>4</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>112234</td>
+      <td>2</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2770,33 +2784,33 @@ Name: is_classic, dtype: int64
     </tr>
     <tr>
       <th>106</th>
-      <td>269156</td>
-      <td>3</td>
-      <td>8</td>
+      <td>31878</td>
+      <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>270</th>
-      <td>129711</td>
-      <td>2</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>860</th>
-      <td>170989</td>
+      <td>187503</td>
       <td>3</td>
       <td>6</td>
     </tr>
     <tr>
+      <th>860</th>
+      <td>318814</td>
+      <td>4</td>
+      <td>8</td>
+    </tr>
+    <tr>
       <th>435</th>
-      <td>74121</td>
+      <td>103451</td>
       <td>2</td>
-      <td>3</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>102</th>
-      <td>14059</td>
+      <td>53915</td>
       <td>1</td>
-      <td>1</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -2815,7 +2829,7 @@ Name: is_classic, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  4983.  ,  61575.  , 152047.  , 290464.25, 711196.  ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  5121.  ,  64578.5 , 151917.5 , 282680.75, 681205.  ])
 </pre></div>
 </div>
 </div>
@@ -2855,28 +2869,28 @@ Name: is_classic, dtype: int64
   <tbody>
     <tr>
       <th>82</th>
-      <td>18</td>
-      <td>very_old</td>
+      <td>49</td>
+      <td>extremely_old</td>
     </tr>
     <tr>
       <th>991</th>
-      <td>54</td>
+      <td>51</td>
       <td>extremely_old</td>
     </tr>
     <tr>
       <th>789</th>
-      <td>38</td>
+      <td>27</td>
       <td>extremely_old</td>
     </tr>
     <tr>
       <th>894</th>
-      <td>41</td>
+      <td>66</td>
       <td>extremely_old</td>
     </tr>
     <tr>
       <th>398</th>
-      <td>41</td>
-      <td>extremely_old</td>
+      <td>12</td>
+      <td>old</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2885,28 +2899,28 @@ Name: is_classic, dtype: int64
     </tr>
     <tr>
       <th>106</th>
-      <td>36</td>
-      <td>extremely_old</td>
+      <td>6</td>
+      <td>middle_age</td>
     </tr>
     <tr>
       <th>270</th>
-      <td>17</td>
-      <td>very_old</td>
+      <td>70</td>
+      <td>extremely_old</td>
     </tr>
     <tr>
       <th>860</th>
-      <td>47</td>
+      <td>34</td>
       <td>extremely_old</td>
     </tr>
     <tr>
       <th>435</th>
-      <td>11</td>
-      <td>old</td>
+      <td>18</td>
+      <td>very_old</td>
     </tr>
     <tr>
       <th>102</th>
-      <td>2</td>
-      <td>new</td>
+      <td>10</td>
+      <td>old</td>
     </tr>
   </tbody>
 </table>
@@ -2954,42 +2968,42 @@ Name: is_classic, dtype: int64
   <tbody>
     <tr>
       <th>82</th>
-      <td>157339</td>
+      <td>372672</td>
       <td>3.0</td>
-      <td>18</td>
-      <td>8741.0</td>
+      <td>49</td>
+      <td>7606.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>991</th>
-      <td>440362</td>
-      <td>2.0</td>
-      <td>54</td>
-      <td>8155.0</td>
+      <td>91527</td>
+      <td>3.0</td>
+      <td>51</td>
+      <td>1795.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>789</th>
-      <td>161906</td>
-      <td>0.0</td>
-      <td>38</td>
-      <td>4261.0</td>
+      <td>246350</td>
+      <td>2.0</td>
+      <td>27</td>
+      <td>9124.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>894</th>
-      <td>370880</td>
-      <td>0.0</td>
-      <td>41</td>
-      <td>9046.0</td>
+      <td>596233</td>
+      <td>3.0</td>
+      <td>66</td>
+      <td>9034.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>398</th>
-      <td>93180</td>
+      <td>112234</td>
       <td>4.0</td>
-      <td>41</td>
-      <td>2273.0</td>
+      <td>12</td>
+      <td>9353.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -3002,42 +3016,42 @@ Name: is_classic, dtype: int64
     </tr>
     <tr>
       <th>106</th>
-      <td>269156</td>
-      <td>4.0</td>
-      <td>36</td>
-      <td>7477.0</td>
+      <td>31878</td>
+      <td>3.0</td>
+      <td>6</td>
+      <td>5313.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>270</th>
-      <td>129711</td>
-      <td>1.0</td>
-      <td>17</td>
-      <td>7630.0</td>
+      <td>187503</td>
+      <td>2.0</td>
+      <td>70</td>
+      <td>2679.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>860</th>
-      <td>170989</td>
-      <td>3.0</td>
-      <td>47</td>
-      <td>3638.0</td>
+      <td>318814</td>
+      <td>1.0</td>
+      <td>34</td>
+      <td>9377.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>435</th>
-      <td>74121</td>
-      <td>4.0</td>
-      <td>11</td>
-      <td>6738.0</td>
+      <td>103451</td>
+      <td>3.0</td>
+      <td>18</td>
+      <td>5747.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>102</th>
-      <td>14059</td>
+      <td>53915</td>
       <td>1.0</td>
-      <td>2</td>
-      <td>7030.0</td>
+      <td>10</td>
+      <td>5392.0</td>
       <td>0.0</td>
     </tr>
   </tbody>
@@ -3089,58 +3103,58 @@ Name: is_classic, dtype: int64
     </tr>
     <tr>
       <th>mean</th>
-      <td>192609.69</td>
-      <td>2.43</td>
-      <td>36.43</td>
-      <td>5360.51</td>
-      <td>0.03</td>
+      <td>190401.90</td>
+      <td>2.47</td>
+      <td>37.03</td>
+      <td>5340.15</td>
+      <td>0.01</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>156935.70</td>
-      <td>1.17</td>
-      <td>19.96</td>
-      <td>2854.55</td>
-      <td>0.16</td>
+      <td>151902.42</td>
+      <td>1.10</td>
+      <td>20.12</td>
+      <td>2822.90</td>
+      <td>0.10</td>
     </tr>
     <tr>
       <th>min</th>
-      <td>4983.00</td>
+      <td>5121.00</td>
       <td>0.00</td>
       <td>2.00</td>
-      <td>162.00</td>
+      <td>176.00</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>61575.00</td>
+      <td>64578.50</td>
       <td>2.00</td>
-      <td>19.00</td>
-      <td>2963.00</td>
+      <td>20.00</td>
+      <td>2986.50</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>152047.00</td>
+      <td>151917.50</td>
       <td>3.00</td>
       <td>36.00</td>
-      <td>5508.00</td>
+      <td>5391.00</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>290464.25</td>
+      <td>282680.75</td>
       <td>3.00</td>
-      <td>53.75</td>
-      <td>7718.00</td>
+      <td>54.75</td>
+      <td>7639.50</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>711196.00</td>
+      <td>681205.00</td>
       <td>4.00</td>
       <td>71.00</td>
-      <td>11206.00</td>
+      <td>12628.00</td>
       <td>1.00</td>
     </tr>
   </tbody>
@@ -3215,18 +3229,18 @@ Name: is_classic, dtype: int64
     <tr>
       <th>mean</th>
       <td>0.27</td>
-      <td>0.61</td>
-      <td>0.50</td>
-      <td>0.47</td>
-      <td>0.03</td>
+      <td>0.62</td>
+      <td>0.51</td>
+      <td>0.41</td>
+      <td>0.01</td>
     </tr>
     <tr>
       <th>std</th>
       <td>0.22</td>
+      <td>0.27</td>
       <td>0.29</td>
-      <td>0.29</td>
-      <td>0.26</td>
-      <td>0.16</td>
+      <td>0.23</td>
+      <td>0.10</td>
     </tr>
     <tr>
       <th>min</th>
@@ -3238,26 +3252,26 @@ Name: is_classic, dtype: int64
     </tr>
     <tr>
       <th>25%</th>
-      <td>0.08</td>
+      <td>0.09</td>
       <td>0.50</td>
-      <td>0.25</td>
-      <td>0.25</td>
+      <td>0.26</td>
+      <td>0.23</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>0.21</td>
+      <td>0.22</td>
       <td>0.75</td>
       <td>0.49</td>
-      <td>0.48</td>
+      <td>0.42</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>0.40</td>
+      <td>0.41</td>
       <td>0.75</td>
-      <td>0.75</td>
-      <td>0.68</td>
+      <td>0.76</td>
+      <td>0.60</td>
       <td>0.00</td>
     </tr>
     <tr>
@@ -3342,9 +3356,9 @@ Name: is_classic, dtype: int64
     </tr>
     <tr>
       <th>mean</th>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>-0.00</td>
+      <td>-0.00</td>
+      <td>0.00</td>
       <td>-0.00</td>
       <td>-0.00</td>
     </tr>
@@ -3358,43 +3372,43 @@ Name: is_classic, dtype: int64
     </tr>
     <tr>
       <th>min</th>
-      <td>-1.20</td>
-      <td>-2.08</td>
-      <td>-1.73</td>
-      <td>-1.82</td>
-      <td>-0.17</td>
+      <td>-1.22</td>
+      <td>-2.25</td>
+      <td>-1.74</td>
+      <td>-1.83</td>
+      <td>-0.10</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>-0.84</td>
-      <td>-0.37</td>
-      <td>-0.87</td>
-      <td>-0.84</td>
-      <td>-0.17</td>
+      <td>-0.83</td>
+      <td>-0.43</td>
+      <td>-0.85</td>
+      <td>-0.83</td>
+      <td>-0.10</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>-0.26</td>
+      <td>-0.25</td>
       <td>0.49</td>
-      <td>-0.02</td>
-      <td>0.05</td>
-      <td>-0.17</td>
+      <td>-0.05</td>
+      <td>0.02</td>
+      <td>-0.10</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>0.62</td>
+      <td>0.61</td>
       <td>0.49</td>
-      <td>0.87</td>
-      <td>0.83</td>
-      <td>-0.17</td>
+      <td>0.88</td>
+      <td>0.82</td>
+      <td>-0.10</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>3.31</td>
-      <td>1.34</td>
-      <td>1.73</td>
-      <td>2.05</td>
-      <td>6.04</td>
+      <td>3.23</td>
+      <td>1.40</td>
+      <td>1.69</td>
+      <td>2.58</td>
+      <td>9.63</td>
     </tr>
   </tbody>
 </table>
@@ -3451,38 +3465,38 @@ Name: is_classic, dtype: int64
   <tbody>
     <tr>
       <th>82</th>
-      <td>very_good</td>
-      <td>216670</td>
-      <td>VW</td>
-      <td>22</td>
+      <td>bad</td>
+      <td>115046</td>
+      <td>BMW</td>
+      <td>63</td>
     </tr>
     <tr>
       <th>991</th>
       <td>good</td>
-      <td>2986</td>
-      <td>Toyota</td>
-      <td>3</td>
+      <td>131589</td>
+      <td>Renault</td>
+      <td>21</td>
     </tr>
     <tr>
       <th>789</th>
       <td>good</td>
-      <td>473673</td>
-      <td>Skoda</td>
-      <td>67</td>
+      <td>307303</td>
+      <td>Renault</td>
+      <td>35</td>
     </tr>
     <tr>
       <th>894</th>
-      <td>medium</td>
-      <td>138298</td>
-      <td>Bugatti</td>
-      <td>51</td>
+      <td>very_good</td>
+      <td>23757</td>
+      <td>Skoda</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>398</th>
-      <td>very_good</td>
-      <td>408068</td>
-      <td>Renault</td>
-      <td>49</td>
+      <td>good</td>
+      <td>358893</td>
+      <td>Skoda</td>
+      <td>50</td>
     </tr>
     <tr>
       <th>...</th>
@@ -3493,38 +3507,38 @@ Name: is_classic, dtype: int64
     </tr>
     <tr>
       <th>106</th>
-      <td>bad</td>
-      <td>114760</td>
-      <td>Seat</td>
-      <td>68</td>
+      <td>very_bad</td>
+      <td>184449</td>
+      <td>Toyota</td>
+      <td>32</td>
     </tr>
     <tr>
       <th>270</th>
-      <td>very_good</td>
-      <td>375007</td>
-      <td>VW</td>
-      <td>55</td>
+      <td>medium</td>
+      <td>406184</td>
+      <td>Fiat</td>
+      <td>50</td>
     </tr>
     <tr>
       <th>860</th>
-      <td>bad</td>
-      <td>609384</td>
-      <td>BMW</td>
-      <td>69</td>
+      <td>very_good</td>
+      <td>317414</td>
+      <td>Toyota</td>
+      <td>56</td>
     </tr>
     <tr>
       <th>435</th>
       <td>very_good</td>
-      <td>86207</td>
-      <td>VW</td>
-      <td>51</td>
+      <td>406974</td>
+      <td>Toyota</td>
+      <td>54</td>
     </tr>
     <tr>
       <th>102</th>
       <td>medium</td>
-      <td>25207</td>
+      <td>138846</td>
       <td>Mercedes</td>
-      <td>9</td>
+      <td>25</td>
     </tr>
   </tbody>
 </table>
@@ -3635,13 +3649,13 @@ Name: is_classic, dtype: int64
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rozmiar zbioru treningowego po transformacji: (750, 4)
 rozmiar zbioru testowego po transformacji: (250, 4)
-[[ 1.41568292 -0.74328207 -0.65845086  0.40703484]
- [ 0.52419494 -0.7554237  -1.87520068 -2.23695828]
- [ 0.52419494 -0.80582584  1.36809805  1.38823173]
+[[-1.40548077  0.76716719  1.25110117 -0.25251526]
+ [ 0.44383603 -0.64800124 -0.7479358  -0.11984719]
+ [ 0.44383603 -0.64800124 -0.01971012  0.8442581 ]
  ...
- [-1.25878104  0.83645971  1.44723653  1.75788256]
- [ 1.41568292 -0.74328207  0.70965825 -0.48377556]
- [-0.36729305  0.94739255 -1.42633468 -1.34010211]]
+ [ 1.36849443 -0.70496567  0.949548    0.88581833]
+ [ 1.36849443 -0.70496567  0.86170703  1.21784742]
+ [-0.48082237  0.74069968 -0.5302968  -0.06541736]]
 </pre></div>
 </div>
 </div>
@@ -3670,11 +3684,11 @@ rozmiar zbioru testowego po transformacji: (250, 4)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    11240.761619
-1    26540.292748
-2    15888.465005
-3    10283.898827
-4    12279.420657
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    13564.916529
+1    26946.786722
+2    44621.855493
+3    76340.676086
+4    87779.341552
 Name: prediction, dtype: float64
 </pre></div>
 </div>
