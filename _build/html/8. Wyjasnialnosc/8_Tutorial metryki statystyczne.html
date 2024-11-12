@@ -1,493 +1,526 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Wyjaśnialność modeli - metryki statystyczne - tutorial &#8212; Silky Coders Data Science</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '8. Wyjasnialnosc/8_Tutorial metryki statystyczne';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Wyjaśnialność modeli - definicje" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html" />
-    <link rel="prev" title="Analiza regresji" href="../11.%20Regresja/Regresja-Part2.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+    <link rel="prev" title="Regresja oparta o modele drzewiaste" href="../11.%20Regresja/Regresja_trees.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/silky-logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Silky Coders Data Science</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wprowadzenie do pakietów numpy i pandas
- </span>
-</p>
+    
+    
+    <img src="../_static/silky-logo.png" class="logo__image only-light" alt="Silky Coders Data Science - Home"/>
+    <img src="../_static/silky-logo.png" class="logo__image only-dark pst-js-only" alt="Silky Coders Data Science - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wprowadzenie do pakietów numpy i pandas</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">
-   Pakiet pandas - tutorial
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">
-   Pakiet NumPy - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">Pakiet pandas - tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">Pakiet NumPy - tutorial</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wizualizacja danych
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wizualizacja danych</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">
-   Wizualizacja danych w Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">Wizualizacja danych w Python</a></li>
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Analiza statystyczna
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza statystyczna</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">
-   Analiza statystyczna - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">Analiza statystyczna - tutorial</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wykrywanie anomalii
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wykrywanie anomalii</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">
-   Wykrywanie anomalii - definicje
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">
-   Wykrywanie anomalii - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">Wykrywanie anomalii - definicje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">Wykrywanie anomalii - tutorial</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Inżynieria cech
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inżynieria cech</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">
-   Inżynieria cech
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">Inżynieria cech</a></li>
+
+
+
+
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Czyszczenie danych
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Czyszczenie danych</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">
-   Czyszczenie danych
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">Czyszczenie danych</a></li>
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Klasteryzacja
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klasteryzacja</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
-   Klasteryzacja w Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">Klasteryzacja w Python</a></li>
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Klasyfikacja
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klasyfikacja</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">
-   Klasyfikacja w Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">Klasyfikacja w Python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Regresja
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja GLM</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../11.%20Regresja/Regresja-Part2.html">
-   Analiza regresji
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../11.%20Regresja/Regresja_lin.html">Liniowe modele regresji</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wyjaśnialność modeli
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja - modele drzewiaste</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../11.%20Regresja/Regresja_trees.html">Regresja oparta o modele drzewiaste</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wyjaśnialność modeli</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Wyjaśnialność modeli - metryki statystyczne - tutorial
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">
-   Wyjaśnialność modeli - definicje
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">
-   Wyjaśnialność modeli - XAI - tutorial
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Wyjaśnialność modeli - metryki statystyczne - tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">Wyjaśnialność modeli - definicje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">Wyjaśnialność modeli - XAI - tutorial</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Przetwarzanie języka naturalnego</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../13.%20NLP/TutorialNLP.html">NLP</a></li>
+
+
+
+
+
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/8. Wyjasnialnosc/8_Tutorial metryki statystyczne.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/kikonPL/studia_PG"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F8. Wyjasnialnosc/8_Tutorial metryki statystyczne.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/8. Wyjasnialnosc/8_Tutorial metryki statystyczne.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/kikonPL/studia_PG/main?urlpath=tree/8. Wyjasnialnosc/8_Tutorial metryki statystyczne.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/8. Wyjasnialnosc/8_Tutorial metryki statystyczne.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kikonPL/studia_PG" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F8. Wyjasnialnosc/8_Tutorial metryki statystyczne.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/8. Wyjasnialnosc/8_Tutorial metryki statystyczne.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Wyjaśnialność modeli - metryki statystyczne - tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wstep">
-   Wstęp
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#omawiane-bledy-dla-danych-typow-predykcji">
-   Omawiane błędy dla danych typów predykcji
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#podejscie-regresyjne">
-   Podejście Regresyjne
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#me">
-     ME
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mae">
-     MAE
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mse">
-     MSE
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rmse">
-     RMSE
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rmsle">
-     RMSLE
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mape">
-     MAPE
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#smape">
-     SMAPE
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#podejscie-klasyfikacyjne">
-   Podejście Klasyfikacyjne
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#accuracy-dokladnosc">
-     Accuracy - dokładność
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#specificity">
-     Specificity
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sensitivity-recall">
-     Sensitivity / Recall
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#precision">
-     Precision
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#blad-f-score">
-     Błąd F-Score
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#roc-curve">
-     ROC Curve
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#auc-metric">
-     AUC metric
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#podejscie-grupujace">
-   Podejście Grupujące
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#v-measure">
-     V-measure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#silhouette-coefficient">
-     Silhouette Coefficient
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dunn-s-index">
-     Dunn’s Index
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wstep">Wstęp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#omawiane-bledy-dla-danych-typow-predykcji">Omawiane błędy dla danych typów predykcji</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podejscie-regresyjne">Podejście Regresyjne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#me">ME</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mae">MAE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mse">MSE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rmse">RMSE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rmsle">RMSLE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mape">MAPE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smape">SMAPE</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podejscie-klasyfikacyjne">Podejście Klasyfikacyjne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-dokladnosc">Accuracy - dokładność</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specificity">Specificity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-recall">Sensitivity / Recall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision">Precision</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blad-f-score">Błąd F-Score</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roc-curve">ROC Curve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auc-metric">AUC metric</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podejscie-grupujace">Podejście Grupujące</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v-measure">V-measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#silhouette-coefficient">Silhouette Coefficient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dunn-s-index">Dunn’s Index</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="wyjasnialnosc-modeli-metryki-statystyczne-tutorial">
-<h1>Wyjaśnialność modeli - metryki statystyczne - tutorial<a class="headerlink" href="#wyjasnialnosc-modeli-metryki-statystyczne-tutorial" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="wstep">
-<h2>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="wyjasnialnosc-modeli-metryki-statystyczne-tutorial">
+<h1>Wyjaśnialność modeli - metryki statystyczne - tutorial<a class="headerlink" href="#wyjasnialnosc-modeli-metryki-statystyczne-tutorial" title="Permalink to this heading">#</a></h1>
+<section id="wstep">
+<h2>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this heading">#</a></h2>
 <p>O modelach uczenia maszynowego w ogólnym pojęciu możemy mówić jako o czarnych skrzynkach (eng. “black box”).
 Wiemy, że podając do wytrenowanego modelu pewne określone wcześniej argumenty otrzymamy pewną predykcję oczekiwanej wartości. Ostatecznie mamy nadzieję, że wyniki podane przez model będą, jak najbliżej wartości, które byśmy zaobserwowali w rzeczywistości przy określonych parametrach (argumenty modelu).</p>
 <p>Pojawiają się tutaj dwa miejsca, które są w stanie dostarczyć nam wiedzy na temat jakości naszego modelu. Na jakość modelu składa się zarówno sposób w jaki model dochodzi do tego wyniku, sposób jego działania, jak i wynik predykcji modelu.</p>
-<p>Część dotycząca tego w jaki sposób model podejmuje końcową decyzje, skupia się na wyjaśnieniu tego, jak poszczególne argumenty dostarczone do modelu są przez niego interpretowane i jak wpływają na końcowy wynik predykcji. Proces ten nazywamy XAI (“Explainable AI”), czyli wyjaśnialność modelu. O tym w jaki sposób możemy podejść do wyjaśnienia tego co siedzy wewnątrz modelu dowiemy się w kolejnym module.</p>
+<p>Część dotycząca tego w jaki sposób model podejmuje końcową decyzje, skupia się na wyjaśnieniu tego, jak poszczególne argumenty dostarczone do modelu są przez niego interpretowane i jak wpływają na końcowy wynik predykcji. Proces ten nazywamy XAI (“Explainable AI”), czyli wyjaśnialność modelu. O tym w jaki sposób możemy podejść do wyjaśnienia tego co siedzi wewnątrz modelu dowiemy się w kolejnym module.</p>
 <p>W tym module skupimy się na tej drugiej części, która pozwoli poznać jakość naszego modelu, a mianowicie na interpretacji wyników predykcji. Projektując modele uczenia maszynowego dążymy, aby model odznaczał się jak najlepszym odwzorowaniem wartości rzeczywistych za pomocą predykcji przy zadanych parametrach. W tym celu wyliczamy pewne miary, nazywane metrykami, które pozwalają ocenić grupowo wyniki predykcji względem wartości rzeczywistych. <br>
 Nie wszystkie problemy biznesowe, na których potrzeby chcemy odpowiedzieć, będziemy w stanie dobrze ocenić tymi samymi metrykami. Oraz nie każda z metryk będzie potrafiła odpowiedzieć nam na wszystkie wątpliwości na temat jakości naszej predykcji. Stąd bardzo ważnym krokiem jest odpowiedni dobór metryki dopasowanej pod problem biznesowy, który staramy się rozwiązać. Na podstawie wyników z tej metryki, bądź kilku metryk, będziemy podejmować dalsze decyzje o rozwoju modelu. Tak, więc wybór nieodpowiedniej metryki może spowodować wyciągnięcie błędnych wniosków oraz błędne określenie dalszych kroków prac nad modelem.</p>
-</div>
-<div class="section" id="omawiane-bledy-dla-danych-typow-predykcji">
-<h2>Omawiane błędy dla danych typów predykcji<a class="headerlink" href="#omawiane-bledy-dla-danych-typow-predykcji" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto table">
+</section>
+<section id="omawiane-bledy-dla-danych-typow-predykcji">
+<h2>Omawiane błędy dla danych typów predykcji<a class="headerlink" href="#omawiane-bledy-dla-danych-typow-predykcji" title="Permalink to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modele Regresyjne</p></th>
 <th class="head"><p>Modele Klasyfikacyjne</p></th>
@@ -525,23 +558,26 @@ Nie wszystkie problemy biznesowe, na których potrzeby chcemy odpowiedzieć, bę
 </tr>
 </tbody>
 </table>
+</div>
 <p>Zaprezentowane metryki zostały pokrótce omówione w części wykładowej. <br>
 W tym tutorialu skupimy się głównie na wyliczaniu metryk dla podanych przykładów oraz na interpretacji ich wartości.</p>
 <p>Większość metryk została zaimplementowana i jest dostępna poprzez bibliotekę scikit-learn. <br>
 Jeśli chcemy znaleźć metrykę dla naszego modelu, a żadna z nam znanych nie spełnia założonych kryteriów warto tutaj zajrzeć:
 <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html">https://scikit-learn.org/stable/modules/model_evaluation.html</a></p>
-</div>
-<div class="section" id="podejscie-regresyjne">
-<h2>Podejście Regresyjne<a class="headerlink" href="#podejscie-regresyjne" title="Permalink to this headline">¶</a></h2>
-<p>Podstawowym wyliczeniem na którym wyliczamy większość z błędów w podejściu regresyjnym jest różnica pomiędzy wartością oczekiwaną, a predykcją otrzymaną z modelu. Różnicę tą nazywamy błędem predykcji - z ang. <strong>Error</strong>
-<img alt="title" src="../_images/Error.png" /></p>
+</section>
+<section id="podejscie-regresyjne">
+<h2>Podejście Regresyjne<a class="headerlink" href="#podejscie-regresyjne" title="Permalink to this heading">#</a></h2>
+<p>Podstawowym podejściem na którym wyliczamy większość z błędów w regresji jest różnica pomiędzy wartością oczekiwaną, a predykcją otrzymaną z modelu. Różnicę tą nazywamy błędem predykcji - z ang. <strong>Error</strong></p>
+<div class="math notranslate nohighlight">
+\[Error= y_i - \hat{y_i}\]</div>
 <div class="alert alert-block alert-success">
-Jako $y_i$ będziemy oznaczać pojedyńczą rzeczywistą obserwacje ze zbioru $N$ elementów, natomiast $\hat{y_i}$ będzie reprezentować predykcje odpowiadającą tej obserwacji. Wartość $\overline{y}$ oznaczać będzie natomiast średnią ze wszystkich obserwacji.
+<p>Jako <span class="math notranslate nohighlight">\(y_i\)</span> będziemy oznaczać pojedyńczą rzeczywistą obserwacje ze zbioru <span class="math notranslate nohighlight">\(N\)</span> elementów, natomiast <span class="math notranslate nohighlight">\(\hat{y_i}\)</span> będzie reprezentować predykcje odpowiadającą tej obserwacji. Wartość <span class="math notranslate nohighlight">\(\overline{y}\)</span> oznaczać będzie natomiast średnią ze wszystkich obserwacji.</p>
 </div>
-<div class="section" id="me">
-<h3>ME<a class="headerlink" href="#me" title="Permalink to this headline">¶</a></h3>
-<p>W celu obliczenia średniego błędu na całym zadanym zbiorze używamy najbardziej podstawowej metryki, czyli średniego błędu - z ang. <strong>Mean Error</strong>
-<img alt="title" src="../_images/Mean_error.png" /></p>
+<section id="me">
+<h3>ME<a class="headerlink" href="#me" title="Permalink to this heading">#</a></h3>
+<p>W celu obliczenia średniego błędu na całym zadanym zbiorze używamy najbardziej podstawowej metryki, czyli średniego błędu - z ang. <strong>Mean Error</strong></p>
+<div class="math notranslate nohighlight">
+\[ME=\frac{1}{N} \sum^N_{i=1}(y_i-\hat{y_i})\]</div>
 <p>Interpretujemy ją jako średnią odległość pomiędzy wartościami rzeczywistymi, a predykcjami naszego modelu. <br>
 Metryka ta posiada jedną dość istotną wadę. Dla błędów o takiej samej sile, lecz przeciwnym kierunku następuje redukcja wpływu tych błędów na końcową wartość metryki, co ukrywa niedoskonałości modelu.</p>
 <div class="cell docutils container">
@@ -550,7 +586,7 @@ Metryka ta posiada jedną dość istotną wadę. Dla błędów o takiej samej si
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="k">def</span> <span class="nf">mean_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Funkcja pozwalająca na wyliczenie wartości Mean Error</span>
 <span class="sd">    </span>
 <span class="sd">    :param y: wektor wartości rzeczywistych</span>
@@ -578,30 +614,30 @@ Metryka ta posiada jedną dość istotną wadę. Dla błędów o takiej samej si
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;liniowa&#39;</span><span class="p">,</span> <span class="s1">&#39;wielomianowa&#39;</span><span class="p">])</span> <span class="c1"># dodanie legendy</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># wizualizacja</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Error dla regresji liniowej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat_linear</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Error dla regresji wielomianowej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat_poly</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Error dla regresji liniowej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_hat_linear</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Error dla regresji wielomianowej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_hat_poly</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8_Tutorial metryki statystyczne_7_0.png" src="../_images/8_Tutorial metryki statystyczne_7_0.png" />
+<img alt="../_images/21ce9a24a2b971be434355eba4ca1544185bb3db92eb489f736762a6b4d44661.png" src="../_images/21ce9a24a2b971be434355eba4ca1544185bb3db92eb489f736762a6b4d44661.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Błąd Mean Error dla regresji liniowej: 0.0
-Błąd Mean Error dla regresji wielomianowej: 0.0
+Błąd Mean Error dla regresji wielomianowej: -0.0
 </pre></div>
 </div>
 </div>
 </div>
 <p>Jak możemy zaobserwować, zarówno dla regresji liniowej, jak i wielomianowej średni błąd dla modelu wyniósł zero. <br>
 Bazując tylko na tej metryce moglibyśmy powiedzieć, że oba z modeli osiągają jednakowy wynik. Dopiero wizualizacja pozwala nam zaobserwować, że tak naprawdę regresja liniowa jest mocnym przybliżeniem tego co byśmy oczekiwali.</p>
-</div>
-<div class="section" id="mae">
-<h3>MAE<a class="headerlink" href="#mae" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mae">
+<h3>MAE<a class="headerlink" href="#mae" title="Permalink to this heading">#</a></h3>
 <p>W celu uniknięcia złych interpretacji częściej używa się metryki średniego błędu bezwzględnego - z ang. <strong>Mean Absolute Error</strong>
-<img alt="title" src="../_images/mae.png" /></p>
+$<span class="math notranslate nohighlight">\(MAE=\frac{1}{N} \sum^N_{i=1} | y_i-\hat{y_i} |\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Funkcja pozwalająca na wyliczenie wartości Mean Absolute Error</span>
 <span class="sd">    </span>
 <span class="sd">    :param y: wektor wartości rzeczywistych</span>
@@ -611,8 +647,8 @@ Bazując tylko na tej metryce moglibyśmy powiedzieć, że oba z modeli osiągaj
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">y_hat</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla regresji liniowej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat_linear</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla regresji wielomianowej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat_poly</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla regresji liniowej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_hat_linear</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla regresji wielomianowej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_hat_poly</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -647,19 +683,19 @@ O ile błąd MAE trafniej pozwoli określić nam o ile się średnio mylimy podc
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;liniowa&#39;</span><span class="p">,</span> <span class="s1">&#39;liniowa_up&#39;</span><span class="p">,</span> <span class="s1">&#39;liniowa_down&#39;</span><span class="p">])</span> <span class="c1"># dodanie legendy</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># wizualizacja</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Error dla regresji liniowej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat_linear</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Error dla regresji liniowej zawyżonej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat_linear_up</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Error dla regresji liniowej zaniżonej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat_linear_down</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Error dla regresji liniowej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_hat_linear</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Error dla regresji liniowej zawyżonej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_hat_linear_up</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Error dla regresji liniowej zaniżonej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_hat_linear_down</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla regresji liniowej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat_linear</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla regresji liniowej zawyżonej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat_linear_up</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla regresji liniowej zaniżonej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat_linear_down</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla regresji liniowej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_hat_linear</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla regresji liniowej zawyżonej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_hat_linear_up</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla regresji liniowej zaniżonej: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_hat_linear_down</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8_Tutorial metryki statystyczne_11_0.png" src="../_images/8_Tutorial metryki statystyczne_11_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Błąd Mean Error dla regresji liniowej: -0.0
+<img alt="../_images/a558f424a41b14e2ee1c41473dba927237d8ad3089051668365defadeb9012c2.png" src="../_images/a558f424a41b14e2ee1c41473dba927237d8ad3089051668365defadeb9012c2.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Błąd Mean Error dla regresji liniowej: 0.0
 Błąd Mean Error dla regresji liniowej zawyżonej: -2.0
 Błąd Mean Error dla regresji liniowej zaniżonej: 1.0 
 
@@ -670,17 +706,17 @@ Błąd Mean Absolute Error dla regresji liniowej zaniżonej: 1.0
 </div>
 </div>
 </div>
-<p>Interpretując powyższe wyniki jesteśmy w stanie zauważyć, że model liniowy zawyżone faktycznie zawyża wyniki na co wskazuje znak ‘-‘ przy metryce ME. Oznacza to, że średnio większość obserwacji rzeczywistych była niższa, niż wartość predykcji z modelu.<br>
+<p>Interpretując powyższe wyniki jesteśmy w stanie zauważyć, że model liniowy zawyżony faktycznie zawyża wyniki na co wskazuje znak ‘-’ przy metryce ME. Oznacza to, że średnio większość obserwacji rzeczywistych była niższa, niż wartość predykcji z modelu.<br>
 Odwrotnie natomiast jest w przypadku modelu zaniżonego, gdzie widzimy, że błąd ME osiągnął wartość dodatnią.</p>
 <br>
 <br>
 <br>
-</div>
-<div class="section" id="mse">
-<h3>MSE<a class="headerlink" href="#mse" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mse">
+<h3>MSE<a class="headerlink" href="#mse" title="Permalink to this heading">#</a></h3>
 <p>Kolejną ważną metryką jest metryka związana z kwadratem błędu, czyli średni kwadrat błędu - z ang. <strong>Mean Square Error</strong></p>
 <p>Reprezentuje ta wartość wariancję wśród odległości pomiędzy wartościami rzeczywistymi, a predykcją.
-<img alt="topic" src="../_images/Mean_square_error.png" /></p>
+$<span class="math notranslate nohighlight">\(MSE=\frac{1}{N} \sum^N_{i=1}(y_i-\hat{y_i})^2\)</span>$</p>
 <p>Dużym minusem tej metryki jest interpretowalność. Ze względu na to, że obliczana jest ona na podstawie kwadratu odległości pomiędzy wartościami, jednostka w jakiej jest reprezentowana jest również kwadratem jednostki, w której reprezentujemy predykcję.
 <br>
 Plusem, który stoi za popularnością tej metryki jest jej różniczkowalność, co pozwala na wykonywanie na tej metryce różnych operacji matematycznych w przeciwieństwie do MAE, które jest nieróżniczkowalne. Konsekwencją tego jest użycie wartości MSE w wyliczaniu innych metryk, jak na przykład RMSE.
@@ -691,7 +727,7 @@ Jednakże, chcąc stworzyć dobry model oczekujemy od niego, że będzie on w mi
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Funkcja pozwalająca na wyliczenie wartości Mean Square Error</span>
 <span class="sd">    </span>
 <span class="sd">    :param y: wektor wartości rzeczywistych</span>
@@ -714,16 +750,16 @@ Jednakże, chcąc stworzyć dobry model oczekujemy od niego, że będzie on w mi
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;model_1&#39;</span><span class="p">,</span> <span class="s1">&#39;model_2&#39;</span><span class="p">])</span> <span class="c1"># dodanie legendy</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># wizualizacja</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Square Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Square Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Square Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Square Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8_Tutorial metryki statystyczne_13_0.png" src="../_images/8_Tutorial metryki statystyczne_13_0.png" />
+<img alt="../_images/772abc3bf3f5ba73a96f48d6b57bdd833936b65538211d45c62ac0df8f241010.png" src="../_images/772abc3bf3f5ba73a96f48d6b57bdd833936b65538211d45c62ac0df8f241010.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Błąd Mean Absolute Error dla model_1: 0.2
 Błąd Mean Absolute Error dla model_2: 0.2
 
@@ -737,15 +773,15 @@ Błąd Mean Square Error dla model_2: 0.2
 <br>
 <br>
 <br></p>
-</div>
-<div class="section" id="rmse">
-<h3>RMSE<a class="headerlink" href="#rmse" title="Permalink to this headline">¶</a></h3>
-<p>Pewną korektą dla błędu MSE jest błąd RMSE, który posiada ułatwioną interpretację ze względu na taką samą jednostkę, jak dla wartości, które predykujemy. Błąd RMSE jest to pierwiastek kwadratowy z błędu MSE - z ang. <strong>Root Mean Square Error</strong>
-<img alt="title" src="../_images/rmse.png" /></p>
+</section>
+<section id="rmse">
+<h3>RMSE<a class="headerlink" href="#rmse" title="Permalink to this heading">#</a></h3>
+<p>Pewną korektą dla błędu MSE jest błąd RMSE, który posiada ułatwioną interpretację ze względu na taką samą jednostkę, jak dla wartości, które predykujemy. Błąd RMSE jest to pierwiastek kwadratowy z błędu MSE - z ang. <strong>Root Mean Square Error</strong></p>
+<p><span class="math notranslate nohighlight">\(RMSE=\sqrt{\frac{1}{N} \sum^N_{i=1}(y_i-\hat{y_i})^2}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">root_mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Funkcja pozwalająca na wyliczenie wartości Root Mean Square Error</span>
 <span class="sd">    </span>
 <span class="sd">    :param y: wektor wartości rzeczywistych</span>
@@ -768,19 +804,19 @@ Błąd Mean Square Error dla model_2: 0.2
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;model_1&#39;</span><span class="p">,</span> <span class="s1">&#39;model_2&#39;</span><span class="p">])</span> <span class="c1"># dodanie legendy</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># wizualizacja</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Square Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Square Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Square Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Square Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Root Mean Square Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">root_mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Root Mean Square Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">root_mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Root Mean Square Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">root_mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Root Mean Square Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">root_mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8_Tutorial metryki statystyczne_15_0.png" src="../_images/8_Tutorial metryki statystyczne_15_0.png" />
+<img alt="../_images/772abc3bf3f5ba73a96f48d6b57bdd833936b65538211d45c62ac0df8f241010.png" src="../_images/772abc3bf3f5ba73a96f48d6b57bdd833936b65538211d45c62ac0df8f241010.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Błąd Mean Absolute Error dla model_1: 0.2
 Błąd Mean Absolute Error dla model_2: 0.2
 
@@ -793,15 +829,15 @@ Błąd Root Mean Square Error dla model_2: 0.4
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="rmsle">
-<h3>RMSLE<a class="headerlink" href="#rmsle" title="Permalink to this headline">¶</a></h3>
-<p>W przypadku biznesu, jak na przykład LPP, znaczące jest to w którą stronę się myli. To znaczy, czy nasze błędy są przeszacowane, bądź niedoszacowane. Stosując miary oparte o kwadrat odległosci pomiędzy wartościami rzeczywistymi, a przewidywanymi gubimy tą informacje. W takim celu możemy użyć metryki, która jest odpowiednikiem dla RMSE (oraz MSE), a mianowicie RMSLE (MSLE) - z ang. <strong>Root Mean Square Logarithmic Error</strong>
-<img alt="title" src="../_images/RMSLE.png" /></p>
+</section>
+<section id="rmsle">
+<h3>RMSLE<a class="headerlink" href="#rmsle" title="Permalink to this heading">#</a></h3>
+<p>W przypadku biznesu, jak na przykład LPP, znaczące jest to w którą stronę się myli. To znaczy, czy nasze błędy są przeszacowane, bądź niedoszacowane. Stosując miary oparte o kwadrat odległosci pomiędzy wartościami rzeczywistymi, a przewidywanymi gubimy tą informacje. W takim celu możemy użyć metryki, która jest odpowiednikiem dla RMSE (oraz MSE), a mianowicie RMSLE (MSLE) - z ang. <strong>Root Mean Square Logarithmic Error</strong></p>
+<p><span class="math notranslate nohighlight">\(RMSLE=\sqrt{\frac{1}{N} \sum^N_{i=1}(log_e(1+y_i)-log_e(1+\hat{y_i}))^2}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">root_mean_square_logarithmic_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Funkcja pozwalająca na wyliczenie wartości Root Mean Square Logarithmic Error</span>
 <span class="sd">    </span>
 <span class="sd">    :param y: wektor wartości rzeczywistych</span>
@@ -824,19 +860,19 @@ Błąd Root Mean Square Error dla model_2: 0.4
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;model_1&#39;</span><span class="p">,</span> <span class="s1">&#39;model_2&#39;</span><span class="p">])</span> <span class="c1"># dodanie legendy</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># wizualizacja</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Root Mean Square Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">root_mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Root Mean Square Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">root_mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Root Mean Square Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">root_mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Root Mean Square Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">root_mean_square_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Root Mean Square Logarithmic Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">root_mean_square_logarithmic_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Root Mean Square Logarithmic Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">root_mean_square_logarithmic_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Root Mean Square Logarithmic Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">root_mean_square_logarithmic_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Root Mean Square Logarithmic Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">root_mean_square_logarithmic_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8_Tutorial metryki statystyczne_17_0.png" src="../_images/8_Tutorial metryki statystyczne_17_0.png" />
+<img alt="../_images/4175c66e3b75734c4bcd0295779fb9d444398ab3efcd19e8a8481e4b775f90d4.png" src="../_images/4175c66e3b75734c4bcd0295779fb9d444398ab3efcd19e8a8481e4b775f90d4.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Błąd Mean Absolute Error dla model_1: 0.5
 Błąd Mean Absolute Error dla model_2: 0.5
 
@@ -853,11 +889,11 @@ Błąd Root Mean Square Logarithmic Error dla model_2: 0.3
 <br>
 <br>
 <br>
-</div>
-<div class="section" id="mape">
-<h3>MAPE<a class="headerlink" href="#mape" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mape">
+<h3>MAPE<a class="headerlink" href="#mape" title="Permalink to this heading">#</a></h3>
 <p>Szczególnym rodzajem metryk są metryki oparte o błędy procentowe. Ich główną zaletą jest fakt, że moga być porównywane pomiędzy modelami niezależnie od jednostki, bądź skali w jakiej predykcja została wykonana ze względu na zastosowanie błędu procentowego. Podstawową metryką jest średni bezwględny błąd procentowy - z ang. <strong>Mean Absolute Percentage Error</strong>
-<img alt="title" src="../_images/MAPE.png" /></p>
+$<span class="math notranslate nohighlight">\(MAPE=\frac{1}{n} \sum^N_{i=1}\frac{|y_i-\hat{y_i}|}{max( \epsilon , |y_i|)}\)</span>$</p>
 <p>Wartość <span class="math notranslate nohighlight">\(\epsilon\)</span> w mianowniku jest to bardzo niewielka wartość bliska zeru, która pozwala bezpiecznie wyliczyć metryke w momencie, gdy wartość rzeczywista otrzymuje wartość 0.
 <br></p>
 <p>Ze względu na wyrażenie metryki w ujęciu procentowym metryka ta jest łatwo prównywalna i łatwo zrozumiała.<br></p>
@@ -865,20 +901,20 @@ Błąd Root Mean Square Logarithmic Error dla model_2: 0.3
 <br>
 <br>
 <br></p>
-</div>
-<div class="section" id="smape">
-<h3>SMAPE<a class="headerlink" href="#smape" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="smape">
+<h3>SMAPE<a class="headerlink" href="#smape" title="Permalink to this heading">#</a></h3>
 <p>W celu poprawy problemu z asymetrią została zaproponowana symetryczna wersja błędu MAPE, czyli SMAPE - z ang. <strong>Symetric Mean Absolute Percentage Error</strong>
-<img alt="title" src="../_images/SMAPE.png" /></p>
+$<span class="math notranslate nohighlight">\(SMAPE=\frac{1}{n} \sum^N_{i=1}\frac{|y_i-\hat{y_i}|}{max( \epsilon , \frac{|y_i|+|\hat{y_i}|}{2})}\)</span>$</p>
 <p>Z zalet więc jest również to metryka wyrażona w wartości procentowej i dodatkowo naprawia wadę asymetryczności wprowadzając dolna granicę 0% i górną 200%. <br></p>
-<p>Ta metryka też ma swoje wady, <a class="reference external" href="http://m.in">m.in</a>.: otrzymujemy wartości nieokreślone gdy zarówno wartość rzeczywista i przewidywana są równe 0, Gdy wartość rzeczywista lub prognoza osiągnię wartość 0 to smape automatycznie zwraca górną granicę (to nie koniecznie musi być traktowane jako wada).<br></p>
+<p>Ta metryka też ma swoje wady, <a class="reference external" href="http://m.in">m.in</a>.: otrzymujemy wartości nieokreślone gdy zarówno wartość rzeczywista i przewidywana są równe 0. Gdy wartość rzeczywista lub prognoza osiągnię wartość 0, to SMAPE automatycznie zwraca górną granicę (to nie koniecznie musi być traktowane jako wada).<br></p>
 <p>Jednakże jest jeszcze jedna ważna różnica, która może okazać się kluczowa w różnych problemach biznesowych. Tak, jak przy wspomnianej wcześniej metryce MSLE kluczowe dla nas jest, aby uniknąć niedoszacowań przy predykcji. Gdy MAPE faworyzowało modele, które niedoszacowują to SMAPE ma efekt odwrotny.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">def</span> <span class="nf">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Funkcja pozwalająca na wyliczenie wartości Mean Absolute Percentage Error</span>
 <span class="sd">    </span>
 <span class="sd">    :param y: wektor wartości rzeczywistych</span>
@@ -890,7 +926,7 @@ Błąd Root Mean Square Logarithmic Error dla model_2: 0.3
 
 
 <span class="k">def</span> <span class="nf">symetric_mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Funkcja pozwalająca na wyliczenie wartości Symetric Mean Absolute Percentage Error</span>
 <span class="sd">    </span>
 <span class="sd">    :param y: wektor wartości rzeczywistych</span>
@@ -914,19 +950,19 @@ Błąd Root Mean Square Logarithmic Error dla model_2: 0.3
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;model_1&#39;</span><span class="p">,</span> <span class="s1">&#39;model_2&#39;</span><span class="p">])</span> <span class="c1"># dodanie legendy</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># wizualizacja</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Percentage Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Percentage Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Percentage Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Mean Absolute Percentage Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Symetric Mean Absolute Percentage Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">symetric_mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Symetric Mean Absolute Percentage Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">symetric_mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Symetric Mean Absolute Percentage Error dla model_1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">symetric_mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Błąd Symetric Mean Absolute Percentage Error dla model_2: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">symetric_mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8_Tutorial metryki statystyczne_19_0.png" src="../_images/8_Tutorial metryki statystyczne_19_0.png" />
+<img alt="../_images/4175c66e3b75734c4bcd0295779fb9d444398ab3efcd19e8a8481e4b775f90d4.png" src="../_images/4175c66e3b75734c4bcd0295779fb9d444398ab3efcd19e8a8481e4b775f90d4.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Błąd Mean Absolute Error dla model_1: 0.5
 Błąd Mean Absolute Error dla model_2: 0.5
 
@@ -940,10 +976,10 @@ Błąd Symetric Mean Absolute Percentage Error dla model_2: 0.3
 </div>
 </div>
 <p>Ponownie możemy zaobserwować, że metryka SMAPE zwróciła różne od siebie wartości dla zaprezentowanego przypadku bardziej karając model, który niedoszacował wartości predykcji względem wartości rzeczywistych.</p>
-</div>
-</div>
-<div class="section" id="podejscie-klasyfikacyjne">
-<h2>Podejście Klasyfikacyjne<a class="headerlink" href="#podejscie-klasyfikacyjne" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="podejscie-klasyfikacyjne">
+<h2>Podejście Klasyfikacyjne<a class="headerlink" href="#podejscie-klasyfikacyjne" title="Permalink to this heading">#</a></h2>
 <p>W przypadku klasyfikacji trochę innaczej podchodzimy do oceny jakości modelu. Rodzaj wartości na jakich tutaj operujemy nie są to wartości ciągłe, a znane wcześniej, z góry określone klasy. Na przykład klasyfikując górne części garderoby będzie to zbiór: {‘koszulka’, ‘bluza’, ‘sweter’, ‘koszula’, ‘kurtka’}.
 <br></p>
 <p>W takim przypadku byłoby ciężko wyliczyczać odległość od wartości prawdziwej i na tej podstawie wyznaczać metryki, ponieważ odległość pomiędzy klasami staje sie tutaj pojęciem abstrakcyjnym, które nie jest naturalnie zdefiniowane.
@@ -951,12 +987,14 @@ Błąd Symetric Mean Absolute Percentage Error dla model_2: 0.3
 <p>Z tego powodu, przy klasyfikacji posługujemy się macierzą pomyłek. Macierz ta mówi nam do której klasy została zaklasyfikowana dana obserwacja. Jeśli będzie to błędna predykcja to jesteśmy w stanie wyciągnąć pewne wnioski obserwując z którą inną klasą została zazwyczaj mylona poprawna klasa.
 <br></p>
 <p><strong>Macierz pomyłek</strong>
-<img alt="title" src="../_images/confusion_matrix.png" /></p>
-<!-- ![image.png](attachment:image.png) -->
+<br></p>
+<!-- <img src="media/confusion_matrix.png" alt="DT" style="width: 800px;">
+ -->
+<p><img alt="media" src="../_images/confusion_matrix.png" /></p>
 <p>Macierz pomyłek może reprezentować zarówno problem ze zbiorem klas binarnym, bądź wieloklasowy.
 <br></p>
 <p>W pierwszym przypadku klasyfikator ma za zadanie określić, czy dane zwierzę to kot. Klasy które naturalnie wynikają z tego problemu to ‘Kot’ i ‘nie-Kot’. W związku z dodatkową wiedzą o zbiorze możemy stwierdzić, że jeśli to nie jest ‘Kot’ to to będzie ‘Pies’ i dla podanych poniżej wartości macierze pomyłek prezentuje się w następujący sposób.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p></p></th>
@@ -998,9 +1036,13 @@ Błąd Symetric Mean Absolute Percentage Error dla model_2: 0.3
 </tr>
 </tbody>
 </table>
-<p><img alt="title" src="../_images/conf_matrix_binary.png" /></p>
-<p>Drugi przypadek reprezentować będzie klasyfikacje wiloklasową. Taka macierz jest bardziej rozbudowana on macierzy binarnej, jednakże jest dokładnie w taki sam sposób interpretowana.</p>
-<table class="colwidths-auto table">
+</div>
+<br>
+<!-- <img src="media/conf_matrix_binary.png" alt="DT" style="width: 800px;">
+ -->
+![media](media/conf_matrix_binary.png)
+<p>Drugi przypadek reprezentować będzie klasyfikacje wieloklasową. Taka macierz jest bardziej rozbudowana on macierzy binarnej, jednakże jest dokładnie w taki sam sposób interpretowana.</p>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p></p></th>
@@ -1045,57 +1087,61 @@ Błąd Symetric Mean Absolute Percentage Error dla model_2: 0.3
 </tr>
 </tbody>
 </table>
-<p><img alt="title" src="../_images/conf_matrix_multi.png" /></p>
+</div>
+<br>
+<!-- <img src="media/conf_matrix_multi.png" alt="DT" style="width: 800px;">
+ -->
+<p><img alt="media" src="../_images/conf_matrix_multi.png" /></p>
 <br>
 <br>
-<div class="section" id="accuracy-dokladnosc">
-<h3>Accuracy - dokładność<a class="headerlink" href="#accuracy-dokladnosc" title="Permalink to this headline">¶</a></h3>
+<section id="accuracy-dokladnosc">
+<h3>Accuracy - dokładność<a class="headerlink" href="#accuracy-dokladnosc" title="Permalink to this heading">#</a></h3>
 <p>Pierwszą podstawową miarą skuteczności w podejściu klasyfkacyjnym jest dokładność. Miara ta jest wyrażon jako stosunek wszystkkich poprawnie zaklasyfikowanych wartości do wszystkich obserwacj, które podległy klasyfikacji.</p>
-<p><img alt="title" src="../_images/Accuracy.png" /></p>
+<p><span class="math notranslate nohighlight">\(Accuracy=\frac{TP+TN}{TP+FP+TN+FN}\)</span></p>
 <p>TP to akronim od True Positive, FP od False Positive, TN od True Negative, oraz FN od False Negative.
 <br></p>
 <p>Metryka ta jest bardzo ogólna i posiada kluczową wadę, a mianowicie przywiązuje jednakową wagę do wartości False Positive oraz False Negative. Nie do końca się to sprawdzi w przypadku niezbalansowanego zbioru danych. W przypadku gdybyśmy posiadali w zbiorze 99% obsewacji należących do klasy ‘A’ oraz 1 % należący do klasy ‘B’ to wykonując zawsze klasyfikacje jako klasa ‘A’ otrzymujemy dokładność na poziomie 99%. Nie do końca jest to poprawnę podejście, a problem się zwiększa ty waga niepoprawnej predykcji nie są jednakowe dla FP oraz FN.</p>
 <p>Takim przypadkiem są bardzo rzadkie choroby. Waga jaką przywiązujemy do tego, że niepoprawnie uznamy osobę za zdrową jest znacznie większa, niż gdybyśmy niepoprawnie uznali, że ktoś choruje na daną chorobę. Taką osobę można wysłać na dodatkowe badania, natomiast w przeciwnym przypadku tracimy szansę pomocy chorej osobie. Tak więc jak widać może to być dość kluczowe.</p>
 <p>Jeśli chodzi o przypadki medyczne to dla diagnostyki ogólnie bardzo często stosuje się miary Wrażliwości (Sensivity) i Osobliwości (Specificity).
 Pomagają te miary określić dokładność modelu, którego zadaniem jest informowanie o występowaniu, bądź nieobecności jakiegoś zjawiska.</p>
-</div>
-<div class="section" id="specificity">
-<h3>Specificity<a class="headerlink" href="#specificity" title="Permalink to this headline">¶</a></h3>
-<p><img alt="title" src="../_images/Specificity.png" /></p>
+</section>
+<section id="specificity">
+<h3>Specificity<a class="headerlink" href="#specificity" title="Permalink to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(Specificity=\frac{TN}{TN+FP}\)</span></p>
 <p>Miara osobliwości pozwala nam określić, jak często potrafimy poprawnie zaklasyfikować obserwacje w których dane zjawisko nie zachodzi. W przypadku choroby miara ta odpowiada na pytanie: Jak wielu zdrowych ludzi byliśmy w stanie zaklasyfikować jako faktycznie nieposiadających choroby.</p>
-</div>
-<div class="section" id="sensitivity-recall">
-<h3>Sensitivity / Recall<a class="headerlink" href="#sensitivity-recall" title="Permalink to this headline">¶</a></h3>
-<p><img alt="title" src="../_images/Sensitivity.png" /></p>
+</section>
+<section id="sensitivity-recall">
+<h3>Sensitivity / Recall<a class="headerlink" href="#sensitivity-recall" title="Permalink to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(Sensitivity=\frac{TP}{TP+FN}\)</span></p>
 <p>Miara wrażliwości pozwala nam określić, jak często spośród wszystkich obserwacji, które wskazują na występowanie danego zjawiska jesteśmy w stanie poprawnie określić, że ono występuje. W przypadku choroby miara ta odpowiada na pytanie: Jak wielu chorych byliśmy w stanie zaklasyfikować jako faktycznie chorych.</p>
 <p>Miara wrażliwości jest również nazywana w angielskim Recall. Patrząc z perspektywy statystycznej można powiedzieć, że miara ta pozwala lepiej określić dokładność w problemach, gdzie błędy False Negative (czyli błędy II rodzaju) są bardziej krtyczne. Jako przykłady można przytoczyć wymienione wyżje rzadkie choroby, czy oszustwa finansowe, bankowe.</p>
-</div>
-<div class="section" id="precision">
-<h3>Precision<a class="headerlink" href="#precision" title="Permalink to this headline">¶</a></h3>
-<p><img alt="title" src="../_images/Precision.png" /></p>
+</section>
+<section id="precision">
+<h3>Precision<a class="headerlink" href="#precision" title="Permalink to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(Precision=\frac{TP}{TP+FP}\)</span></p>
 <p>Miara Recall jest najczęściej zestawiana wraz z miarą Precision, czyli precyzją modelu. Precyzja pozwala nam określić, jak wiele obserwacji z danej klasy udało się zaklasyfikować poprawnie. Pozwala ona lepiej okreslić dokładność w problemach, gdzie błędy False Positive (błąd I rodzaju) są bardziej krytyczne. Takim przypadkiem są na przykład spamy mailowe.</p>
-</div>
-<div class="section" id="blad-f-score">
-<h3>Błąd F-Score<a class="headerlink" href="#blad-f-score" title="Permalink to this headline">¶</a></h3>
-<p><img alt="title" src="../_images/F1score.png" /></p>
+</section>
+<section id="blad-f-score">
+<h3>Błąd F-Score<a class="headerlink" href="#blad-f-score" title="Permalink to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(F_1= 2 \times \frac{Precision \times Recall}{Precision + Recall}\)</span></p>
 <p>F1-score jest to metryka, która jest dokładniejszą metryką, niż Accuracy pozwalająca zachować odpowiednia równowagę pomiędzy Recall, a Precision.</p>
 <p>W przypadku, gdy potrzebujemy, aby jedna z miar była istotniejsza dla ostatecznego wyniku tej metryki można zastosować bardziej uogólnioną wersję F<span class="math notranslate nohighlight">\(\beta\)</span>-score. W tym przypadku za pomocą współczynnika <span class="math notranslate nohighlight">\(\beta\)</span> możemy zmieniać istotność Precision względem Recall.</p>
-<p><img alt="title" src="../_images/Fbscore.png" /></p>
+<p><span class="math notranslate nohighlight">\(F_{\beta}=(1+ \beta)^2 \times \frac{Precision \times Recall}{\beta ^2 \times Precision + Recall}\)</span></p>
 <br>
 <br>
 <br>
-</div>
-<div class="section" id="roc-curve">
-<h3>ROC Curve<a class="headerlink" href="#roc-curve" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="roc-curve">
+<h3>ROC Curve<a class="headerlink" href="#roc-curve" title="Permalink to this heading">#</a></h3>
 <p>Kolejną ważną kwestią przy problemach klasyfikacyjnych jest zaznajomienie się z konceptem krzywer ROC.
 Krzywa ta odzwierciedla relacje pomiędzy wartościami FPR (czyli False Positive Rate), a TPR (czyli True Positive Rate) na przestrzeni różnych thresholds (progi odcięcia / wartości graniczne).</p>
-<p>Wartość FPR określamy poprzez wzór:
-<img alt="title" src="../_images/fpr.png" /></p>
-<p>Wartość TPR określamy poprzez wzór:
-<img alt="title" src="../_images/tpr.png" /></p>
+<p>Wartość FPR określamy poprzez wzór:</p>
+<p><span class="math notranslate nohighlight">\(FPR=\frac{FP}{FP+TN}\)</span></p>
+<p>Wartość TPR określamy poprzez wzór:</p>
+<p><span class="math notranslate nohighlight">\(TPR=\frac{TP}{FN+TP}\)</span></p>
 <p>Wartość threshold natomiast jest to wartość graniczna od której uznajemy klasyfikacje do danej klasy. Klasyfikator nie zwraca bezpośrednio informacji na temat tego, że jest to konkretna klasa, a bardziej prawdopodobieństwo, że dana obserwacja może zostać zaklasyfikowana do danej klasy.</p>
 <p>I tak przyjmując, że klasyfikator tego czy dane zdjęcie przedstawia kota zwraca nam wartości:</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Lp.</p></th>
 <th class="head"><p>Prawdopodobieństwo</p></th>
@@ -1116,9 +1162,10 @@ Krzywa ta odzwierciedla relacje pomiędzy wartościami FPR (czyli False Positive
 </tr>
 </tbody>
 </table>
+</div>
 <p>Jeśli określimy wartość threshold na 50%, to oznacza, że jeśli klasyfikator powyżej 50% powie nam, że to może być ‘Kot’ to to nam wystarcza, aby zaklasyfikować daną obserwację jako ‘Kot’.
 W taki sposób można sterować dokładnością modelu.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Lp.</p></th>
 <th class="head"><p>Prawdopodobieństwo</p></th>
@@ -1169,9 +1216,10 @@ W taki sposób można sterować dokładnością modelu.</p>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Manipulując wartością threshold otrzymujemy inne końcowe etykiety i tą zmianę przedstawia krzywa ROC pozwalając nam ustalić jaki próg odcięcia będzie dla nas najbardziej korzystny. ROC curve to wartości TPR oraz FPR przedstawione na wykresie dla różnych wartości theshold.</p>
 <p>I tak cofając się do nasze pierwszego przypadku:</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p></p></th>
@@ -1213,6 +1261,7 @@ W taki sposób można sterować dokładnością modelu.</p>
 </tr>
 </tbody>
 </table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1257,16 +1306,16 @@ W taki sposób można sterować dokładnością modelu.</p>
 <span class="n">Precision</span> <span class="o">=</span> <span class="p">(</span><span class="n">TP</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FP</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Precision: </span><span class="si">{</span><span class="p">(</span><span class="n">TP</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FP</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="c1"># F-score</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F1-score: </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span> <span class="p">(</span><span class="n">Precision</span> <span class="o">*</span> <span class="n">Recall</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Precision</span> <span class="o">+</span> <span class="n">Recall</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F_0.5-score: </span><span class="si">{</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span> <span class="p">(</span><span class="n">Precision</span> <span class="o">*</span> <span class="n">Recall</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Precision</span><span class="p">)</span> <span class="o">+</span> <span class="n">Recall</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F_2-score: </span><span class="si">{</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span> <span class="p">(</span><span class="n">Precision</span> <span class="o">*</span> <span class="n">Recall</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Precision</span><span class="p">)</span> <span class="o">+</span> <span class="n">Recall</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F1-score: </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">Precision</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Recall</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Precision</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Recall</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F_0.5-score: </span><span class="si">{</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">Precision</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Recall</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Precision</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Recall</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F_2-score: </span><span class="si">{</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">Precision</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Recall</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Precision</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Recall</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Krzywa ROC Curve </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">)</span> <span class="c1"># użycie funkcji z biblioteki sklearn</span>
 
 <span class="k">def</span> <span class="nf">plot_static_roc_curve</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Wizaulizacja krzywej ROC</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
@@ -1312,30 +1361,32 @@ F_2-score: 0.6818181818181818
  Krzywa ROC Curve 
 </pre></div>
 </div>
-<img alt="../_images/8_Tutorial metryki statystyczne_21_1.png" src="../_images/8_Tutorial metryki statystyczne_21_1.png" />
+<img alt="../_images/5e0ea6ef6b57c0b4b045b73db77379ef3d2b1cf0633a5d7aa5f9a8375c839195.png" src="../_images/5e0ea6ef6b57c0b4b045b73db77379ef3d2b1cf0633a5d7aa5f9a8375c839195.png" />
 </div>
 </div>
-</div>
-<div class="section" id="auc-metric">
-<h3>AUC metric<a class="headerlink" href="#auc-metric" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="auc-metric">
+<h3>AUC metric<a class="headerlink" href="#auc-metric" title="Permalink to this heading">#</a></h3>
 <p>Obszar znajdujący się pod krzywą ROC nazywany jest błędem AUC i jest to miara wydajności klasyfikatora dla wszystkich wartości progowych. Metryka ta przyjmuje wartości z zakresu od 0 do 1, gdzie wartożsci bliższe 1 oznacza, że krzywa ROC zbliża się ku lewemu górnemu narożnikowi wykresu.</p>
-<p>Wartość tą interpretujemy, że dal wysokiej wartości AUC model oceni wyżej losowy pozytywny przypadek, niż losowy negatywny dla klasyfikacji w danej klasie.</p>
-</div>
-</div>
-<div class="section" id="podejscie-grupujace">
-<h2>Podejście Grupujące<a class="headerlink" href="#podejscie-grupujace" title="Permalink to this headline">¶</a></h2>
+<p>Wartość tą interpretujemy, że dla wysokiej wartości AUC model oceni wyżej losowy pozytywny przypadek, niż losowy negatywny dla klasyfikacji w danej klasie.</p>
+</section>
+</section>
+<section id="podejscie-grupujace">
+<h2>Podejście Grupujące<a class="headerlink" href="#podejscie-grupujace" title="Permalink to this heading">#</a></h2>
 <p>Grupowanie, czyli szerzej znane jako klasteryzacja (od ang. “Clustering”) polega na podzieleniu populacji lub próbki na wiele grup, tak aby obserwacje w tych samych grupach były bardziej podobne do obserwacji w tej samej grupie, niż w innej.</p>
-<div class="section" id="v-measure">
-<h3>V-measure<a class="headerlink" href="#v-measure" title="Permalink to this headline">¶</a></h3>
-<p>Metryka ta łączy dwa koncepty Jednorodności (Homogeneity) oraz Kompletności (Completeness).
-<img alt="topic" src="../_images/v_measure.png" /></p>
+<section id="v-measure">
+<h3>V-measure<a class="headerlink" href="#v-measure" title="Permalink to this heading">#</a></h3>
+<p>Metryka ta łączy dwa koncepty Jednorodności (Homogeneity) oraz Kompletności (Completeness).</p>
+<div class="math notranslate nohighlight">
+\[\upsilon =\frac{(1+\beta \times homogeneity \times completness)}{\beta \times homogeneity + cimpletness}\]</div>
 <p>Metryka ta przyjmuje wartości od 0 do 1, gdzie 1 oznacza najlepszą jakość w obrębie tej metryki.
 Jednym z minusów dla tej metryki jest konieczność posiadania wiedzy na temat prawdziwych klastrów (grup) dla danych obserwacji, a często przy problemach klastrowania nie znamy tych grup i chcemy je wywnioskować na podstawie wyników algorytmu.</p>
 <p><strong>Jednorodność</strong> - każdy klaster zawiera tylko członków jednej klasy
-<img alt="topic" src="../_images/h_homogeneity.png" />, gdzie
-<img alt="topic" src="../_images/Homogeneity.png" />
-Wartości <span class="math notranslate nohighlight">\(n_{ck}\)</span> - oznacza ilość obserwacji klasy c w obrębie klastra k,
-natomiast <span class="math notranslate nohighlight">\(n_k\)</span> - oznacza ilość wszystkich obserwacji w obrębie klastra k.</p>
+$<span class="math notranslate nohighlight">\(h=1- \frac{H(C|K)}{H(C)}\)</span><span class="math notranslate nohighlight">\(
+, gdzie
+\)</span><span class="math notranslate nohighlight">\(H(C|K)=-\sum _{c,k} \frac{n_{ck}}{N}log \frac{n_{ck}}{n_k}\)</span><span class="math notranslate nohighlight">\(
+Wartości \)</span>n_{ck}<span class="math notranslate nohighlight">\( - oznacza ilość obserwacji klasy c w obrębie klastra k,
+natomiast \)</span>n_k$ - oznacza ilość wszystkich obserwacji w obrębie klastra k.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics.cluster</span> <span class="kn">import</span> <span class="n">v_measure_score</span>
@@ -1367,7 +1418,7 @@ natomiast <span class="math notranslate nohighlight">\(n_k\)</span> - oznacza il
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Homogeneity - każdy Klaster posiada obserwacje tylko z jednej klasy.
 </pre></div>
 </div>
-<img alt="../_images/8_Tutorial metryki statystyczne_23_1.png" src="../_images/8_Tutorial metryki statystyczne_23_1.png" />
+<img alt="../_images/d9a03c505c4e16128571ea6ea7ecdb969c51ceac60ec36a5412bbaa95d41d333.png" src="../_images/d9a03c505c4e16128571ea6ea7ecdb969c51ceac60ec36a5412bbaa95d41d333.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1403,12 +1454,12 @@ natomiast <span class="math notranslate nohighlight">\(n_k\)</span> - oznacza il
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Completeness - każdy Klaster posiada obserwacje tylko z jednej klasy.
 </pre></div>
 </div>
-<img alt="../_images/8_Tutorial metryki statystyczne_25_1.png" src="../_images/8_Tutorial metryki statystyczne_25_1.png" />
+<img alt="../_images/b3cc175805da6760d3a7251e9bf545a7cfec34e0bc24c5d696da01da84dbc05e.png" src="../_images/b3cc175805da6760d3a7251e9bf545a7cfec34e0bc24c5d696da01da84dbc05e.png" />
 </div>
 </div>
-</div>
-<div class="section" id="silhouette-coefficient">
-<h3>Silhouette Coefficient<a class="headerlink" href="#silhouette-coefficient" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="silhouette-coefficient">
+<h3>Silhouette Coefficient<a class="headerlink" href="#silhouette-coefficient" title="Permalink to this heading">#</a></h3>
 <p>Współczynnik ten określa, jak bardzo klastry są od siebie oddalone oraz rozróżnialne.
 Przyjmuje on wartości od -1 do 1, gdzie:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span> 1 - Klastry są od siebie oddalone i łatwo rozróżnialne
@@ -1416,22 +1467,155 @@ Przyjmuje on wartości od -1 do 1, gdzie:</p>
 -1 - Klastry zostały źle przypisane
 </pre></div>
 </div>
-<p>Wzór określający ten współczynnik przedstawia się następująco:
-<img alt="topic" src="../_images/silhouette.png" />, gdzie</p>
+<p>Wzór określający ten współczynnik przedstawia się następująco:</p>
+<div class="math notranslate nohighlight">
+\[ s = \frac{b-a}{\max(a, b)}\]</div>
+<p>, gdzie</p>
 <p><span class="math notranslate nohighlight">\(a\)</span> - jest to średnia odległość pomiędzy obserwacją, a pozostałymi obserwacjami w danym klastrze <br>
 <span class="math notranslate nohighlight">\(b\)</span> - jest to średnia odległość pomiędzy obserwacją, a pozostałymi obserwacjami w kolejnym najbliższym klastrze</p>
-<p>Po zebraniu wartości dla wszystkich obserwacji wartość ta jest uśredniana.</p>
+<p>Po zebraniu wartości dla wszystkich obserwacj wartość ta jest uśredniana.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_score</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="n">first_group</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># pierwszy klaster</span>
+<span class="n">second_group</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>  <span class="c1"># drugi klaster przesuniety</span>
+<span class="n">data_set</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">first_group</span><span class="p">,</span><span class="n">second_group</span><span class="p">))</span> <span class="c1"># zbiór danych</span>
+<span class="n">df_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_set</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;feature_1&#39;</span><span class="p">,</span> <span class="s1">&#39;feature_2&#39;</span><span class="p">])</span> <span class="c1"># wygodniejsze przedstawienie danych</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">df_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;feature_1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;feature_2&#39;</span><span class="p">)</span> <span class="c1"># wizualizacja danych</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">KMean_model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># inicjalizacja modelu klastrującego na 2 klastry</span>
+<span class="n">KMean_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_data</span><span class="p">)</span> <span class="c1"># dopasowanie się do danych</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">KMean_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_data</span><span class="p">)</span> <span class="c1"># dokonanie podziału na klastry</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Silhouette Score (liczba klastrow n=2): </span><span class="si">{</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">df_data</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># obliczenie wartości wspolczynnika Silhouette</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df_data</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;feature_1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;feature_2&#39;</span><span class="p">)</span> <span class="c1"># wizualizacja podziału na klastry</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">KMean_model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># inicjalizacja modelu klastrującego na 3 klastry</span>
+<span class="n">KMean_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_data</span><span class="p">)</span> <span class="c1"># dopasowanie się do danych</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">KMean_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_data</span><span class="p">)</span> <span class="c1"># dokonanie podziału na klastry</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Silhouette Score (liczba klastrow n=3): </span><span class="si">{</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">df_data</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># obliczenie wartości wspolczynnika Silhouette</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">df_data</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;feature_1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;feature_2&#39;</span><span class="p">)</span> <span class="c1"># wizualizacja podziału na klastry</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="section" id="dunn-s-index">
-<h3>Dunn’s Index<a class="headerlink" href="#dunn-s-index" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/09aa9a703f779c82b29f6756077c0f449a62bed8aab266631739dd16852f66a7.png" src="../_images/09aa9a703f779c82b29f6756077c0f449a62bed8aab266631739dd16852f66a7.png" />
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>feature_1</th>
+      <th>feature_2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.553930</td>
+      <td>0.780099</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.270847</td>
+      <td>0.149294</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.392513</td>
+      <td>0.330557</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.110194</td>
+      <td>0.127648</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.874501</td>
+      <td>0.957604</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>2.283536</td>
+      <td>2.273292</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>2.390635</td>
+      <td>2.513383</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>2.066386</td>
+      <td>2.930322</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>2.749676</td>
+      <td>2.736552</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>2.260332</td>
+      <td>2.807807</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 2 columns</p>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouette Score (liczba klastrow n=2): 0.8206859473337711
+</pre></div>
+</div>
+<img alt="../_images/40770c0a2a884d483ed5975942103ef75a02685bbb902a04afe7b8f363b99e17.png" src="../_images/40770c0a2a884d483ed5975942103ef75a02685bbb902a04afe7b8f363b99e17.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouette Score (liczba klastrow n=3): 0.6094395494369631
+</pre></div>
+</div>
+<img alt="../_images/93d22991a36073e77476b064b1d4e25e9df68ecdbc8081a20865049e32d5ed9d.png" src="../_images/93d22991a36073e77476b064b1d4e25e9df68ecdbc8081a20865049e32d5ed9d.png" />
+</div>
+</div>
+<p>Jak można zaobserwować wartość Silhouette Coefficient (Score) jest niższa w przypadku, gdy liczba wybranych przez nas klastrów wynosi 3, gdyż klastry są mniej rozróżnialne.</p>
+<p>Jest to dodatkowe zastosowanie również tej metryki. Dzięki niej możemy okreslić jaka liczba klastrów dla naszego zbioru danych będzie optymalna.</p>
+</section>
+<section id="dunn-s-index">
+<h3>Dunn’s Index<a class="headerlink" href="#dunn-s-index" title="Permalink to this heading">#</a></h3>
 <p>Ostatnią omawianą metryką dla problemów grupowania jest metryka Dunn’s Index.</p>
 <p>Index ten jest równy minimalnej odległości między klsatrami podzielonej przez maksymalny rozmiar tego klastra.</p>
-<p><img alt="topic" src="../_images/DunnIndex.png" /></p>
+<p><span class="math notranslate nohighlight">\(DI(C)=\frac{\min_{c_k \in C}{\delta(c_k, c_l)}}{\max_{c_k\in C}\Delta(c_k)}\)</span></p>
 <p>Duże odległości pomiędzy klastrami są przejawem lepszej separacji, natomiast mniejszy rozmiar klastra świadczy o wyższej gęstości klastra. Jeśli obie z tych cech zostaną odpowiednio usatysfakcjonowane będzie to prowadziło do wyższej wartości DI (Dunn’s Index). Wyższe DI oznacza lepsze grupowanie pod warunkiem, że lepsze grupowanie jest zdefiniowane jako zwarte klastry dobrze oddzielone od siebie nawzajem.</p>
-<p><img alt="topic" src="../_images/dunn_image.png" /></p>
-</div>
-</div>
-</div>
+<!-- <img src="media/dunn_image.png" alt="DT" style="width: 400px;">
+ -->
+<p><img alt="media" src="../_images/dunn_image.png" /></p>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1445,7 +1629,7 @@ Przyjmuje on wartości od -1 do 1, gdzie:</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./8. Wyjasnialnosc"
         },
         predefinedOutput: true
@@ -1453,46 +1637,131 @@ Przyjmuje on wartości od -1 do 1, gdzie:</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../11.%20Regresja/Regresja-Part2.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Analiza regresji</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../11.%20Regresja/Regresja_trees.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Regresja oparta o modele drzewiaste</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Wyjaśnialność modeli - definicje</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By codersi<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wstep">Wstęp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#omawiane-bledy-dla-danych-typow-predykcji">Omawiane błędy dla danych typów predykcji</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podejscie-regresyjne">Podejście Regresyjne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#me">ME</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mae">MAE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mse">MSE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rmse">RMSE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rmsle">RMSLE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mape">MAPE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smape">SMAPE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podejscie-klasyfikacyjne">Podejście Klasyfikacyjne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-dokladnosc">Accuracy - dokładność</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specificity">Specificity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-recall">Sensitivity / Recall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision">Precision</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blad-f-score">Błąd F-Score</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roc-curve">ROC Curve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auc-metric">AUC metric</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podejscie-grupujace">Podejście Grupujące</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v-measure">V-measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#silhouette-coefficient">Silhouette Coefficient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dunn-s-index">Dunn’s Index</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By codersi
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

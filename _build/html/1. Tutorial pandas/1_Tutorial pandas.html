@@ -1,515 +1,528 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Pakiet pandas - tutorial &#8212; Silky Coders Data Science</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1. Tutorial pandas/1_Tutorial pandas';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Pakiet NumPy - tutorial" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html" />
     <link rel="prev" title="Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej" href="../intro.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/silky-logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Silky Coders Data Science</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wprowadzenie do pakietów numpy i pandas
- </span>
-</p>
+    
+    
+    <img src="../_static/silky-logo.png" class="logo__image only-light" alt="Silky Coders Data Science - Home"/>
+    <img src="../_static/silky-logo.png" class="logo__image only-dark pst-js-only" alt="Silky Coders Data Science - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wprowadzenie do pakietów numpy i pandas</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Pakiet pandas - tutorial
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">
-   Pakiet NumPy - tutorial
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pakiet pandas - tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">Pakiet NumPy - tutorial</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wizualizacja danych
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wizualizacja danych</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">
-   Wizualizacja danych w Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">Wizualizacja danych w Python</a></li>
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Analiza statystyczna
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza statystyczna</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">
-   Analiza statystyczna - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">Analiza statystyczna - tutorial</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wykrywanie anomalii
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wykrywanie anomalii</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">
-   Wykrywanie anomalii - definicje
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">
-   Wykrywanie anomalii - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">Wykrywanie anomalii - definicje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">Wykrywanie anomalii - tutorial</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Inżynieria cech
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inżynieria cech</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">
-   Inżynieria cech
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">Inżynieria cech</a></li>
+
+
+
+
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Czyszczenie danych
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Czyszczenie danych</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">
-   Czyszczenie danych
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">Czyszczenie danych</a></li>
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Klasteryzacja
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klasteryzacja</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
-   Klasteryzacja w Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">Klasteryzacja w Python</a></li>
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Klasyfikacja
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klasyfikacja</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">
-   Klasyfikacja w Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">Klasyfikacja w Python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Regresja
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja GLM</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../11.%20Regresja/Regresja-Part2.html">
-   Analiza regresji
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../11.%20Regresja/Regresja_lin.html">Liniowe modele regresji</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wyjaśnialność modeli
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja - modele drzewiaste</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">
-   Wyjaśnialność modeli - metryki statystyczne - tutorial
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">
-   Wyjaśnialność modeli - definicje
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">
-   Wyjaśnialność modeli - XAI - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../11.%20Regresja/Regresja_trees.html">Regresja oparta o modele drzewiaste</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wyjaśnialność modeli</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">Wyjaśnialność modeli - metryki statystyczne - tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">Wyjaśnialność modeli - definicje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">Wyjaśnialność modeli - XAI - tutorial</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Przetwarzanie języka naturalnego</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../13.%20NLP/TutorialNLP.html">NLP</a></li>
+
+
+
+
+
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/1. Tutorial pandas/1_Tutorial pandas.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/kikonPL/studia_PG"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F1. Tutorial pandas/1_Tutorial pandas.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/1. Tutorial pandas/1_Tutorial pandas.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/kikonPL/studia_PG/main?urlpath=tree/1. Tutorial pandas/1_Tutorial pandas.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/1. Tutorial pandas/1_Tutorial pandas.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kikonPL/studia_PG" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F1. Tutorial pandas/1_Tutorial pandas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/1. Tutorial pandas/1_Tutorial pandas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pakiet pandas - tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wstep">
-   Wstęp
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tworzenie-dataframe">
-   Tworzenie DataFrame
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tworzenie-dataframe-ze-slownika">
-     Tworzenie DataFrame ze słownika
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tworzenie-dataframe-z-list">
-     Tworzenie DataFrame z list
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wczytywanie-dataframe-z-pliku">
-     Wczytywanie DataFrame z pliku
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#podstawowe-funkcje">
-   Podstawowe funkcje
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tworzenie-podzbiorow">
-   Tworzenie podzbiorów
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#operacje-na-danych">
-   Operacje na danych
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#nadpisanie-okreslonej-wartosci">
-     Nadpisanie określonej wartości
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sortowanie-i-resetowanie-indeksow">
-     Sortowanie i resetowanie indeksów
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grupowanie-danych">
-     Grupowanie danych
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#dzialanie-roznymi-funkcjami-na-kazda-z-kolumn">
-       Działanie różnymi funkcjami na każdą z kolumn
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#funkcja-lambda">
-     Funkcja lambda
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tworzenie-nowych-kolumn">
-     Tworzenie nowych kolumn
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tworzenie-nowych-wierszy">
-     Tworzenie nowych wierszy
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#usuwanie-danych">
-     Usuwanie danych
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dzialania-na-wartosciach-nullowych">
-     Działania na wartościach nullowych
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#usuwanie-duplikatow">
-     Usuwanie duplikatow
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zmiana-nazw-kolumn">
-     Zmiana nazw kolumn
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zmiana-danych-liczbowych-na-kategorie">
-     Zmiana danych liczbowych na kategorie
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#iterowanie-po-kolejnych-wierszach">
-     Iterowanie po kolejnych wierszach
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#laczenie-i-transformacja-danych">
-   Lączenie i transformacja danych
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#merge">
-     Merge
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#concat">
-     Concat
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#melt">
-     Melt
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pivottable">
-     PivotTable
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#explode">
-     Explode
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wstep">Wstęp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-dataframe">Tworzenie DataFrame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-dataframe-ze-slownika">Tworzenie DataFrame ze słownika</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-dataframe-z-list">Tworzenie DataFrame z list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytywanie-dataframe-z-pliku">Wczytywanie DataFrame z pliku</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-funkcje">Podstawowe funkcje</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-podzbiorow">Tworzenie podzbiorów</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operacje-na-danych">Operacje na danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nadpisanie-okreslonej-wartosci">Nadpisanie określonej wartości</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sortowanie-i-resetowanie-indeksow">Sortowanie i resetowanie indeksów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grupowanie-danych">Grupowanie danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dzialanie-roznymi-funkcjami-na-kazda-z-kolumn">Działanie różnymi funkcjami na każdą z kolumn</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funkcja-lambda">Funkcja lambda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-nowych-kolumn">Tworzenie nowych kolumn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-nowych-wierszy">Tworzenie nowych wierszy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usuwanie-danych">Usuwanie danych</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dzialania-na-wartosciach-nullowych">Działania na wartościach nullowych</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usuwanie-duplikatow">Usuwanie duplikatów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zmiana-nazw-kolumn">Zmiana nazw kolumn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zmiana-danych-liczbowych-na-kategorie">Zmiana danych liczbowych na kategorie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterowanie-po-kolejnych-wierszach">Iterowanie po kolejnych wierszach</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laczenie-i-transformacja-danych">Łączenie i transformacja danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge">Merge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concat-do-merge-tabelek">Concat do merge tabelek</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melt">Melt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivottable">PivotTable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explode">Explode</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="pakiet-pandas-tutorial">
-<h1>Pakiet pandas - tutorial<a class="headerlink" href="#pakiet-pandas-tutorial" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="wstep">
-<h2>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pakiet-pandas-tutorial">
+<h1>Pakiet pandas - tutorial<a class="headerlink" href="#pakiet-pandas-tutorial" title="Permalink to this heading">#</a></h1>
+<section id="wstep">
+<h2>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this heading">#</a></h2>
 <p>Pandas jest wykorzystywany do pracy z danymi tabelarycznymi - np. danymi z arkuszy kalkulacyjnych bądź baz danych. Pakiet jest przydatny w eksploracji, czyszczeniu i przetwarzaniu danych. W pandasie dane tabularyczne nazywa się <strong>DataFrame</strong>. Każda zmienna zapisywana jest w kolumnie, zaś każda obserwacja w wierszu.</p>
-</div>
-<div class="section" id="tworzenie-dataframe">
-<h2>Tworzenie DataFrame<a class="headerlink" href="#tworzenie-dataframe" title="Permalink to this headline">¶</a></h2>
-<p>Ramkę danych można stworzyć na wiele sposobów: z plików roznego rodzaju, słownika, listy, numpy.array, itp.</p>
-<div class="section" id="tworzenie-dataframe-ze-slownika">
-<h3>Tworzenie DataFrame ze słownika<a class="headerlink" href="#tworzenie-dataframe-ze-slownika" title="Permalink to this headline">¶</a></h3>
+<!-- ![image.png](attachment:image.png) --></section>
+<section id="tworzenie-dataframe">
+<h2>Tworzenie DataFrame<a class="headerlink" href="#tworzenie-dataframe" title="Permalink to this heading">#</a></h2>
+<p>Ramkę danych można stworzyć na wiele sposobów: z plików różnego rodzaju, słownika, listy, numpy.array, itp.</p>
+<section id="tworzenie-dataframe-ze-slownika">
+<h3>Tworzenie DataFrame ze słownika<a class="headerlink" href="#tworzenie-dataframe-ze-slownika" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -573,9 +586,9 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="tworzenie-dataframe-z-list">
-<h3>Tworzenie DataFrame z list<a class="headerlink" href="#tworzenie-dataframe-z-list" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tworzenie-dataframe-z-list">
+<h3>Tworzenie DataFrame z list<a class="headerlink" href="#tworzenie-dataframe-z-list" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_from_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;variable_1&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;variable_1&#39;</span><span class="p">],</span> <span class="c1"># przypisanie wierszy w formie listy</span>
@@ -634,9 +647,9 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="wczytywanie-dataframe-z-pliku">
-<h3>Wczytywanie DataFrame z pliku<a class="headerlink" href="#wczytywanie-dataframe-z-pliku" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="wczytywanie-dataframe-z-pliku">
+<h3>Wczytywanie DataFrame z pliku<a class="headerlink" href="#wczytywanie-dataframe-z-pliku" title="Permalink to this heading">#</a></h3>
 <p>DataFrame można wczytać z wszelkiego rodzaju plików: csv, xls, parquet, json, sql, gbq (tabela z Google BigQuery) i wielu innych. W tym celu wystarczy użyć funkcji <strong>read_</strong>* gdzie * oznacza rodzaj pliku. Na przykład chcąc wczytać plik csv użyjemy funkcji <strong>read_csv</strong>.</p>
 <p>Analogicznie chcąc zapisać DataFrame używa się funkcji <strong>to_</strong>* gdzie * oznacza rodzaj pliku.</p>
 <div class="cell docutils container">
@@ -752,10 +765,10 @@
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="podstawowe-funkcje">
-<h2>Podstawowe funkcje<a class="headerlink" href="#podstawowe-funkcje" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="podstawowe-funkcje">
+<h2>Podstawowe funkcje<a class="headerlink" href="#podstawowe-funkcje" title="Permalink to this heading">#</a></h2>
 <p>Pandas posiada wiele wbudowanych funkcji, dzięki którym można lepiej poznać dane. Poniżej przedstawiono część z nich.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -779,7 +792,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Int64Index: 398 entries, 0 to 397
+Index: 398 entries, 0 to 397
 Data columns (total 9 columns):
  #   Column        Non-Null Count  Dtype  
 ---  ------        --------------  -----  
@@ -1018,10 +1031,10 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,
-            ...
-            388, 389, 390, 391, 392, 393, 394, 395, 396, 397],
-           dtype=&#39;int64&#39;, length=398)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,
+       ...
+       388, 389, 390, 391, 392, 393, 394, 395, 396, 397],
+      dtype=&#39;int64&#39;, length=398)
 </pre></div>
 </div>
 </div>
@@ -1057,18 +1070,19 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4    0.512563
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cylinders
+4    0.512563
 8    0.258794
 6    0.211055
 3    0.010050
 5    0.007538
-Name: cylinders, dtype: float64
+Name: proportion, dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
 <p><strong>Inne podstawowe funkcje</strong></p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>funkcja</p></th>
 <th class="head"><p>opis</p></th>
@@ -1104,6 +1118,7 @@ Name: cylinders, dtype: float64
 </tr>
 </tbody>
 </table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
@@ -1111,7 +1126,7 @@ Name: cylinders, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>846.8417741973268
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>846.8417741973271
 </pre></div>
 </div>
 </div>
@@ -1125,8 +1140,8 @@ Name: cylinders, dtype: float64
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg                         46.6
 cylinders                      8
-displacement                 455
-horsepower                   230
+displacement               455.0
+horsepower                 230.0
 weight                      5140
 acceleration                24.8
 model_year                    82
@@ -1139,8 +1154,8 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Macierz korelacji</span>
-<span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;spearman&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Macierz korelacji, parametr numeric_only = True pozwala sprawnie pominac zmienne nienumeryczne w kalkulacji</span>
+<span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;spearman&#39;</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1247,9 +1262,9 @@ dtype: object
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="tworzenie-podzbiorow">
-<h2>Tworzenie podzbiorów<a class="headerlink" href="#tworzenie-podzbiorow" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tworzenie-podzbiorow">
+<h2>Tworzenie podzbiorów<a class="headerlink" href="#tworzenie-podzbiorow" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pierwsze 3 wiersze (nie wpisujac zadnej liczby domyslnie brana jest 5)</span>
@@ -1720,7 +1735,7 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># Wybranie specyficznych kolumn</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># Wybranie konkretnych kolumn</span>
 <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;cylinders&#39;</span><span class="p">,</span> <span class="s1">&#39;horsepower&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1780,7 +1795,7 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wartosci specyficznej kolumny z okreslonego zakresu wierszy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wartosci konkretnej kolumny z okreslonego zakresu wierszy</span>
 <span class="n">df</span><span class="o">.</span><span class="n">cylinders</span><span class="p">[</span><span class="mi">15</span><span class="p">:</span><span class="mi">23</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1801,7 +1816,7 @@ Name: cylinders, dtype: int64
 </div>
 <div class="alert alert-block alert-info">
 <b>Info</b> 
-<p>Chcąc działać na wierszach spełniających specyficzne warunki warto tworzyć zmienną maskujacą (która zwraca wartość True/False dla każdego wiersza) i następnie pisać df[mask] zamiast df[((pierwszy warunek) | (drugi warunek)) &amp; (trzeci warunek)]. Wizualnie wygląda to dużo lepiej.</p>
+<p>Chcąc działać na wierszach spełniających konkretne warunki warto tworzyć zmienną maskujacą (która zwraca wartość True/False dla każdego wiersza) i następnie pisać df[mask] zamiast df[((pierwszy warunek) | (drugi warunek)) &amp; (trzeci warunek)]. Wizualnie wygląda to dużo lepiej.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chcemy wiersze gdzie model_year jest co najwyzej 70 a zmienna origin miesci sie w zbiorze &#39;japan&#39; i &#39;europe&#39;</span>
@@ -1991,64 +2006,64 @@ Length: 398, dtype: bool
   </thead>
   <tbody>
     <tr>
-      <th>345</th>
-      <td>35.1</td>
+      <th>271</th>
+      <td>23.2</td>
       <td>4</td>
-      <td>81.0</td>
-      <td>60.0</td>
-      <td>1760</td>
-      <td>16.1</td>
-      <td>81</td>
-      <td>japan</td>
-      <td>honda civic 1300</td>
-    </tr>
-    <tr>
-      <th>159</th>
-      <td>14.0</td>
-      <td>8</td>
-      <td>351.0</td>
-      <td>148.0</td>
-      <td>4657</td>
-      <td>13.5</td>
-      <td>75</td>
-      <td>usa</td>
-      <td>ford ltd</td>
-    </tr>
-    <tr>
-      <th>76</th>
-      <td>18.0</td>
-      <td>4</td>
-      <td>121.0</td>
-      <td>112.0</td>
-      <td>2933</td>
-      <td>14.5</td>
-      <td>72</td>
-      <td>europe</td>
-      <td>volvo 145e (sw)</td>
-    </tr>
-    <tr>
-      <th>273</th>
-      <td>23.9</td>
-      <td>4</td>
-      <td>119.0</td>
-      <td>97.0</td>
-      <td>2405</td>
-      <td>14.9</td>
+      <td>156.0</td>
+      <td>105.0</td>
+      <td>2745</td>
+      <td>16.7</td>
       <td>78</td>
-      <td>japan</td>
-      <td>datsun 200-sx</td>
+      <td>usa</td>
+      <td>plymouth sapporo</td>
     </tr>
     <tr>
-      <th>295</th>
-      <td>35.7</td>
+      <th>321</th>
+      <td>32.2</td>
       <td>4</td>
-      <td>98.0</td>
-      <td>80.0</td>
-      <td>1915</td>
-      <td>14.4</td>
-      <td>79</td>
+      <td>108.0</td>
+      <td>75.0</td>
+      <td>2265</td>
+      <td>15.2</td>
+      <td>80</td>
+      <td>japan</td>
+      <td>toyota corolla</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>18.0</td>
+      <td>6</td>
+      <td>232.0</td>
+      <td>100.0</td>
+      <td>3288</td>
+      <td>15.5</td>
+      <td>71</td>
       <td>usa</td>
-      <td>dodge colt hatchback custom</td>
+      <td>amc matador</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>24.0</td>
+      <td>6</td>
+      <td>200.0</td>
+      <td>81.0</td>
+      <td>3012</td>
+      <td>17.6</td>
+      <td>76</td>
+      <td>usa</td>
+      <td>ford maverick</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>32.0</td>
+      <td>4</td>
+      <td>83.0</td>
+      <td>61.0</td>
+      <td>2003</td>
+      <td>19.0</td>
+      <td>74</td>
+      <td>japan</td>
+      <td>datsun 710</td>
     </tr>
   </tbody>
 </table>
@@ -2287,11 +2302,11 @@ Length: 398, dtype: bool
 <p>398 rows × 4 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="operacje-na-danych">
-<h2>Operacje na danych<a class="headerlink" href="#operacje-na-danych" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="nadpisanie-okreslonej-wartosci">
-<h3>Nadpisanie określonej wartości<a class="headerlink" href="#nadpisanie-okreslonej-wartosci" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="operacje-na-danych">
+<h2>Operacje na danych<a class="headerlink" href="#operacje-na-danych" title="Permalink to this heading">#</a></h2>
+<section id="nadpisanie-okreslonej-wartosci">
+<h3>Nadpisanie określonej wartości<a class="headerlink" href="#nadpisanie-okreslonej-wartosci" title="Permalink to this heading">#</a></h3>
 <p>W tym przypadku zmienimy wartość ‘horsepower’ dla drugiej obserwacji na null</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2300,10 +2315,10 @@ Length: 398, dtype: bool
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg                            15
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg                          15.0
 cylinders                       8
-displacement                  350
-horsepower                    165
+displacement                350.0
+horsepower                  165.0
 weight                       3693
 acceleration                 11.5
 model_year                     70
@@ -2328,9 +2343,9 @@ Name: 1, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg                            15
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg                          15.0
 cylinders                       8
-displacement                  350
+displacement                350.0
 horsepower                    NaN
 weight                       3693
 acceleration                 11.5
@@ -2342,9 +2357,9 @@ Name: 1, dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="sortowanie-i-resetowanie-indeksow">
-<h3>Sortowanie i resetowanie indeksów<a class="headerlink" href="#sortowanie-i-resetowanie-indeksow" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="sortowanie-i-resetowanie-indeksow">
+<h3>Sortowanie i resetowanie indeksów<a class="headerlink" href="#sortowanie-i-resetowanie-indeksow" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;model_year&#39;</span><span class="p">,</span> <span class="s1">&#39;horsepower&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="c1"># kolumny sortujace</span>
@@ -2567,9 +2582,9 @@ Name: 1, dtype: object
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="grupowanie-danych">
-<h3>Grupowanie danych<a class="headerlink" href="#grupowanie-danych" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="grupowanie-danych">
+<h3>Grupowanie danych<a class="headerlink" href="#grupowanie-danych" title="Permalink to this heading">#</a></h3>
 <p>Poniżej przedstawiono przykład grupowania kolumny <strong>horsepower</strong> i <strong>model_year</strong> ze względu na kolumne <strong>cylinders</strong>.</p>
 <p>Funkcja max pokazuje jaką funkcją działamy na pogrupowane dane - w tym przypadku zostawiamy wartość maksymalną każdej podgrupy. Równie dobrze można użyć pozostałych funkcji, które zostały wcześniej przedstawione.</p>
 <p>Funkcja reset_index() przenosi indeksy (w tym przypadku cylinders) do kolumny.</p>
@@ -2710,8 +2725,8 @@ Name: 1, dtype: object
 </table>
 </div></div></div>
 </div>
-<div class="section" id="dzialanie-roznymi-funkcjami-na-kazda-z-kolumn">
-<h4>Działanie różnymi funkcjami na każdą z kolumn<a class="headerlink" href="#dzialanie-roznymi-funkcjami-na-kazda-z-kolumn" title="Permalink to this headline">¶</a></h4>
+<section id="dzialanie-roznymi-funkcjami-na-kazda-z-kolumn">
+<h4>Działanie różnymi funkcjami na każdą z kolumn<a class="headerlink" href="#dzialanie-roznymi-funkcjami-na-kazda-z-kolumn" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">median_mean</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -2796,10 +2811,10 @@ Name: 1, dtype: object
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="funkcja-lambda">
-<h3>Funkcja lambda<a class="headerlink" href="#funkcja-lambda" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="funkcja-lambda">
+<h3>Funkcja lambda<a class="headerlink" href="#funkcja-lambda" title="Permalink to this heading">#</a></h3>
 <div class="alert alert-block alert-info">
 <b>Info</b> 
 <p>Funkcja lambda jest bardzo przydatnym narzędziem. Działając funkcją lambda na ramkę danych prawdopodobnie nasze obliczenia wykonaja się szybciej niż robienie pętli czy innych operacji.</p>
@@ -2871,7 +2886,7 @@ Name: 1, dtype: object
 </table>
 </div></div></div>
 </div>
-<p>Zauwazyc mozna, ze wartosci w liscie sie powtarzaja. Pozbyc sie ich mozemy dzieki wyrazeniu lambda</p>
+<p>Zauwazyć można, ze wartośći w liscie sie powtarzają. Pozbyć się ich mozemy dzieki wyrażeniu lambda</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped2</span><span class="p">[</span><span class="s1">&#39;unique_horsepower&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grouped2</span><span class="p">[</span><span class="s1">&#39;horsepower&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
@@ -2968,9 +2983,9 @@ Name: 1, dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="tworzenie-nowych-kolumn">
-<h3>Tworzenie nowych kolumn<a class="headerlink" href="#tworzenie-nowych-kolumn" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tworzenie-nowych-kolumn">
+<h3>Tworzenie nowych kolumn<a class="headerlink" href="#tworzenie-nowych-kolumn" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">horsepower</span><span class="p">)]</span>
@@ -3358,9 +3373,9 @@ Name: 1, dtype: object
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="tworzenie-nowych-wierszy">
-<h3>Tworzenie nowych wierszy<a class="headerlink" href="#tworzenie-nowych-wierszy" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tworzenie-nowych-wierszy">
+<h3>Tworzenie nowych wierszy<a class="headerlink" href="#tworzenie-nowych-wierszy" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tworzymy liste wartosci, ktore chcemy dopisac do ramki danych</span>
@@ -3375,11 +3390,12 @@ Name: 1, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tworzymy nowy DataFrame ze slownika po czym dolaczamy do naszej ramki danych</span>
+<span class="c1"># Mozemy do tego skozystac  z funkcji concat, o jej kolejnym zasotoswaniu dalej :)</span>
 <span class="n">row_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">31.0</span><span class="p">],</span> <span class="s1">&#39;cylinders&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;displacement&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">119.0</span><span class="p">],</span>
             <span class="s1">&#39;horsepower&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">82.0</span><span class="p">],</span> <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2720</span><span class="p">],</span> <span class="s1">&#39;acceleration&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">19.4</span><span class="p">],</span>
             <span class="s1">&#39;model_year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">82</span><span class="p">],</span> <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;usa&#39;</span><span class="p">],</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;chevy s-10&#39;</span><span class="p">],</span> <span class="s1">&#39;horsepower*acceleration&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1590.8</span><span class="p">]}</span>
-<span class="n">df_to_append</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">row_dict</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_to_append</span><span class="p">)</span>
+<span class="n">df_to_concat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">row_dict</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span><span class="n">df_to_concat</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -3495,7 +3511,7 @@ Name: 1, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#inna opcja jest uzycie ignore_index=True podczas uzywania pd.concat</span>
 </pre></div>
 </div>
 </div>
@@ -3607,9 +3623,9 @@ Name: 1, dtype: object
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="usuwanie-danych">
-<h3>Usuwanie danych<a class="headerlink" href="#usuwanie-danych" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="usuwanie-danych">
+<h3>Usuwanie danych<a class="headerlink" href="#usuwanie-danych" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uwsuwanie wierszy</span>
@@ -3822,9 +3838,9 @@ Name: 1, dtype: object
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="dzialania-na-wartosciach-nullowych">
-<h3>Działania na wartościach nullowych<a class="headerlink" href="#dzialania-na-wartosciach-nullowych" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="dzialania-na-wartosciach-nullowych">
+<h3>Działania na wartościach nullowych<a class="headerlink" href="#dzialania-na-wartosciach-nullowych" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Patrzymy czy ktorykolwiek (any) wiersz (axis=1) jest rowny null</span>
@@ -3977,7 +3993,7 @@ Length: 399, dtype: bool
 </div>
 <div class="alert alert-block alert-info">
 <b>Info</b> 
-<p>Nie ma prostej odpowiedzi jak zastąpić wartości nullowe. Wszystko zależy od tego na jakim zbiorze pracujemy. Czasem wiersze posiadające nulle sa usuwane o ile ich liczebność stanowi odsetek całego zbioru. Prostą metodą jest zastąpienie nulli wartością średnią lub medianą dla danych grup (tj. np. średnia wartosc horsepower dla samochodów z 4 cylindrami gdzie model_year jest powyżej 80). Wszystko zalezy od badanego problemu.</p>
+<p>Nie ma prostej odpowiedzi jak zastąpić wartości nullowe. Wszystko zależy od tego na jakim zbiorze pracujemy. Czasem wiersze posiadające nulle sa usuwane o ile ich liczebność stanowi odsetek całego zbioru. Prostą metodą jest zastąpienie nulli wartością średnią lub medianą dla danych grup (tj. np. średnia wartość horsepower dla samochodów z 4 cylindrami gdzie model_year jest powyżej 80). Wszystko zależy od badanego problemu.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -4361,9 +4377,9 @@ Length: 399, dtype: bool
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="usuwanie-duplikatow">
-<h3>Usuwanie duplikatow<a class="headerlink" href="#usuwanie-duplikatow" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="usuwanie-duplikatow">
+<h3>Usuwanie duplikatów<a class="headerlink" href="#usuwanie-duplikatow" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Zauwazmy ze mamy duplikat (indeks 392 i 17)</span>
@@ -4490,9 +4506,9 @@ Length: 399, dtype: bool
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="zmiana-nazw-kolumn">
-<h3>Zmiana nazw kolumn<a class="headerlink" href="#zmiana-nazw-kolumn" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="zmiana-nazw-kolumn">
+<h3>Zmiana nazw kolumn<a class="headerlink" href="#zmiana-nazw-kolumn" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do parametru columns przypisujemy slownik gdzie klucze to aktualna nazwa kolumny a wartosci to nowe nazwy</span>
@@ -4596,16 +4612,16 @@ Length: 399, dtype: bool
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="zmiana-danych-liczbowych-na-kategorie">
-<h3>Zmiana danych liczbowych na kategorie<a class="headerlink" href="#zmiana-danych-liczbowych-na-kategorie" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="zmiana-danych-liczbowych-na-kategorie">
+<h3>Zmiana danych liczbowych na kategorie<a class="headerlink" href="#zmiana-danych-liczbowych-na-kategorie" title="Permalink to this heading">#</a></h3>
 <div class="alert alert-block alert-info">
 <b>Info</b> 
 <p>Czasem bardziej miarodajna jest informacja, że dany obiekt należy do jakiejś grupy zamiast przypisanej do niego konkretnej liczby. Np. znając wzrost i wagę danego pacjeta można stworzyć zmienną kategoryczną oznaczającą jak bardzo otyły jest pacjent.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;light weight count </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">weight</span><span class="o">&lt;=</span><span class="mi">2000</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;normal weight </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">weight</span><span class="o">&gt;</span><span class="mi">2000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">weight</span><span class="o">&lt;=</span><span class="mi">3600</span><span class="p">)])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;normal weight </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">weight</span><span class="o">&gt;</span><span class="mi">2000</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">weight</span><span class="o">&lt;=</span><span class="mi">3600</span><span class="p">)])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;heavy weight count </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">weight</span><span class="o">&gt;</span><span class="mi">3600</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -4625,7 +4641,7 @@ heavy weight count 100
 
 <span class="c1"># Przypisanie wartosci kolumny &#39;weight&#39; do odpowiedniego przedzialu</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="n">bins</span><span class="p">)</span>
-<span class="n">x</span><span class="o">.</span><span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;light_weight&#39;</span><span class="p">,</span> <span class="s1">&#39;normal_weight&#39;</span><span class="p">,</span> <span class="s1">&#39;heavy_weight&#39;</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">rename_categories</span><span class="p">([</span><span class="s1">&#39;light_weight&#39;</span><span class="p">,</span> <span class="s1">&#39;normal_weight&#39;</span><span class="p">,</span> <span class="s1">&#39;heavy_weight&#39;</span><span class="p">])</span>
 
 <span class="c1"># Stworzenie nowej kolumny z kategoriami</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight_category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
@@ -4740,9 +4756,9 @@ heavy weight count 100
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="iterowanie-po-kolejnych-wierszach">
-<h3>Iterowanie po kolejnych wierszach<a class="headerlink" href="#iterowanie-po-kolejnych-wierszach" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="iterowanie-po-kolejnych-wierszach">
+<h3>Iterowanie po kolejnych wierszach<a class="headerlink" href="#iterowanie-po-kolejnych-wierszach" title="Permalink to this heading">#</a></h3>
 <p>Chcąc napisać pętlę, która będzie iterowana po kolejnych wierszach można użyć funkcji iterrows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4761,12 +4777,12 @@ Indeks: 4, Liczba koni mechanicznych: 92.0
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="laczenie-i-transformacja-danych">
-<h2>Lączenie i transformacja danych<a class="headerlink" href="#laczenie-i-transformacja-danych" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="merge">
-<h3>Merge<a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="laczenie-i-transformacja-danych">
+<h2>Łączenie i transformacja danych<a class="headerlink" href="#laczenie-i-transformacja-danych" title="Permalink to this heading">#</a></h2>
+<section id="merge">
+<h3>Merge<a class="headerlink" href="#merge" title="Permalink to this heading">#</a></h3>
 <p>Funkcja merge łączy dwie ramki danych w analogiczny sposób jak dzieje się to w sqlu. Definiuje się, które ramki danych chce się połączyć, w jaki sposób (nazwy te same co w sql) oraz ze względu, na które kolumny.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4846,7 +4862,7 @@ Indeks: 4, Liczba koni mechanicznych: 92.0
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_merged</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> 
                     <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="c1"># parametr how mowi jak dwie ramki danych maja byc polaczone</span>
                     <span class="n">on</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;origin&#39;</span><span class="p">]</span><span class="c1"># parametr on mowi wg jakich kolumn laczone sa ramki danych </span>
-                    <span class="p">)</span>                     <span class="c1"># (jesli ich nazwy sie roznia to uzywamy left_on, right_on</span>
+                    <span class="p">)</span>                     <span class="c1"># jesli ich nazwy sie roznia to uzywamy left_on, right_on</span>
 <span class="n">df_merged</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -4958,10 +4974,10 @@ Indeks: 4, Liczba koni mechanicznych: 92.0
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="concat">
-<h3>Concat<a class="headerlink" href="#concat" title="Permalink to this headline">¶</a></h3>
-<p>Funkcja concat działa podobnie do wyżej przedstawionego append lub do merge z parametrem how=’inner’ (zależy czy działamy na wierszach (axis=0) czy kolumnach (axis=1)).</p>
+</section>
+<section id="concat-do-merge-tabelek">
+<h3>Concat do merge tabelek<a class="headerlink" href="#concat-do-merge-tabelek" title="Permalink to this heading">#</a></h3>
+<p>Funkcja poza możliwością dodawania wierszy może służyć jako merge z parametrem how=’inner’ (zależy czy działamy na wierszach (axis=0) czy kolumnach (axis=1)).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Laczenie kolumn (podobne do merge z parametrem how=&#39;inner&#39;)</span>
@@ -5089,120 +5105,9 @@ Indeks: 4, Liczba koni mechanicznych: 92.0
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dodawanie wierszy (wracamy do naszej wczesniejszej jednowierszowej ramki danych df_to_append) (podobne do append)</span>
-<span class="n">df_to_append</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="s1">&#39;miles_per_gallon&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_to_append</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;horsepower*acceleration&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_concat_row</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_to_append</span><span class="p">,</span> <span class="n">df</span><span class="p">])</span>
-<span class="n">df_concat_row</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>miles_per_gallon</th>
-      <th>cylinders</th>
-      <th>displacement</th>
-      <th>horsepower</th>
-      <th>weight</th>
-      <th>acceleration</th>
-      <th>model_year</th>
-      <th>origin</th>
-      <th>name</th>
-      <th>weight_category</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>31.0</td>
-      <td>4.0</td>
-      <td>119.0</td>
-      <td>82.0</td>
-      <td>2720.0</td>
-      <td>19.4</td>
-      <td>82.0</td>
-      <td>usa</td>
-      <td>chevy s-10</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>22.0</td>
-      <td>6.0</td>
-      <td>232.0</td>
-      <td>112.0</td>
-      <td>2835.0</td>
-      <td>14.7</td>
-      <td>82.0</td>
-      <td>usa</td>
-      <td>ford granada l</td>
-      <td>normal_weight</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>25.0</td>
-      <td>6.0</td>
-      <td>181.0</td>
-      <td>110.0</td>
-      <td>2945.0</td>
-      <td>16.4</td>
-      <td>82.0</td>
-      <td>usa</td>
-      <td>buick century limited</td>
-      <td>normal_weight</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>32.0</td>
-      <td>4.0</td>
-      <td>144.0</td>
-      <td>96.0</td>
-      <td>2665.0</td>
-      <td>13.9</td>
-      <td>82.0</td>
-      <td>japan</td>
-      <td>toyota celica gt</td>
-      <td>normal_weight</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>24.0</td>
-      <td>4.0</td>
-      <td>140.0</td>
-      <td>92.0</td>
-      <td>2865.0</td>
-      <td>16.4</td>
-      <td>82.0</td>
-      <td>usa</td>
-      <td>ford fairmont futura</td>
-      <td>normal_weight</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</div>
-<div class="section" id="melt">
-<h3>Melt<a class="headerlink" href="#melt" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="melt">
+<h3>Melt<a class="headerlink" href="#melt" title="Permalink to this heading">#</a></h3>
 <p>Funkcja melt sprowadza kolumny do wierszy. Przykład poniżej.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5237,27 +5142,27 @@ Indeks: 4, Liczba koni mechanicznych: 92.0
     <tr>
       <th>0</th>
       <td>miles_per_gallon</td>
-      <td>22</td>
+      <td>22.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>miles_per_gallon</td>
-      <td>25</td>
+      <td>25.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>miles_per_gallon</td>
-      <td>32</td>
+      <td>32.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>miles_per_gallon</td>
-      <td>24</td>
+      <td>24.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>miles_per_gallon</td>
-      <td>26</td>
+      <td>26.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -5294,13 +5199,13 @@ Indeks: 4, Liczba koni mechanicznych: 92.0
 <p>3920 rows × 2 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="pivottable">
-<h3>PivotTable<a class="headerlink" href="#pivottable" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pivottable">
+<h3>PivotTable<a class="headerlink" href="#pivottable" title="Permalink to this heading">#</a></h3>
 <p>Tworzenie tabeli przestawnej analogicznie jak w excelu.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;cylinders&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;cylinders&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -5506,9 +5411,9 @@ Indeks: 4, Liczba koni mechanicznych: 92.0
 <p>301 rows × 10 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="explode">
-<h3>Explode<a class="headerlink" href="#explode" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="explode">
+<h3>Explode<a class="headerlink" href="#explode" title="Permalink to this heading">#</a></h3>
 <p>Możliwe, że mając dane w kolumnie zapisane w formie listy będziemy chcieli je rozbić na oddzielne kolumny. W tym przypadku przydatna będzie funkcja explode.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5616,27 +5521,27 @@ Indeks: 4, Liczba koni mechanicznych: 92.0
     <tr>
       <th>0</th>
       <td>3</td>
-      <td>100</td>
+      <td>100.0</td>
     </tr>
     <tr>
       <th>0</th>
       <td>3</td>
-      <td>110</td>
+      <td>110.0</td>
     </tr>
     <tr>
       <th>0</th>
       <td>3</td>
-      <td>90</td>
+      <td>90.0</td>
     </tr>
     <tr>
       <th>0</th>
       <td>3</td>
-      <td>97</td>
+      <td>97.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>4</td>
-      <td>96</td>
+      <td>96.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -5646,22 +5551,22 @@ Indeks: 4, Liczba koni mechanicznych: 92.0
     <tr>
       <th>4</th>
       <td>8</td>
-      <td>220</td>
+      <td>220.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8</td>
-      <td>210</td>
+      <td>210.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8</td>
-      <td>200</td>
+      <td>200.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8</td>
-      <td>193</td>
+      <td>193.0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -5673,9 +5578,9 @@ Indeks: 4, Liczba koni mechanicznych: 92.0
 <p>126 rows × 2 columns</p>
 </div></div></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -5689,7 +5594,7 @@ Indeks: 4, Liczba koni mechanicznych: 92.0
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./1. Tutorial pandas"
         },
         predefinedOutput: true
@@ -5697,46 +5602,138 @@ Indeks: 4, Liczba koni mechanicznych: 92.0
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Pakiet NumPy - tutorial</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By codersi<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wstep">Wstęp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-dataframe">Tworzenie DataFrame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-dataframe-ze-slownika">Tworzenie DataFrame ze słownika</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-dataframe-z-list">Tworzenie DataFrame z list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytywanie-dataframe-z-pliku">Wczytywanie DataFrame z pliku</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-funkcje">Podstawowe funkcje</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-podzbiorow">Tworzenie podzbiorów</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operacje-na-danych">Operacje na danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nadpisanie-okreslonej-wartosci">Nadpisanie określonej wartości</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sortowanie-i-resetowanie-indeksow">Sortowanie i resetowanie indeksów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grupowanie-danych">Grupowanie danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dzialanie-roznymi-funkcjami-na-kazda-z-kolumn">Działanie różnymi funkcjami na każdą z kolumn</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funkcja-lambda">Funkcja lambda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-nowych-kolumn">Tworzenie nowych kolumn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-nowych-wierszy">Tworzenie nowych wierszy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usuwanie-danych">Usuwanie danych</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dzialania-na-wartosciach-nullowych">Działania na wartościach nullowych</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usuwanie-duplikatow">Usuwanie duplikatów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zmiana-nazw-kolumn">Zmiana nazw kolumn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zmiana-danych-liczbowych-na-kategorie">Zmiana danych liczbowych na kategorie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterowanie-po-kolejnych-wierszach">Iterowanie po kolejnych wierszach</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laczenie-i-transformacja-danych">Łączenie i transformacja danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge">Merge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concat-do-merge-tabelek">Concat do merge tabelek</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melt">Melt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivottable">PivotTable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explode">Explode</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By codersi
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

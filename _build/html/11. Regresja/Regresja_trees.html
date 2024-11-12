@@ -1,0 +1,2800 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Regresja oparta o modele drzewiaste &#8212; Silky Coders Data Science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '11. Regresja/Regresja_trees';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Wyjaśnialność modeli - metryki statystyczne - tutorial" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html" />
+    <link rel="prev" title="Liniowe modele regresji" href="Regresja_lin.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/silky-logo.png" class="logo__image only-light" alt="Silky Coders Data Science - Home"/>
+    <img src="../_static/silky-logo.png" class="logo__image only-dark pst-js-only" alt="Silky Coders Data Science - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wprowadzenie do pakietów numpy i pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">Pakiet pandas - tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">Pakiet NumPy - tutorial</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wizualizacja danych</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">Wizualizacja danych w Python</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza statystyczna</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">Analiza statystyczna - tutorial</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wykrywanie anomalii</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">Wykrywanie anomalii - definicje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">Wykrywanie anomalii - tutorial</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inżynieria cech</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">Inżynieria cech</a></li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Czyszczenie danych</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">Czyszczenie danych</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klasteryzacja</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">Klasteryzacja w Python</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klasyfikacja</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">Klasyfikacja w Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja GLM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Regresja_lin.html">Liniowe modele regresji</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja - modele drzewiaste</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Regresja oparta o modele drzewiaste</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wyjaśnialność modeli</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">Wyjaśnialność modeli - metryki statystyczne - tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">Wyjaśnialność modeli - definicje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">Wyjaśnialność modeli - XAI - tutorial</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Przetwarzanie języka naturalnego</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../13.%20NLP/TutorialNLP.html">NLP</a></li>
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/11. Regresja/Regresja_trees.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kikonPL/studia_PG" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F11. Regresja/Regresja_trees.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/11. Regresja/Regresja_trees.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Regresja oparta o modele drzewiaste</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wstep">Wstęp</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przygotowanie-danych">Przygotowanie danych</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees">Decision Trees</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-learning">Ensemble Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging">Bagging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting">Boosting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roznice-pomiedzy-random-forest-vs-xgboost">Różnice pomiędzy Random Forest vs XGBoost</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklad">Przykład</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightgbm">LightGBM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roznice-pomiedzy-xgboost-vs-lightgbm">Różnice pomiędzy XGBoost vs LightGBM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Przykład</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografia</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="regresja-oparta-o-modele-drzewiaste">
+<h1>Regresja oparta o modele drzewiaste<a class="headerlink" href="#regresja-oparta-o-modele-drzewiaste" title="Permalink to this heading">#</a></h1>
+<section id="wstep">
+<h2>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this heading">#</a></h2>
+<p>Wraz z rozwojem uczenia maszynowego powstały coraz bardziej złożone algorytmy. Przy wykorzystaniu większej liczby zmiennych oraz większego wolumenu danych osiągają one lepsze wyniki. Takimi algorytmami są między innymi XGBoost oraz LightGBM. Są to modele drzewiaste, których zrozumienie rozpoczyna się wraz ze zrozumieniem modelu drzew decyzyjnych. Poniższy notatnik opiera się na wprowadzeniu w świat tych właśnie algorytmów.</p>
+<hr class="docutils" />
+<p>W poniższej części zostaną przedstawione 4 następujące algorytmy regresyjne:</p>
+<ul class="simple">
+<li><p>Decision Trees</p></li>
+<li><p>Random Forest</p></li>
+<li><p>XGBoost</p></li>
+<li><p>LightGBM</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data processing</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Wizualizacja</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># ML</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span><span class="p">,</span> <span class="n">plot_tree</span><span class="p">,</span> <span class="n">export_text</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">lightgbm</span>
+<span class="kn">import</span> <span class="nn">xgboost</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="przygotowanie-danych">
+<h3>Przygotowanie danych<a class="headerlink" href="#przygotowanie-danych" title="Permalink to this heading">#</a></h3>
+<p>Na potrzebę budowy modeli drzewiastych zostaną wprowadzone poniższe losowo wygenerowane dane treningowe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">125</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">noise</span>
+
+<span class="n">x_train</span><span class="p">,</span> <span class="n">x_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ponadto w celach edukacyjnych ponownie wytrenujemy model regresji wielomianowej, aby następnie porównać skuteczność modeli drzewiastych do modelu wielomianowego.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Polynomial features</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">x_train_poly</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">x_valid_poly</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+
+<span class="c1"># Model fit</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train_poly</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Predict</span>
+<span class="n">preds_poly</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid_poly</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="decision-trees">
+<h2>Decision Trees<a class="headerlink" href="#decision-trees" title="Permalink to this heading">#</a></h2>
+<p>Drzewa decyzyjne to algorytm modelujący dane nieliniowo, nadający się zarówno do klasyfikacji, jak i regresji. Przyjmują one dowolne typy danych, numeryczne i kategoryczne, bez założeń dotyczących rozkładu i bez potrzeby ich wstępnego przetwarzania. Algorytm ten jest względnie łatwy w użyciu, a jego wyniki są w miarę proste w interpretacji. Po dopasowaniu modelu, przewidywanie wyników jest szybkim procesem. Jednak drzewa decyzyjne mają też swoje wady, mają one tendencję do przeuczania (zwłaszcza, gdy nie są przycinane).</p>
+<p><strong>Konstrukcja</strong></p>
+<p>Drzewa decyzyjnie można podsumować jako serię pytań/warunków dla ustalonego rekordu w danych treningowych, które kończą się zwróceniem przez drzewo informacji o oczekiwanej wartości (klasie) zmiennej objaśnianej dla owego rekordu. Składają się one z węzłów, gałęzi i liści. Konstrukcję zaczyna się od korzenia, czyli pierwszego węzła. Następnie tworzymy gałęzie odpowiadające różnym odpowiedziom na to pytanie, i powtarzamy te czynności do momentu, gdy drzewo zwraca nam oczekiwaną wartość zmiennej objaśnianej. Jeśli w liściu znalazła się więcej niż jedna wartość, wyznaczamy średnią z owych wartości jako wskazaną przez drzewo. Drzewa stosowane w regresji nazywa się czasem drzewami regresyjnymi.</p>
+<p><strong>Przycinanie liści</strong></p>
+<p>Żeby zapobiec zbyt dużemu rozrostowi drzewa decyzyjnego, który może doprowadzić do małego poziomu generalizacji oraz spowolnienia działania algorytmu, stosuje się tak zwane przycianie drzewa (ang pruning). Polega ono na usuwaniu zbędnych elementów z drzewa po jego utworzeniu. Wyróżnia się dwa podstawowe rodzaje przycinania:</p>
+<ol class="arabic simple">
+<li><p>przycinanie wsteczne, polegające na wygenerowaniu drzewa, które jest bardzo dobrze dopasowane do zbioru treningowego, a następnie usuwanie od dołu najmniej efektywnych węzłów,</p></li>
+<li><p>przycinanie w przód, polegające na wstrzymaniu dalszej rozbudowy danej gałęzi jeśli na węźle znajduje się ilość próbek zaklasyfikowanych do danej klasy, przekracza wyznaczony próg.</p></li>
+</ol>
+<p><strong>Miary wyboru podziału drzewa regresyjnego</strong></p>
+<p>W drzewach decyzyjnych dla klasyfikacji, drzewo musi zadawać właściwe pytania we właściwym momencie, aby dokładnie klasyfikować dane. W tym celu korzysta się z miar entropii, przyrostu informacji lub indeksu Giniego. Jednak ponieważ teraz przewidujemy wartości ciągłych zmiennych, potrzebujemy innej miary. Takiej, która określa odchylenie predykcji od rzeczywistej wartości. Naturalnym wyborem w regresji zdaje się być błąd średniokwadratowy, dany dla przypomnienia wzorem</p>
+<div class="math notranslate nohighlight">
+\[MSE = \frac{1}{n}\sum_{i=1}^{n}(Y_i - \hat{Y})^2,\]</div>
+<p>gdzie <span class="math notranslate nohighlight">\(Y\)</span> to wartości znajdujące się w węźle drzewa, który chcemy dzielić, zaś <span class="math notranslate nohighlight">\(\hat{Y}\)</span> jest ich średnią. Wybierając podział należy ten błąd zminimalizować. Alternatywnie korzysta się z następujących kryteriów: MSE Friedmana, MAE oraz Poisson deviance.</p>
+<p>Przejdźmy przez przykładowy, ręczny wybór podziału.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_example</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">)),</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.4</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">5.5</span><span class="p">,</span><span class="mf">6.1</span><span class="p">,</span><span class="mf">6.7</span><span class="p">,</span><span class="mf">6.4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">3.2</span><span class="p">,</span><span class="mf">3.1</span><span class="p">]})</span>
+<span class="n">df_example</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1.4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1.1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>5.5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>6.1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>6.7</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>6.4</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>3.1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">df_example</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df_example</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Zbior treningowy dla przykładowego drzewa decyzyjnego&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4fbd39d33d6c46ab9b326c83f7ac895e3b8fa226d9b81a53b5033ff5c04bb1f2.png" src="../_images/4fbd39d33d6c46ab9b326c83f7ac895e3b8fa226d9b81a53b5033ff5c04bb1f2.png" />
+</div>
+</div>
+<p>Początkowa wartość <span class="math notranslate nohighlight">\(MSE\)</span> wynosi</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MSE =&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">df_example</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df_example</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]))</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span><span class="o">/</span> <span class="n">df_example</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE = 4.989234693877552
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dopiero zaczynamy budować drzewo, zatem w aktualnym węźle znajdują się wszystkie wartości <span class="math notranslate nohighlight">\(X\)</span>. Dla takiego zbioru danych, wszystkie możliwe warunki mają postać “Czy <span class="math notranslate nohighlight">\(X\)</span> jest większe/mniejsze niż <span class="math notranslate nohighlight">\(a\)</span>?”, gdzie <span class="math notranslate nohighlight">\(a\)</span> to może być dowolna liczba z przedziału <span class="math notranslate nohighlight">\((0,14)\)</span>. Dla uproszczenia będziemy rozpatrywać liczby <span class="math notranslate nohighlight">\(1.5,2.5,...,13.5\)</span>. Należy podzielić zbiór na każdy z 13 możliwych sposobów, wyznaczyć średnie wartości w węzłach jako aktualne wartości predykcji dla danego <span class="math notranslate nohighlight">\(X\)</span>, wyznaczyć wszystkie wartości <span class="math notranslate nohighlight">\(MSE\)</span> oraz wybrać podział, dla którego ten błąd jest najmniejszy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cut_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">mse_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">14</span><span class="p">):</span>
+    
+    <span class="n">cut</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span>
+    <span class="n">cut_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cut</span><span class="p">)</span>
+    
+    <span class="n">values_below</span> <span class="o">=</span> <span class="n">df_example</span><span class="p">[</span><span class="n">df_example</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">cut</span><span class="p">]</span>
+    <span class="n">values_above</span> <span class="o">=</span> <span class="n">df_example</span><span class="p">[</span><span class="n">df_example</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">cut</span><span class="p">]</span>
+    
+    <span class="n">pred_below</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">values_below</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">])</span>
+    <span class="n">pred_above</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">values_above</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">])</span>
+    
+    <span class="n">sse</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">values_below</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">pred_below</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">((</span><span class="n">values_above</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">pred_above</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">sse</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_example</span><span class="p">)</span>
+    <span class="n">mse_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tree_cut</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;cut&#39;</span><span class="p">:</span> <span class="n">cut_list</span><span class="p">,</span> <span class="s1">&#39;mse&#39;</span><span class="p">:</span> <span class="n">mse_list</span><span class="p">})</span>
+<span class="n">df_tree_cut</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cut</th>
+      <th>mse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.5</td>
+      <td>4.431429</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.5</td>
+      <td>3.868750</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.5</td>
+      <td>3.294416</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.5</td>
+      <td>2.453393</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.5</td>
+      <td>1.368635</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6.5</td>
+      <td>2.488006</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7.5</td>
+      <td>3.497347</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8.5</td>
+      <td>4.349167</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9.5</td>
+      <td>4.810540</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10.5</td>
+      <td>4.982250</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11.5</td>
+      <td>4.893377</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12.5</td>
+      <td>4.940119</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13.5</td>
+      <td>4.962198</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">df_tree_cut</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df_tree_cut</span><span class="p">[</span><span class="s1">&#39;mse&#39;</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="n">df_tree_cut</span><span class="p">[</span><span class="s1">&#39;mse&#39;</span><span class="p">],</span> <span class="n">palette</span> <span class="o">=</span> <span class="s1">&#39;crest&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Możliwe podziały dla pierwszego węzła drzewa decyzyjnego&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/179b37fc53845df58c1f2ba6958d62b7ae032642d7c91f85448d15755f9d9d7b.png" src="../_images/179b37fc53845df58c1f2ba6958d62b7ae032642d7c91f85448d15755f9d9d7b.png" />
+</div>
+</div>
+<p>Stąd otrzymujemy, że pierwszy węzeł drzewa powinien zawierać warunek</p>
+<p>“Czy <em>X</em> jest większe/mniejsze niż <em>5.5</em>?”</p>
+<p>Stwórzmy teraz całe drzewo regresyjne na zbiorze danych, z którego korzystaliśmy przy okazji regresji wielomianowej. Tym razem już automatycznie.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_reg</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">()</span>
+<span class="n">dt_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">preds_dt</span> <span class="o">=</span> <span class="n">dt_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wyniki6</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;RSS&#39;</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">preds_poly</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                                      <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_dt</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">))</span>
+                                    <span class="p">],</span>
+                             <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span>
+                                    <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt</span><span class="p">)</span>
+                                    <span class="p">],</span>
+                             <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span> 
+                                     <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt</span><span class="p">)]},</span> 
+                      <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;square_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;dt_reg&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">wyniki6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_fd70d_row0_col0, #T_fd70d_row0_col2, #T_fd70d_row1_col1 {
+  background-color: #f7fbff;
+  color: #000000;
+}
+#T_fd70d_row0_col1, #T_fd70d_row1_col0, #T_fd70d_row1_col2 {
+  background-color: #08306b;
+  color: #f1f1f1;
+}
+</style>
+<table id="T_fd70d">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_fd70d_level0_col0" class="col_heading level0 col0" >RSS</th>
+      <th id="T_fd70d_level0_col1" class="col_heading level0 col1" >R2</th>
+      <th id="T_fd70d_level0_col2" class="col_heading level0 col2" >MAE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_fd70d_level0_row0" class="row_heading level0 row0" >square_reg</th>
+      <td id="T_fd70d_row0_col0" class="data row0 col0" >0.710297</td>
+      <td id="T_fd70d_row0_col1" class="data row0 col1" >0.818960</td>
+      <td id="T_fd70d_row0_col2" class="data row0 col2" >0.131138</td>
+    </tr>
+    <tr>
+      <th id="T_fd70d_level0_row1" class="row_heading level0 row1" >dt_reg</th>
+      <td id="T_fd70d_row1_col0" class="data row1 col0" >1.442085</td>
+      <td id="T_fd70d_row1_col1" class="data row1 col1" >0.632443</td>
+      <td id="T_fd70d_row1_col2" class="data row1 col2" >0.197432</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Wyniki modelu na zbiorze walidacyjnym nie są dobre. Zwizualizujmy stworzone drzewo żeby sprawdzić, co mogło pójść nie tak.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">export_text</span><span class="p">(</span><span class="n">dt_reg</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plot_tree</span><span class="p">(</span><span class="n">dt_reg</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|--- feature_0 &lt;= 0.56
+|   |--- feature_0 &lt;= -0.74
+|   |   |--- feature_0 &lt;= -0.79
+|   |   |   |--- feature_0 &lt;= -0.81
+|   |   |   |   |--- feature_0 &lt;= -0.86
+|   |   |   |   |   |--- feature_0 &lt;= -0.99
+|   |   |   |   |   |   |--- feature_0 &lt;= -1.00
+|   |   |   |   |   |   |   |--- value: [0.22]
+|   |   |   |   |   |   |--- feature_0 &gt;  -1.00
+|   |   |   |   |   |   |   |--- value: [0.36]
+|   |   |   |   |   |--- feature_0 &gt;  -0.99
+|   |   |   |   |   |   |--- feature_0 &lt;= -0.89
+|   |   |   |   |   |   |   |--- feature_0 &lt;= -0.99
+|   |   |   |   |   |   |   |   |--- value: [0.49]
+|   |   |   |   |   |   |   |--- feature_0 &gt;  -0.99
+|   |   |   |   |   |   |   |   |--- feature_0 &lt;= -0.95
+|   |   |   |   |   |   |   |   |   |--- value: [0.75]
+|   |   |   |   |   |   |   |   |--- feature_0 &gt;  -0.95
+|   |   |   |   |   |   |   |   |   |--- value: [0.67]
+|   |   |   |   |   |   |--- feature_0 &gt;  -0.89
+|   |   |   |   |   |   |   |--- value: [0.46]
+|   |   |   |   |--- feature_0 &gt;  -0.86
+|   |   |   |   |   |--- feature_0 &lt;= -0.83
+|   |   |   |   |   |   |--- feature_0 &lt;= -0.85
+|   |   |   |   |   |   |   |--- value: [0.14]
+|   |   |   |   |   |   |--- feature_0 &gt;  -0.85
+|   |   |   |   |   |   |   |--- feature_0 &lt;= -0.84
+|   |   |   |   |   |   |   |   |--- value: [0.33]
+|   |   |   |   |   |   |   |--- feature_0 &gt;  -0.84
+|   |   |   |   |   |   |   |   |--- value: [0.23]
+|   |   |   |   |   |--- feature_0 &gt;  -0.83
+|   |   |   |   |   |   |--- feature_0 &lt;= -0.82
+|   |   |   |   |   |   |   |--- value: [0.56]
+|   |   |   |   |   |   |--- feature_0 &gt;  -0.82
+|   |   |   |   |   |   |   |--- value: [0.38]
+|   |   |   |--- feature_0 &gt;  -0.81
+|   |   |   |   |--- value: [0.77]
+|   |   |--- feature_0 &gt;  -0.79
+|   |   |   |--- feature_0 &lt;= -0.75
+|   |   |   |   |--- feature_0 &lt;= -0.77
+|   |   |   |   |   |--- value: [0.34]
+|   |   |   |   |--- feature_0 &gt;  -0.77
+|   |   |   |   |   |--- value: [0.09]
+|   |   |   |--- feature_0 &gt;  -0.75
+|   |   |   |   |--- feature_0 &lt;= -0.74
+|   |   |   |   |   |--- value: [0.46]
+|   |   |   |   |--- feature_0 &gt;  -0.74
+|   |   |   |   |   |--- value: [0.29]
+|   |--- feature_0 &gt;  -0.74
+|   |   |--- feature_0 &lt;= 0.38
+|   |   |   |--- feature_0 &lt;= 0.22
+|   |   |   |   |--- feature_0 &lt;= 0.19
+|   |   |   |   |   |--- feature_0 &lt;= 0.08
+|   |   |   |   |   |   |--- feature_0 &lt;= -0.01
+|   |   |   |   |   |   |   |--- feature_0 &lt;= -0.09
+|   |   |   |   |   |   |   |   |--- feature_0 &lt;= -0.22
+|   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= -0.71
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= -0.73
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [-0.08]
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  -0.73
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [-0.22]
+|   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  -0.71
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= -0.69
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [0.29]
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  -0.69
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |--- feature_0 &gt;  -0.22
+|   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= -0.16
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= -0.21
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [-0.27]
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  -0.21
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  -0.16
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= -0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [0.28]
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  -0.16
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |--- feature_0 &gt;  -0.09
+|   |   |   |   |   |   |   |   |--- feature_0 &lt;= -0.05
+|   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= -0.07
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= -0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [0.24]
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  -0.08
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [0.24]
+|   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  -0.07
+|   |   |   |   |   |   |   |   |   |   |--- value: [0.23]
+|   |   |   |   |   |   |   |   |--- feature_0 &gt;  -0.05
+|   |   |   |   |   |   |   |   |   |--- value: [0.07]
+|   |   |   |   |   |   |--- feature_0 &gt;  -0.01
+|   |   |   |   |   |   |   |--- feature_0 &lt;= 0.01
+|   |   |   |   |   |   |   |   |--- feature_0 &lt;= 0.01
+|   |   |   |   |   |   |   |   |   |--- value: [-0.08]
+|   |   |   |   |   |   |   |   |--- feature_0 &gt;  0.01
+|   |   |   |   |   |   |   |   |   |--- value: [-0.06]
+|   |   |   |   |   |   |   |--- feature_0 &gt;  0.01
+|   |   |   |   |   |   |   |   |--- feature_0 &lt;= 0.05
+|   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= 0.03
+|   |   |   |   |   |   |   |   |   |   |--- value: [-0.30]
+|   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  0.03
+|   |   |   |   |   |   |   |   |   |   |--- value: [-0.27]
+|   |   |   |   |   |   |   |   |--- feature_0 &gt;  0.05
+|   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= 0.06
+|   |   |   |   |   |   |   |   |   |   |--- value: [-0.02]
+|   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  0.06
+|   |   |   |   |   |   |   |   |   |   |--- value: [-0.12]
+|   |   |   |   |   |--- feature_0 &gt;  0.08
+|   |   |   |   |   |   |--- feature_0 &lt;= 0.19
+|   |   |   |   |   |   |   |--- feature_0 &lt;= 0.18
+|   |   |   |   |   |   |   |   |--- feature_0 &lt;= 0.15
+|   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= 0.11
+|   |   |   |   |   |   |   |   |   |   |--- value: [0.17]
+|   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  0.11
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= 0.12
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [0.05]
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  0.12
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [-0.00]
+|   |   |   |   |   |   |   |   |--- feature_0 &gt;  0.15
+|   |   |   |   |   |   |   |   |   |--- value: [0.26]
+|   |   |   |   |   |   |   |--- feature_0 &gt;  0.18
+|   |   |   |   |   |   |   |   |--- value: [-0.06]
+|   |   |   |   |   |   |--- feature_0 &gt;  0.19
+|   |   |   |   |   |   |   |--- value: [0.25]
+|   |   |   |   |--- feature_0 &gt;  0.19
+|   |   |   |   |   |--- feature_0 &lt;= 0.21
+|   |   |   |   |   |   |--- feature_0 &lt;= 0.20
+|   |   |   |   |   |   |   |--- value: [-0.15]
+|   |   |   |   |   |   |--- feature_0 &gt;  0.20
+|   |   |   |   |   |   |   |--- value: [-0.09]
+|   |   |   |   |   |--- feature_0 &gt;  0.21
+|   |   |   |   |   |   |--- value: [-0.30]
+|   |   |   |--- feature_0 &gt;  0.22
+|   |   |   |   |--- feature_0 &lt;= 0.23
+|   |   |   |   |   |--- value: [0.49]
+|   |   |   |   |--- feature_0 &gt;  0.23
+|   |   |   |   |   |--- feature_0 &lt;= 0.24
+|   |   |   |   |   |   |--- value: [-0.01]
+|   |   |   |   |   |--- feature_0 &gt;  0.24
+|   |   |   |   |   |   |--- feature_0 &lt;= 0.34
+|   |   |   |   |   |   |   |--- feature_0 &lt;= 0.30
+|   |   |   |   |   |   |   |   |--- feature_0 &lt;= 0.25
+|   |   |   |   |   |   |   |   |   |--- value: [0.25]
+|   |   |   |   |   |   |   |   |--- feature_0 &gt;  0.25
+|   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= 0.28
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= 0.27
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [0.10]
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  0.27
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [-0.01]
+|   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  0.28
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &lt;= 0.29
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [0.13]
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 &gt;  0.29
+|   |   |   |   |   |   |   |   |   |   |   |--- value: [0.16]
+|   |   |   |   |   |   |   |--- feature_0 &gt;  0.30
+|   |   |   |   |   |   |   |   |--- value: [0.34]
+|   |   |   |   |   |   |--- feature_0 &gt;  0.34
+|   |   |   |   |   |   |   |--- feature_0 &lt;= 0.37
+|   |   |   |   |   |   |   |   |--- value: [-0.10]
+|   |   |   |   |   |   |   |--- feature_0 &gt;  0.37
+|   |   |   |   |   |   |   |   |--- value: [0.18]
+|   |   |--- feature_0 &gt;  0.38
+|   |   |   |--- feature_0 &lt;= 0.41
+|   |   |   |   |--- value: [0.63]
+|   |   |   |--- feature_0 &gt;  0.41
+|   |   |   |   |--- feature_0 &lt;= 0.53
+|   |   |   |   |   |--- feature_0 &lt;= 0.48
+|   |   |   |   |   |   |--- value: [0.44]
+|   |   |   |   |   |--- feature_0 &gt;  0.48
+|   |   |   |   |   |   |--- value: [0.49]
+|   |   |   |   |--- feature_0 &gt;  0.53
+|   |   |   |   |   |--- value: [0.30]
+|--- feature_0 &gt;  0.56
+|   |--- feature_0 &lt;= 0.80
+|   |   |--- feature_0 &lt;= 0.62
+|   |   |   |--- feature_0 &lt;= 0.59
+|   |   |   |   |--- value: [0.56]
+|   |   |   |--- feature_0 &gt;  0.59
+|   |   |   |   |--- value: [0.59]
+|   |   |--- feature_0 &gt;  0.62
+|   |   |   |--- feature_0 &lt;= 0.75
+|   |   |   |   |--- feature_0 &lt;= 0.69
+|   |   |   |   |   |--- feature_0 &lt;= 0.65
+|   |   |   |   |   |   |--- feature_0 &lt;= 0.64
+|   |   |   |   |   |   |   |--- value: [0.82]
+|   |   |   |   |   |   |--- feature_0 &gt;  0.64
+|   |   |   |   |   |   |   |--- value: [0.99]
+|   |   |   |   |   |--- feature_0 &gt;  0.65
+|   |   |   |   |   |   |--- feature_0 &lt;= 0.66
+|   |   |   |   |   |   |   |--- value: [0.75]
+|   |   |   |   |   |   |--- feature_0 &gt;  0.66
+|   |   |   |   |   |   |   |--- feature_0 &lt;= 0.67
+|   |   |   |   |   |   |   |   |--- value: [0.87]
+|   |   |   |   |   |   |   |--- feature_0 &gt;  0.67
+|   |   |   |   |   |   |   |   |--- value: [0.89]
+|   |   |   |   |--- feature_0 &gt;  0.69
+|   |   |   |   |   |--- feature_0 &lt;= 0.71
+|   |   |   |   |   |   |--- value: [0.36]
+|   |   |   |   |   |--- feature_0 &gt;  0.71
+|   |   |   |   |   |   |--- value: [0.81]
+|   |   |   |--- feature_0 &gt;  0.75
+|   |   |   |   |--- feature_0 &lt;= 0.76
+|   |   |   |   |   |--- value: [0.91]
+|   |   |   |   |--- feature_0 &gt;  0.76
+|   |   |   |   |   |--- feature_0 &lt;= 0.78
+|   |   |   |   |   |   |--- feature_0 &lt;= 0.77
+|   |   |   |   |   |   |   |--- value: [0.95]
+|   |   |   |   |   |   |--- feature_0 &gt;  0.77
+|   |   |   |   |   |   |   |--- value: [0.96]
+|   |   |   |   |   |--- feature_0 &gt;  0.78
+|   |   |   |   |   |   |--- value: [0.97]
+|   |--- feature_0 &gt;  0.80
+|   |   |--- feature_0 &lt;= 0.91
+|   |   |   |--- feature_0 &lt;= 0.85
+|   |   |   |   |--- feature_0 &lt;= 0.81
+|   |   |   |   |   |--- value: [1.15]
+|   |   |   |   |--- feature_0 &gt;  0.81
+|   |   |   |   |   |--- value: [1.26]
+|   |   |   |--- feature_0 &gt;  0.85
+|   |   |   |   |--- feature_0 &lt;= 0.89
+|   |   |   |   |   |--- value: [0.80]
+|   |   |   |   |--- feature_0 &gt;  0.89
+|   |   |   |   |   |--- feature_0 &lt;= 0.91
+|   |   |   |   |   |   |--- feature_0 &lt;= 0.90
+|   |   |   |   |   |   |   |--- value: [1.13]
+|   |   |   |   |   |   |--- feature_0 &gt;  0.90
+|   |   |   |   |   |   |   |--- value: [1.37]
+|   |   |   |   |   |--- feature_0 &gt;  0.91
+|   |   |   |   |   |   |--- value: [1.01]
+|   |   |--- feature_0 &gt;  0.91
+|   |   |   |--- feature_0 &lt;= 0.94
+|   |   |   |   |--- feature_0 &lt;= 0.92
+|   |   |   |   |   |--- value: [1.48]
+|   |   |   |   |--- feature_0 &gt;  0.92
+|   |   |   |   |   |--- value: [1.39]
+|   |   |   |--- feature_0 &gt;  0.94
+|   |   |   |   |--- value: [1.14]
+</pre></div>
+</div>
+<img alt="../_images/9bfc2043f612714886de55a03d3f2abdf2bb0139390f2089dd96525533736e86.png" src="../_images/9bfc2043f612714886de55a03d3f2abdf2bb0139390f2089dd96525533736e86.png" />
+</div>
+</div>
+<p>Wygląda na to, że domyślne drzewo regresyjne stworzyło tak dużo węzłów, że model jest mocno przeuczony. Aby temu zapobiec, ograniczymy głębokość drzewa, czyli maksymalną liczbę węzłów od korzenia do liścia włącznie.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_reg2</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">max_depth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">dt_reg2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">preds_dt2</span> <span class="o">=</span> <span class="n">dt_reg2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wyniki7</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> 
+        <span class="p">{</span>
+            <span class="s1">&#39;RSS&#39;</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">preds_poly</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_dt2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">))</span>
+                <span class="p">],</span>
+            <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">)</span>
+                <span class="p">],</span>
+            <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span> 
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">)]</span>
+        <span class="p">},</span> 
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;square_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;dt_reg&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">wyniki7</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_82e6e_row0_col0, #T_82e6e_row0_col2, #T_82e6e_row1_col1 {
+  background-color: #08306b;
+  color: #f1f1f1;
+}
+#T_82e6e_row0_col1, #T_82e6e_row1_col0, #T_82e6e_row1_col2 {
+  background-color: #f7fbff;
+  color: #000000;
+}
+</style>
+<table id="T_82e6e">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_82e6e_level0_col0" class="col_heading level0 col0" >RSS</th>
+      <th id="T_82e6e_level0_col1" class="col_heading level0 col1" >R2</th>
+      <th id="T_82e6e_level0_col2" class="col_heading level0 col2" >MAE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_82e6e_level0_row0" class="row_heading level0 row0" >square_reg</th>
+      <td id="T_82e6e_row0_col0" class="data row0 col0" >0.710297</td>
+      <td id="T_82e6e_row0_col1" class="data row0 col1" >0.818960</td>
+      <td id="T_82e6e_row0_col2" class="data row0 col2" >0.131138</td>
+    </tr>
+    <tr>
+      <th id="T_82e6e_level0_row1" class="row_heading level0 row1" >dt_reg</th>
+      <td id="T_82e6e_row1_col0" class="data row1 col0" >0.574310</td>
+      <td id="T_82e6e_row1_col1" class="data row1 col1" >0.853621</td>
+      <td id="T_82e6e_row1_col2" class="data row1 col2" >0.126859</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Ograniczenie głębokości drzewa pomogło i model jest teraz skuteczniejszy niż regresja kwadratowa. Przykładowe hiperparametry, które można regulować/optymalizować to:</p>
+<ul class="simple">
+<li><p>criterion - kryterium wyboru podziału węzła,</p></li>
+<li><p>min_samples_split - minimalna liczba wartości do podzielenia węzła,</p></li>
+<li><p>min_samples_leaf - minimalna liczba wartości w liściu drzewa,</p></li>
+<li><p>max_depth - maksymalna głębokość drzewa.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">export_text</span><span class="p">(</span><span class="n">dt_reg2</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plot_tree</span><span class="p">(</span><span class="n">dt_reg2</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|--- feature_0 &lt;= 0.56
+|   |--- feature_0 &lt;= -0.74
+|   |   |--- feature_0 &lt;= -0.79
+|   |   |   |--- value: [0.45]
+|   |   |--- feature_0 &gt;  -0.79
+|   |   |   |--- value: [0.29]
+|   |--- feature_0 &gt;  -0.74
+|   |   |--- feature_0 &lt;= 0.38
+|   |   |   |--- value: [0.03]
+|   |   |--- feature_0 &gt;  0.38
+|   |   |   |--- value: [0.47]
+|--- feature_0 &gt;  0.56
+|   |--- feature_0 &lt;= 0.80
+|   |   |--- feature_0 &lt;= 0.62
+|   |   |   |--- value: [0.57]
+|   |   |--- feature_0 &gt;  0.62
+|   |   |   |--- value: [0.84]
+|   |--- feature_0 &gt;  0.80
+|   |   |--- feature_0 &lt;= 0.91
+|   |   |   |--- value: [1.12]
+|   |   |--- feature_0 &gt;  0.91
+|   |   |   |--- value: [1.34]
+</pre></div>
+</div>
+<img alt="../_images/dd981dbb9bd9e9052319e731412449c7d6980c329cbd85890d6214fb66546aad.png" src="../_images/dd981dbb9bd9e9052319e731412449c7d6980c329cbd85890d6214fb66546aad.png" />
+</div>
+</div>
+<p>Na koniec tej części, warto wspomnieć o paru istotnych informacjach dotyczących drzew decyzyjnych.</p>
+<ol class="arabic simple">
+<li><p>Drzewa decyzyjne nie wymagają wcześniejszej standaryzacji danych - co więcej, ewentualna standaryzacja nie wpływa na wyniki oraz predykcję.</p></li>
+<li><p>Drzewa decyzyjne mają skłonność do przeuczania się.</p></li>
+<li><p>Pracując z drzewami, należy uważać przy detekcji outlierów - jeśli wykluczymy outliery ze zbioru treningowego, a analogiczne znajdą się w zbiorze testowym lub walidacyjnym, drzewo może takich wartości nie obsłużyć i zwrócić mocno niepoprawne predykcje.</p></li>
+<li><p>W praktyce, drzewa decyzyjne wykorzystuje się głównie jako algorytm pomocniczy w algorytmach ensemble, takich jak na przykład Random Forest, LightGBM czy XGBoost.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="ensemble-learning">
+<h2>Ensemble Learning<a class="headerlink" href="#ensemble-learning" title="Permalink to this heading">#</a></h2>
+<p>Zdarza się, że predykcja z jednego modelu to za mało aby osiągnąć oczekiwane przez nas rezultaty. Może się okazać, że pojedynczy model ma skłonności do nadmiernego przeuczenia na zbiorze treningowym. W takim przypadku pojawia się potrzeba skorzystania z technik uczenia zespołowego <strong>ensemble learning</strong>. Jej celem jest zwiększenie skuteczności modelu oraz zmniejszenie wariancji błędów modelu poprzez wykorzystanie wielu modeli wyuczonych na danych treningowych. Podstawową koncepcją stojąca za <strong>ensemble learning</strong> jest łącznie wyników różnych modeli w celu stworzenia bardziej precyzyjnej prognozy np. poprzez uśrednienia wyników lub wybór najpopularnieszej predykcji ze wszystkich modeli. Takie podejście nie tylko zwiększa skuteczność modelu, ale ponadto zapewnia odporność systemu na anomalie pojawiające się w danych.</p>
+<p>Podstawowymi technikami uczenia zespołowego są:</p>
+<ul class="simple">
+<li><p>Bagging</p></li>
+<li><p>Boosting</p></li>
+</ul>
+<section id="bagging">
+<h3>Bagging<a class="headerlink" href="#bagging" title="Permalink to this heading">#</a></h3>
+<p>Technika uczenia zespołowego składająca się z dwóch części:</p>
+<ul class="simple">
+<li><p>Bootstrapp</p></li>
+<li><p>Agregacja</p></li>
+</ul>
+<p><em>Bootstrapping</em> polega na wybraniu losowej próbki danych ze zwracaniem. Na poniższym rysunku wybieramy próby bootstrapowe tj. d1, d2, … d5. Odpowiednie dane trafiają do pojedynczego modelu tzw. <em>base learner</em>. Następnie następuje uczenie każdego z modeli <em>base learner</em>. Ostatecznie na każdym z modeli wywołujemy predykcję, które na końcu są agregowane. Celem jest zwiększenie skuteczności przy jednoczesnym zmniejszeniu wariancji.</p>
+<p>Przykładem algorytmu opartego o Bagging jest Random Forest, gdzie predykcje z drzew decyzyjnych (<em>base learners</em>) jest wykonywana jednocześnie a następnie agregowana przy pomocy średniej (dla problemów regresyjnych) lub mody (dla problemów klasyfikacyjnych).</p>
+<!-- <img src="media/bagging_img.png" width=500 height=250 /> 
+ -->
+<p><img alt="media" src="../_images/bagging_img.png" /></p>
+<p><em>Źródło: <a class="reference external" href="https://www.analyticsvidhya.com/blog/2021/08/ensemble-stacking-for-machine-learning-and-deep-learning/">https://www.analyticsvidhya.com/blog/2021/08/ensemble-stacking-for-machine-learning-and-deep-learning/</a></em></p>
+</section>
+<section id="boosting">
+<h3>Boosting<a class="headerlink" href="#boosting" title="Permalink to this heading">#</a></h3>
+<p>Technika uczenia zespołowego polegająca na tym, że każdy model uczy się na błędach z poprzedniego modelu, tak aby tworzyć lepsze przewidywania w przyszłości. Jak widać na poniższym rysunku technika opiera się na sekwencyjnej nauce modelu tzw. <em>weak learner</em>, które w każdej iteracji stają się co raz lepsze. Ostatecznie celem jest stworzenie jednego modelu <em>strong learner</em>, który będzie charakteryzował się znaczną poprawą skuteczności.</p>
+<p>Przykładem algorytmu opartego o Boosting jest Gradient Boosting, XGBoost oraz LightGBM. Każdy z algorytmów opiera się na istnieniu <em>weak learners</em> oraz doskonaleniu się w kolejnych iteracjach algorytmu. W celu dokładnieszego zrozumienia działania podstawowego algorytmu Gradient Boositng zachęcam do lektury artykułu <a class="reference external" href="https://www.analyticsvidhya.com/blog/2018/09/an-end-to-end-guide-to-understand-the-math-behind-xgboost/">Demonstrating the Potential of Gradient Boosting</a>.</p>
+<!-- <img src="media/boosting_img.png" width=500 height=250 /> 
+ -->
+<p><img alt="media" src="../_images/boosting_img.png" /></p>
+<p><em>Źródło: <a class="reference external" href="https://www.analyticsvidhya.com/blog/2021/08/ensemble-stacking-for-machine-learning-and-deep-learning/">https://www.analyticsvidhya.com/blog/2021/08/ensemble-stacking-for-machine-learning-and-deep-learning/</a></em></p>
+</section>
+</section>
+<section id="random-forest">
+<h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h2>
+<p>Jak wspomniano wyżej, lasy losowe, bardziej znane pod nazwą random forest, są algorytmem ensemble, czyli wykorzystującym wiele modeli (algorytmów) jednocześnie. W przypadku lasów są to, jak sama nazwa wskazuje, drzewa decyzyjne. Konkretnie, ten algorytm tworzy <span class="math notranslate nohighlight">\(n\)</span> drzew decyzyjnych, a następnie (w regresji) dla ustalonego rekordu ze zbioru testowego/walidacyjnego, zwraca średnią predykcję z tych drzew jako swoją predykcję dla owego rekordu.</p>
+<p><strong>Konstrukcja</strong></p>
+<p>Oczywiście, aby tworzenie wielu drzew decyzyjnych miało w ogóle sens, nie mogą być one identyczne. Taki efekt uzyskuje się łącząc dwie metody związane z losowaniem. Pierwszą z nich jest bagging, czyli bootstrap aggregating. Ten algorytm polega na tworzeniu nowego zbioru danych przez losowanie rekordów ze zbioru treningowego ze zwracaniem. Dzięki temu, każde drzewo z dużym prawdopodobieństwem będzie wytrenowane na innym zbiorze danych. Drugim elementem baggingu jest agregacja, czyli opisane wcześniej uśrednienie predykcji modeli pomocniczych.</p>
+<p>Poza losowaniem danych treningowych dla każdego podmodelu, same drzewa również zawierają w sobie element losowości. Mianowicie, optymalny warunek dla każdego węzła jest determinowany jedynie na podstawie losowego podzbioru zmiennych objaśniających. Taka konstrukcja lasów redukuje skłonność podedynczego drzewa do przeuczania się. Nie ma ona jednak wpływu na problem drzew decyzyjnych z outlierami, a także nie zmienia tego, że standaryzacja nie zmienia wyników algorytmu.</p>
+<p><strong>Hiperparametry</strong></p>
+<p>Przykładowe hiperparametry lasów losowych:</p>
+<ul class="simple">
+<li><p>criterion - kryterium wyboru podziału węzła - jak w drzewach decyzyjnych,</p></li>
+<li><p>min_samples_split - minimalna liczba wartości do podzielenia węzła - jak w drzewach decyzyjnych,</p></li>
+<li><p>min_samples_leaf - minimalna liczba wartości w liściu drzewa - jak w drzewach decyzyjnych,</p></li>
+<li><p>max_depth - maksymalna głębokość drzewa - jak w drzewach decyzyjnych,</p></li>
+<li><p>max_features - liczba cech do rozpatrzenia w wyborze podziału każdego węzła,</p></li>
+<li><p>max_samples - liczba rekordów każdego losowego podzbioru do treningu drzew,</p></li>
+<li><p>n_estimators - liczba drzew w lesie.</p></li>
+</ul>
+<p>Teraz zamodelujemy nasze dane lasem losowym.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf_reg</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span>
+<span class="n">rf_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,)))</span>
+<span class="n">rf_preds</span> <span class="o">=</span> <span class="n">rf_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wyniki8</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;RSS&#39;</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">preds_poly</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                                      <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_dt2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                                      <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">rf_preds</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                                    <span class="p">],</span>
+                             <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span>
+                                    <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">),</span>
+                                    <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">rf_preds</span><span class="p">),</span>
+                                    <span class="p">],</span>
+                             <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span> 
+                                     <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">),</span>
+                                     <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">rf_preds</span><span class="p">),</span>
+                                    <span class="p">]},</span> 
+                      <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;square_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;dt_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;rf_reg&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">wyniki8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_7f1b2_row0_col0 {
+  background-color: #abd0e6;
+  color: #000000;
+}
+#T_7f1b2_row0_col1 {
+  background-color: #3787c0;
+  color: #f1f1f1;
+}
+#T_7f1b2_row0_col2 {
+  background-color: #d3e4f3;
+  color: #000000;
+}
+#T_7f1b2_row1_col0, #T_7f1b2_row1_col2, #T_7f1b2_row2_col1 {
+  background-color: #f7fbff;
+  color: #000000;
+}
+#T_7f1b2_row1_col1, #T_7f1b2_row2_col0, #T_7f1b2_row2_col2 {
+  background-color: #08306b;
+  color: #f1f1f1;
+}
+</style>
+<table id="T_7f1b2">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_7f1b2_level0_col0" class="col_heading level0 col0" >RSS</th>
+      <th id="T_7f1b2_level0_col1" class="col_heading level0 col1" >R2</th>
+      <th id="T_7f1b2_level0_col2" class="col_heading level0 col2" >MAE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_7f1b2_level0_row0" class="row_heading level0 row0" >square_reg</th>
+      <td id="T_7f1b2_row0_col0" class="data row0 col0" >0.710297</td>
+      <td id="T_7f1b2_row0_col1" class="data row0 col1" >0.818960</td>
+      <td id="T_7f1b2_row0_col2" class="data row0 col2" >0.131138</td>
+    </tr>
+    <tr>
+      <th id="T_7f1b2_level0_row1" class="row_heading level0 row1" >dt_reg</th>
+      <td id="T_7f1b2_row1_col0" class="data row1 col0" >0.574310</td>
+      <td id="T_7f1b2_row1_col1" class="data row1 col1" >0.853621</td>
+      <td id="T_7f1b2_row1_col2" class="data row1 col2" >0.126859</td>
+    </tr>
+    <tr>
+      <th id="T_7f1b2_level0_row2" class="row_heading level0 row2" >rf_reg</th>
+      <td id="T_7f1b2_row2_col0" class="data row2 col0" >0.982969</td>
+      <td id="T_7f1b2_row2_col1" class="data row2 col1" >0.749462</td>
+      <td id="T_7f1b2_row2_col2" class="data row2 col2" >0.150648</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Domyślne wyniki znowu są słabe, więc znowu spróbujemy dostosować hiperparametr max_depth.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf_reg2</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">max_depth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">rf_reg2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,)))</span>
+<span class="n">rf_preds2</span> <span class="o">=</span> <span class="n">rf_reg2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wyniki9</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;RSS&#39;</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">preds_poly</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                                      <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_dt2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                                      <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">rf_preds2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                                    <span class="p">],</span>
+                             <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span>
+                                    <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">),</span>
+                                    <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">rf_preds2</span><span class="p">),</span>
+                                    <span class="p">],</span>
+                             <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span> 
+                                     <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">),</span>
+                                     <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">rf_preds2</span><span class="p">),</span>
+                                    <span class="p">]},</span> 
+                      <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;square_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;dt_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;rf_reg&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">wyniki9</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_9e70c_row0_col0, #T_9e70c_row0_col2, #T_9e70c_row2_col1 {
+  background-color: #08306b;
+  color: #f1f1f1;
+}
+#T_9e70c_row0_col1, #T_9e70c_row2_col0, #T_9e70c_row2_col2 {
+  background-color: #f7fbff;
+  color: #000000;
+}
+#T_9e70c_row1_col0 {
+  background-color: #9cc9e1;
+  color: #000000;
+}
+#T_9e70c_row1_col1 {
+  background-color: #4493c7;
+  color: #f1f1f1;
+}
+#T_9e70c_row1_col2 {
+  background-color: #1967ad;
+  color: #f1f1f1;
+}
+</style>
+<table id="T_9e70c">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_9e70c_level0_col0" class="col_heading level0 col0" >RSS</th>
+      <th id="T_9e70c_level0_col1" class="col_heading level0 col1" >R2</th>
+      <th id="T_9e70c_level0_col2" class="col_heading level0 col2" >MAE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_9e70c_level0_row0" class="row_heading level0 row0" >square_reg</th>
+      <td id="T_9e70c_row0_col0" class="data row0 col0" >0.710297</td>
+      <td id="T_9e70c_row0_col1" class="data row0 col1" >0.818960</td>
+      <td id="T_9e70c_row0_col2" class="data row0 col2" >0.131138</td>
+    </tr>
+    <tr>
+      <th id="T_9e70c_level0_row1" class="row_heading level0 row1" >dt_reg</th>
+      <td id="T_9e70c_row1_col0" class="data row1 col0" >0.574310</td>
+      <td id="T_9e70c_row1_col1" class="data row1 col1" >0.853621</td>
+      <td id="T_9e70c_row1_col2" class="data row1 col2" >0.126859</td>
+    </tr>
+    <tr>
+      <th id="T_9e70c_level0_row2" class="row_heading level0 row2" >rf_reg</th>
+      <td id="T_9e70c_row2_col0" class="data row2 col0" >0.490039</td>
+      <td id="T_9e70c_row2_col1" class="data row2 col1" >0.875099</td>
+      <td id="T_9e70c_row2_col2" class="data row2 col2" >0.111054</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>W efekcie uzyskaliśmy najlepszy z trzech modeli.</p>
+</section>
+<hr class="docutils" />
+<section id="xgboost">
+<h2>XGBoost<a class="headerlink" href="#xgboost" title="Permalink to this heading">#</a></h2>
+<p>Extreme Gradient Boosting (XGBoost) jest zrównolegloną oraz starannie zoptymalizowaną wersją algorytmu Gradient Boosting. Proces zrównoleglenia całego procesu znacznie poprawia czas treningu.</p>
+<p><strong>Podstawowe cechy algorytmu</strong></p>
+<ul class="simple">
+<li><p><strong>Regularyzacja:</strong> XGBoost posiada możliwość dodania kary L1 oraz L2 do procesu uczenia. Regularyzacja pomaga w uniknąć zjawiska przeuczenia modelu.</p></li>
+<li><p><strong>Obsługa zmiennych kategorycznych oraz braków danych</strong>: XGBoosty posiada wbudowaną metodę o nazwie “Sparsity-aware Split Finding”, która procesuje zmienne kategoryczne. Dzięki temu w przypadku zmiennych, które uważamy za kategoryczne wystarczy zmienić ich typ danych na “category”, a XGBoost sam zajmie się kwestią encodingu. Więcej informacji o algorytmu pod linkiem <a class="reference external" href="https://medium.com/hypatai/how-xgboost-handles-sparsities-arising-from-of-missing-data-with-an-example-90ce8e4ba9ca">Sparsity-aware Split Finding</a>. Podobnie jak z danymi kategorycznymi XGBoost obsługuje również braki danych. Algorytm przy podejmowaniu decyzji na rozgałęzieniu drzewa dostaje informacje, że dla danej obserwacji jest “brak danych” co determinuje brak możliwości odpowiedzenia na zadane pytanie, a to z kolei najczęściej sugeruje odpowiedź <em>False</em>. Na przykład gdy mamy rozgałęzienie i pytamy czy metraż mieszkania jest większy niż 50 <span class="math notranslate nohighlight">\(m^{2}\)</span> to gdy nie mamy informacji o metrażu dla jednej z obserwacji to trafi ona do rozgałęzienia <em>False</em> razem z tymi obserwacjami, których metraż jest mniejszy niż 50 <span class="math notranslate nohighlight">\(m^{2}\)</span>.</p></li>
+<li><p><strong>Weighted quantile sketch</strong>: Jest to algorytm, który przybliża rozkład wartości cech, co pozwala na szybką identyfikację potencjalnych punktów podziału dla drzew decyzyjnych bez konieczności sortowania całego zestawu danych. Większość modeli drzewiastych znajduję punkt podziału gdy punkty danych mają takie same wagi (quantile sketch algorithm). XGBoost dodatkowo efektywnie wspiera ważenie danych (weighted quantile sketch algorithm). Dokładny opis obu metod znajdziemy pod linkiem <a class="reference external" href="https://medium.com/&#64;wjj1019/in-depth-overview-of-xgboost-partii-45384b90d818">Weighted quantile sketch</a></p></li>
+<li><p><strong>Block structure for parallel learning</strong>: XGBoost organizuje dane w sortowane, przechowywane w pamięci bloki kolumn, gdzie każdy blok odpowiada podzbiorowi cech. Dzięki niezależnemu przetwarzaniu bloków kolumn wiele rdzeni procesora węzłów obliczeniowych może jednocześnie pracować nad procesem budowania drzewa.</p></li>
+<li><p><strong>Cache awareness</strong>: XGBoost organizuje swoje struktury danych i obliczenia, tak aby często używane elementy były obecne w pamięci podręcznej.</p></li>
+<li><p><strong>Early stopping</strong>: XGBoost daje możliwość dodania kryteriów zatrzymania treningu modelu w przypadku, gdy kolejne iteracje nie dają znaczącego postępu.</p></li>
+</ul>
+<p><strong>Sposób działania</strong></p>
+<p>XGBoost podobnie jak Random Forest bazuje na drzewach decyzyjnych, jednak działa nieco inaczej. Mianowicie:</p>
+<ul class="simple">
+<li><p>na początku generuje wyjściową predykcję (w przypadku regresji jest to z reguły średnia wartość zmiennej objaśnianej z całego zbioru treningowego),</p></li>
+<li><p>następnie tworzy drzewo decyzyjne na resztach z tej predykcji, wyliczając tym samym oczekiwany błąd,</p></li>
+<li><p>zmniejsza ów błąd mnożąc go przez liczbę z przedziału <span class="math notranslate nohighlight">\((0,1)\)</span>,</p></li>
+<li><p>ostatecznie dodaje pomniejszony błąd do predykcji wyjściowej, tworząc nową predykcję.</p></li>
+</ul>
+<p>Jest to proces iteracyjny, potwarzany <span class="math notranslate nohighlight">\(n\)</span> razy. Opisany tu algorytm nosi nazwę Gradient Boosting, zaś XGBoost jest jego implementacją, która wyróżnia się przede wszystkim metodą konstruowania kolejnych drzew decyzyjnych <strong>Level-wise tree growth</strong> tj. poziom po poziomie.</p>
+<p>Dokładnieszy opis działania algorytmu (również matematycznie) znajdziemy pod linkiem <a class="reference external" href="https://www.analyticsvidhya.com/blog/2018/09/an-end-to-end-guide-to-understand-the-math-behind-xgboost">What is XGBoost Algorithm?</a></p>
+<!-- <img src="media/xgboost_img.png" width=700 height=400 />
+ -->
+<p><img alt="media" src="../_images/xgboost_img.png" /></p>
+<p><em>Źródło: <a class="reference external" href="https://neptune.ai/blog/xgboost-vs-lightgbm">https://neptune.ai/blog/xgboost-vs-lightgbm</a></em></p>
+<p><strong>Hiperparametry</strong></p>
+<p>Podstawowymi hiperparametrami modelu są:</p>
+<ul class="simple">
+<li><p><em>learning_rate / eta</em> - wielkość kroku przy aktualizacji wag. Im większa wartość tym kroki algorytmu są większe podczas poszukiwania minimum globalnego funkcji. Oznacza to, że możemy przeskoczyć minimum i go nie znaleźć. Z kolei zbyt mała wartość parametru może spowodować długi proces uczenia oraz utknięcnie w lokalnym minimum - wielkość kroku na tyle mała, że nie możemy wyjść z lokalnego minimum.</p></li>
+<li><p><em>gamma</em> - minimalna wartość redukcji straty wymagana do wykonania dalszego podziału na węźle liściowym drzewa. Im większa wartość, tym model jest bardziej konserwatywny,</p></li>
+<li><p><em>max_depth</em> - maksymalna głębokość drzewa. Im większa wartość tym model bardziej złożony oraz narażony na przeuczenie.</p></li>
+<li><p><em>min_child_weight</em> - minimalna suma ważona liczba obserwacji w każdym liściu drzewa. Im więsza wartość, tym model jest bardziej konserwatywny,</p></li>
+</ul>
+<p>Dodatkowo w celu ograniczenia przeuczania modelu stosujemy:</p>
+<ul class="simple">
+<li><p><em>subsample</em> - podpróbkowanie danych treningowych. Ustawienie na wartość 0.5 oznacza, że przed wyhodowaniem drzewa model najpierw wylosuje połowę danych treningowych. Podpróbkowanie będzie miało miejsce w każdej iteracji wzmacniającej. Ustawnienie parametru poniżej 1 ma na celu zapobieganie nadmiernemu dopasowaniu modelu,</p></li>
+<li><p><em>colsample_bytree</em> - jest współczynnikiem podpróbek kolmun, który chcemy losować podczas konstruowania każdego drzewa. Podpróbkowania odbywa się raz dla każdego konstruowanego drzewa.</p></li>
+<li><p><em>colsample_bylevel</em> - jest współczynnikiem podpróbek kolmun, który chcemy losować po każdym kolejnym podziale danych.</p></li>
+<li><p><em>colsample_bynode</em> - jest współczynnikiem podpróbek kolmun, który chcemy losować podczas każdego rozgałęzienia w drzewie.</p></li>
+<li><p><em>max_delta_step</em> - maksymalny krok delta pozwalający na wyjście z każdego liścia. Wartość 0 oznacza brak ograniczeń.</p></li>
+<li><p><em>alpha</em> - regularyzacja L1 przyjmująca wartości od 0 do nieskończoności. Im większa wartość, tym model bardziej konserwtywny.</p></li>
+<li><p><em>lambda</em> - regularyzacja L2 przyjmująca wartości od 0 do nieskończoności. Im większa wartość, tym model bardziej konserwatywny.</p></li>
+</ul>
+<section id="roznice-pomiedzy-random-forest-vs-xgboost">
+<h3>Różnice pomiędzy Random Forest vs XGBoost<a class="headerlink" href="#roznice-pomiedzy-random-forest-vs-xgboost" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>XGBoost</p></th>
+<th class="head"><p>Random Forest</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Opis</p></td>
+<td><p>Poprawia błędy z poprzednich drzew</p></td>
+<td><p>Buduję drzewa niezależnie</p></td>
+</tr>
+<tr class="row-odd"><td><p>Typ algorytmu</p></td>
+<td><p>Boosting</p></td>
+<td><p>Bagging</p></td>
+</tr>
+<tr class="row-even"><td><p>Postępowanie z <em>Weak Learners</em></p></td>
+<td><p>Koryguje błędy sekwencyjnie</p></td>
+<td><p>Agreguje prognozy oparte na niezależnie wyuczonych drzewach</p></td>
+</tr>
+<tr class="row-odd"><td><p>Regularyzacja</p></td>
+<td><p>Wspiera normę L1 oraz L2</p></td>
+<td><p>Zazwyczaj nie wspiera regularyzacji modelu</p></td>
+</tr>
+<tr class="row-even"><td><p>Skuteczność</p></td>
+<td><p>Zazwyczaj działa lepiej na danych ustrukturyzowanych, ale wymaga hiperparametryzacji</p></td>
+<td><p>Prostszy i mniej podatny na nadmierne dopasowanie</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="przyklad">
+<h3>Przykład<a class="headerlink" href="#przyklad" title="Permalink to this heading">#</a></h3>
+<p>Poniżej analogiczny przykład jak w poprzednich algorytmach. Sprawdźmy skuteczność XGBoost z domyślnymi parametrami.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xgboost_model</span> <span class="o">=</span> <span class="n">xgboost</span><span class="o">.</span><span class="n">XGBRegressor</span><span class="p">()</span>
+<span class="n">xgboost_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,)))</span>
+<span class="n">preds_xgboost</span> <span class="o">=</span> <span class="n">xgboost_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wyniki_xgboost</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> 
+        <span class="p">{</span>
+            <span class="s1">&#39;RSS&#39;</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">preds_poly</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_dt2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">rf_preds2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_xgboost</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">))</span>
+                <span class="p">],</span>
+            <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">rf_preds2</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_xgboost</span><span class="p">)</span>
+                <span class="p">],</span>
+            <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span> 
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">rf_preds2</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_xgboost</span><span class="p">)]</span>
+        <span class="p">},</span> 
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;square_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;dt_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;rf_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;xgboost_reg&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">wyniki_xgboost</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_d2a00_row0_col0 {
+  background-color: #ccdff1;
+  color: #000000;
+}
+#T_d2a00_row0_col1 {
+  background-color: #1b69af;
+  color: #f1f1f1;
+}
+#T_d2a00_row0_col2 {
+  background-color: #cbdef1;
+  color: #000000;
+}
+#T_d2a00_row1_col0 {
+  background-color: #e7f0fa;
+  color: #000000;
+}
+#T_d2a00_row1_col1 {
+  background-color: #08468b;
+  color: #f1f1f1;
+}
+#T_d2a00_row1_col2 {
+  background-color: #d4e4f4;
+  color: #000000;
+}
+#T_d2a00_row2_col0, #T_d2a00_row2_col2, #T_d2a00_row3_col1 {
+  background-color: #f7fbff;
+  color: #000000;
+}
+#T_d2a00_row2_col1, #T_d2a00_row3_col0, #T_d2a00_row3_col2 {
+  background-color: #08306b;
+  color: #f1f1f1;
+}
+</style>
+<table id="T_d2a00">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_d2a00_level0_col0" class="col_heading level0 col0" >RSS</th>
+      <th id="T_d2a00_level0_col1" class="col_heading level0 col1" >R2</th>
+      <th id="T_d2a00_level0_col2" class="col_heading level0 col2" >MAE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_d2a00_level0_row0" class="row_heading level0 row0" >square_reg</th>
+      <td id="T_d2a00_row0_col0" class="data row0 col0" >0.710297</td>
+      <td id="T_d2a00_row0_col1" class="data row0 col1" >0.818960</td>
+      <td id="T_d2a00_row0_col2" class="data row0 col2" >0.131138</td>
+    </tr>
+    <tr>
+      <th id="T_d2a00_level0_row1" class="row_heading level0 row1" >dt_reg</th>
+      <td id="T_d2a00_row1_col0" class="data row1 col0" >0.574310</td>
+      <td id="T_d2a00_row1_col1" class="data row1 col1" >0.853621</td>
+      <td id="T_d2a00_row1_col2" class="data row1 col2" >0.126859</td>
+    </tr>
+    <tr>
+      <th id="T_d2a00_level0_row2" class="row_heading level0 row2" >rf_reg</th>
+      <td id="T_d2a00_row2_col0" class="data row2 col0" >0.490039</td>
+      <td id="T_d2a00_row2_col1" class="data row2 col1" >0.875099</td>
+      <td id="T_d2a00_row2_col2" class="data row2 col2" >0.111054</td>
+    </tr>
+    <tr>
+      <th id="T_d2a00_level0_row3" class="row_heading level0 row3" >xgboost_reg</th>
+      <td id="T_d2a00_row3_col0" class="data row3 col0" >1.479689</td>
+      <td id="T_d2a00_row3_col1" class="data row3 col1" >0.622859</td>
+      <td id="T_d2a00_row3_col2" class="data row3 col2" >0.200948</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Okazuje się, że z domyślnymi hiperparametrami model jest nawet gorszy od regresji wielomianowej. Co jeśli pobawimy się hiperparametrami ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xgboost_model2</span> <span class="o">=</span> <span class="n">xgboost</span><span class="o">.</span><span class="n">XGBRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">xgboost_model2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,)))</span>
+<span class="n">preds_xgboost2</span> <span class="o">=</span> <span class="n">xgboost_model2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wyniki_xgboost</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> 
+        <span class="p">{</span>
+            <span class="s1">&#39;RSS&#39;</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">preds_poly</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_dt2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">rf_preds2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_xgboost2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">))</span>
+                <span class="p">],</span>
+            <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">rf_preds2</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_xgboost2</span><span class="p">)</span>
+                <span class="p">],</span>
+            <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span> 
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">rf_preds2</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_xgboost2</span><span class="p">)]</span>
+        <span class="p">},</span> 
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;square_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;dt_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;rf_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;xgboost_reg&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">wyniki_xgboost</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_ae36a_row0_col0, #T_ae36a_row0_col2, #T_ae36a_row2_col1 {
+  background-color: #08306b;
+  color: #f1f1f1;
+}
+#T_ae36a_row0_col1, #T_ae36a_row2_col0, #T_ae36a_row2_col2 {
+  background-color: #f7fbff;
+  color: #000000;
+}
+#T_ae36a_row1_col0 {
+  background-color: #9cc9e1;
+  color: #000000;
+}
+#T_ae36a_row1_col1 {
+  background-color: #4493c7;
+  color: #f1f1f1;
+}
+#T_ae36a_row1_col2 {
+  background-color: #1967ad;
+  color: #f1f1f1;
+}
+#T_ae36a_row3_col0 {
+  background-color: #aacfe5;
+  color: #000000;
+}
+#T_ae36a_row3_col1 {
+  background-color: #3888c1;
+  color: #f1f1f1;
+}
+#T_ae36a_row3_col2 {
+  background-color: #a8cee4;
+  color: #000000;
+}
+</style>
+<table id="T_ae36a">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_ae36a_level0_col0" class="col_heading level0 col0" >RSS</th>
+      <th id="T_ae36a_level0_col1" class="col_heading level0 col1" >R2</th>
+      <th id="T_ae36a_level0_col2" class="col_heading level0 col2" >MAE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_ae36a_level0_row0" class="row_heading level0 row0" >square_reg</th>
+      <td id="T_ae36a_row0_col0" class="data row0 col0" >0.710297</td>
+      <td id="T_ae36a_row0_col1" class="data row0 col1" >0.818960</td>
+      <td id="T_ae36a_row0_col2" class="data row0 col2" >0.131138</td>
+    </tr>
+    <tr>
+      <th id="T_ae36a_level0_row1" class="row_heading level0 row1" >dt_reg</th>
+      <td id="T_ae36a_row1_col0" class="data row1 col0" >0.574310</td>
+      <td id="T_ae36a_row1_col1" class="data row1 col1" >0.853621</td>
+      <td id="T_ae36a_row1_col2" class="data row1 col2" >0.126859</td>
+    </tr>
+    <tr>
+      <th id="T_ae36a_level0_row2" class="row_heading level0 row2" >rf_reg</th>
+      <td id="T_ae36a_row2_col0" class="data row2 col0" >0.490039</td>
+      <td id="T_ae36a_row2_col1" class="data row2 col1" >0.875099</td>
+      <td id="T_ae36a_row2_col2" class="data row2 col2" >0.111054</td>
+    </tr>
+    <tr>
+      <th id="T_ae36a_level0_row3" class="row_heading level0 row3" >xgboost_reg</th>
+      <td id="T_ae36a_row3_col0" class="data row3 col0" >0.564405</td>
+      <td id="T_ae36a_row3_col1" class="data row3 col1" >0.856145</td>
+      <td id="T_ae36a_row3_col2" class="data row3 col2" >0.118005</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Teraz wygląda to znacznie lepiej. Zauważy jednak, że model jest wciąż gorszy od Random Forest, a nawet wyniki są podobne do Decision Trees. Wynika to głównie z charakterystyki powyższej ramki danych. Jest ona mała, a dodatkowo ma bardzo mało danych. Zobaczymy jak to będzie wyglądać dla nieco większego zbioru ?</p>
+<p>Najpierw tworzymy losowy zbiór danych. Wykorzystamy do tego funkcje <code class="docutils literal notranslate"><span class="pre">make_regression</span></code> pakietu <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_regression</span>
+
+<span class="c1"># Data</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_regression</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Train test split</span>
+<span class="n">x_train_mr</span><span class="p">,</span> <span class="n">x_valid_mr</span><span class="p">,</span> <span class="n">y_train_mr</span><span class="p">,</span> <span class="n">y_valid_mr</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Następnie wytrenujemy 3 modele: DecistionTree, RandomForest oraz XGBoost. Porównajmy ich skuteczności oraz czas kalkulacji.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="c1"># Decision Trees</span>
+<span class="n">decision_tree_model</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">()</span>
+<span class="n">decision_tree_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train_mr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_train_mr</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_train_mr</span><span class="p">),)))</span>
+<span class="n">preds_dt_model</span> <span class="o">=</span> <span class="n">decision_tree_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid_mr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: total: 0 ns
+Wall time: 94.9 ms
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="c1"># Random Forest</span>
+<span class="n">random_forest_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span>
+<span class="n">random_forest_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train_mr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_train_mr</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_train_mr</span><span class="p">),)))</span>
+<span class="n">preds_rf_model</span> <span class="o">=</span> <span class="n">random_forest_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid_mr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: total: 812 ms
+Wall time: 5.89 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="c1"># XGBoost</span>
+<span class="n">xgboost_model</span> <span class="o">=</span> <span class="n">xgboost</span><span class="o">.</span><span class="n">XGBRegressor</span><span class="p">()</span>
+<span class="n">xgboost_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train_mr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_train_mr</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_train_mr</span><span class="p">),)))</span>
+<span class="n">preds_xgboost_model</span> <span class="o">=</span> <span class="n">xgboost_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid_mr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: total: 1.81 s
+Wall time: 126 ms
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wyniki_xgboost</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> 
+        <span class="p">{</span>
+            <span class="s1">&#39;RSS&#39;</span><span class="p">:[</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_dt_model</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid_mr</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_rf_model</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid_mr</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_xgboost_model</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid_mr</span><span class="p">))</span>
+                <span class="p">],</span>
+            <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_dt_model</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_rf_model</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_xgboost_model</span><span class="p">)</span>
+                <span class="p">],</span>
+            <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_dt_model</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_rf_model</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_xgboost_model</span><span class="p">)]</span>
+        <span class="p">},</span> 
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;dt_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;rf_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;xgboost_reg&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">wyniki_xgboost</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_9af11_row0_col0, #T_9af11_row0_col2, #T_9af11_row2_col1 {
+  background-color: #08306b;
+  color: #f1f1f1;
+}
+#T_9af11_row0_col1, #T_9af11_row1_col0, #T_9af11_row2_col2 {
+  background-color: #f7fbff;
+  color: #000000;
+}
+#T_9af11_row1_col1 {
+  background-color: #1865ac;
+  color: #f1f1f1;
+}
+#T_9af11_row1_col2 {
+  background-color: #bdd7ec;
+  color: #000000;
+}
+#T_9af11_row2_col0 {
+  background-color: #084082;
+  color: #f1f1f1;
+}
+</style>
+<table id="T_9af11">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_9af11_level0_col0" class="col_heading level0 col0" >RSS</th>
+      <th id="T_9af11_level0_col1" class="col_heading level0 col1" >R2</th>
+      <th id="T_9af11_level0_col2" class="col_heading level0 col2" >MAE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_9af11_level0_row0" class="row_heading level0 row0" >dt_reg</th>
+      <td id="T_9af11_row0_col0" class="data row0 col0" >204050950398.135620</td>
+      <td id="T_9af11_row0_col1" class="data row0 col1" >0.758806</td>
+      <td id="T_9af11_row0_col2" class="data row0 col2" >62.622685</td>
+    </tr>
+    <tr>
+      <th id="T_9af11_level0_row1" class="row_heading level0 row1" >rf_reg</th>
+      <td id="T_9af11_row1_col0" class="data row1 col0" >182549366086.138123</td>
+      <td id="T_9af11_row1_col1" class="data row1 col1" >0.921081</td>
+      <td id="T_9af11_row1_col2" class="data row1 col2" >34.902868</td>
+    </tr>
+    <tr>
+      <th id="T_9af11_level0_row2" class="row_heading level0 row2" >xgboost_reg</th>
+      <td id="T_9af11_row2_col0" class="data row2 col0" >202746427572.298492</td>
+      <td id="T_9af11_row2_col1" class="data row2 col1" >0.963205</td>
+      <td id="T_9af11_row2_col2" class="data row2 col2" >24.125312</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Okazuje się, że już dla nieco większej próbki danych (ok.8 tys. rekordów w danych treningowych) oraz dla większej liczby zmiennych model XGBoost działa szybciej od RandomForest oraz osiąga lepsze metryki skuteczności. DecisionTree dla takiej ramki danych ma skuteczność dużo mniejszą.</p>
+</section>
+</section>
+<section id="lightgbm">
+<h2>LightGBM<a class="headerlink" href="#lightgbm" title="Permalink to this heading">#</a></h2>
+<p>LightGBM jest bardzo podobnym algorytmem do XGBoost, czyli również korzysta z Gradient Boostingu.</p>
+<p><strong>Podstawowe cechy algorytmu</strong></p>
+<ul class="simple">
+<li><p><strong>Szybszy trening oraz większa efektywność</strong>: LightGBM wykorzystuje <em>Histogram based algorithm</em>, tj. grupuje ciągłe wartości cech do dyskretnych przedziałów, co przyspiesza procedurę treningową. Więcej informacji na ten temat pod linkiem <a class="reference external" href="https://www.geeksforgeeks.org/lightgbm-histogram-based-learning/">Histogram based algorithm</a></p></li>
+<li><p><strong>Mniejsze wykorzystanie pamięci</strong>: Zastępuje wartości ciągłe wartościami dyskretnymi, co skutkuje mniejszym wykorzystaniem pamięci.</p></li>
+<li><p><strong>Większa skuteczność niż jakikolwiek inny model boosting’owy</strong>: LightGBM tworzy bardziej złożone drzewa z uwagi na podejście <em>Leaf-wise tree growth</em>. Jest to podstawowa przyczyna większej skuteczności modelu w stosunku do innych algorytmów. Jednakże, czsami prowadzi to do nadmiernego dopasowania co można unikąć dopasowuąc parametr <em>max_depth</em>.</p></li>
+<li><p><strong>Kompatybilność z dużymi ramkami danych</strong>: W porównaniu do XGBoost równie dobrze radzi sobie z dużymi zbiorami danych, przy znacznie krótszym czasie treningu.</p></li>
+<li><p><strong>Wsparcie zrównoleglonych obliczeń</strong></p></li>
+</ul>
+<p><strong>Sposób działania</strong></p>
+<p>LigthGBM różni się od XGBoost sposobem konstruowania pomocniczych drzew decyzyjnych - tutaj każdy nowy węzeł jest zawsze tym najlepszym w danym momencie, niezależnie od poziomu głębokości drzewa tego węzła (<em>Leaf-wise tree growth</em>). Poza tym te algorytmy nieco inaczej obsługują zmienne kategoryczne. LightGBM jest też dużo lżejszym algorytmem, co zresztą narzuca sama nazwa - jest szybszy w działaniu i wymaga mniej pamięci, a mimo to daje bardzo zbliżone rezultaty - w dokumentacji można nawet przeczytać, że lepsze :)</p>
+<!-- <img src="media/lightgbm_img.png" width=700 height=400 /> 
+ -->
+<p><img alt="media" src="../_images/lightgbm_img.png" /></p>
+<p><em>Źródło: <a class="reference external" href="https://neptune.ai/blog/xgboost-vs-lightgbm">https://neptune.ai/blog/xgboost-vs-lightgbm</a></em></p>
+<p>Dokładniejszy opis działania można znaleźć pod linkiem <a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2017/file/6449f44a102fde848669bdd9eb6b76fa-Paper.pdf">LightGBM: A Highly Efficient Gradient Boosting
+Decision Tree</a>.</p>
+<p><strong>Hiperparametry</strong></p>
+<ul class="simple">
+<li><p><em>max_depth</em> - maksymalna głębokość drzewa. Im większa wartość tym model bardziej złożony oraz narażony na przeuczenie.</p></li>
+<li><p><em>num_leaves</em> – jest to bardzo ważny parametr pod kątem kontrolowania złożoności budowanego drzewa. Wartość powinna być mniejsza niż <span class="math notranslate nohighlight">\(2^{max\_depth}\)</span> jako, że <em>Leaf-wise tree</em> jest znacznie głębsze niż <em>Level-wise tree</em> dla określonej grupy liści. Zbyt wysoka wartość parametru może spowodować nadmierne dopasowanie.</p></li>
+<li><p><em>min_data_in_leaf</em> - parametru służący do kontrolowania nadmiernego dopasowania. Wysoka wartość zatrzymuje rozrost drzewa, ale może również spowodować zbyt małe dopasowanie modelu. Zgodnie z dokumentacja zalecia się, aby wartość parametru była w setkach lub tysiącach.</p></li>
+<li><p><em>feature_fraction</em> - jest współczynnikiem podpróbek kolmun, który chcemy losować podczas konstruowania każdego drzewa. Podpróbkowania odbywa się raz dla każdego konstruowanego drzew, podobnie jak <em>colsample_bytree</em> w XGBoost.</p></li>
+<li><p><em>bagging_fraction</em> - podpróbkowanie danych treningowych. Ustawienie na wartość 0.5 oznacza, że przed wyhodowaniem drzewa model najpierw wylosuje połowę danych treningowych. Podpróbkowanie będzie miało miejsce w każdej iteracji wzmacniającej. Ustawnienie parametru poniżej 1 ma na celu zapobieganie nadmiernemu dopasowaniu modelu. Podobnie jak <em>subsample</em> w XGBoost.</p></li>
+<li><p><em>max_bin</em> - mniejsza wartość parametru przyspiesza czas treningu, ponieważ podczas nauki dane dzielone są na podpróbki i im jest ich mniej tym czas również się zmniejsza. Generalnie zwiększenie tego parametru ma podobny efekt jak zwiększenie parametru <em>num_leaves</em> ponieważ im więcej podpróbek tym bardziej szczegółowe drzewa podobnie, jak przy zwiększenieu <em>num_leaves</em>.</p></li>
+</ul>
+<section id="roznice-pomiedzy-xgboost-vs-lightgbm">
+<h3>Różnice pomiędzy XGBoost vs LightGBM<a class="headerlink" href="#roznice-pomiedzy-xgboost-vs-lightgbm" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>LightGBM</p></th>
+<th class="head"><p>XGBoost</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Opis</p></td>
+<td><p>Poprawia błędy z poprzednich drzew</p></td>
+<td><p>Poprawia błędy z poprzednich drzew</p></td>
+</tr>
+<tr class="row-odd"><td><p>Typ algorytmu</p></td>
+<td><p>Boosting</p></td>
+<td><p>Boosting</p></td>
+</tr>
+<tr class="row-even"><td><p>Podział głębokości drzewa</p></td>
+<td><p>Leaf-wise</p></td>
+<td><p>Level-wise</p></td>
+</tr>
+<tr class="row-odd"><td><p>Interpretowalność</p></td>
+<td><p>Zawzwyczaj drzewa są bardziej złożone z uwagi na typ podziału drzewa</p></td>
+<td><p>Łatwiejsze w interpretacji niż LightGBM</p></td>
+</tr>
+<tr class="row-even"><td><p>Skuteczność</p></td>
+<td><p>Zazwyczaj jest bardziej skuteczny, ale może pojawić się problem z nadmiernym dopasowaniem</p></td>
+<td><p>Zazwyczaj osiąga bardzo dobre wyniki</p></td>
+</tr>
+<tr class="row-odd"><td><p>Szybkość</p></td>
+<td><p>Działa szybciej z uwagi na inny typ podziału drzewa</p></td>
+<td><p>Jest wolnieszy, widać to zwłaszcza na dużych ramkach danych</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id1">
+<h3>Przykład<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lgbm_model</span> <span class="o">=</span> <span class="n">lightgbm</span><span class="o">.</span><span class="n">LGBMRegressor</span><span class="p">()</span>
+<span class="n">lgbm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,)))</span>
+<span class="n">preds_lgbm</span> <span class="o">=</span> <span class="n">lgbm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.000339 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LightGBM] [Info] Total Bins 35
+[LightGBM] [Info] Number of data points in the train set: 100, number of used features: 1
+[LightGBM] [Info] Start training from score 0.313750
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wyniki_lgbm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> 
+        <span class="p">{</span>
+            <span class="s1">&#39;RSS&#39;</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">preds_poly</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_dt2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">rf_preds2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_xgboost</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_lgbm</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">))</span> 
+                <span class="p">],</span>
+            <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">rf_preds2</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_xgboost</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_lgbm</span><span class="p">)</span>
+                <span class="p">],</span>
+            <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span> 
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">rf_preds2</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_xgboost</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_lgbm</span><span class="p">)</span>
+                <span class="p">]</span>
+        <span class="p">},</span> 
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;square_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;dt_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;rf_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;xgboost_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;lgbm_reg&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">wyniki_lgbm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_e8192_row0_col0 {
+  background-color: #ccdff1;
+  color: #000000;
+}
+#T_e8192_row0_col1 {
+  background-color: #1b69af;
+  color: #f1f1f1;
+}
+#T_e8192_row0_col2 {
+  background-color: #cbdef1;
+  color: #000000;
+}
+#T_e8192_row1_col0 {
+  background-color: #e7f0fa;
+  color: #000000;
+}
+#T_e8192_row1_col1 {
+  background-color: #08468b;
+  color: #f1f1f1;
+}
+#T_e8192_row1_col2 {
+  background-color: #d4e4f4;
+  color: #000000;
+}
+#T_e8192_row2_col0, #T_e8192_row2_col2, #T_e8192_row3_col1 {
+  background-color: #f7fbff;
+  color: #000000;
+}
+#T_e8192_row2_col1, #T_e8192_row3_col0, #T_e8192_row3_col2 {
+  background-color: #08306b;
+  color: #f1f1f1;
+}
+#T_e8192_row4_col0 {
+  background-color: #72b2d8;
+  color: #f1f1f1;
+}
+#T_e8192_row4_col1 {
+  background-color: #65aad4;
+  color: #f1f1f1;
+}
+#T_e8192_row4_col2 {
+  background-color: #6fb0d7;
+  color: #f1f1f1;
+}
+</style>
+<table id="T_e8192">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_e8192_level0_col0" class="col_heading level0 col0" >RSS</th>
+      <th id="T_e8192_level0_col1" class="col_heading level0 col1" >R2</th>
+      <th id="T_e8192_level0_col2" class="col_heading level0 col2" >MAE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_e8192_level0_row0" class="row_heading level0 row0" >square_reg</th>
+      <td id="T_e8192_row0_col0" class="data row0 col0" >0.710297</td>
+      <td id="T_e8192_row0_col1" class="data row0 col1" >0.818960</td>
+      <td id="T_e8192_row0_col2" class="data row0 col2" >0.131138</td>
+    </tr>
+    <tr>
+      <th id="T_e8192_level0_row1" class="row_heading level0 row1" >dt_reg</th>
+      <td id="T_e8192_row1_col0" class="data row1 col0" >0.574310</td>
+      <td id="T_e8192_row1_col1" class="data row1 col1" >0.853621</td>
+      <td id="T_e8192_row1_col2" class="data row1 col2" >0.126859</td>
+    </tr>
+    <tr>
+      <th id="T_e8192_level0_row2" class="row_heading level0 row2" >rf_reg</th>
+      <td id="T_e8192_row2_col0" class="data row2 col0" >0.490039</td>
+      <td id="T_e8192_row2_col1" class="data row2 col1" >0.875099</td>
+      <td id="T_e8192_row2_col2" class="data row2 col2" >0.111054</td>
+    </tr>
+    <tr>
+      <th id="T_e8192_level0_row3" class="row_heading level0 row3" >xgboost_reg</th>
+      <td id="T_e8192_row3_col0" class="data row3 col0" >1.479689</td>
+      <td id="T_e8192_row3_col1" class="data row3 col1" >0.622859</td>
+      <td id="T_e8192_row3_col2" class="data row3 col2" >0.200948</td>
+    </tr>
+    <tr>
+      <th id="T_e8192_level0_row4" class="row_heading level0 row4" >lgbm_reg</th>
+      <td id="T_e8192_row4_col0" class="data row4 col0" >0.968005</td>
+      <td id="T_e8192_row4_col1" class="data row4 col1" >0.753276</td>
+      <td id="T_e8192_row4_col2" class="data row4 col2" >0.155268</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Jak widać LightGBM z domyślnymi parametrami radzi sobię lepiej niż XGBoost, ale wciaż gorzej niż prostsze modele. W tym przypadku również spróbujmy pobawić się hiperparametrami.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lgbm_model2</span> <span class="o">=</span> <span class="n">lightgbm</span><span class="o">.</span><span class="n">LGBMRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">lgbm_model2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,)))</span>
+<span class="n">preds_lgbm2</span> <span class="o">=</span> <span class="n">lgbm_model2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.000011 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 35
+[LightGBM] [Info] Number of data points in the train set: 100, number of used features: 1
+[LightGBM] [Info] Start training from score 0.313750
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+[LightGBM] [Warning] No further splits with positive gain, best gain: -inf
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wyniki_lgbm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> 
+        <span class="p">{</span>
+            <span class="s1">&#39;RSS&#39;</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">preds_poly</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_dt2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">rf_preds2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_xgboost2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_lgbm2</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid</span><span class="p">))</span> 
+                <span class="p">],</span>
+            <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">rf_preds2</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_xgboost2</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_lgbm2</span><span class="p">)</span>
+                <span class="p">],</span>
+            <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_poly</span><span class="p">),</span> 
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_dt2</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">rf_preds2</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_xgboost2</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">preds_lgbm2</span><span class="p">)</span>
+                <span class="p">]</span>
+        <span class="p">},</span> 
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;square_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;dt_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;rf_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;xgboost_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;lgbm_reg&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">wyniki_lgbm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_a237d_row0_col0 {
+  background-color: #3888c1;
+  color: #f1f1f1;
+}
+#T_a237d_row0_col1 {
+  background-color: #aacfe5;
+  color: #000000;
+}
+#T_a237d_row0_col2 {
+  background-color: #1562a9;
+  color: #f1f1f1;
+}
+#T_a237d_row1_col0 {
+  background-color: #c6dbef;
+  color: #000000;
+}
+#T_a237d_row1_col1 {
+  background-color: #2171b5;
+  color: #f1f1f1;
+}
+#T_a237d_row1_col2 {
+  background-color: #3f8fc5;
+  color: #f1f1f1;
+}
+#T_a237d_row2_col0, #T_a237d_row2_col2, #T_a237d_row4_col1 {
+  background-color: #f7fbff;
+  color: #000000;
+}
+#T_a237d_row2_col1, #T_a237d_row4_col0, #T_a237d_row4_col2 {
+  background-color: #08306b;
+  color: #f1f1f1;
+}
+#T_a237d_row3_col0 {
+  background-color: #cbdef1;
+  color: #000000;
+}
+#T_a237d_row3_col1 {
+  background-color: #1c6ab0;
+  color: #f1f1f1;
+}
+#T_a237d_row3_col2 {
+  background-color: #bdd7ec;
+  color: #000000;
+}
+</style>
+<table id="T_a237d">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_a237d_level0_col0" class="col_heading level0 col0" >RSS</th>
+      <th id="T_a237d_level0_col1" class="col_heading level0 col1" >R2</th>
+      <th id="T_a237d_level0_col2" class="col_heading level0 col2" >MAE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_a237d_level0_row0" class="row_heading level0 row0" >square_reg</th>
+      <td id="T_a237d_row0_col0" class="data row0 col0" >0.710297</td>
+      <td id="T_a237d_row0_col1" class="data row0 col1" >0.818960</td>
+      <td id="T_a237d_row0_col2" class="data row0 col2" >0.131138</td>
+    </tr>
+    <tr>
+      <th id="T_a237d_level0_row1" class="row_heading level0 row1" >dt_reg</th>
+      <td id="T_a237d_row1_col0" class="data row1 col0" >0.574310</td>
+      <td id="T_a237d_row1_col1" class="data row1 col1" >0.853621</td>
+      <td id="T_a237d_row1_col2" class="data row1 col2" >0.126859</td>
+    </tr>
+    <tr>
+      <th id="T_a237d_level0_row2" class="row_heading level0 row2" >rf_reg</th>
+      <td id="T_a237d_row2_col0" class="data row2 col0" >0.490039</td>
+      <td id="T_a237d_row2_col1" class="data row2 col1" >0.875099</td>
+      <td id="T_a237d_row2_col2" class="data row2 col2" >0.111054</td>
+    </tr>
+    <tr>
+      <th id="T_a237d_level0_row3" class="row_heading level0 row3" >xgboost_reg</th>
+      <td id="T_a237d_row3_col0" class="data row3 col0" >0.564405</td>
+      <td id="T_a237d_row3_col1" class="data row3 col1" >0.856145</td>
+      <td id="T_a237d_row3_col2" class="data row3 col2" >0.118005</td>
+    </tr>
+    <tr>
+      <th id="T_a237d_level0_row4" class="row_heading level0 row4" >lgbm_reg</th>
+      <td id="T_a237d_row4_col0" class="data row4 col0" >0.822966</td>
+      <td id="T_a237d_row4_col1" class="data row4 col1" >0.790244</td>
+      <td id="T_a237d_row4_col2" class="data row4 col2" >0.135914</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Ostatecznie bardzo trudno jest uzyskać lepsze rezultaty niż powyższe na tej ramce danych. Spróbujmy powtórzyć poprzedni eksperyment i wykorzystajmy model LightGBM do treningu na bardziej złożonej ramce danych.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="c1"># LightGBM</span>
+<span class="n">lgbm_model</span> <span class="o">=</span> <span class="n">lightgbm</span><span class="o">.</span><span class="n">LGBMRegressor</span><span class="p">()</span>
+<span class="n">lgbm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train_mr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_train_mr</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_train_mr</span><span class="p">),)))</span>
+<span class="n">preds_lgbm_model</span> <span class="o">=</span> <span class="n">lgbm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid_mr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.000207 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 2550
+[LightGBM] [Info] Number of data points in the train set: 8000, number of used features: 10
+[LightGBM] [Info] Start training from score 0.511808
+CPU times: total: 438 ms
+Wall time: 83.5 ms
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wyniki_lgbm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> 
+        <span class="p">{</span>
+            <span class="s1">&#39;RSS&#39;</span><span class="p">:[</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_dt_model</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid_mr</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_rf_model</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid_mr</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_xgboost_model</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid_mr</span><span class="p">)),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">preds_lgbm_model</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="n">y_valid_mr</span><span class="p">))</span>
+                <span class="p">],</span>
+            <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_dt_model</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_rf_model</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_xgboost_model</span><span class="p">),</span>
+                <span class="n">r2_score</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_lgbm_model</span><span class="p">)</span>
+                <span class="p">],</span>
+            <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_dt_model</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_rf_model</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_xgboost_model</span><span class="p">),</span>
+                 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_valid_mr</span><span class="p">,</span> <span class="n">preds_lgbm_model</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">},</span> 
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;dt_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;rf_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;xgboost_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;lgbm_reg&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">wyniki_lgbm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_016bd_row0_col0, #T_016bd_row0_col2, #T_016bd_row3_col1 {
+  background-color: #08306b;
+  color: #f1f1f1;
+}
+#T_016bd_row0_col1, #T_016bd_row1_col0, #T_016bd_row3_col2 {
+  background-color: #f7fbff;
+  color: #000000;
+}
+#T_016bd_row1_col1 {
+  background-color: #2474b7;
+  color: #f1f1f1;
+}
+#T_016bd_row1_col2 {
+  background-color: #9ac8e0;
+  color: #000000;
+}
+#T_016bd_row2_col0 {
+  background-color: #084082;
+  color: #f1f1f1;
+}
+#T_016bd_row2_col1 {
+  background-color: #084387;
+  color: #f1f1f1;
+}
+#T_016bd_row2_col2 {
+  background-color: #dae8f6;
+  color: #000000;
+}
+#T_016bd_row3_col0 {
+  background-color: #1460a8;
+  color: #f1f1f1;
+}
+</style>
+<table id="T_016bd">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_016bd_level0_col0" class="col_heading level0 col0" >RSS</th>
+      <th id="T_016bd_level0_col1" class="col_heading level0 col1" >R2</th>
+      <th id="T_016bd_level0_col2" class="col_heading level0 col2" >MAE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_016bd_level0_row0" class="row_heading level0 row0" >dt_reg</th>
+      <td id="T_016bd_row0_col0" class="data row0 col0" >204050950398.135620</td>
+      <td id="T_016bd_row0_col1" class="data row0 col1" >0.758806</td>
+      <td id="T_016bd_row0_col2" class="data row0 col2" >62.622685</td>
+    </tr>
+    <tr>
+      <th id="T_016bd_level0_row1" class="row_heading level0 row1" >rf_reg</th>
+      <td id="T_016bd_row1_col0" class="data row1 col0" >182549366086.138123</td>
+      <td id="T_016bd_row1_col1" class="data row1 col1" >0.921081</td>
+      <td id="T_016bd_row1_col2" class="data row1 col2" >34.902868</td>
+    </tr>
+    <tr>
+      <th id="T_016bd_level0_row2" class="row_heading level0 row2" >xgboost_reg</th>
+      <td id="T_016bd_row2_col0" class="data row2 col0" >202746427572.298492</td>
+      <td id="T_016bd_row2_col1" class="data row2 col1" >0.963205</td>
+      <td id="T_016bd_row2_col2" class="data row2 col2" >24.125312</td>
+    </tr>
+    <tr>
+      <th id="T_016bd_level0_row3" class="row_heading level0 row3" >lgbm_reg</th>
+      <td id="T_016bd_row3_col0" class="data row3 col0" >200089746001.024780</td>
+      <td id="T_016bd_row3_col1" class="data row3 col1" >0.979257</td>
+      <td id="T_016bd_row3_col2" class="data row3 col2" >17.614669</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Jak widać model LightGBM działa ostatecznie jeszcze szybciej niż XGBoost, a dodatkowo jego skuteczność też jest wyższa.</p>
+<p>Podsumowując mogłoby się wydawać, że modele LightGBM i XGBoost są najlepszymi wyborami podczas budowy modelu uczenia maszynowego. Bardzo często tak właśnie jest, ale wszystko zależy od złożoności problemu. Czasem może się zdarzyć, że mamy mało danych i wtedy lepiej wykorzystać model typu DecisionTree lub RandomForest do treningu modelu. Takie modele są dużo łatwiejsze w interpretacji niż algorytmy Boosting’owe. Ponadto w sytuacji, gdy różnica w skuteczności nie jest duża warto zastanowić się czy nie oprzeć systemu na nieco gorszym modelu, ale łatwiejszym do wdrożenia, utrzymania czy interpretacji. Na końcu wszystko zależy od wymagań zebranych podczas projektu.</p>
+</section>
+</section>
+<section id="bibliografia">
+<h2>Bibliografia<a class="headerlink" href="#bibliografia" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Polynomial_regression">https://en.wikipedia.org/wiki/Polynomial_regression</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/analytics-vidhya/regression-trees-decision-tree-for-regression-machine-learning-e4d7525d8047">https://medium.com/analytics-vidhya/regression-trees-decision-tree-for-regression-machine-learning-e4d7525d8047</a></p></li>
+<li><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/">https://xgboost.readthedocs.io/en/stable/</a></p></li>
+<li><p><a class="reference external" href="https://lightgbm.readthedocs.io/en/v3.3.2/">https://lightgbm.readthedocs.io/en/v3.3.2/</a></p></li>
+<li><p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2018/09/an-end-to-end-guide-to-understand-the-math-behind-xgboost/">https://www.analyticsvidhya.com/blog/2018/09/an-end-to-end-guide-to-understand-the-math-behind-xgboost/</a></p></li>
+<li><p><a class="reference external" href="https://neptune.ai/blog/xgboost-everything-you-need-to-know">https://neptune.ai/blog/xgboost-everything-you-need-to-know</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/&#64;wjj1019/in-depth-overview-of-xgboost-partii-45384b90d818">https://medium.com/&#64;wjj1019/in-depth-overview-of-xgboost-partii-45384b90d818</a></p></li>
+<li><p><a class="reference external" href="https://machinelearningmastery.com/light-gradient-boosted-machine-lightgbm-ensemble/">https://machinelearningmastery.com/light-gradient-boosted-machine-lightgbm-ensemble/</a></p></li>
+<li><p><a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2017/file/6449f44a102fde848669bdd9eb6b76fa-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2017/file/6449f44a102fde848669bdd9eb6b76fa-Paper.pdf</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/&#64;soyoungluna/simple-explanation-of-xgboost-without-complicated-mathematics-622c9c54c8a9">https://medium.com/&#64;soyoungluna/simple-explanation-of-xgboost-without-complicated-mathematics-622c9c54c8a9</a></p></li>
+<li><p><a class="reference external" href="https://www.analyticsvidhya.com/blog/2017/06/which-algorithm-takes-the-crown-light-gbm-vs-xgboost/?utm_source=reading_list&amp;amp;utm_medium=https://www.analyticsvidhya.com/blog/2018/09/an-end-to-end-guide-to-understand-the-math-behind-xgboost/">https://www.analyticsvidhya.com/blog/2017/06/which-algorithm-takes-the-crown-light-gbm-vs-xgboost/?utm_source=reading_list&amp;utm_medium=https://www.analyticsvidhya.com/blog/2018/09/an-end-to-end-guide-to-understand-the-math-behind-xgboost/</a></p></li>
+<li><p><a class="reference external" href="https://neptune.ai/blog/xgboost-vs-lightgbm">https://neptune.ai/blog/xgboost-vs-lightgbm</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./11. Regresja"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Regresja_lin.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Liniowe modele regresji</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Wyjaśnialność modeli - metryki statystyczne - tutorial</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wstep">Wstęp</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przygotowanie-danych">Przygotowanie danych</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees">Decision Trees</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-learning">Ensemble Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging">Bagging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting">Boosting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roznice-pomiedzy-random-forest-vs-xgboost">Różnice pomiędzy Random Forest vs XGBoost</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklad">Przykład</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lightgbm">LightGBM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roznice-pomiedzy-xgboost-vs-lightgbm">Różnice pomiędzy XGBoost vs LightGBM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Przykład</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografia</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By codersi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

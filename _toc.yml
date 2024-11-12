@@ -30,11 +30,18 @@ parts:
   - caption: Klasyfikacja
     chapters:
       - file: 12. Klasyfikacja/Klasyfikacja
-  - caption: Regresja
+  - caption: Regresja GLM
     chapters:
-      - file: 11. Regresja/Regresja-Part2
+      - file: 11. Regresja/Regresja_lin
+  - caption: Regresja - modele drzewiaste
+    chapters:
+      - file: 11. Regresja/Regresja_trees
   - caption: Wyjaśnialność modeli
     chapters:
       - file: 8. Wyjasnialnosc/8_Tutorial metryki statystyczne
       - file: 9. XAI/Wyjasnialnosc_modeli_definicje
       - file: 9. XAI/9_Wyjasnialnosc modeli
+  - caption: Przetwarzanie języka naturalnego
+    chapters:
+      - file: 13. NLP/TutorialNLP
+
