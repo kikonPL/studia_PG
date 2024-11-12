@@ -1,9 +1,10 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
 root: intro
 parts:
+  - caption: Fundamenty Pythona
+    chapters:
+      # - file: 0. Wstęp/AnacondaJupyter
+      - file: 0. Wstęp/TutorialBasicsPython
   - caption: Wprowadzenie do pakietów numpy i pandas
     chapters:
       - file: 1. Tutorial pandas/1_Tutorial pandas
@@ -30,11 +31,9 @@ parts:
   - caption: Klasyfikacja
     chapters:
       - file: 12. Klasyfikacja/Klasyfikacja
-  - caption: Regresja GLM
+  - caption: Regresja
     chapters:
       - file: 11. Regresja/Regresja_lin
-  - caption: Regresja - modele drzewiaste
-    chapters:
       - file: 11. Regresja/Regresja_trees
   - caption: Wyjaśnialność modeli
     chapters:

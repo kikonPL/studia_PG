@@ -10,11 +10,24 @@ Ksiązka została skompilowana przez Kazimierza Najmajera z notatników stworzon
 
 
 Książka wprowadza w podstawowe koncepty uczenia maszynowego.
-Składa się z 12 rozdziałów poruszających najbardziej kluczowe tematy, które będą przydatne każdemu, kto chce rozpocząć swoją karierę w Data Science.
+Składa się z 13 rozdziałów poruszających najbardziej kluczowe tematy, które będą przydatne każdemu, kto chce rozpocząć swoją karierę w Data Science. Są one także znakomitym repetytorium terminologii i metod używanych w data science.
+
 Materiały zostały stworzone przez data scientistów [Silky Coders](https://www.silkycoders.com/) na potrzeby zajęć dydaktycznych dla studentów Matematyki na Politechnice Gdańskiej.
 Autorzy życza przyjemnej nauki.
 
 ## Środowiska
 
 W celu uruchomienia przykładów na swoich komputerze sugerujemy wykorzystanie [środowiska conda](https://github.com/kikonPL/studia_PG/blob/main/politechnika.yml) które zostało użyte do zbudowania niniejszej książki.
+
+
+## Tegoroczni prowadzący
+
+- Emilia Murawiejko
+- Grzegorz Jarantowski
+- Jedrzej Smulski
+- Jakub Szczegiecki
+- Kacper Wojtacki
+- Kazimierz Najmajer
+- Maciej Płużyński
+- Magdalena Sienkiewicz
 

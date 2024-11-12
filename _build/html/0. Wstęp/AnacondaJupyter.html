@@ -1,0 +1,1579 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>JupyterLab &amp; Anaconda &#8212; Silky Coders Data Science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '0. Wstęp/AnacondaJupyter';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/silky-logo.png" class="logo__image only-light" alt="Silky Coders Data Science - Home"/>
+    <img src="../_static/silky-logo.png" class="logo__image only-dark pst-js-only" alt="Silky Coders Data Science - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamenty Pythona</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="TutorialBasicsPython.html">Podstawy Python</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wprowadzenie do pakietów numpy i pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">Pakiet pandas - tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">Pakiet NumPy - tutorial</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wizualizacja danych</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">Wizualizacja danych w Python</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza statystyczna</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">Analiza statystyczna - tutorial</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wykrywanie anomalii</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">Wykrywanie anomalii - definicje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">Wykrywanie anomalii - tutorial</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inżynieria cech</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">Inżynieria cech</a></li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Czyszczenie danych</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">Czyszczenie danych</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klasteryzacja</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">Klasteryzacja w Python</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klasyfikacja</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">Klasyfikacja w Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../11.%20Regresja/Regresja_lin.html">Liniowe modele regresji</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11.%20Regresja/Regresja_trees.html">Regresja oparta o modele drzewiaste</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wyjaśnialność modeli</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">Wyjaśnialność modeli - metryki statystyczne - tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">Wyjaśnialność modeli - definicje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">Wyjaśnialność modeli - XAI - tutorial</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Przetwarzanie języka naturalnego</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../13.%20NLP/TutorialNLP.html">NLP</a></li>
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/0. Wstęp/AnacondaJupyter.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kikonPL/studia_PG" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F0. Wstęp/AnacondaJupyter.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/0. Wstęp/AnacondaJupyter.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>JupyterLab & Anaconda</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">JupyterLab &amp; Anaconda</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalowanie-i-aktualizowanie-pakietow-python-pip-conda">Instalowanie i aktualizowanie pakietów Python (pip, conda)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-polecenia-dla-pip-oraz-conda">Podstawowe polecenia dla <em>pip</em> oraz <em>conda</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-srodowiska-wirtualnego">Tworzenie środowiska wirtualnego</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-wykorzystaniem-command-line">Z wykorzystaniem command line</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-wykorzystaniem-pliku-requirements-txt">Z wykorzystaniem pliku <em>requirements.txt</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-wykorzystaniem-pliku-environment-yml">Z wykorzystaniem pliku <em>environment.yml</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aktywacja-srodowiska">Aktywacja środowiska</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aktywacja-srodowiska-conda">Aktywacja środowiska conda</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aktywacja-srodowiska-venv">Aktywacja środowiska venv</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deaktywacja-srodowiska">Deaktywacja środowiska</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">conda</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#venv">venv</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wylistowanie-wszystkich-dostepnych-srodowisk-w-condzie">Wylistowanie wszystkich dostępnych środowisk w condzie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usuwanie-srodowiska-conda">Usuwanie środowiska conda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalowanie-bibliotek">Instalowanie bibliotek</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odinstalowanie-bibliotek">Odinstalowanie bibliotek</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-srodowiska-wirtualnego-do-pliku-environment-yaml">Export środowiska wirtualnego do pliku environment.yaml</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-listy-pakietow-do-pliku-requirements-txt">Export listy pakietów do pliku requirements.txt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-nowych-srodowisk-i-zarzadzanie-nimi-z-poziomu-anaconda-navigator">Tworzenie nowych środowisk i zarządzanie nimi z poziomu Anaconda Navigator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przydatne-informacje">Przydatne informacje</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-1">Zadanie 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-2">Zadanie 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-jupyter-notebook">JupyterLab / Jupyter Notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uruchomienie-jupyterlab-jupyter-notebook">Uruchomienie JupyterLab / Jupyter Notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-poziomu-wiersza-polecen">Z poziomu wiersza poleceń:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-poziomu-anaconda-navigator">Z poziomu Anaconda Navigator</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obsluga-jupter">Obsługa Jupter</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel">Kernel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reczne-zatrzymanie-pracy-srodowiska">Ręczne zatrzymanie pracy środowiska</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#automatyczne-zatrzymanie-pracy-srodowiska">Automatyczne zatrzymanie pracy środowiska</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dodanie-kernela-srodowiska-wirtualnego-do-jupyterlab">Dodanie kernela środowiska wirtualnego do JupyterLab</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skroty-klawiszowe">Skróty klawiszowe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#praca-z-jupyter-notebook">Praca z Jupyter Notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pisanie-markdown">Pisanie Markdown</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#naglowki">Nagłówki</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#naglowek-glowny">Nagłówek główny</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#h2">H2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#h3">H3</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#h4">H4</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#h5">H5</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#h6">H6</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pogrubienie-kursywa">Pogrubienie, kursywa</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-wspiera-tez-htmla">Markdown wspiera też HTMLa</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#listy">Listy</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#tabele">Tabele</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pisanie-kodu">Pisanie kodu</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#wklejanie-obrazkow">Wklejanie obrazków</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#alert-boxy">Alert boxy</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#latex">LaTeX</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Przydatne informacje</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polecenia-magiczne">Polecenia magiczne</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#time">time</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#who-whos">who / whos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pinfo">pinfo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#env">env</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run">run</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lsmagic">lsmagic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#load">load</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Przydatne informacje</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-3">Zadanie 3</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyterlab-anaconda">
+<h1>JupyterLab &amp; Anaconda<a class="headerlink" href="#jupyterlab-anaconda" title="Permalink to this heading">#</a></h1>
+<section id="instalowanie-i-aktualizowanie-pakietow-python-pip-conda">
+<h2>Instalowanie i aktualizowanie pakietów Python (pip, conda)<a class="headerlink" href="#instalowanie-i-aktualizowanie-pakietow-python-pip-conda" title="Permalink to this heading">#</a></h2>
+<p>W tej części zostaną przedstawione dwa systemy do zarządzania pakietami dla środowsika Python tj. <strong>pip</strong> oraz <strong>conda</strong>.</p>
+<p>System zarządzania <strong>pip</strong> jest domyślnym menadżerem pakietów dostępnym dla języka Python. Korzysta z dedykowanego repozytorium pakietów <em>Python Package Index</em> w skrócie <em>PyPi</em>.</p>
+<p>Z drugiej strony <strong>conda</strong> oprócz zarządzania pakietami zajmuję się również zarządzaniem środowiskami wirtualnymi. Dzięki systemowi zarządzania <strong>conda</strong> jesteśmy w stanie budować wyizolowowane środowiska wirtualne z odpowiednią wersją Python oraz interesującymi nas pakietami. <strong>Conda</strong> instaluje pakiety z repozytorium <em>Anaconda repository</em>, a także z <em>Anaconda Cloud</em>. Plusem <strong>conda</strong> jest możliwość wykorzystania tego mendażera nie tylko do Python, ale również <a class="reference external" href="http://m.in">m.in</a>. do R czy C++.</p>
+</section>
+<section id="podstawowe-polecenia-dla-pip-oraz-conda">
+<h2>Podstawowe polecenia dla <em>pip</em> oraz <em>conda</em><a class="headerlink" href="#podstawowe-polecenia-dla-pip-oraz-conda" title="Permalink to this heading">#</a></h2>
+<section id="tworzenie-srodowiska-wirtualnego">
+<h3>Tworzenie środowiska wirtualnego<a class="headerlink" href="#tworzenie-srodowiska-wirtualnego" title="Permalink to this heading">#</a></h3>
+<p>Python Virtual Environment (venv) jest środowiskiem Pythona, które jest odseparowane i całkowicie niezależne od głównej instalacji Pythona. Każdy tworzony przez nas projekt może, a nawet powinien, zawierać swoje środowisko, dzięki czemu może składać się z unikalnego zestawu pakietów.</p>
+<p>Venv jest nowym katalogiem na dysku, w którym znajduje się kopia Pythona. Zaraz po utworzeniu zawiera ona jedynie podstawowe pakiety. Zupełnie tak, jakbyśmy zainstalowali Pythona sami w nowej lokalizacji.</p>
+<section id="z-wykorzystaniem-command-line">
+<h4>Z wykorzystaniem command line<a class="headerlink" href="#z-wykorzystaniem-command-line" title="Permalink to this heading">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">virtual</span><span class="o">/</span><span class="n">environment</span>
+</pre></div>
+</div>
+<p>W condzie:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="o">&lt;</span><span class="n">env_name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="z-wykorzystaniem-pliku-requirements-txt">
+<h4>Z wykorzystaniem pliku <em>requirements.txt</em><a class="headerlink" href="#z-wykorzystaniem-pliku-requirements-txt" title="Permalink to this heading">#</a></h4>
+<p>W tym przypadku nie do końca mówimy o instaltacji środowiska, ale raczej o instalacji pakietów z wykorzsytanien pliku tektsowego. Możemy w pliku zdefiniować całą listę pakietów wraz z ich wersajmi, a następnie przy pomocy poniższej komendy zainstalować je wszystkie. Należy pamiętać, aby w tym przypadku w pierwszej kolejności utworzyć środowisko wirtualne z command line.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</section>
+<section id="z-wykorzystaniem-pliku-environment-yml">
+<h4>Z wykorzystaniem pliku <em>environment.yml</em><a class="headerlink" href="#z-wykorzystaniem-pliku-environment-yml" title="Permalink to this heading">#</a></h4>
+<p>Przykładowy plik <em>environment.yml</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">env_name</span><span class="o">&gt;</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">defaults</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>
+  <span class="o">-</span> <span class="n">pandas</span><span class="o">=</span><span class="mf">1.5.3</span>
+  <span class="o">-</span> <span class="n">pip</span><span class="o">=</span><span class="mf">23.1.2</span>
+  <span class="o">-</span> <span class="n">pip</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">numpy</span><span class="o">==</span><span class="mf">1.23.5</span>
+</pre></div>
+</div>
+<p>W tym przypadku tworzymy środowisko wraz z nazwą, odpowiednią wersją python oraz wszystkimi wymienionymi pakietami w zdefiniowanych wersjach.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="aktywacja-srodowiska">
+<h3>Aktywacja środowiska<a class="headerlink" href="#aktywacja-srodowiska" title="Permalink to this heading">#</a></h3>
+<section id="aktywacja-srodowiska-conda">
+<h4>Aktywacja środowiska conda<a class="headerlink" href="#aktywacja-srodowiska-conda" title="Permalink to this heading">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="o">&lt;</span><span class="n">env_name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Po właściwej aktywacji środowiska w wierszu poleceń pokazane jest, które środowisko jest aktywne:</p>
+<p><img alt="Alt text" src="../_images/image-4.png" /></p>
+<p>W przypadku nieudanej aktywacji (np. będziemy próbować aktywować środowisko, którego nie ma) dostaniemy błąd:</p>
+<p><img alt="Alt text" src="../_images/image-5.png" /></p>
+</section>
+<section id="aktywacja-srodowiska-venv">
+<h4>Aktywacja środowiska venv<a class="headerlink" href="#aktywacja-srodowiska-venv" title="Permalink to this heading">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">path_to_virtual_env</span><span class="o">&gt;/</span><span class="n">Scripts</span>
+<span class="n">activate</span>
+</pre></div>
+</div>
+<p>Po właściwej aktywacji środowiska będzie ono widoczne:</p>
+<p><img alt="Alt text" src="../_images/image-18.png" /></p>
+</section>
+</section>
+<section id="deaktywacja-srodowiska">
+<h3>Deaktywacja środowiska<a class="headerlink" href="#deaktywacja-srodowiska" title="Permalink to this heading">#</a></h3>
+<section id="conda">
+<h4>conda<a class="headerlink" href="#conda" title="Permalink to this heading">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">deactivate</span>
+</pre></div>
+</div>
+<p><img alt="Alt text" src="../_images/image-6.png" /></p>
+</section>
+<section id="venv">
+<h4>venv<a class="headerlink" href="#venv" title="Permalink to this heading">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deactivate</span>
+</pre></div>
+</div>
+<p><img alt="Alt text" src="../_images/image-19.png" /></p>
+</section>
+</section>
+<section id="wylistowanie-wszystkich-dostepnych-srodowisk-w-condzie">
+<h3>Wylistowanie wszystkich dostępnych środowisk w condzie<a class="headerlink" href="#wylistowanie-wszystkich-dostepnych-srodowisk-w-condzie" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="nb">list</span>
+</pre></div>
+</div>
+<p>Warto zauważyć, że aktywne środowisko jest oznaczone “*”</p>
+<p><img alt="Alt text" src="../_images/image-7.png" /></p>
+</section>
+<section id="usuwanie-srodowiska-conda">
+<h3>Usuwanie środowiska conda<a class="headerlink" href="#usuwanie-srodowiska-conda" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">remove</span> <span class="o">--</span><span class="n">name</span> <span class="o">&lt;</span><span class="n">env_name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Możemy usunąć środowisko tylko wtedy, gdy nie jest ono aktywne. W innym wypadku dostaniemy błąd:</p>
+<p><img alt="Alt text" src="../_images/image-8.png" /></p>
+</section>
+<section id="instalowanie-bibliotek">
+<h3>Instalowanie bibliotek<a class="headerlink" href="#instalowanie-bibliotek" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">&lt;</span><span class="n">package_name1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">package_name2</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">&lt;</span><span class="n">package_nameN</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">&lt;</span><span class="n">package_name1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">package_name2</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">&lt;</span><span class="n">package_nameN</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="odinstalowanie-bibliotek">
+<h3>Odinstalowanie bibliotek<a class="headerlink" href="#odinstalowanie-bibliotek" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">uninstall</span> <span class="o">&lt;</span><span class="n">package_name1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">package_name2</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">&lt;</span><span class="n">package_nameN</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">remove</span> <span class="o">&lt;</span><span class="n">package_name1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">package_name2</span><span class="o">&gt;</span> <span class="o">...</span> <span class="o">&lt;</span><span class="n">package_nameN</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="export-srodowiska-wirtualnego-do-pliku-environment-yaml">
+<h3>Export środowiska wirtualnego do pliku environment.yaml<a class="headerlink" href="#export-srodowiska-wirtualnego-do-pliku-environment-yaml" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">export</span> <span class="o">&gt;</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</section>
+<section id="export-listy-pakietow-do-pliku-requirements-txt">
+<h3>Export listy pakietów do pliku requirements.txt<a class="headerlink" href="#export-listy-pakietow-do-pliku-requirements-txt" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">freeze</span> <span class="o">&gt;</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</section>
+<section id="tworzenie-nowych-srodowisk-i-zarzadzanie-nimi-z-poziomu-anaconda-navigator">
+<h3>Tworzenie nowych środowisk i zarządzanie nimi z poziomu Anaconda Navigator<a class="headerlink" href="#tworzenie-nowych-srodowisk-i-zarzadzanie-nimi-z-poziomu-anaconda-navigator" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Wybieramy zakładkę Environments z menu po lewej stronie</p></li>
+</ol>
+<p><img alt="Alt text" src="../_images/image.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Klikamy przycisk “Create” znajdujący się na dole drugiego panelu</p></li>
+</ol>
+<p><img alt="Alt text" src="../_images/image-1.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Wpisujemy nazwę naszego środowiska oraz wybieramy wersję python. Zatwierdzamy klikając “Create”</p></li>
+</ol>
+<p><img alt="Alt text" src="../_images/image-2.png" /></p>
+<ol class="arabic simple" start="4">
+<li><p>Dodatkowo możemy zainstalować pakiety ręcznie</p></li>
+</ol>
+<p><img alt="Alt text" src="../_images/image-3.png" /></p>
+</section>
+<section id="przydatne-informacje">
+<h3>Przydatne informacje<a class="headerlink" href="#przydatne-informacje" title="Permalink to this heading">#</a></h3>
+<p>Cheatsheet: <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html">https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html</a></p>
+<p>Różnice pomiędzy pip oraz conda: <a class="reference external" href="https://www.anaconda.com/blog/understanding-conda-and-pip">https://www.anaconda.com/blog/understanding-conda-and-pip</a></p>
+</section>
+</section>
+<section id="zadanie-1">
+<h2>Zadanie 1<a class="headerlink" href="#zadanie-1" title="Permalink to this heading">#</a></h2>
+<p>Utwórz środowisko wirtualne o nazwie <strong>env_szkolenie_python</strong> z wersją Python 3.10 z następującymi bibliotekami:</p>
+<ul class="simple">
+<li><p>pandas</p></li>
+<li><p>numpy</p></li>
+<li><p>scipy</p></li>
+<li><p>statsmodels</p></li>
+<li><p>matplotlib</p></li>
+<li><p>seaborn</p></li>
+</ul>
+<p>Środowisko wirtualne utwórz z wiersza poleceń korzystając z polecenia <em>conda</em>. Po utworzeniu środowiska zapisz artefakt w formie pliku requirements.txt oraz environment.yaml. Skorzystaj do tego z poleceń opartych o <em>pip</em> oraz <em>conda</em>.</p>
+</section>
+<section id="zadanie-2">
+<h2>Zadanie 2<a class="headerlink" href="#zadanie-2" title="Permalink to this heading">#</a></h2>
+<p>Na podstawie eksportowanego środowiska w poprzednim zadaniu utwórz nowe środowisko wirtualne tym razem o nazwie <strong>env_szkolenie_python_pip</strong> i <strong>env_szkolenie_python_conda</strong>. Do tego wykorzystaj plik <em>requirements.txt</em> oraz <em>envrionment.yaml</em>.</p>
+</section>
+<section id="jupyterlab-jupyter-notebook">
+<h2>JupyterLab / Jupyter Notebook<a class="headerlink" href="#jupyterlab-jupyter-notebook" title="Permalink to this heading">#</a></h2>
+<p>Jupyter Notebook służy do wykonywania interaktywnych obliczeń. Zawiera w sobie obliczenia, wyniki, tekst objaśniający, obrazy, bogate reprezentacje multimedialne obiektów, itd.</p>
+<p>JupyterLab to internetowy interfejs. Umożliwia on pracę z dokumentami i działaniami takimi jak Jupyter Notebook, edotyory tekstu, wiersze poleceń, itp.</p>
+<section id="uruchomienie-jupyterlab-jupyter-notebook">
+<h3>Uruchomienie JupyterLab / Jupyter Notebook<a class="headerlink" href="#uruchomienie-jupyterlab-jupyter-notebook" title="Permalink to this heading">#</a></h3>
+<section id="z-poziomu-wiersza-polecen">
+<h4>Z poziomu wiersza poleceń:<a class="headerlink" href="#z-poziomu-wiersza-polecen" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Instalacja pakietu</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">jupyter</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Włączenie JupyterLab (dla notebooka analogicznie)</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">lab</span>
+</pre></div>
+</div>
+<p><img alt="Alt text" src="../_images/image-9.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Po wpisaniu komendy w przeglądarce JupyterLab chodzi na lokalnym hoście</p></li>
+<li><p>Nie należy wyłączać wiersza poleceń. W innym wypadku stracimy połączenie z JupyterLab:</p></li>
+</ol>
+<p><img alt="Alt text" src="../_images/image-10.png" /></p>
+</section>
+<section id="z-poziomu-anaconda-navigator">
+<h4>Z poziomu Anaconda Navigator<a class="headerlink" href="#z-poziomu-anaconda-navigator" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Uruchamiamy Anaconda Navigator</p></li>
+<li><p>Upewniamy się, że mamy wybrane dobre środowisko:</p></li>
+</ol>
+<p><img alt="Alt text" src="../_images/image-11.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Instalujemy bibliotekę jupyter (o ile nie zrobiliśmy tego wcześniej). Jeśli juptyer nie jest zainstalowany to można to zrobić jednym kliknięciem w menu głównym:</p></li>
+</ol>
+<p><img alt="Alt text" src="../_images/image-12.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Włączamy JupyterLab / Jupyter Notebook:</p></li>
+</ol>
+<p><img alt="Alt text" src="../_images/image-13.png" /></p>
+<ol class="arabic simple" start="4">
+<li><p>I tym razem JupyterLab również jest włączony na lokalnym hoście</p></li>
+</ol>
+</section>
+</section>
+<section id="obsluga-jupter">
+<h3>Obsługa Jupter<a class="headerlink" href="#obsluga-jupter" title="Permalink to this heading">#</a></h3>
+<section id="kernel">
+<h4>Kernel<a class="headerlink" href="#kernel" title="Permalink to this heading">#</a></h4>
+<p>Kernele to procesy specyficzne dla języka programowania, które działają niezależnie i wchodzą w interakcje z aplikacjami Jupyter i ich interfejsami użytkownika. <strong>ipykernel</strong> to referencyjny kernel Jupyter zbudowany na bazie IPython, zapewniający środowisko do interaktywnych obliczeń w Pythonie. <strong>Kernel</strong> to podstawowy komponent, który odgrywa kluczową rolę w wykonywaniu kodu i zarządzaniem środowiskiem obliczeniowym.</p>
+</section>
+<section id="reczne-zatrzymanie-pracy-srodowiska">
+<h4>Ręczne zatrzymanie pracy środowiska<a class="headerlink" href="#reczne-zatrzymanie-pracy-srodowiska" title="Permalink to this heading">#</a></h4>
+<p>Zdarzyć się może, że nasz kod będzie wykonywać się długo, albo znajdziemy w nim błąd w trakcie jego wykonywania. Na przykład tworząc nieskończoną pętlę:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Wtedy możemy zatrzymać jego wykonywanie, zastopować kernel. Wystarczy wybrać opcję “interrupt the kernel” z górnego panelu:</p>
+<p><img alt="Alt text" src="../_images/image-14.png" /></p>
+<p>Wówczas w wyniku komórki, która się wykonywała dostaniemy odpowiedni błąd:</p>
+<p><img alt="Alt text" src="../_images/image-15.png" /></p>
+</section>
+<section id="automatyczne-zatrzymanie-pracy-srodowiska">
+<h4>Automatyczne zatrzymanie pracy środowiska<a class="headerlink" href="#automatyczne-zatrzymanie-pracy-srodowiska" title="Permalink to this heading">#</a></h4>
+<p>Czasem bywa tak, że kernel zatrzymuje się automatycznie. Może mieć to związek ze skończeniem się zasobów maszyny, na której pracujemy.</p>
+</section>
+<section id="dodanie-kernela-srodowiska-wirtualnego-do-jupyterlab">
+<h4>Dodanie kernela środowiska wirtualnego do JupyterLab<a class="headerlink" href="#dodanie-kernela-srodowiska-wirtualnego-do-jupyterlab" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Odpalamy wiersz poleceń</p></li>
+<li><p>Aktywujemy nasze wirtualne środowisko (poniżej pokazane dla Windows)</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">path_to_virtual_env</span><span class="o">&gt;/</span><span class="n">Scripts</span>
+<span class="n">activate</span>
+</pre></div>
+</div>
+<p><img alt="Alt text" src="../_images/image-16.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>W razie potrzeby instalujemy jupyter (jeżeli jupyter jest zainstalowany to patrz punkt 5)</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">pinstall</span> <span class="n">jupyter</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Jeżeli nie mamy pip wtedy uruchamiamy dwie komendy:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">pypa</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">get</span><span class="o">-</span><span class="n">pip</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">o</span> <span class="n">get</span><span class="o">-</span><span class="n">pip</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="n">get</span><span class="o">-</span><span class="n">pip</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Uruchamiamy komendę (nazwa “local-venv” dowolna):</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipython</span> <span class="n">kernel</span> <span class="n">install</span> <span class="o">--</span><span class="n">name</span> <span class="s2">&quot;local-venv&quot;</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Wówczas po uruchomieniu JupyterLaba/Notebooka mamy do wyboru nowy kernel:</p></li>
+</ol>
+<p><img alt="Alt text" src="../_images/image-17.png" /></p>
+</section>
+</section>
+<section id="skroty-klawiszowe">
+<h3>Skróty klawiszowe<a class="headerlink" href="#skroty-klawiszowe" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Enter</strong> -  Przejście do trybu edycji komórki</p></li>
+<li><p><strong>Control + Enter</strong> - Uruchomienie linijki kodu</p></li>
+<li><p><strong>Shift + Enter</strong> -  Uruchomienie linijki kodu i przejście do następnej komórki</p></li>
+<li><p><strong>Escape</strong> - Przejście do trybu komend</p></li>
+<li><p><strong>a</strong> - Wstawienie nowego wiersz powyżej (above)</p></li>
+<li><p><strong>b</strong> - Wstawienie nowego wiesza poniżej (below)</p></li>
+<li><p><strong>dd</strong> - Usunięcie bieżącego wiesza (delete)</p></li>
+<li><p><strong>m</strong> - Zmiana typu komórki na komentarz (markdown)</p></li>
+<li><p><strong>y</strong> - Zmiana typu komórki na kod (code)</p></li>
+<li><p><strong>x</strong> - Wytnij komórkę (cut)</p></li>
+<li><p><strong>c</strong> - Skopiuj komórkę (copy)</p></li>
+<li><p><strong>v</strong> - Wstaw wyciętą/skopiowaną komórkę (paste)</p></li>
+<li><p><strong>Shift + m</strong> - Połączenie dwóch komórek (merge)</p></li>
+<li><p><strong>Control + Shift + –</strong> -  Rozdzielenie dwóch komórek (split)</p></li>
+<li><p><strong>Control + s</strong> -  Zapisz notebook (save)</p></li>
+<li><p><strong>o</strong> -  Pokaż/ukryj output (output)</p></li>
+<li><p><strong>l</strong> -  Polaż/ukryj numery linijek (line number)</p></li>
+<li><p><strong>Shift + L</strong> -  Pokaż/ukryj numery linijek w całym notebooku</p></li>
+<li><p><strong>Control + Shift + f</strong> -  Wyszukiwanie komend</p></li>
+<li><p><strong>h</strong> - Pomoc dot. skrótów klawiaturowych (help)</p></li>
+</ul>
+</section>
+<section id="praca-z-jupyter-notebook">
+<h3>Praca z Jupyter Notebook<a class="headerlink" href="#praca-z-jupyter-notebook" title="Permalink to this heading">#</a></h3>
+<p>W notatniku mamy do wyboru kilka opcji:</p>
+<ul class="simple">
+<li><p>pisanie kodu</p></li>
+<li><p>pisanie Markdown</p></li>
+<li><p>pisanie surowego tekstu</p></li>
+</ul>
+<p><img alt="Alt text" src="../_images/image-20.png" /></p>
+<section id="pisanie-markdown">
+<h4>Pisanie Markdown<a class="headerlink" href="#pisanie-markdown" title="Permalink to this heading">#</a></h4>
+<section id="naglowki">
+<h5>Nagłówki<a class="headerlink" href="#naglowki" title="Permalink to this heading">#</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nagłówek główny</span>
+<span class="c1">## H2</span>
+<span class="c1">### H3</span>
+<span class="c1">#### H4</span>
+<span class="c1">##### H5</span>
+<span class="c1">###### H6</span>
+</pre></div>
+</div>
+<p>Rezultat:</p>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="naglowek-glowny">
+<h1>Nagłówek główny<a class="headerlink" href="#naglowek-glowny" title="Permalink to this heading">#</a></h1>
+<section id="h2">
+<h2>H2<a class="headerlink" href="#h2" title="Permalink to this heading">#</a></h2>
+<section id="h3">
+<h3>H3<a class="headerlink" href="#h3" title="Permalink to this heading">#</a></h3>
+<section id="h4">
+<h4>H4<a class="headerlink" href="#h4" title="Permalink to this heading">#</a></h4>
+<section id="h5">
+<h5>H5<a class="headerlink" href="#h5" title="Permalink to this heading">#</a></h5>
+<section id="h6">
+<h6>H6<a class="headerlink" href="#h6" title="Permalink to this heading">#</a></h6>
+</section>
+</section>
+<hr class="docutils" />
+<section id="pogrubienie-kursywa">
+<h5>Pogrubienie, kursywa<a class="headerlink" href="#pogrubienie-kursywa" title="Permalink to this heading">#</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">kursywa</span><span class="o">*</span>
+<span class="o">**</span><span class="n">pogrubienie</span><span class="o">**</span>
+</pre></div>
+</div>
+<p>Rezultat:</p>
+<p><em>kursywa</em></p>
+<p><strong>pogrubienie</strong></p>
+</section>
+<hr class="docutils" />
+<section id="markdown-wspiera-tez-htmla">
+<h5>Markdown wspiera też HTMLa<a class="headerlink" href="#markdown-wspiera-tez-htmla" title="Permalink to this heading">#</a></h5>
+<div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">u</span><span class="p">&gt;</span>podkreślenie<span class="p">&lt;/</span><span class="nt">u</span><span class="p">&gt;</span> 
+nowa linia -&gt; <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>pogrubienie<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:red&quot;</span><span class="p">&gt;</span> kolorowanie <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+odnośnik<span class="p">&lt;</span><span class="nt">sup</span><span class="p">&gt;</span>2<span class="p">&lt;/</span><span class="nt">sup</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">font</span> <span class="na">size </span><span class="o">=</span> <span class="s">&quot;5&quot;</span><span class="p">&gt;</span> Zmiana rozmiaru czcionki
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&#39;margin-bottom:1em; margin-right:1em; text-align:right; font-family:Georgia&#39;</span><span class="p">&gt;</span> Zmiana  stylu  i przesunięcie tekstu<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Rezultat:</p>
+<p><u>podkreślenie</u>
+nowa linia -&gt; <br />
+<b>pogrubienie</b>
+<span style="color:red"> kolorowanie </span>
+odnośnik<sup>2</sup>
+<font size = "5"> Zmiana rozmiaru czcionki</p>
+<p style='margin-bottom:1em; margin-right:1em; text-align:right; font-family:Georgia'> Zmiana  stylu  i przesunięcie tekstu</p></section>
+<hr class="docutils" />
+<section id="listy">
+<h5>Listy<a class="headerlink" href="#listy" title="Permalink to this heading">#</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">Element</span> <span class="mi">1</span>
+<span class="o">-</span> <span class="n">Element</span> <span class="mi">2</span>
+    <span class="o">-</span> <span class="n">Element</span> <span class="mf">2.1</span>
+    <span class="o">-</span> <span class="n">Element</span> <span class="mf">2.2</span>
+        <span class="o">-</span> <span class="n">Element</span> <span class="mf">2.2.1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">Element</span> <span class="mi">1</span>
+<span class="mf">2.</span> <span class="n">Element</span> <span class="mi">2</span>
+    <span class="o">-</span> <span class="n">Element</span> <span class="mf">2.1</span>
+    <span class="o">-</span> <span class="n">Element</span> <span class="mf">2.2</span>
+        <span class="o">-</span> <span class="n">Element</span> <span class="mf">2.2.1</span>
+</pre></div>
+</div>
+<p>Rezultat:</p>
+<ul class="simple">
+<li><p>Element 1</p></li>
+<li><p>Element 2</p>
+<ul>
+<li><p>Element 2.1</p></li>
+<li><p>Element 2.2</p>
+<ul>
+<li><p>Element 2.2.1</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol class="arabic simple">
+<li><p>Element 1</p></li>
+<li><p>Element 2</p>
+<ul class="simple">
+<li><p>Element 2.1</p></li>
+<li><p>Element 2.2</p>
+<ul>
+<li><p>Element 2.2.1</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="tabele">
+<h5>Tabele<a class="headerlink" href="#tabele" title="Permalink to this heading">#</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="n">st</span> <span class="n">Header</span><span class="o">|</span><span class="mi">2</span><span class="n">nd</span> <span class="n">Header</span><span class="o">|</span><span class="mi">3</span><span class="n">rd</span> <span class="n">Header</span>
+<span class="o">---|</span><span class="p">:</span><span class="o">---</span><span class="p">:</span><span class="o">|---</span><span class="p">:</span> 
+<span class="n">col</span> <span class="mi">1</span> <span class="ow">is</span><span class="o">|</span><span class="n">left</span><span class="o">-</span><span class="n">aligned</span><span class="o">|</span><span class="mi">1</span>
+<span class="n">col</span> <span class="mi">2</span> <span class="ow">is</span><span class="o">|</span><span class="n">center</span><span class="o">-</span><span class="n">aligned</span><span class="o">|</span><span class="mi">2</span>
+<span class="n">col</span> <span class="mi">3</span> <span class="ow">is</span><span class="o">|</span><span class="n">right</span><span class="o">-</span><span class="n">aligned</span><span class="o">|</span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>Rezultat:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>1st Header</p></th>
+<th class="head text-center"><p>2nd Header</p></th>
+<th class="head text-right"><p>3rd Header</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>col 1 is</p></td>
+<td class="text-center"><p>left-aligned</p></td>
+<td class="text-right"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>col 2 is</p></td>
+<td class="text-center"><p>center-aligned</p></td>
+<td class="text-right"><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>col 3 is</p></td>
+<td class="text-center"><p>right-aligned</p></td>
+<td class="text-right"><p>3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="pisanie-kodu">
+<h5>Pisanie kodu<a class="headerlink" href="#pisanie-kodu" title="Permalink to this heading">#</a></h5>
+<p>` ``py</p>
+<p>def fun(x):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>return x**2
+</pre></div>
+</div>
+<p>` ``</p>
+<p>Rezultat:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="wklejanie-obrazkow">
+<h5>Wklejanie obrazków<a class="headerlink" href="#wklejanie-obrazkow" title="Permalink to this heading">#</a></h5>
+<p>Nie ma też przeszkód, żeby wklejać screeny 😜</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>![logo](https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png &quot;Logo python&quot;)
+</pre></div>
+</div>
+<p>Rezultat:</p>
+<p><img alt="logo" src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" /></p>
+</section>
+<hr class="docutils" />
+<section id="alert-boxy">
+<h5>Alert boxy<a class="headerlink" href="#alert-boxy" title="Permalink to this heading">#</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;alert alert-block alert-info&quot;&gt; &lt;b&gt;Info!&lt;/b&gt; To pole wskazuje neutralną informację lub działanie. &lt;/div&gt;
+
+&lt;div class=&quot;alert alert-block alert-success&quot;&gt; &lt;b&gt;Success!&lt;/b&gt; To pole wskazuje pozytywne działanie. &lt;/div&gt;
+
+&lt;div class=&quot;alert alert-block alert-warning&quot;&gt; &lt;b&gt;Warning!&lt;/b&gt; To pole alertu wskazuje ostrzeżenie, które może wymagać uwagi. &lt;/div&gt;
+
+&lt;div class=&quot;alert alert-block alert-danger&quot;&gt; &lt;b&gt;Danger!&lt;/b&gt; To pole wskazuje na niebezpieczne lub potencjalnie negatywne działanie. &lt;/div&gt;
+</pre></div>
+</div>
+<p>Rezultat:</p>
+<div class="alert alert-block alert-info"> <b>Info!</b> To pole wskazuje neutralną informację lub działanie. </div>
+<div class="alert alert-block alert-success"> <b>Success!</b> To pole wskazuje pozytywne działanie. </div>
+<div class="alert alert-block alert-warning"> <b>Warning!</b> To pole alertu wskazuje ostrzeżenie, które może wymagać uwagi. </div>
+<div class="alert alert-block alert-danger"> <b>Danger!</b> To pole wskazuje na niebezpieczne lub potencjalnie negatywne działanie. </div><p>Okno można stworzyć też samemu:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;warning&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;background-color:#fbff19; color:#000000; border: dashed #b3b536 4px; border-radius: 4px; padding:0.7em;&#39;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">span</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;margin-top:1em; text-align:center&#39;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">BARDZO</span> <span class="n">WAŻNY</span> <span class="n">KOMUNIKAT</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;margin-left:1em;&#39;</span><span class="o">&gt;</span>
+<span class="n">Okno</span> <span class="n">stworzone</span> <span class="n">przy</span> <span class="n">użyciu</span> <span class="n">konstrukcji</span> <span class="n">HTML</span>
+<span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;margin-bottom:1em; margin-right:1em; text-align:right; font-family:Georgia&#39;</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">i</span><span class="o">&gt;</span><span class="p">(</span><span class="n">można</span> <span class="n">też</span> <span class="n">modyfikować</span> <span class="n">pojedyncze</span> <span class="n">zdania</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">i</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Rezultat:</p>
+<div class="warning" style='background-color:#fbff19; color:#000000; border: dashed #b3b536 4px; border-radius: 4px; padding:0.7em;'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>BARDZO WAŻNY KOMUNIKAT</b></p>
+<p style='margin-left:1em;'>
+Okno stworzone przy użyciu konstrukcji HTML
+</p>
+<p style='margin-bottom:1em; margin-right:1em; text-align:right; font-family:Georgia'> <i>(można też modyfikować pojedyncze zdania)</i>
+</p></span>
+</div></section>
+<hr class="docutils" />
+<section id="latex">
+<h5>LaTeX<a class="headerlink" href="#latex" title="Permalink to this heading">#</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Wyrażenia matematyczne: $x=2+x^2$
+
+Wyrażenie wyśrodkowane:
+$$
+x=2+x^2
+$$
+</pre></div>
+</div>
+<p>Rezultat:</p>
+<p>Wyrażenia matematyczne: <span class="math notranslate nohighlight">\(x=2+x^2\)</span></p>
+<p>Wyrażenie wyśrodkowane:
+$<span class="math notranslate nohighlight">\(
+x_{n+1}=2+x_{n}^{2} \\
+x_{0} = 0
+\)</span>$</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h4>Przydatne informacje<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<p>Markdown cheatsheet: <a class="reference external" href="https://www.ibm.com/docs/en/watson-studio-local/1.2.3?topic=notebooks-markdown-jupyter-cheatsheet">https://www.ibm.com/docs/en/watson-studio-local/1.2.3?topic=notebooks-markdown-jupyter-cheatsheet</a></p>
+<p>Artykuł z przydatną, podstawową wiedzą: <a class="reference external" href="https://ashki23.github.io/markdown-latex.html">https://ashki23.github.io/markdown-latex.html</a></p>
+<p>Wikipedia Latex: <a href=https://en.wikibooks.org/wiki/LaTeX/Mathematics> link </href></p>
+</section>
+</section>
+<section id="polecenia-magiczne">
+<h3>Polecenia magiczne<a class="headerlink" href="#polecenia-magiczne" title="Permalink to this heading">#</a></h3>
+<section id="time">
+<h4>time<a class="headerlink" href="#time" title="Permalink to this heading">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">time</span>
+</pre></div>
+</div>
+<p>Mierzy czas wykonywania pojedynczej instrukcji</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+</pre></div>
+</div>
+<p>Mierzy całkowity czas wykonywania kodu</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">):</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: total: 62.5 ms
+Wall time: 66.2 ms
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">):</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: total: 0 ns
+Wall time: 0 ns
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="who-whos">
+<h4>who / whos<a class="headerlink" href="#who-whos" title="Permalink to this heading">#</a></h4>
+<p>Wyświetla informacje o zmiennych aktualnie znajdujących się w przestrzeni nazw.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var_1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">var_2</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
+<span class="n">var_3</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">who</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i	 random	 var_1	 var_2	 var_3	 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">who</span> str
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>var_2	 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">whos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable   Type      Data/Info
+------------------------------
+i          int       999999
+random     module    &lt;module &#39;random&#39; from &#39;C:&lt;...&gt;\\jbook\\Lib\\random.py&#39;&gt;
+var_1      int       1
+var_2      str       hello
+var_3      int       100
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pinfo">
+<h4>pinfo<a class="headerlink" href="#pinfo" title="Permalink to this heading">#</a></h4>
+<p>Funkcja
+<code class="docutils literal notranslate"><span class="pre">%pinfo</span></code>
+w notatnikach Jupyter służy do dostarczania informacji i dokumentacji na temat określonego obiektu, funkcji lub modułu Pythona. Jest to przydatne narzędzie do szybkiego wyszukiwania informacji bez konieczności opuszczania notatnika.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pinfo</span> var_3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pinfo</span> len
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="env">
+<h4>env<a class="headerlink" href="#env" title="Permalink to this heading">#</a></h4>
+<p>Pobiera, ustawia lub wyświetla listę zmiennych środowiskowych.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">env</span> WD=Users/user/Forecast/AML
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>env: WD=Users/user/Forecast/AML
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;WD&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Users/user/Forecast/AML&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %env listuje zmienne środowiskowe</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run">
+<h4>run<a class="headerlink" href="#run" title="Permalink to this heading">#</a></h4>
+<p>uruchamia zewnętrzny skrypt pythonowy. Np.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">run</span> <span class="n">script</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>uruchomi skrypt <em><a class="reference external" href="http://script.py">script.py</a></em> znajdujący się w akutalnym katalogu</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run script.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Plik <a class="reference external" href="http://script.py">script.py</a></p></li>
+</ul>
+<p><img alt="Alt text" src="../_images/image-21.png" /></p>
+<ul class="simple">
+<li><p>Wywołujemy</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">run</span> <span class="n">script</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Dostajemy</p></li>
+</ul>
+<p><img alt="Alt text" src="../_images/image-23.png" /></p>
+</section>
+<section id="lsmagic">
+<h4>lsmagic<a class="headerlink" href="#lsmagic" title="Permalink to this heading">#</a></h4>
+<p>Lista aktualnie dostępnych funkcji magicznych.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">lsmagic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Available line magics:
+%alias  %alias_magic  %autoawait  %autocall  %automagic  %autosave  %bookmark  %cd  %clear  %cls  %code_wrap  %colors  %conda  %config  %connect_info  %copy  %ddir  %debug  %dhist  %dirs  %doctest_mode  %echo  %ed  %edit  %env  %gui  %hist  %history  %killbgscripts  %ldir  %less  %load  %load_ext  %loadpy  %logoff  %logon  %logstart  %logstate  %logstop  %ls  %lsmagic  %macro  %magic  %mamba  %matplotlib  %micromamba  %mkdir  %more  %notebook  %page  %pastebin  %pdb  %pdef  %pdoc  %pfile  %pinfo  %pinfo2  %pip  %popd  %pprint  %precision  %prun  %psearch  %psource  %pushd  %pwd  %pycat  %pylab  %qtconsole  %quickref  %recall  %rehashx  %reload_ext  %ren  %rep  %rerun  %reset  %reset_selective  %rmdir  %run  %save  %sc  %set_env  %store  %sx  %system  %tb  %time  %timeit  %unalias  %unload_ext  %who  %who_ls  %whos  %xdel  %xmode
+
+Available cell magics:
+%%!  %%HTML  %%SVG  %%bash  %%capture  %%cmd  %%code_wrap  %%debug  %%file  %%html  %%javascript  %%js  %%latex  %%markdown  %%perl  %%prun  %%pypy  %%python  %%python2  %%python3  %%ruby  %%script  %%sh  %%svg  %%sx  %%system  %%time  %%timeit  %%writefile
+
+Automagic is ON, % prefix IS NOT needed for line magics.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load">
+<h4>load<a class="headerlink" href="#load" title="Permalink to this heading">#</a></h4>
+<p>Ładuje zawartość zewnętrznego skryptu do komórki.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load</span> <span class="n">script</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Plik <a class="reference external" href="http://script.py">script.py</a></p></li>
+</ul>
+<p><img alt="Alt text" src="../_images/image-21.png" /></p>
+<ul class="simple">
+<li><p>Wywołujemy</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load</span> <span class="n">script</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Dostajemy</p></li>
+</ul>
+<p><img alt="Alt text" src="../_images/image-22.png" /></p>
+</section>
+<section id="id2">
+<h4>Przydatne informacje<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<p>Lista wbudowanych funkcji magic <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">https://ipython.readthedocs.io/en/stable/interactive/magics.html</a></p>
+</section>
+</section>
+</section>
+<section id="zadanie-3">
+<h2>Zadanie 3<a class="headerlink" href="#zadanie-3" title="Permalink to this heading">#</a></h2>
+<p>Napisz instrukcje “Jak utworzyć środowisko wirtualne env_szkolenie_python ?” korzystając z RMarkdown w Jupyter Lab. W instrukcji powinno się znaleźć:</p>
+<ul class="simple">
+<li><p>tabelka z podanymi podstawowymi bibliotekami oraz ich wersjami do instalacji</p></li>
+<li><p>komendy, które należy wykonać aby zainstalować środowisko z wiersza poleceń</p></li>
+<li><p>należy zmienić kolor czcionki w niektórych miejscach instrukcji</p></li>
+<li><p>dodać do opisu elementy typu: “Uwaga!”, “Wskazówka”</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./0. Wstęp"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">JupyterLab &amp; Anaconda</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalowanie-i-aktualizowanie-pakietow-python-pip-conda">Instalowanie i aktualizowanie pakietów Python (pip, conda)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-polecenia-dla-pip-oraz-conda">Podstawowe polecenia dla <em>pip</em> oraz <em>conda</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-srodowiska-wirtualnego">Tworzenie środowiska wirtualnego</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-wykorzystaniem-command-line">Z wykorzystaniem command line</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-wykorzystaniem-pliku-requirements-txt">Z wykorzystaniem pliku <em>requirements.txt</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-wykorzystaniem-pliku-environment-yml">Z wykorzystaniem pliku <em>environment.yml</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aktywacja-srodowiska">Aktywacja środowiska</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aktywacja-srodowiska-conda">Aktywacja środowiska conda</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aktywacja-srodowiska-venv">Aktywacja środowiska venv</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deaktywacja-srodowiska">Deaktywacja środowiska</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">conda</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#venv">venv</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wylistowanie-wszystkich-dostepnych-srodowisk-w-condzie">Wylistowanie wszystkich dostępnych środowisk w condzie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usuwanie-srodowiska-conda">Usuwanie środowiska conda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalowanie-bibliotek">Instalowanie bibliotek</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odinstalowanie-bibliotek">Odinstalowanie bibliotek</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-srodowiska-wirtualnego-do-pliku-environment-yaml">Export środowiska wirtualnego do pliku environment.yaml</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-listy-pakietow-do-pliku-requirements-txt">Export listy pakietów do pliku requirements.txt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-nowych-srodowisk-i-zarzadzanie-nimi-z-poziomu-anaconda-navigator">Tworzenie nowych środowisk i zarządzanie nimi z poziomu Anaconda Navigator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przydatne-informacje">Przydatne informacje</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-1">Zadanie 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-2">Zadanie 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-jupyter-notebook">JupyterLab / Jupyter Notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uruchomienie-jupyterlab-jupyter-notebook">Uruchomienie JupyterLab / Jupyter Notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-poziomu-wiersza-polecen">Z poziomu wiersza poleceń:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-poziomu-anaconda-navigator">Z poziomu Anaconda Navigator</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obsluga-jupter">Obsługa Jupter</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel">Kernel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reczne-zatrzymanie-pracy-srodowiska">Ręczne zatrzymanie pracy środowiska</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#automatyczne-zatrzymanie-pracy-srodowiska">Automatyczne zatrzymanie pracy środowiska</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dodanie-kernela-srodowiska-wirtualnego-do-jupyterlab">Dodanie kernela środowiska wirtualnego do JupyterLab</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skroty-klawiszowe">Skróty klawiszowe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#praca-z-jupyter-notebook">Praca z Jupyter Notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pisanie-markdown">Pisanie Markdown</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#naglowki">Nagłówki</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#naglowek-glowny">Nagłówek główny</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#h2">H2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#h3">H3</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#h4">H4</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#h5">H5</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#h6">H6</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pogrubienie-kursywa">Pogrubienie, kursywa</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-wspiera-tez-htmla">Markdown wspiera też HTMLa</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#listy">Listy</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#tabele">Tabele</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pisanie-kodu">Pisanie kodu</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#wklejanie-obrazkow">Wklejanie obrazków</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#alert-boxy">Alert boxy</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#latex">LaTeX</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Przydatne informacje</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polecenia-magiczne">Polecenia magiczne</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#time">time</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#who-whos">who / whos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pinfo">pinfo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#env">env</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run">run</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lsmagic">lsmagic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#load">load</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Przydatne informacje</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-3">Zadanie 3</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By codersi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
