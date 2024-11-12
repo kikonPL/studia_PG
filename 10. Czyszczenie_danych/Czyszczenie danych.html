@@ -168,7 +168,18 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wprowadzenie do pakietów numpy i pandas</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamenty Pythona</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../0.%20Wst%C4%99p/TutorialBasicsPython.html">Podstawy Python</a></li>
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wprowadzenie do pakietów numpy i pandas</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">Pakiet pandas - tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">Pakiet NumPy - tutorial</a></li>
@@ -226,12 +237,9 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">Klasyfikacja w Python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja GLM</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../11.%20Regresja/Regresja_lin.html">Liniowe modele regresji</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja - modele drzewiaste</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../11.%20Regresja/Regresja_trees.html">Regresja oparta o modele drzewiaste</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wyjaśnialność modeli</span></p>
@@ -634,47 +642,47 @@ Należy również pamiętać, że czyszczenie danych musi być poprzedzone ich d
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>13.0</td>
-      <td>58.0</td>
-      <td>177.0</td>
-      <td>18.5</td>
-      <td>GDYNIA</td>
-      <td>3.0</td>
-      <td>3</td>
-      <td>F</td>
+      <td>65.0</td>
+      <td>44.0</td>
+      <td>163.0</td>
+      <td>13.315037</td>
+      <td>WEJHEROWO</td>
+      <td>4.0</td>
+      <td>4</td>
+      <td>M</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>57.0</td>
-      <td>75.0</td>
-      <td>167.0</td>
-      <td>26.9</td>
-      <td>Gdynia</td>
-      <td>4.0</td>
-      <td>-16</td>
-      <td>M</td>
+      <td>46.0</td>
+      <td>55.0</td>
+      <td>154.0</td>
+      <td>23.200000</td>
+      <td>Gdansk</td>
+      <td>3.0</td>
+      <td>-6</td>
+      <td>N</td>
     </tr>
     <tr>
       <th>2</th>
       <td>2</td>
-      <td>43.0</td>
-      <td>63.0</td>
-      <td>153.0</td>
-      <td>26.9</td>
-      <td>Gdańsk</td>
+      <td>44.0</td>
+      <td>53.0</td>
+      <td>158.0</td>
+      <td>21.200000</td>
+      <td>Wejherowo</td>
       <td>3.0</td>
       <td>3</td>
-      <td>F</td>
+      <td>M</td>
     </tr>
     <tr>
       <th>3</th>
       <td>3</td>
-      <td>NaN</td>
-      <td>52.0</td>
-      <td>171.0</td>
-      <td>17.8</td>
-      <td>GDAŃSK</td>
+      <td>14.0</td>
+      <td>65.0</td>
+      <td>165.0</td>
+      <td>23.900000</td>
+      <td>Koscierzyna</td>
       <td>3.0</td>
       <td>3</td>
       <td>N</td>
@@ -682,14 +690,14 @@ Należy również pamiętać, że czyszczenie danych musi być poprzedzone ich d
     <tr>
       <th>4</th>
       <td>4</td>
-      <td>17.0</td>
-      <td>32.0</td>
-      <td>145.0</td>
-      <td>15.2</td>
-      <td>KOSCIERZYNA</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>F</td>
+      <td>37.0</td>
+      <td>52.0</td>
+      <td>146.0</td>
+      <td>24.400000</td>
+      <td>Gdańsk</td>
+      <td>3.0</td>
+      <td>0</td>
+      <td>N</td>
     </tr>
   </tbody>
 </table>
@@ -703,17 +711,17 @@ Należy również pamiętać, że czyszczenie danych musi być poprzedzone ich d
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 315 entries, 0 to 24
+Index: 315 entries, 0 to 196
 Data columns (total 9 columns):
  #   Column              Non-Null Count  Dtype  
 ---  ------              --------------  -----  
  0   unique_id           315 non-null    int64  
- 1   age                 216 non-null    float64
+ 1   age                 193 non-null    float64
  2   weight              315 non-null    object 
  3   height              315 non-null    float64
  4   bmi                 315 non-null    float64
  5   city                315 non-null    object 
- 6   num_covid_tests     245 non-null    float64
+ 6   num_covid_tests     243 non-null    float64
  7   num_positive_tests  315 non-null    int32  
  8   sex                 315 non-null    object 
 dtypes: float64(4), int32(1), int64(1), object(3)
@@ -758,33 +766,33 @@ memory usage: 23.4+ KB
   <tbody>
     <tr>
       <th>0</th>
-      <td>58.0</td>
-      <td>GDYNIA</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>75.0</td>
-      <td>Gdynia</td>
+      <td>44.0</td>
+      <td>WEJHEROWO</td>
       <td>M</td>
     </tr>
     <tr>
+      <th>1</th>
+      <td>55.0</td>
+      <td>Gdansk</td>
+      <td>N</td>
+    </tr>
+    <tr>
       <th>2</th>
-      <td>63.0</td>
-      <td>Gdańsk</td>
-      <td>F</td>
+      <td>53.0</td>
+      <td>Wejherowo</td>
+      <td>M</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>52.0</td>
-      <td>GDAŃSK</td>
+      <td>65.0</td>
+      <td>Koscierzyna</td>
       <td>N</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>32.0</td>
-      <td>KOSCIERZYNA</td>
-      <td>F</td>
+      <td>52.0</td>
+      <td>Gdańsk</td>
+      <td>N</td>
     </tr>
     <tr>
       <th>...</th>
@@ -793,34 +801,34 @@ memory usage: 23.4+ KB
       <td>...</td>
     </tr>
     <tr>
-      <th>23</th>
-      <td>48.0</td>
+      <th>207</th>
+      <td>71.0</td>
+      <td>Gdańsk</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>250</th>
+      <td>56.0</td>
       <td>GDANSK</td>
       <td>M</td>
     </tr>
     <tr>
-      <th>246</th>
-      <td>55.0</td>
-      <td>Gdansk</td>
+      <th>111</th>
+      <td>48.0</td>
+      <td>Gdańsk</td>
       <td>M</td>
     </tr>
     <tr>
-      <th>218</th>
-      <td>59.0</td>
-      <td>GDYNIA</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>60.0</td>
-      <td>KOŚCIERZYNA</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>69.0</td>
+      <th>291</th>
+      <td>64.0</td>
       <td>Gdynia</td>
-      <td>N</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>55.0</td>
+      <td>WEJHEROWO</td>
+      <td>M</td>
     </tr>
   </tbody>
 </table>
@@ -861,38 +869,38 @@ memory usage: 23.4+ KB
   <tbody>
     <tr>
       <th>0</th>
-      <td>13.0</td>
-      <td>177.0</td>
-      <td>18.500000</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>57.0</td>
-      <td>167.0</td>
-      <td>26.900000</td>
+      <td>65.0</td>
+      <td>163.0</td>
+      <td>13.315037</td>
       <td>4.0</td>
     </tr>
     <tr>
+      <th>1</th>
+      <td>46.0</td>
+      <td>154.0</td>
+      <td>23.200000</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
       <th>2</th>
-      <td>43.0</td>
-      <td>153.0</td>
-      <td>26.900000</td>
+      <td>44.0</td>
+      <td>158.0</td>
+      <td>21.200000</td>
       <td>3.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>NaN</td>
-      <td>171.0</td>
-      <td>17.800000</td>
+      <td>14.0</td>
+      <td>165.0</td>
+      <td>23.900000</td>
       <td>3.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>17.0</td>
-      <td>145.0</td>
-      <td>15.200000</td>
-      <td>1.0</td>
+      <td>37.0</td>
+      <td>146.0</td>
+      <td>24.400000</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -902,38 +910,38 @@ memory usage: 23.4+ KB
       <td>...</td>
     </tr>
     <tr>
-      <th>23</th>
-      <td>42.0</td>
+      <th>207</th>
+      <td>NaN</td>
       <td>171.0</td>
-      <td>16.400000</td>
-      <td>4.0</td>
+      <td>24.300000</td>
+      <td>2.0</td>
     </tr>
     <tr>
-      <th>246</th>
-      <td>40.0</td>
-      <td>151.0</td>
-      <td>24.100000</td>
-      <td>4.0</td>
+      <th>250</th>
+      <td>NaN</td>
+      <td>168.0</td>
+      <td>19.800000</td>
+      <td>2.0</td>
     </tr>
     <tr>
-      <th>218</th>
-      <td>59.0</td>
-      <td>173.0</td>
-      <td>19.700000</td>
-      <td>4.0</td>
+      <th>111</th>
+      <td>50.0</td>
+      <td>145.0</td>
+      <td>22.800000</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>95</th>
-      <td>15.0</td>
-      <td>173.0</td>
-      <td>6.411381</td>
+      <th>291</th>
+      <td>25.0</td>
+      <td>170.0</td>
+      <td>22.100000</td>
       <td>3.0</td>
     </tr>
     <tr>
-      <th>24</th>
-      <td>11.0</td>
-      <td>162.0</td>
-      <td>26.300000</td>
+      <th>196</th>
+      <td>NaN</td>
+      <td>155.0</td>
+      <td>18.368334</td>
       <td>NaN</td>
     </tr>
   </tbody>
@@ -952,17 +960,17 @@ memory usage: 23.4+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 315 entries, 0 to 24
+Index: 315 entries, 0 to 196
 Data columns (total 9 columns):
  #   Column              Non-Null Count  Dtype  
 ---  ------              --------------  -----  
  0   unique_id           315 non-null    int64  
- 1   age                 216 non-null    float64
+ 1   age                 193 non-null    float64
  2   weight              315 non-null    float64
  3   height              315 non-null    float64
  4   bmi                 315 non-null    float64
  5   city                315 non-null    object 
- 6   num_covid_tests     245 non-null    float64
+ 6   num_covid_tests     243 non-null    float64
  7   num_positive_tests  315 non-null    int32  
  8   sex                 315 non-null    object 
 dtypes: float64(5), int32(1), int64(1), object(2)
@@ -990,32 +998,31 @@ memory usage: 23.4+ KB
 CITY
 ********************
 city
-Gdańsk         78
-GDAŃSK         36
-Gdynia         32
-Gdansk         22
-GDYNIA         20
-Kościerzyna    18
-GDANSK         17
-Koscierzyna    17
-gdańsk         16
-gdynia         11
-Wejherowo      11
-KOŚCIERZYNA    10
-KOSCIERZYNA     5
-WEJHEROWO       5
-koscierzyna     5
+Gdańsk         80
+Gdynia         46
+GDAŃSK         38
+Gdansk         28
+Koscierzyna    23
+GDYNIA         17
+Kościerzyna    17
+Wejherowo      15
+WEJHEROWO      11
+gdańsk         10
+GDANSK          9
 wejherowo       5
-gdansk          4
-kościerzyna     3
+KOŚCIERZYNA     4
+gdansk          3
+KOSCIERZYNA     3
+gdynia          3
+koscierzyna     3
 Name: count, dtype: int64
 ********************
 SEX
 ********************
 sex
-M    143
-F    131
-N     41
+M    156
+F    132
+N     27
 Name: count, dtype: int64
 </pre></div>
 </div>
@@ -1032,10 +1039,10 @@ Name: count, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>city
-Gdańsk         173
-Gdynia          63
-Kościerzyna     58
-Wejherowo       21
+Gdańsk         168
+Gdynia          66
+Kościerzyna     50
+Wejherowo       31
 Name: count, dtype: int64
 </pre></div>
 </div>
@@ -1051,9 +1058,9 @@ Name: count, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sex
-M      143
-F      131
-NaN     41
+M      156
+F      132
+NaN     27
 Name: count, dtype: int64
 </pre></div>
 </div>
@@ -1085,19 +1092,19 @@ Name: count, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 300 entries, 1 to 24
+Index: 300 entries, 0 to 196
 Data columns (total 9 columns):
  #   Column              Non-Null Count  Dtype  
 ---  ------              --------------  -----  
  0   unique_id           300 non-null    int64  
- 1   age                 203 non-null    float64
+ 1   age                 186 non-null    float64
  2   weight              300 non-null    float64
  3   height              300 non-null    float64
  4   bmi                 300 non-null    float64
  5   city                300 non-null    object 
- 6   num_covid_tests     233 non-null    float64
+ 6   num_covid_tests     232 non-null    float64
  7   num_positive_tests  300 non-null    int32  
- 8   sex                 263 non-null    object 
+ 8   sex                 274 non-null    object 
 dtypes: float64(5), int32(1), int64(1), object(2)
 memory usage: 22.3+ KB
 </pre></div>
@@ -1146,70 +1153,70 @@ memory usage: 22.3+ KB
     <tr>
       <th>count</th>
       <td>300.000000</td>
-      <td>203.000000</td>
+      <td>186.000000</td>
       <td>300.000000</td>
       <td>300.000000</td>
       <td>300.000000</td>
-      <td>233.000000</td>
+      <td>232.000000</td>
       <td>300.000000</td>
     </tr>
     <tr>
       <th>mean</th>
       <td>149.500000</td>
-      <td>34.738916</td>
-      <td>60.956667</td>
-      <td>162.323333</td>
-      <td>22.582777</td>
-      <td>2.596567</td>
-      <td>0.726667</td>
+      <td>36.026882</td>
+      <td>60.540000</td>
+      <td>161.336667</td>
+      <td>23.300035</td>
+      <td>2.581897</td>
+      <td>1.043333</td>
     </tr>
     <tr>
       <th>std</th>
       <td>86.746758</td>
-      <td>18.357447</td>
-      <td>10.004754</td>
-      <td>25.085248</td>
-      <td>7.326451</td>
-      <td>1.098740</td>
-      <td>2.967824</td>
+      <td>17.898643</td>
+      <td>10.135952</td>
+      <td>17.180431</td>
+      <td>5.169336</td>
+      <td>1.101836</td>
+      <td>2.372104</td>
     </tr>
     <tr>
       <th>min</th>
       <td>0.000000</td>
       <td>5.000000</td>
-      <td>31.000000</td>
-      <td>125.000000</td>
-      <td>5.353503</td>
+      <td>34.000000</td>
+      <td>128.000000</td>
+      <td>12.000000</td>
       <td>1.000000</td>
-      <td>-16.000000</td>
+      <td>-9.000000</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>74.750000</td>
-      <td>19.000000</td>
-      <td>54.000000</td>
-      <td>151.000000</td>
-      <td>19.550000</td>
+      <td>21.000000</td>
+      <td>55.000000</td>
+      <td>153.750000</td>
+      <td>19.993139</td>
       <td>2.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>149.500000</td>
-      <td>34.000000</td>
-      <td>60.000000</td>
+      <td>36.000000</td>
+      <td>61.000000</td>
       <td>160.000000</td>
-      <td>22.900000</td>
+      <td>23.200000</td>
       <td>3.000000</td>
       <td>1.000000</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>224.250000</td>
-      <td>51.500000</td>
+      <td>51.000000</td>
       <td>68.000000</td>
       <td>168.000000</td>
-      <td>27.800000</td>
+      <td>26.225000</td>
       <td>4.000000</td>
       <td>3.000000</td>
     </tr>
@@ -1217,9 +1224,9 @@ memory usage: 22.3+ KB
       <th>max</th>
       <td>299.000000</td>
       <td>65.000000</td>
-      <td>89.000000</td>
-      <td>340.000000</td>
-      <td>43.500000</td>
+      <td>92.000000</td>
+      <td>322.000000</td>
+      <td>40.000000</td>
       <td>4.000000</td>
       <td>5.000000</td>
     </tr>
@@ -1268,70 +1275,70 @@ memory usage: 22.3+ KB
     <tr>
       <th>count</th>
       <td>300.000000</td>
-      <td>203.000000</td>
+      <td>186.000000</td>
       <td>300.000000</td>
-      <td>294.000000</td>
+      <td>298.000000</td>
       <td>300.000000</td>
-      <td>233.000000</td>
-      <td>260.000000</td>
+      <td>232.000000</td>
+      <td>270.000000</td>
     </tr>
     <tr>
       <th>mean</th>
       <td>149.500000</td>
-      <td>34.738916</td>
-      <td>60.956667</td>
-      <td>159.153061</td>
-      <td>22.582777</td>
-      <td>2.596567</td>
-      <td>1.565385</td>
+      <td>36.026882</td>
+      <td>60.540000</td>
+      <td>160.265101</td>
+      <td>23.300035</td>
+      <td>2.581897</td>
+      <td>1.607407</td>
     </tr>
     <tr>
       <th>std</th>
       <td>86.746758</td>
-      <td>18.357447</td>
-      <td>10.004754</td>
-      <td>11.537757</td>
-      <td>7.326451</td>
-      <td>1.098740</td>
-      <td>1.547059</td>
+      <td>17.898643</td>
+      <td>10.135952</td>
+      <td>11.150343</td>
+      <td>5.169336</td>
+      <td>1.101836</td>
+      <td>1.585700</td>
     </tr>
     <tr>
       <th>min</th>
       <td>0.000000</td>
       <td>5.000000</td>
-      <td>31.000000</td>
-      <td>125.000000</td>
-      <td>5.353503</td>
+      <td>34.000000</td>
+      <td>128.000000</td>
+      <td>12.000000</td>
       <td>1.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>74.750000</td>
-      <td>19.000000</td>
-      <td>54.000000</td>
-      <td>151.000000</td>
-      <td>19.550000</td>
+      <td>21.000000</td>
+      <td>55.000000</td>
+      <td>153.250000</td>
+      <td>19.993139</td>
       <td>2.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>149.500000</td>
-      <td>34.000000</td>
-      <td>60.000000</td>
+      <td>36.000000</td>
+      <td>61.000000</td>
       <td>160.000000</td>
-      <td>22.900000</td>
+      <td>23.200000</td>
       <td>3.000000</td>
       <td>1.000000</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>224.250000</td>
-      <td>51.500000</td>
+      <td>51.000000</td>
       <td>68.000000</td>
-      <td>167.000000</td>
-      <td>27.800000</td>
+      <td>167.750000</td>
+      <td>26.225000</td>
       <td>4.000000</td>
       <td>3.000000</td>
     </tr>
@@ -1339,9 +1346,9 @@ memory usage: 22.3+ KB
       <th>max</th>
       <td>299.000000</td>
       <td>65.000000</td>
-      <td>89.000000</td>
-      <td>195.000000</td>
-      <td>43.500000</td>
+      <td>92.000000</td>
+      <td>191.000000</td>
+      <td>40.000000</td>
       <td>4.000000</td>
       <td>5.000000</td>
     </tr>
@@ -1392,220 +1399,172 @@ memory usage: 22.3+ KB
   </thead>
   <tbody>
     <tr>
-      <th>15</th>
-      <td>15</td>
-      <td>NaN</td>
+      <th>79</th>
+      <td>79</td>
+      <td>47.0</td>
+      <td>58.0</td>
+      <td>149.0</td>
+      <td>26.100000</td>
+      <td>Gdańsk</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>106</td>
+      <td>32.0</td>
       <td>61.0</td>
       <td>148.0</td>
       <td>27.800000</td>
       <td>Kościerzyna</td>
       <td>3.0</td>
       <td>4.0</td>
-      <td>F</td>
+      <td>M</td>
     </tr>
     <tr>
-      <th>44</th>
-      <td>44</td>
-      <td>55.0</td>
-      <td>51.0</td>
-      <td>147.0</td>
-      <td>23.600000</td>
+      <th>128</th>
+      <td>128</td>
+      <td>19.0</td>
+      <td>60.0</td>
+      <td>166.0</td>
+      <td>21.800000</td>
       <td>Gdańsk</td>
-      <td>3.0</td>
       <td>4.0</td>
+      <td>5.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>132</th>
+      <td>132</td>
+      <td>NaN</td>
+      <td>51.0</td>
+      <td>160.0</td>
+      <td>19.900000</td>
+      <td>Gdynia</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>146</td>
+      <td>18.0</td>
+      <td>34.0</td>
+      <td>168.0</td>
+      <td>12.000000</td>
+      <td>Kościerzyna</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>151</td>
+      <td>NaN</td>
+      <td>55.0</td>
+      <td>172.0</td>
+      <td>18.600000</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>3.0</td>
       <td>F</td>
     </tr>
     <tr>
-      <th>45</th>
-      <td>45</td>
-      <td>54.0</td>
+      <th>157</th>
+      <td>157</td>
+      <td>7.0</td>
+      <td>74.0</td>
+      <td>138.0</td>
+      <td>38.900000</td>
+      <td>Wejherowo</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>160</th>
+      <td>160</td>
+      <td>26.0</td>
+      <td>78.0</td>
+      <td>181.0</td>
+      <td>23.800000</td>
+      <td>Kościerzyna</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>226</th>
+      <td>226</td>
+      <td>65.0</td>
+      <td>56.0</td>
+      <td>152.0</td>
+      <td>24.200000</td>
+      <td>Gdynia</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>249</th>
+      <td>249</td>
+      <td>NaN</td>
+      <td>81.0</td>
+      <td>175.0</td>
+      <td>26.400000</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>256</th>
+      <td>256</td>
+      <td>NaN</td>
+      <td>69.0</td>
+      <td>159.0</td>
+      <td>27.300000</td>
+      <td>Gdynia</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>263</th>
+      <td>263</td>
+      <td>39.0</td>
       <td>71.0</td>
       <td>159.0</td>
       <td>28.100000</td>
-      <td>Kościerzyna</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>59</th>
-      <td>59</td>
-      <td>NaN</td>
-      <td>59.0</td>
-      <td>169.0</td>
-      <td>20.700000</td>
-      <td>Gdańsk</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>61</th>
-      <td>61</td>
-      <td>60.0</td>
-      <td>78.0</td>
-      <td>153.0</td>
-      <td>33.300000</td>
-      <td>Kościerzyna</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>77</th>
-      <td>77</td>
-      <td>NaN</td>
-      <td>62.0</td>
-      <td>188.0</td>
-      <td>17.500000</td>
       <td>Gdańsk</td>
       <td>1.0</td>
       <td>2.0</td>
       <td>F</td>
     </tr>
     <tr>
-      <th>81</th>
-      <td>81</td>
+      <th>270</th>
+      <td>270</td>
       <td>NaN</td>
-      <td>54.0</td>
-      <td>160.0</td>
-      <td>21.100000</td>
+      <td>56.0</td>
+      <td>154.0</td>
+      <td>18.929812</td>
       <td>Kościerzyna</td>
       <td>4.0</td>
       <td>5.0</td>
       <td>M</td>
     </tr>
     <tr>
-      <th>118</th>
-      <td>118</td>
-      <td>51.0</td>
-      <td>52.0</td>
-      <td>157.0</td>
-      <td>21.100000</td>
-      <td>Gdańsk</td>
-      <td>2.0</td>
-      <td>3.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>129</th>
-      <td>129</td>
-      <td>NaN</td>
-      <td>72.0</td>
-      <td>147.0</td>
-      <td>33.300000</td>
-      <td>Kościerzyna</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>133</th>
-      <td>133</td>
-      <td>NaN</td>
-      <td>67.0</td>
-      <td>153.0</td>
-      <td>28.600000</td>
-      <td>Gdańsk</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>145</th>
-      <td>145</td>
-      <td>NaN</td>
-      <td>66.0</td>
-      <td>169.0</td>
-      <td>23.100000</td>
-      <td>Kościerzyna</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>161</th>
-      <td>161</td>
-      <td>14.0</td>
-      <td>52.0</td>
-      <td>158.0</td>
-      <td>20.800000</td>
-      <td>Gdynia</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>200</th>
-      <td>200</td>
-      <td>53.0</td>
-      <td>53.0</td>
-      <td>161.0</td>
-      <td>20.400000</td>
-      <td>Gdynia</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>214</th>
-      <td>214</td>
-      <td>NaN</td>
-      <td>89.0</td>
-      <td>145.0</td>
-      <td>42.300000</td>
-      <td>Wejherowo</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>250</th>
-      <td>250</td>
+      <th>298</th>
+      <td>298</td>
+      <td>47.0</td>
       <td>64.0</td>
-      <td>61.0</td>
-      <td>151.0</td>
-      <td>26.800000</td>
-      <td>Gdańsk</td>
+      <td>165.0</td>
+      <td>23.500000</td>
+      <td>Gdynia</td>
       <td>2.0</td>
       <td>3.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>48</td>
-      <td>23.0</td>
-      <td>48.0</td>
-      <td>152.0</td>
-      <td>20.800000</td>
-      <td>Gdańsk</td>
-      <td>1.0</td>
-      <td>2.0</td>
       <td>NaN</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>23</td>
-      <td>42.0</td>
-      <td>48.0</td>
-      <td>171.0</td>
-      <td>16.400000</td>
-      <td>Gdańsk</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>95</td>
-      <td>15.0</td>
-      <td>60.0</td>
-      <td>173.0</td>
-      <td>6.411381</td>
-      <td>Kościerzyna</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>M</td>
     </tr>
   </tbody>
 </table>
@@ -1693,543 +1652,591 @@ memory usage: 22.3+ KB
   </thead>
   <tbody>
     <tr>
-      <th>8</th>
-      <td>8</td>
-      <td>22.0</td>
+      <th>0</th>
+      <td>0</td>
+      <td>65.0</td>
       <td>44.0</td>
-      <td>174.0</td>
-      <td>14.500000</td>
-      <td>Gdańsk</td>
+      <td>163.0</td>
+      <td>13.315037</td>
+      <td>Wejherowo</td>
       <td>4.0</td>
-      <td>NaN</td>
+      <td>4.0</td>
       <td>M</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>11</td>
-      <td>10.0</td>
-      <td>61.0</td>
-      <td>160.0</td>
-      <td>7.629543</td>
+      <th>13</th>
+      <td>13</td>
+      <td>30.0</td>
+      <td>71.0</td>
+      <td>152.0</td>
+      <td>24.624797</td>
       <td>Gdańsk</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>21</td>
-      <td>NaN</td>
-      <td>56.0</td>
-      <td>156.0</td>
-      <td>7.373088</td>
-      <td>Gdynia</td>
       <td>NaN</td>
       <td>0.0</td>
       <td>M</td>
     </tr>
     <tr>
-      <th>28</th>
-      <td>28</td>
-      <td>19.0</td>
-      <td>76.0</td>
-      <td>148.0</td>
-      <td>11.123745</td>
+      <th>15</th>
+      <td>15</td>
+      <td>23.0</td>
+      <td>39.0</td>
+      <td>170.0</td>
+      <td>13.500000</td>
       <td>Gdańsk</td>
-      <td>4.0</td>
-      <td>0.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
       <td>F</td>
     </tr>
     <tr>
-      <th>52</th>
-      <td>52</td>
+      <th>47</th>
+      <td>47</td>
       <td>NaN</td>
-      <td>68.0</td>
-      <td>182.0</td>
+      <td>48.0</td>
+      <td>153.0</td>
       <td>20.500000</td>
-      <td>Gdynia</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>55</th>
-      <td>55</td>
-      <td>62.0</td>
-      <td>65.0</td>
-      <td>NaN</td>
-      <td>28.900000</td>
       <td>Kościerzyna</td>
-      <td>4.0</td>
-      <td>0.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>74</th>
-      <td>74</td>
-      <td>52.0</td>
-      <td>63.0</td>
-      <td>162.0</td>
-      <td>7.693657</td>
-      <td>Gdańsk</td>
+      <td>3.0</td>
       <td>NaN</td>
-      <td>0.0</td>
       <td>M</td>
     </tr>
     <tr>
-      <th>76</th>
-      <td>76</td>
-      <td>25.0</td>
-      <td>46.0</td>
-      <td>NaN</td>
-      <td>5.834356</td>
-      <td>Kościerzyna</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>83</th>
-      <td>83</td>
-      <td>52.0</td>
-      <td>58.0</td>
-      <td>174.0</td>
-      <td>6.154925</td>
-      <td>Gdańsk</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>84</th>
-      <td>84</td>
-      <td>NaN</td>
-      <td>68.0</td>
-      <td>182.0</td>
-      <td>20.500000</td>
-      <td>Gdańsk</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>88</th>
-      <td>88</td>
-      <td>6.0</td>
-      <td>77.0</td>
-      <td>NaN</td>
-      <td>34.200000</td>
-      <td>Gdańsk</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>93</th>
-      <td>93</td>
-      <td>59.0</td>
-      <td>45.0</td>
-      <td>160.0</td>
-      <td>5.642015</td>
-      <td>Gdańsk</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>99</td>
-      <td>NaN</td>
-      <td>57.0</td>
-      <td>146.0</td>
-      <td>8.559193</td>
-      <td>Gdańsk</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>102</th>
-      <td>102</td>
-      <td>5.0</td>
-      <td>58.0</td>
-      <td>165.0</td>
-      <td>6.828120</td>
-      <td>Gdańsk</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>103</th>
-      <td>103</td>
-      <td>65.0</td>
-      <td>63.0</td>
-      <td>161.0</td>
-      <td>7.789827</td>
-      <td>Gdańsk</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>108</th>
-      <td>108</td>
+      <th>54</th>
+      <td>54</td>
       <td>17.0</td>
-      <td>86.0</td>
-      <td>145.0</td>
-      <td>13.111273</td>
-      <td>Kościerzyna</td>
+      <td>47.0</td>
+      <td>159.0</td>
+      <td>14.919258</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
       <td>2.0</td>
       <td>NaN</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>56</td>
+      <td>30.0</td>
+      <td>66.0</td>
+      <td>167.0</td>
+      <td>19.010023</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>0.0</td>
       <td>M</td>
     </tr>
     <tr>
-      <th>114</th>
-      <td>114</td>
-      <td>NaN</td>
-      <td>65.0</td>
-      <td>169.0</td>
-      <td>7.308974</td>
-      <td>Gdańsk</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>127</th>
-      <td>127</td>
-      <td>56.0</td>
-      <td>54.0</td>
-      <td>NaN</td>
-      <td>19.400000</td>
-      <td>Gdańsk</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>131</th>
-      <td>131</td>
+      <th>68</th>
+      <td>68</td>
+      <td>64.0</td>
       <td>52.0</td>
-      <td>70.0</td>
-      <td>166.0</td>
-      <td>8.142453</td>
+      <td>161.0</td>
+      <td>16.122424</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>81</td>
+      <td>30.0</td>
+      <td>58.0</td>
+      <td>159.0</td>
+      <td>18.368334</td>
+      <td>Gdynia</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>96</td>
+      <td>NaN</td>
+      <td>58.0</td>
+      <td>157.0</td>
+      <td>18.849601</td>
+      <td>Gdynia</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>112</td>
+      <td>30.0</td>
+      <td>60.0</td>
+      <td>165.0</td>
+      <td>17.646435</td>
+      <td>Kościerzyna</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>119</th>
+      <td>119</td>
+      <td>51.0</td>
+      <td>62.0</td>
+      <td>161.0</td>
+      <td>19.170445</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>135</td>
+      <td>29.0</td>
+      <td>61.0</td>
+      <td>133.0</td>
+      <td>27.672818</td>
       <td>Gdańsk</td>
       <td>3.0</td>
       <td>3.0</td>
-      <td>M</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>142</td>
+      <td>27.0</td>
+      <td>72.0</td>
+      <td>NaN</td>
+      <td>27.800000</td>
+      <td>Wejherowo</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>F</td>
     </tr>
     <tr>
       <th>143</th>
       <td>143</td>
-      <td>23.0</td>
-      <td>56.0</td>
-      <td>174.0</td>
-      <td>5.930527</td>
+      <td>NaN</td>
+      <td>66.0</td>
+      <td>184.0</td>
+      <td>19.500000</td>
       <td>Gdańsk</td>
-      <td>2.0</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>M</td>
     </tr>
     <tr>
-      <th>154</th>
-      <td>154</td>
-      <td>28.0</td>
-      <td>74.0</td>
-      <td>160.0</td>
-      <td>9.264445</td>
+      <th>158</th>
+      <td>158</td>
+      <td>50.0</td>
+      <td>63.0</td>
+      <td>171.0</td>
+      <td>17.245379</td>
       <td>Kościerzyna</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>M</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>F</td>
     </tr>
     <tr>
-      <th>162</th>
-      <td>162</td>
+      <th>167</th>
+      <td>167</td>
       <td>NaN</td>
-      <td>58.0</td>
-      <td>160.0</td>
-      <td>7.276917</td>
-      <td>Kościerzyna</td>
+      <td>53.0</td>
+      <td>185.0</td>
+      <td>15.500000</td>
+      <td>Gdynia</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>168</th>
+      <td>168</td>
+      <td>45.0</td>
+      <td>51.0</td>
+      <td>143.0</td>
+      <td>19.972556</td>
+      <td>Gdynia</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>164</th>
-      <td>164</td>
-      <td>10.0</td>
-      <td>67.0</td>
-      <td>161.0</td>
-      <td>8.270681</td>
-      <td>Gdańsk</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>F</td>
+      <td>M</td>
     </tr>
     <tr>
       <th>170</th>
       <td>170</td>
+      <td>50.0</td>
+      <td>66.0</td>
+      <td>167.0</td>
+      <td>19.010023</td>
+      <td>Gdynia</td>
+      <td>3.0</td>
       <td>NaN</td>
-      <td>59.0</td>
-      <td>132.0</td>
-      <td>10.867290</td>
-      <td>Gdańsk</td>
-      <td>NaN</td>
-      <td>1.0</td>
       <td>F</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>171</td>
+      <td>53.0</td>
+      <td>57.0</td>
+      <td>160.0</td>
+      <td>17.887068</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>177</td>
+      <td>33.0</td>
+      <td>72.0</td>
+      <td>155.0</td>
+      <td>24.063320</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>M</td>
     </tr>
     <tr>
       <th>178</th>
       <td>178</td>
       <td>NaN</td>
+      <td>51.0</td>
+      <td>141.0</td>
+      <td>20.614244</td>
+      <td>Gdynia</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>184</td>
+      <td>NaN</td>
+      <td>58.0</td>
+      <td>168.0</td>
+      <td>20.500000</td>
+      <td>Kościerzyna</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>197</td>
+      <td>NaN</td>
+      <td>50.0</td>
+      <td>146.0</td>
+      <td>23.500000</td>
+      <td>Gdańsk</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>199</td>
+      <td>NaN</td>
+      <td>52.0</td>
+      <td>145.0</td>
+      <td>19.812133</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>204</th>
+      <td>204</td>
+      <td>54.0</td>
+      <td>46.0</td>
+      <td>152.0</td>
+      <td>15.962002</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>209</td>
+      <td>NaN</td>
+      <td>41.0</td>
+      <td>156.0</td>
+      <td>13.475459</td>
+      <td>Wejherowo</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>213</th>
+      <td>213</td>
+      <td>63.0</td>
+      <td>63.0</td>
+      <td>156.0</td>
+      <td>20.774666</td>
+      <td>Gdańsk</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>216</th>
+      <td>216</td>
+      <td>58.0</td>
+      <td>58.0</td>
+      <td>152.0</td>
+      <td>20.132978</td>
+      <td>Wejherowo</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>223</th>
+      <td>223</td>
+      <td>23.0</td>
+      <td>66.0</td>
+      <td>164.0</td>
+      <td>24.500000</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>225</th>
+      <td>225</td>
+      <td>NaN</td>
+      <td>77.0</td>
+      <td>NaN</td>
+      <td>30.100000</td>
+      <td>Gdynia</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>227</th>
+      <td>227</td>
+      <td>46.0</td>
+      <td>52.0</td>
+      <td>170.0</td>
+      <td>14.437992</td>
+      <td>Kościerzyna</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <td>232</td>
+      <td>NaN</td>
+      <td>53.0</td>
+      <td>145.0</td>
+      <td>20.213189</td>
+      <td>Gdynia</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>233</th>
+      <td>233</td>
+      <td>51.0</td>
+      <td>47.0</td>
+      <td>164.0</td>
+      <td>14.036937</td>
+      <td>Gdynia</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>235</th>
+      <td>235</td>
+      <td>16.0</td>
       <td>57.0</td>
       <td>159.0</td>
       <td>22.500000</td>
       <td>Gdańsk</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>181</th>
-      <td>181</td>
+      <td>1.0</td>
       <td>NaN</td>
-      <td>68.0</td>
-      <td>167.0</td>
-      <td>7.821884</td>
-      <td>Gdynia</td>
-      <td>4.0</td>
-      <td>0.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>183</th>
-      <td>183</td>
-      <td>NaN</td>
-      <td>52.0</td>
-      <td>173.0</td>
-      <td>5.577901</td>
-      <td>Gdynia</td>
-      <td>4.0</td>
-      <td>4.0</td>
       <td>M</td>
     </tr>
     <tr>
-      <th>198</th>
-      <td>198</td>
-      <td>33.0</td>
-      <td>67.0</td>
-      <td>171.0</td>
-      <td>7.341031</td>
-      <td>Gdańsk</td>
-      <td>3.0</td>
-      <td>3.0</td>
+      <th>236</th>
+      <td>236</td>
+      <td>16.0</td>
+      <td>64.0</td>
+      <td>178.0</td>
+      <td>16.202635</td>
+      <td>Gdynia</td>
+      <td>4.0</td>
+      <td>NaN</td>
       <td>M</td>
     </tr>
     <tr>
-      <th>211</th>
-      <td>211</td>
-      <td>30.0</td>
+      <th>239</th>
+      <td>239</td>
+      <td>42.0</td>
       <td>56.0</td>
-      <td>183.0</td>
-      <td>5.353503</td>
+      <td>171.0</td>
+      <td>15.400525</td>
       <td>Gdynia</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>F</td>
+      <td>M</td>
     </tr>
     <tr>
-      <th>229</th>
-      <td>229</td>
-      <td>21.0</td>
-      <td>47.0</td>
+      <th>240</th>
+      <td>240</td>
+      <td>49.0</td>
+      <td>49.0</td>
+      <td>165.0</td>
+      <td>14.437992</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>243</th>
+      <td>243</td>
+      <td>45.0</td>
+      <td>58.0</td>
       <td>148.0</td>
-      <td>21.500000</td>
+      <td>21.255933</td>
       <td>Gdańsk</td>
       <td>NaN</td>
-      <td>0.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>245</th>
-      <td>245</td>
-      <td>32.0</td>
-      <td>58.0</td>
-      <td>163.0</td>
-      <td>6.988405</td>
-      <td>Kościerzyna</td>
-      <td>3.0</td>
       <td>0.0</td>
       <td>M</td>
     </tr>
     <tr>
       <th>251</th>
       <td>251</td>
-      <td>42.0</td>
-      <td>58.0</td>
-      <td>172.0</td>
-      <td>6.283153</td>
-      <td>Gdańsk</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>F</td>
+      <td>9.0</td>
+      <td>66.0</td>
+      <td>164.0</td>
+      <td>19.651711</td>
+      <td>Gdynia</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>M</td>
     </tr>
     <tr>
-      <th>257</th>
-      <td>257</td>
+      <th>262</th>
+      <td>262</td>
       <td>NaN</td>
-      <td>53.0</td>
-      <td>NaN</td>
-      <td>21.500000</td>
-      <td>Gdańsk</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>260</th>
-      <td>260</td>
       <td>55.0</td>
-      <td>57.0</td>
-      <td>144.0</td>
-      <td>8.815648</td>
-      <td>Kościerzyna</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>264</th>
-      <td>264</td>
-      <td>NaN</td>
-      <td>68.0</td>
-      <td>158.0</td>
-      <td>8.719478</td>
-      <td>Wejherowo</td>
-      <td>3.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>266</th>
-      <td>266</td>
-      <td>51.0</td>
-      <td>83.0</td>
-      <td>166.0</td>
-      <td>9.649128</td>
+      <td>168.0</td>
+      <td>19.500000</td>
       <td>Gdańsk</td>
-      <td>4.0</td>
-      <td>4.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
       <td>F</td>
     </tr>
     <tr>
-      <th>267</th>
-      <td>267</td>
+      <th>270</th>
+      <td>270</td>
       <td>NaN</td>
-      <td>70.0</td>
-      <td>170.0</td>
-      <td>7.757771</td>
-      <td>Wejherowo</td>
+      <td>56.0</td>
+      <td>154.0</td>
+      <td>18.929812</td>
+      <td>Kościerzyna</td>
       <td>4.0</td>
       <td>4.0</td>
       <td>M</td>
     </tr>
     <tr>
-      <th>274</th>
-      <td>274</td>
-      <td>NaN</td>
-      <td>58.0</td>
-      <td>NaN</td>
-      <td>20.100000</td>
-      <td>Gdańsk</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>275</th>
-      <td>275</td>
-      <td>NaN</td>
-      <td>51.0</td>
-      <td>150.0</td>
-      <td>7.276917</td>
-      <td>Kościerzyna</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>284</th>
-      <td>284</td>
-      <td>50.0</td>
+      <th>273</th>
+      <td>273</td>
+      <td>41.0</td>
       <td>63.0</td>
-      <td>175.0</td>
-      <td>6.603722</td>
-      <td>Wejherowo</td>
-      <td>3.0</td>
-      <td>0.0</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>290</th>
-      <td>290</td>
-      <td>NaN</td>
-      <td>57.0</td>
-      <td>179.0</td>
-      <td>5.706129</td>
+      <td>166.0</td>
+      <td>18.368334</td>
       <td>Gdańsk</td>
       <td>2.0</td>
       <td>0.0</td>
       <td>F</td>
     </tr>
     <tr>
-      <th>292</th>
-      <td>292</td>
-      <td>56.0</td>
-      <td>57.0</td>
-      <td>162.0</td>
-      <td>6.956348</td>
+      <th>280</th>
+      <td>280</td>
+      <td>38.0</td>
+      <td>47.0</td>
+      <td>148.0</td>
+      <td>21.500000</td>
       <td>Gdańsk</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>13.0</td>
-      <td>58.0</td>
-      <td>177.0</td>
-      <td>18.500000</td>
-      <td>Gdynia</td>
-      <td>3.0</td>
-      <td>3.0</td>
       <td>F</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>10</td>
-      <td>25.0</td>
-      <td>69.0</td>
-      <td>149.0</td>
-      <td>9.969697</td>
+      <th>286</th>
+      <td>286</td>
+      <td>5.0</td>
+      <td>60.0</td>
+      <td>143.0</td>
+      <td>23.501843</td>
       <td>Gdańsk</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>287</th>
+      <td>287</td>
+      <td>NaN</td>
+      <td>60.0</td>
+      <td>171.0</td>
+      <td>20.500000</td>
+      <td>Gdańsk</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>293</th>
+      <td>293</td>
+      <td>38.0</td>
+      <td>65.0</td>
+      <td>156.0</td>
+      <td>21.416355</td>
+      <td>Gdańsk</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>296</th>
+      <td>296</td>
+      <td>65.0</td>
+      <td>60.0</td>
+      <td>152.0</td>
+      <td>20.854877</td>
+      <td>Gdańsk</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>260</th>
+      <td>260</td>
+      <td>NaN</td>
+      <td>48.0</td>
+      <td>150.0</td>
+      <td>17.084957</td>
+      <td>Gdańsk</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>196</td>
+      <td>NaN</td>
+      <td>55.0</td>
+      <td>155.0</td>
+      <td>18.368334</td>
+      <td>Wejherowo</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>95</td>
-      <td>15.0</td>
-      <td>60.0</td>
-      <td>173.0</td>
-      <td>6.411381</td>
-      <td>Kościerzyna</td>
-      <td>3.0</td>
-      <td>3.0</td>
       <td>M</td>
     </tr>
   </tbody>
@@ -2285,7 +2292,7 @@ wartości brakujące występują losowo, ale można się dopatrzeć związków p
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/cf1122000b214f1ca68f192cac8a9d9eace41f19acb2eef4b4b7737a01a8fff7.png" src="../_images/cf1122000b214f1ca68f192cac8a9d9eace41f19acb2eef4b4b7737a01a8fff7.png" />
+<img alt="../_images/ceee83f06f3bedcacbc77b74850c05f8e57dffdaae20013a5cbdad04666996c4.png" src="../_images/ceee83f06f3bedcacbc77b74850c05f8e57dffdaae20013a5cbdad04666996c4.png" />
 </div>
 </div>
 <p>Tutaj można zauważyć relację między zmiennymi height i bmi, co jest oczywiście konsekwencją tego, że bmi jest liczone w oparciu o height. Ponadto widać też, że wartości brakujące zdecydowanie najczęściej występują dla zmiennej age.</p>
@@ -2301,7 +2308,7 @@ wartości brakujące występują losowo, ale można się dopatrzeć związków p
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/5bf9f5d046df28d7e76d6aaad041fae88dc8e391af28274e993ae81f68519848.png" src="../_images/5bf9f5d046df28d7e76d6aaad041fae88dc8e391af28274e993ae81f68519848.png" />
+<img alt="../_images/72d8689ff052b0d1dad4d42e39b757d47e3d9a85980cfbb52688873dfbe5e9b8.png" src="../_images/72d8689ff052b0d1dad4d42e39b757d47e3d9a85980cfbb52688873dfbe5e9b8.png" />
 </div>
 </div>
 <p>Znalezieniu relacji może służyć również heatmap macierzy korelacji.</p>
@@ -2315,7 +2322,7 @@ wartości brakujące występują losowo, ale można się dopatrzeć związków p
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/7ae01e5b04182b84331e8aa2781a8c2ef452a3e69927280be03605d959fb56e7.png" src="../_images/7ae01e5b04182b84331e8aa2781a8c2ef452a3e69927280be03605d959fb56e7.png" />
+<img alt="../_images/3c41554160ab78ce96329ffe62d2f7d6fcb6658d79fb41064ac297247381f1c9.png" src="../_images/3c41554160ab78ce96329ffe62d2f7d6fcb6658d79fb41064ac297247381f1c9.png" />
 </div>
 </div>
 <p>Przyjmijmy, że faktycznie wystąpił systematyczny błąd przy zapisywaniu zmiennej age zatem reprezentuje ona MNAR, zmienna bmi w oczywisty sposób będzie MAR jako, że odwołuje się teraz wprost do innej zmiennej, pozostałe zmienne jeśli nie mamy jakiejś dodatkowej informacji co do natury powstania wartości brakujących należy uznać za MCAR</p>
@@ -2383,19 +2390,19 @@ wartości brakujące występują losowo, ale można się dopatrzeć związków p
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 300 entries, 1 to 24
+Index: 300 entries, 0 to 196
 Data columns (total 9 columns):
  #   Column              Non-Null Count  Dtype  
 ---  ------              --------------  -----  
  0   unique_id           300 non-null    int64  
  1   age                 300 non-null    float64
  2   weight              300 non-null    float64
- 3   height              294 non-null    float64
- 4   bmi                 294 non-null    float64
+ 3   height              298 non-null    float64
+ 4   bmi                 298 non-null    float64
  5   city                300 non-null    object 
- 6   num_covid_tests     233 non-null    float64
- 7   num_positive_tests  260 non-null    float64
- 8   sex                 263 non-null    object 
+ 6   num_covid_tests     232 non-null    float64
+ 7   num_positive_tests  270 non-null    float64
+ 8   sex                 274 non-null    object 
 dtypes: float64(6), int64(1), object(2)
 memory usage: 23.4+ KB
 </pre></div>
@@ -2442,18 +2449,18 @@ memory usage: 23.4+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 225 entries, 297 to 111
+Index: 225 entries, 297 to 103
 Data columns (total 9 columns):
  #   Column              Non-Null Count  Dtype  
 ---  ------              --------------  -----  
  0   unique_id           225 non-null    int64  
  1   age                 225 non-null    float64
  2   weight              225 non-null    float64
- 3   height              219 non-null    float64
- 4   bmi                 219 non-null    float64
+ 3   height              224 non-null    float64
+ 4   bmi                 224 non-null    float64
  5   city                225 non-null    object 
- 6   num_covid_tests     175 non-null    float64
- 7   num_positive_tests  198 non-null    float64
+ 6   num_covid_tests     176 non-null    float64
+ 7   num_positive_tests  206 non-null    float64
  8   sex                 225 non-null    object 
 dtypes: float64(6), int64(1), object(2)
 memory usage: 17.6+ KB
@@ -2482,7 +2489,7 @@ memory usage: 17.6+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 281 entries, 0 to 285
+Index: 281 entries, 0 to 283
 Data columns (total 9 columns):
  #   Column              Non-Null Count  Dtype  
 ---  ------              --------------  -----  
@@ -2586,12 +2593,12 @@ Data columns (total 9 columns):
  0   unique_id           75 non-null     int64  
  1   age                 75 non-null     float64
  2   weight              75 non-null     float64
- 3   height              75 non-null     float64
- 4   bmi                 75 non-null     float64
+ 3   height              74 non-null     float64
+ 4   bmi                 74 non-null     float64
  5   city                75 non-null     object 
- 6   num_covid_tests     58 non-null     float64
- 7   num_positive_tests  62 non-null     float64
- 8   sex                 65 non-null     object 
+ 6   num_covid_tests     56 non-null     float64
+ 7   num_positive_tests  64 non-null     float64
+ 8   sex                 70 non-null     object 
 dtypes: float64(6), int64(1), object(2)
 memory usage: 5.4+ KB
 </pre></div>
@@ -2620,7 +2627,7 @@ memory usage: 5.4+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 281 entries, 0 to 285
+Index: 281 entries, 0 to 283
 Data columns (total 9 columns):
  #   Column              Non-Null Count  Dtype  
 ---  ------              --------------  -----  
@@ -2632,7 +2639,7 @@ Data columns (total 9 columns):
  5   num_covid_tests     225 non-null    float64
  6   num_positive_tests  225 non-null    float64
  7   city                225 non-null    object 
- 8   sex                 198 non-null    object 
+ 8   sex                 204 non-null    object 
 dtypes: float64(7), object(2)
 memory usage: 22.0+ KB
 </pre></div>
@@ -2659,21 +2666,21 @@ memory usage: 22.0+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 118 entries, 2 to 95
+Index: 115 entries, 0 to 291
 Data columns (total 9 columns):
  #   Column              Non-Null Count  Dtype  
 ---  ------              --------------  -----  
- 0   unique_id           118 non-null    int64  
- 1   age                 118 non-null    float64
- 2   weight              118 non-null    float64
- 3   height              118 non-null    float64
- 4   bmi                 118 non-null    float64
- 5   city                118 non-null    object 
- 6   num_covid_tests     118 non-null    float64
- 7   num_positive_tests  118 non-null    float64
- 8   sex                 118 non-null    object 
+ 0   unique_id           115 non-null    int64  
+ 1   age                 115 non-null    float64
+ 2   weight              115 non-null    float64
+ 3   height              115 non-null    float64
+ 4   bmi                 115 non-null    float64
+ 5   city                115 non-null    object 
+ 6   num_covid_tests     115 non-null    float64
+ 7   num_positive_tests  115 non-null    float64
+ 8   sex                 115 non-null    object 
 dtypes: float64(6), int64(1), object(2)
-memory usage: 9.2+ KB
+memory usage: 9.0+ KB
 </pre></div>
 </div>
 </div>
@@ -2688,21 +2695,21 @@ memory usage: 9.2+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 291 entries, 1 to 24
+Index: 297 entries, 0 to 196
 Data columns (total 9 columns):
  #   Column              Non-Null Count  Dtype  
 ---  ------              --------------  -----  
- 0   unique_id           291 non-null    int64  
- 1   age                 200 non-null    float64
- 2   weight              291 non-null    float64
- 3   height              290 non-null    float64
- 4   bmi                 290 non-null    float64
- 5   city                291 non-null    object 
- 6   num_covid_tests     228 non-null    float64
- 7   num_positive_tests  255 non-null    float64
- 8   sex                 260 non-null    object 
+ 0   unique_id           297 non-null    int64  
+ 1   age                 186 non-null    float64
+ 2   weight              297 non-null    float64
+ 3   height              296 non-null    float64
+ 4   bmi                 296 non-null    float64
+ 5   city                297 non-null    object 
+ 6   num_covid_tests     232 non-null    float64
+ 7   num_positive_tests  267 non-null    float64
+ 8   sex                 273 non-null    object 
 dtypes: float64(6), int64(1), object(2)
-memory usage: 22.7+ KB
+memory usage: 23.2+ KB
 </pre></div>
 </div>
 </div>
@@ -2717,21 +2724,21 @@ memory usage: 22.7+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 264 entries, 1 to 24
+Index: 259 entries, 0 to 291
 Data columns (total 9 columns):
  #   Column              Non-Null Count  Dtype  
 ---  ------              --------------  -----  
- 0   unique_id           264 non-null    int64  
- 1   age                 203 non-null    float64
- 2   weight              264 non-null    float64
- 3   height              259 non-null    float64
- 4   bmi                 259 non-null    float64
- 5   city                264 non-null    object 
- 6   num_covid_tests     220 non-null    float64
- 7   num_positive_tests  237 non-null    float64
- 8   sex                 232 non-null    object 
+ 0   unique_id           259 non-null    int64  
+ 1   age                 186 non-null    float64
+ 2   weight              259 non-null    float64
+ 3   height              258 non-null    float64
+ 4   bmi                 258 non-null    float64
+ 5   city                259 non-null    object 
+ 6   num_covid_tests     215 non-null    float64
+ 7   num_positive_tests  246 non-null    float64
+ 8   sex                 235 non-null    object 
 dtypes: float64(6), int64(1), object(2)
-memory usage: 20.6+ KB
+memory usage: 20.2+ KB
 </pre></div>
 </div>
 </div>
@@ -2746,17 +2753,19 @@ memory usage: 20.6+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 300 entries, 1 to 24
-Data columns (total 5 columns):
- #   Column     Non-Null Count  Dtype  
----  ------     --------------  -----  
- 0   unique_id  300 non-null    int64  
- 1   weight     300 non-null    float64
- 2   height     294 non-null    float64
- 3   bmi        294 non-null    float64
- 4   city       300 non-null    object 
-dtypes: float64(3), int64(1), object(1)
-memory usage: 14.1+ KB
+Index: 300 entries, 0 to 196
+Data columns (total 7 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   unique_id           300 non-null    int64  
+ 1   weight              300 non-null    float64
+ 2   height              298 non-null    float64
+ 3   bmi                 298 non-null    float64
+ 4   city                300 non-null    object 
+ 5   num_positive_tests  270 non-null    float64
+ 6   sex                 274 non-null    object 
+dtypes: float64(4), int64(1), object(2)
+memory usage: 18.8+ KB
 </pre></div>
 </div>
 </div>
@@ -2776,7 +2785,7 @@ memory usage: 14.1+ KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;SalesDate&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/f080ef2778402d02727292b54b5ea6bfd7a5ef3bffeb1d8d674536f0270aa10e.png" src="../_images/f080ef2778402d02727292b54b5ea6bfd7a5ef3bffeb1d8d674536f0270aa10e.png" />
+<img alt="../_images/f55ceae164912439395e6de410fc2d795566a613e7b2d42acdeaf22961c4b6dc.png" src="../_images/f55ceae164912439395e6de410fc2d795566a613e7b2d42acdeaf22961c4b6dc.png" />
 </div>
 </div>
 <p>W czyszczeniu danych o charakterze szeregu czasowego bardzo użyteczna jest wizualna analiza danych. Analizując powyższy wykres można dostrzec dość regularny szereg czasowy z rocznym okresem sezonowości i trendem rosnącym. Widać również zaburzenia w postaci nieregularnie rozlokowanych pików w pojedynczych dniach oraz silnie zaburzony okres na przełomie 2019 i 2020.</p>
@@ -2840,7 +2849,7 @@ memory usage: 28.7 KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;SalesDate&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/f080ef2778402d02727292b54b5ea6bfd7a5ef3bffeb1d8d674536f0270aa10e.png" src="../_images/f080ef2778402d02727292b54b5ea6bfd7a5ef3bffeb1d8d674536f0270aa10e.png" />
+<img alt="../_images/f55ceae164912439395e6de410fc2d795566a613e7b2d42acdeaf22961c4b6dc.png" src="../_images/f55ceae164912439395e6de410fc2d795566a613e7b2d42acdeaf22961c4b6dc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2871,7 +2880,7 @@ memory usage: 28.7 KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;SalesDate&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/20544ed7e656b0ed8afd834de1285d7985906904519eea011e8c2f8ccc4b17bd.png" src="../_images/20544ed7e656b0ed8afd834de1285d7985906904519eea011e8c2f8ccc4b17bd.png" />
+<img alt="../_images/455a293503cb2dd83647f576f6e88e1eb8d57a6b9e773b173f5a3753747404a5.png" src="../_images/455a293503cb2dd83647f576f6e88e1eb8d57a6b9e773b173f5a3753747404a5.png" />
 </div>
 </div>
 <p>jak widać takie podejście dobrze oddziela naturalne obserwacje od pojedynczych zaburzeń, można za jego pomocą oznaczyć wartości odstające jeśli np zauważymy, że różnica pomiędzy wyliczoną medianą a wartością pierwotną wynosi ponad 15%</p>
@@ -2898,7 +2907,7 @@ memory usage: 28.7 KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;SalesDate&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/3eb3752a4a60e23510369a70a5c1591924e80c378112ee17ac3df595a60aef0d.png" src="../_images/3eb3752a4a60e23510369a70a5c1591924e80c378112ee17ac3df595a60aef0d.png" />
+<img alt="../_images/87a2f0b206179a0c7fb4bc2a7d2565f1a5b3d4c4fd970e9477af17d3dbaa91f1.png" src="../_images/87a2f0b206179a0c7fb4bc2a7d2565f1a5b3d4c4fd970e9477af17d3dbaa91f1.png" />
 </div>
 </div>
 <div class="alert alert-block alert-danger">
@@ -2916,7 +2925,7 @@ memory usage: 28.7 KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;SalesDate&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/247fba99266622928cd7b405abf2dc63187dd159194c96a64f95681f9bc2904e.png" src="../_images/247fba99266622928cd7b405abf2dc63187dd159194c96a64f95681f9bc2904e.png" />
+<img alt="../_images/c678b170389af8c4480a4caced9d1b4458df2076a5371ee11de54adcf9bd7e4b.png" src="../_images/c678b170389af8c4480a4caced9d1b4458df2076a5371ee11de54adcf9bd7e4b.png" />
 </div>
 </div>
 <p>Jak widać z poniższego wykresu, interpolacja liniowa nie będzie jednak użyteczna w celu wypełnienia dłuższych zaburzeń, w szczególności w przypadku gdy przypadają one w okresie sezonowego szczytu. Zamiast tego spróbujmy dokonać prognozy modelem szeregu czasowego w oparciu o wcześniejsze, niezaburzone dane.</p>
@@ -2931,7 +2940,7 @@ memory usage: 28.7 KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;SalesDate&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/4a7808bb2f1cb850976416597b2b5f73ce7b345055d6763aee42d8f8fc44a975.png" src="../_images/4a7808bb2f1cb850976416597b2b5f73ce7b345055d6763aee42d8f8fc44a975.png" />
+<img alt="../_images/9f9846c2a0a862a5d7af457912616a248c1af5d0badfc9cce42a25bc78acc519.png" src="../_images/9f9846c2a0a862a5d7af457912616a248c1af5d0badfc9cce42a25bc78acc519.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2953,7 +2962,7 @@ memory usage: 28.7 KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;SalesDate&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/90890096e8a965b28c9c641b47ee654b7e61dae003b272ae0fcf6a1d1239ee30.png" src="../_images/90890096e8a965b28c9c641b47ee654b7e61dae003b272ae0fcf6a1d1239ee30.png" />
+<img alt="../_images/c084db319c566cd55f0ef629518845d81d0b6cbe6609fc24828eb8b78f4895d2.png" src="../_images/c084db319c566cd55f0ef629518845d81d0b6cbe6609fc24828eb8b78f4895d2.png" />
 </div>
 </div>
 <p>Następnie można wyliczyć różnice pomiędzy wartością SLSU, a medianą i oznaczyć jako puste wartości odstające wyznaczone np metodą IQR, przyjmując dodatkowo warunek, że interesują nas tylko wartości większe od IQR, aby nie wyzerować wartości rok po zaburzeniu.</p>
@@ -2968,7 +2977,7 @@ memory usage: 28.7 KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;SalesDate&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/3bf690eb44c98f0212dc245642249e2d4f9190b203b82200df4bee1a17325bc0.png" src="../_images/3bf690eb44c98f0212dc245642249e2d4f9190b203b82200df4bee1a17325bc0.png" />
+<img alt="../_images/087ee5e7eb88a1bb29f46a19d17599c3113e6439da6887b0daa60eb8eb418498.png" src="../_images/087ee5e7eb88a1bb29f46a19d17599c3113e6439da6887b0daa60eb8eb418498.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3019,7 +3028,7 @@ memory usage: 28.7 KB
       <td>0.0</td>
       <td>8818.736687</td>
       <td>8818.736687</td>
-      <td>2249.69009</td>
+      <td>2249.224099</td>
     </tr>
     <tr>
       <th>2019-11-02</th>
@@ -3027,7 +3036,7 @@ memory usage: 28.7 KB
       <td>0.0</td>
       <td>8820.468738</td>
       <td>8820.468738</td>
-      <td>2249.69009</td>
+      <td>2249.224099</td>
     </tr>
     <tr>
       <th>2019-11-03</th>
@@ -3035,7 +3044,7 @@ memory usage: 28.7 KB
       <td>0.0</td>
       <td>8822.200788</td>
       <td>8822.200788</td>
-      <td>2249.69009</td>
+      <td>2249.224099</td>
     </tr>
     <tr>
       <th>2019-11-04</th>
@@ -3043,7 +3052,7 @@ memory usage: 28.7 KB
       <td>0.0</td>
       <td>8823.932839</td>
       <td>8823.932839</td>
-      <td>2249.69009</td>
+      <td>2249.224099</td>
     </tr>
     <tr>
       <th>2019-11-05</th>
@@ -3051,7 +3060,7 @@ memory usage: 28.7 KB
       <td>0.0</td>
       <td>9437.078825</td>
       <td>9437.078825</td>
-      <td>2249.69009</td>
+      <td>2249.224099</td>
     </tr>
     <tr>
       <th>...</th>
@@ -3067,7 +3076,7 @@ memory usage: 28.7 KB
       <td>0.0</td>
       <td>10179.000000</td>
       <td>10179.000000</td>
-      <td>2249.69009</td>
+      <td>2249.224099</td>
     </tr>
     <tr>
       <th>2020-02-27</th>
@@ -3075,7 +3084,7 @@ memory usage: 28.7 KB
       <td>0.0</td>
       <td>10181.000000</td>
       <td>10181.000000</td>
-      <td>2249.69009</td>
+      <td>2249.224099</td>
     </tr>
     <tr>
       <th>2020-02-28</th>
@@ -3083,7 +3092,7 @@ memory usage: 28.7 KB
       <td>0.0</td>
       <td>10181.000000</td>
       <td>10181.000000</td>
-      <td>2249.69009</td>
+      <td>2249.224099</td>
     </tr>
     <tr>
       <th>2020-02-29</th>
@@ -3091,7 +3100,7 @@ memory usage: 28.7 KB
       <td>0.0</td>
       <td>8587.000000</td>
       <td>8587.000000</td>
-      <td>2249.69009</td>
+      <td>2249.224099</td>
     </tr>
     <tr>
       <th>2020-03-01</th>
@@ -3099,7 +3108,7 @@ memory usage: 28.7 KB
       <td>0.0</td>
       <td>8587.000000</td>
       <td>8587.000000</td>
-      <td>2249.69009</td>
+      <td>2249.224099</td>
     </tr>
   </tbody>
 </table>
@@ -3117,7 +3126,7 @@ memory usage: 28.7 KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;SalesDate&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/e4ab9a428c8edd82a2f36b2ac42941de560b8c6921ac2fd1bc538bb1b88620c0.png" src="../_images/e4ab9a428c8edd82a2f36b2ac42941de560b8c6921ac2fd1bc538bb1b88620c0.png" />
+<img alt="../_images/554e0c5ecfe78dc74d823fc8e951bf3707b90994c1bd3cdac1ecf44f961eb7bf.png" src="../_images/554e0c5ecfe78dc74d823fc8e951bf3707b90994c1bd3cdac1ecf44f961eb7bf.png" />
 </div>
 </div>
 <p>Następnie można uzupełnić dane dokonując predykcji np. w oparciu od dane do połowy roku 2019, jakość predykcji ocenić można przez porównanie z niezaburzonymi obserwacjami, Do predykcji użyjemy tutaj modelu STLForecast, który dekomponuje szereg czasowy na trend, sezonowość i czynnik losowy i wykonuje predykcję odsezonowionych danych z użyciem modelu ARIMA</p>
@@ -3140,7 +3149,7 @@ memory usage: 28.7 KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/14a2d7b2e42ee73858ae3f53ee9aee4737d92d5ebd417bd2a15111caeb63e5a5.png" src="../_images/14a2d7b2e42ee73858ae3f53ee9aee4737d92d5ebd417bd2a15111caeb63e5a5.png" />
+<img alt="../_images/cb01f7dafe6702d2170248f8a78db45851283046338436a0fa3601e860f0dfb3.png" src="../_images/cb01f7dafe6702d2170248f8a78db45851283046338436a0fa3601e860f0dfb3.png" />
 </div>
 </div>
 <p>Tym sposobem otrzymujemy oczyszczony szereg czasowy.</p>
@@ -3155,7 +3164,7 @@ memory usage: 28.7 KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/5c2e1c76699229b4ad53082066881b29766d5f22c7fb5f70c0e23f1d81944554.png" src="../_images/5c2e1c76699229b4ad53082066881b29766d5f22c7fb5f70c0e23f1d81944554.png" />
+<img alt="../_images/332d9072ab4655dc738bb3952f9119b2cae0775291e8e3e404ebf2103e0fa094.png" src="../_images/332d9072ab4655dc738bb3952f9119b2cae0775291e8e3e404ebf2103e0fa094.png" />
 </div>
 </div>
 </section>
