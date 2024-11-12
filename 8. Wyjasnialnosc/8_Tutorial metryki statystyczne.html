@@ -632,8 +632,8 @@ Bazując tylko na tej metryce moglibyśmy powiedzieć, że oba z modeli osiągaj
 </section>
 <section id="mae">
 <h3>MAE<a class="headerlink" href="#mae" title="Permalink to this heading">#</a></h3>
-<p>W celu uniknięcia złych interpretacji częściej używa się metryki średniego błędu bezwzględnego - z ang. <strong>Mean Absolute Error</strong>
-$<span class="math notranslate nohighlight">\(MAE=\frac{1}{N} \sum^N_{i=1} | y_i-\hat{y_i} |\)</span>$</p>
+<p>W celu uniknięcia złych interpretacji częściej używa się metryki średniego błędu bezwzględnego - z ang. <strong>Mean Absolute Error</strong></p>
+<p><span class="math notranslate nohighlight">\(MAE=\frac{1}{N} \sum^N_{i=1} | y_i-\hat{y_i} |\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">):</span>
@@ -715,8 +715,8 @@ Odwrotnie natomiast jest w przypadku modelu zaniżonego, gdzie widzimy, że bł�
 <section id="mse">
 <h3>MSE<a class="headerlink" href="#mse" title="Permalink to this heading">#</a></h3>
 <p>Kolejną ważną metryką jest metryka związana z kwadratem błędu, czyli średni kwadrat błędu - z ang. <strong>Mean Square Error</strong></p>
-<p>Reprezentuje ta wartość wariancję wśród odległości pomiędzy wartościami rzeczywistymi, a predykcją.
-$<span class="math notranslate nohighlight">\(MSE=\frac{1}{N} \sum^N_{i=1}(y_i-\hat{y_i})^2\)</span>$</p>
+<p>Reprezentuje ta wartość wariancję wśród odległości pomiędzy wartościami rzeczywistymi, a predykcją.</p>
+<p><span class="math notranslate nohighlight">\(MSE=\frac{1}{N} \sum^N_{i=1}(y_i-\hat{y_i})^2\)</span></p>
 <p>Dużym minusem tej metryki jest interpretowalność. Ze względu na to, że obliczana jest ona na podstawie kwadratu odległości pomiędzy wartościami, jednostka w jakiej jest reprezentowana jest również kwadratem jednostki, w której reprezentujemy predykcję.
 <br>
 Plusem, który stoi za popularnością tej metryki jest jej różniczkowalność, co pozwala na wykonywanie na tej metryce różnych operacji matematycznych w przeciwieństwie do MAE, które jest nieróżniczkowalne. Konsekwencją tego jest użycie wartości MSE w wyliczaniu innych metryk, jak na przykład RMSE.
@@ -892,8 +892,8 @@ Błąd Root Mean Square Logarithmic Error dla model_2: 0.3
 </section>
 <section id="mape">
 <h3>MAPE<a class="headerlink" href="#mape" title="Permalink to this heading">#</a></h3>
-<p>Szczególnym rodzajem metryk są metryki oparte o błędy procentowe. Ich główną zaletą jest fakt, że moga być porównywane pomiędzy modelami niezależnie od jednostki, bądź skali w jakiej predykcja została wykonana ze względu na zastosowanie błędu procentowego. Podstawową metryką jest średni bezwględny błąd procentowy - z ang. <strong>Mean Absolute Percentage Error</strong>
-$<span class="math notranslate nohighlight">\(MAPE=\frac{1}{n} \sum^N_{i=1}\frac{|y_i-\hat{y_i}|}{max( \epsilon , |y_i|)}\)</span>$</p>
+<p>Szczególnym rodzajem metryk są metryki oparte o błędy procentowe. Ich główną zaletą jest fakt, że moga być porównywane pomiędzy modelami niezależnie od jednostki, bądź skali w jakiej predykcja została wykonana ze względu na zastosowanie błędu procentowego. Podstawową metryką jest średni bezwględny błąd procentowy - z ang. <strong>Mean Absolute Percentage Error</strong></p>
+<p><span class="math notranslate nohighlight">\(MAPE=\frac{1}{n} \sum^N_{i=1}\frac{|y_i-\hat{y_i}|}{max( \epsilon , |y_i|)}\)</span></p>
 <p>Wartość <span class="math notranslate nohighlight">\(\epsilon\)</span> w mianowniku jest to bardzo niewielka wartość bliska zeru, która pozwala bezpiecznie wyliczyć metryke w momencie, gdy wartość rzeczywista otrzymuje wartość 0.
 <br></p>
 <p>Ze względu na wyrażenie metryki w ujęciu procentowym metryka ta jest łatwo prównywalna i łatwo zrozumiała.<br></p>
@@ -904,8 +904,8 @@ $<span class="math notranslate nohighlight">\(MAPE=\frac{1}{n} \sum^N_{i=1}\frac
 </section>
 <section id="smape">
 <h3>SMAPE<a class="headerlink" href="#smape" title="Permalink to this heading">#</a></h3>
-<p>W celu poprawy problemu z asymetrią została zaproponowana symetryczna wersja błędu MAPE, czyli SMAPE - z ang. <strong>Symetric Mean Absolute Percentage Error</strong>
-$<span class="math notranslate nohighlight">\(SMAPE=\frac{1}{n} \sum^N_{i=1}\frac{|y_i-\hat{y_i}|}{max( \epsilon , \frac{|y_i|+|\hat{y_i}|}{2})}\)</span>$</p>
+<p>W celu poprawy problemu z asymetrią została zaproponowana symetryczna wersja błędu MAPE, czyli SMAPE - z ang. <strong>Symetric Mean Absolute Percentage Error</strong></p>
+<p><span class="math notranslate nohighlight">\(SMAPE=\frac{1}{n} \sum^N_{i=1}\frac{|y_i-\hat{y_i}|}{max( \epsilon , \frac{|y_i|+|\hat{y_i}|}{2})}\)</span></p>
 <p>Z zalet więc jest również to metryka wyrażona w wartości procentowej i dodatkowo naprawia wadę asymetryczności wprowadzając dolna granicę 0% i górną 200%. <br></p>
 <p>Ta metryka też ma swoje wady, <a class="reference external" href="http://m.in">m.in</a>.: otrzymujemy wartości nieokreślone gdy zarówno wartość rzeczywista i przewidywana są równe 0. Gdy wartość rzeczywista lub prognoza osiągnię wartość 0, to SMAPE automatycznie zwraca górną granicę (to nie koniecznie musi być traktowane jako wada).<br></p>
 <p>Jednakże jest jeszcze jedna ważna różnica, która może okazać się kluczowa w różnych problemach biznesowych. Tak, jak przy wspomnianej wcześniej metryce MSLE kluczowe dla nas jest, aby uniknąć niedoszacowań przy predykcji. Gdy MAPE faworyzowało modele, które niedoszacowują to SMAPE ma efekt odwrotny.</p>
@@ -1381,12 +1381,12 @@ F_2-score: 0.6818181818181818
 \[\upsilon =\frac{(1+\beta \times homogeneity \times completness)}{\beta \times homogeneity + cimpletness}\]</div>
 <p>Metryka ta przyjmuje wartości od 0 do 1, gdzie 1 oznacza najlepszą jakość w obrębie tej metryki.
 Jednym z minusów dla tej metryki jest konieczność posiadania wiedzy na temat prawdziwych klastrów (grup) dla danych obserwacji, a często przy problemach klastrowania nie znamy tych grup i chcemy je wywnioskować na podstawie wyników algorytmu.</p>
-<p><strong>Jednorodność</strong> - każdy klaster zawiera tylko członków jednej klasy
-$<span class="math notranslate nohighlight">\(h=1- \frac{H(C|K)}{H(C)}\)</span><span class="math notranslate nohighlight">\(
-, gdzie
-\)</span><span class="math notranslate nohighlight">\(H(C|K)=-\sum _{c,k} \frac{n_{ck}}{N}log \frac{n_{ck}}{n_k}\)</span><span class="math notranslate nohighlight">\(
-Wartości \)</span>n_{ck}<span class="math notranslate nohighlight">\( - oznacza ilość obserwacji klasy c w obrębie klastra k,
-natomiast \)</span>n_k$ - oznacza ilość wszystkich obserwacji w obrębie klastra k.</p>
+<p><strong>Jednorodność</strong> - każdy klaster zawiera tylko członków jednej klasy</p>
+<p><span class="math notranslate nohighlight">\(h=1- \frac{H(C|K)}{H(C)}\)</span></p>
+<p>, gdzie</p>
+<p><span class="math notranslate nohighlight">\(H(C|K)=-\sum _{c,k} \frac{n_{ck}}{N}log \frac{n_{ck}}{n_k}\)</span></p>
+<p>Wartości <span class="math notranslate nohighlight">\(n_{ck}\)</span> - oznacza ilość obserwacji klasy c w obrębie klastra k,
+natomiast <span class="math notranslate nohighlight">\(n_k\)</span> - oznacza ilość wszystkich obserwacji w obrębie klastra k.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics.cluster</span> <span class="kn">import</span> <span class="n">v_measure_score</span>
@@ -1509,7 +1509,7 @@ Przyjmuje on wartości od -1 do 1, gdzie:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/09aa9a703f779c82b29f6756077c0f449a62bed8aab266631739dd16852f66a7.png" src="../_images/09aa9a703f779c82b29f6756077c0f449a62bed8aab266631739dd16852f66a7.png" />
+<img alt="../_images/53a8965ced3ec641e9388a35f3c83cc675b9ae8564fe92bea74624a3890130a6.png" src="../_images/53a8965ced3ec641e9388a35f3c83cc675b9ae8564fe92bea74624a3890130a6.png" />
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1535,28 +1535,28 @@ Przyjmuje on wartości od -1 do 1, gdzie:</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.553930</td>
-      <td>0.780099</td>
+      <td>0.294494</td>
+      <td>0.628096</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.270847</td>
-      <td>0.149294</td>
+      <td>0.578665</td>
+      <td>0.582415</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.392513</td>
-      <td>0.330557</td>
+      <td>0.234716</td>
+      <td>0.767424</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.110194</td>
-      <td>0.127648</td>
+      <td>0.395756</td>
+      <td>0.625957</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.874501</td>
-      <td>0.957604</td>
+      <td>0.794567</td>
+      <td>0.918838</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1565,40 +1565,40 @@ Przyjmuje on wartości od -1 do 1, gdzie:</p>
     </tr>
     <tr>
       <th>95</th>
-      <td>2.283536</td>
-      <td>2.273292</td>
+      <td>2.372413</td>
+      <td>2.492207</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>2.390635</td>
-      <td>2.513383</td>
+      <td>2.884087</td>
+      <td>2.921087</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>2.066386</td>
-      <td>2.930322</td>
+      <td>2.303333</td>
+      <td>2.449980</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>2.749676</td>
-      <td>2.736552</td>
+      <td>2.131608</td>
+      <td>2.864271</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>2.260332</td>
-      <td>2.807807</td>
+      <td>2.096113</td>
+      <td>2.732785</td>
     </tr>
   </tbody>
 </table>
 <p>100 rows × 2 columns</p>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouette Score (liczba klastrow n=2): 0.8206859473337711
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouette Score (liczba klastrow n=2): 0.8187772437429933
 </pre></div>
 </div>
-<img alt="../_images/40770c0a2a884d483ed5975942103ef75a02685bbb902a04afe7b8f363b99e17.png" src="../_images/40770c0a2a884d483ed5975942103ef75a02685bbb902a04afe7b8f363b99e17.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouette Score (liczba klastrow n=3): 0.6094395494369631
+<img alt="../_images/78702719774f6c5171ff65a7814a123ae1f80a6b4db1abc80a7ed5606cf1116b.png" src="../_images/78702719774f6c5171ff65a7814a123ae1f80a6b4db1abc80a7ed5606cf1116b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouette Score (liczba klastrow n=3): 0.5842624395392341
 </pre></div>
 </div>
-<img alt="../_images/93d22991a36073e77476b064b1d4e25e9df68ecdbc8081a20865049e32d5ed9d.png" src="../_images/93d22991a36073e77476b064b1d4e25e9df68ecdbc8081a20865049e32d5ed9d.png" />
+<img alt="../_images/470519e55ef47961eebc431f8b97c0f0bce0ae9600e2b919c1146df3ca693b09.png" src="../_images/470519e55ef47961eebc431f8b97c0f0bce0ae9600e2b919c1146df3ca693b09.png" />
 </div>
 </div>
 <p>Jak można zaobserwować wartość Silhouette Coefficient (Score) jest niższa w przypadku, gdy liczba wybranych przez nas klastrów wynosi 3, gdyż klastry są mniej rozróżnialne.</p>
