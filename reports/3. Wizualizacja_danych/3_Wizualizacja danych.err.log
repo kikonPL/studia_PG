@@ -1,0 +1,187 @@
+Traceback (most recent call last):
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\nbclient\client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\nbclient\client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\nbclient\client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\nbclient\client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Pobranie przykladowych danych
+from sklearn.datasets import fetch_california_housing
+
+# Data wrangling 
+import pandas as pd
+import numpy as np
+
+# Data visualization
+import seaborn as sns
+from matplotlib import pyplot as plt
+from plotly import express as px
+
+# Inne
+import datetime as dt
+------------------
+
+----- stderr -----
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.0 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel_launcher.py", line 18, in <module>
+    app.launch_new_instance()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\traitlets\config\application.py", line 1075, in launch_instance
+    app.start()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\kernelapp.py", line 739, in start
+    self.io_loop.start()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\tornado\platform\asyncio.py", line 205, in start
+    self.asyncio_loop.run_forever()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\asyncio\base_events.py", line 641, in run_forever
+    self._run_once()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\asyncio\base_events.py", line 1987, in _run_once
+    handle._run()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\kernelbase.py", line 545, in dispatch_queue
+    await self.process_one()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\kernelbase.py", line 534, in process_one
+    await dispatch(*args)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\kernelbase.py", line 437, in dispatch_shell
+    await result
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\ipkernel.py", line 362, in execute_request
+    await super().execute_request(stream, ident, parent)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\kernelbase.py", line 778, in execute_request
+    reply_content = await reply_content
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\ipkernel.py", line 449, in do_execute
+    res = shell.run_cell(
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\zmqshell.py", line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\IPython\core\interactiveshell.py", line 3075, in run_cell
+    result = self._run_cell(
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\IPython\core\interactiveshell.py", line 3130, in _run_cell
+    result = runner(coro)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\IPython\core\async_helpers.py", line 128, in _pseudo_sync_runner
+    coro.send(None)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\IPython\core\interactiveshell.py", line 3334, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\IPython\core\interactiveshell.py", line 3517, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\IPython\core\interactiveshell.py", line 3577, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "C:\Users\knajmajer\AppData\Local\Temp\ipykernel_2016\383082041.py", line 2, in <module>
+    from sklearn.datasets import fetch_california_housing
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\sklearn\__init__.py", line 84, in <module>
+    from .base import clone
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\sklearn\base.py", line 19, in <module>
+    from .utils._estimator_html_repr import _HTMLDocumentationLinkMixin, estimator_html_repr
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\sklearn\utils\__init__.py", line 11, in <module>
+    from ._chunking import gen_batches, gen_even_slices
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\sklearn\utils\_chunking.py", line 8, in <module>
+    from ._param_validation import Interval, validate_params
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\sklearn\utils\_param_validation.py", line 11, in <module>
+    from scipy.sparse import csr_matrix, issparse
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\scipy\sparse\__init__.py", line 295, in <module>
+    from ._csr import *
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\scipy\sparse\_csr.py", line 11, in <module>
+    from ._sparsetools import (csr_tocsc, csr_tobsr, csr_count_blocks,
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mImportError[0m                               Traceback (most recent call last)
+Cell [1;32mIn[1], line 2[0m
+[0;32m      1[0m [38;5;66;03m# Pobranie przykladowych danych[39;00m
+[1;32m----> 2[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdatasets[39;00m [38;5;28;01mimport[39;00m fetch_california_housing
+[0;32m      4[0m [38;5;66;03m# Data wrangling [39;00m
+[0;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\sklearn\__init__.py:84[0m
+[0;32m     70[0m     [38;5;66;03m# We are not importing the rest of scikit-learn during the build[39;00m
+[0;32m     71[0m     [38;5;66;03m# process, as it may not be compiled yet[39;00m
+[0;32m     72[0m [38;5;28;01melse[39;00m:
+[1;32m   (...)[0m
+[0;32m     78[0m     [38;5;66;03m# later is linked to the OpenMP runtime to make it possible to introspect[39;00m
+[0;32m     79[0m     [38;5;66;03m# it and importing it first would fail if the OpenMP dll cannot be found.[39;00m
+[0;32m     80[0m     [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m [38;5;28;01mimport[39;00m (
+[0;32m     81[0m         __check_build,  [38;5;66;03m# noqa: F401[39;00m
+[0;32m     82[0m         _distributor_init,  [38;5;66;03m# noqa: F401[39;00m
+[0;32m     83[0m     )
+[1;32m---> 84[0m     [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mbase[39;00m [38;5;28;01mimport[39;00m clone
+[0;32m     85[0m     [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_show_versions[39;00m [38;5;28;01mimport[39;00m show_versions
+[0;32m     87[0m     __all__ [38;5;241m=[39m [
+[0;32m     88[0m         [38;5;124m"[39m[38;5;124mcalibration[39m[38;5;124m"[39m,
+[0;32m     89[0m         [38;5;124m"[39m[38;5;124mcluster[39m[38;5;124m"[39m,
+[1;32m   (...)[0m
+[0;32m    130[0m         [38;5;124m"[39m[38;5;124mshow_versions[39m[38;5;124m"[39m,
+[0;32m    131[0m     ]
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\sklearn\base.py:19[0m
+[0;32m     17[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_config[39;00m [38;5;28;01mimport[39;00m config_context, get_config
+[0;32m     18[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mexceptions[39;00m [38;5;28;01mimport[39;00m InconsistentVersionWarning
+[1;32m---> 19[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_estimator_html_repr[39;00m [38;5;28;01mimport[39;00m _HTMLDocumentationLinkMixin, estimator_html_repr
+[0;32m     20[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_metadata_requests[39;00m [38;5;28;01mimport[39;00m _MetadataRequester, _routing_enabled
+[0;32m     21[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_param_validation[39;00m [38;5;28;01mimport[39;00m validate_parameter_constraints
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\sklearn\utils\__init__.py:11[0m
+[0;32m      9[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m [38;5;28;01mimport[39;00m _joblib, metadata_routing
+[0;32m     10[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_bunch[39;00m [38;5;28;01mimport[39;00m Bunch
+[1;32m---> 11[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_chunking[39;00m [38;5;28;01mimport[39;00m gen_batches, gen_even_slices
+[0;32m     12[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_estimator_html_repr[39;00m [38;5;28;01mimport[39;00m estimator_html_repr
+[0;32m     14[0m [38;5;66;03m# Make _safe_indexing importable from here for backward compat as this particular[39;00m
+[0;32m     15[0m [38;5;66;03m# helper is considered semi-private and typically very useful for third-party[39;00m
+[0;32m     16[0m [38;5;66;03m# libraries that want to comply with scikit-learn's estimator API. In particular,[39;00m
+[0;32m     17[0m [38;5;66;03m# _safe_indexing was included in our public API documentation despite the leading[39;00m
+[0;32m     18[0m [38;5;66;03m# `_` in its name.[39;00m
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\sklearn\utils\_chunking.py:8[0m
+[0;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[0;32m      7[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_config[39;00m [38;5;28;01mimport[39;00m get_config
+[1;32m----> 8[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_param_validation[39;00m [38;5;28;01mimport[39;00m Interval, validate_params
+[0;32m     11[0m [38;5;28;01mdef[39;00m [38;5;21mchunk_generator[39m(gen, chunksize):
+[0;32m     12[0m [38;5;250m    [39m[38;5;124;03m"""Chunk generator, ``gen`` into lists of length ``chunksize``. The last[39;00m
+[0;32m     13[0m [38;5;124;03m    chunk may have a length less than ``chunksize``."""[39;00m
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\sklearn\utils\_param_validation.py:11[0m
+[0;32m      8[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnumbers[39;00m [38;5;28;01mimport[39;00m Integral, Real
+[0;32m     10[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[1;32m---> 11[0m [38;5;28;01mfrom[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01msparse[39;00m [38;5;28;01mimport[39;00m csr_matrix, issparse
+[0;32m     13[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_config[39;00m [38;5;28;01mimport[39;00m config_context, get_config
+[0;32m     14[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mvalidation[39;00m [38;5;28;01mimport[39;00m _is_arraylike_not_scalar
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\scipy\sparse\__init__.py:295[0m
+[0;32m    292[0m [38;5;28;01mimport[39;00m [38;5;21;01mwarnings[39;00m [38;5;28;01mas[39;00m [38;5;21;01m_warnings[39;00m
+[0;32m    294[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_base[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
+[1;32m--> 295[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_csr[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
+[0;32m    296[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_csc[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
+[0;32m    297[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_lil[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\scipy\sparse\_csr.py:11[0m
+[0;32m      9[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_matrix[39;00m [38;5;28;01mimport[39;00m spmatrix
+[0;32m     10[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_base[39;00m [38;5;28;01mimport[39;00m _spbase, sparray
+[1;32m---> 11[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_sparsetools[39;00m [38;5;28;01mimport[39;00m (csr_tocsc, csr_tobsr, csr_count_blocks,
+[0;32m     12[0m                            get_csr_submatrix)
+[0;32m     13[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_sputils[39;00m [38;5;28;01mimport[39;00m upcast
+[0;32m     15[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_compressed[39;00m [38;5;28;01mimport[39;00m _cs_matrix
+
+[1;31mImportError[0m: numpy.core.multiarray failed to import
+

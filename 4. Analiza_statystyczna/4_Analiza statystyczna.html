@@ -1,403 +1,500 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Analiza statystyczna - tutorial &#8212; Silky Coders Data Science</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '4. Analiza_statystyczna/4_Analiza statystyczna';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Wykrywanie anomalii - definicje" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html" />
     <link rel="prev" title="Wizualizacja danych w Python" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/silky-logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Silky Coders Data Science</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wprowadzenie do pakietów numpy i pandas
- </span>
-</p>
+    
+    
+    <img src="../_static/silky-logo.png" class="logo__image only-light" alt="Silky Coders Data Science - Home"/>
+    <img src="../_static/silky-logo.png" class="logo__image only-dark pst-js-only" alt="Silky Coders Data Science - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wprowadzenie do pakietów numpy i pandas</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">
-   Pakiet pandas - tutorial
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">
-   Pakiet NumPy - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">Pakiet pandas - tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.%20Numpy_tutorial/2_Tutorial%20numpy.html">Pakiet NumPy - tutorial</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wizualizacja danych
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wizualizacja danych</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">
-   Wizualizacja danych w Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">Wizualizacja danych w Python</a></li>
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Analiza statystyczna
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza statystyczna</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Analiza statystyczna - tutorial
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Analiza statystyczna - tutorial</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wykrywanie anomalii
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wykrywanie anomalii</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">
-   Wykrywanie anomalii - definicje
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">
-   Wykrywanie anomalii - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">Wykrywanie anomalii - definicje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">Wykrywanie anomalii - tutorial</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Inżynieria cech
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inżynieria cech</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">
-   Inżynieria cech
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">Inżynieria cech</a></li>
+
+
+
+
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Czyszczenie danych
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Czyszczenie danych</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">
-   Czyszczenie danych
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">Czyszczenie danych</a></li>
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Klasteryzacja
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klasteryzacja</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
-   Klasteryzacja w Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">Klasteryzacja w Python</a></li>
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Klasyfikacja
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klasyfikacja</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">
-   Klasyfikacja w Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">Klasyfikacja w Python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Regresja
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja GLM</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../11.%20Regresja/Regresja-Part2.html">
-   Analiza regresji
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../11.%20Regresja/Regresja_lin.html">Liniowe modele regresji</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wyjaśnialność modeli
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja - modele drzewiaste</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">
-   Wyjaśnialność modeli - metryki statystyczne - tutorial
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">
-   Wyjaśnialność modeli - definicje
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">
-   Wyjaśnialność modeli - XAI - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../11.%20Regresja/Regresja_trees.html">Regresja oparta o modele drzewiaste</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wyjaśnialność modeli</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">Wyjaśnialność modeli - metryki statystyczne - tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">Wyjaśnialność modeli - definicje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">Wyjaśnialność modeli - XAI - tutorial</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Przetwarzanie języka naturalnego</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../13.%20NLP/TutorialNLP.html">NLP</a></li>
+
+
+
+
+
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/4. Analiza_statystyczna/4_Analiza statystyczna.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/kikonPL/studia_PG"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F4. Analiza_statystyczna/4_Analiza statystyczna.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+<div class="article-header-buttons">
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/kikonPL/studia_PG/main?urlpath=tree/4. Analiza_statystyczna/4_Analiza statystyczna.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/4. Analiza_statystyczna/4_Analiza statystyczna.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wstep">
-   Wstęp
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pierwsze-spojrzenie-na-dane">
-   Pierwsze spojrzenie na dane
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ogolna-wiedza-o-danych">
-     Ogólna wiedza o danych
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analiza-poszczegolnych-kolumn">
-     Analiza poszczególnych kolumn
-    </a>
-   </li>
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/4. Analiza_statystyczna/4_Analiza statystyczna.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#badanie-korelacji">
-   Badanie korelacji
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#testy-statystyczne">
-   Testy statystyczne
-  </a>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kikonPL/studia_PG" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F4. Analiza_statystyczna/4_Analiza statystyczna.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/4. Analiza_statystyczna/4_Analiza statystyczna.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Analiza statystyczna - tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wstep">Wstęp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pierwsze-spojrzenie-na-dane">Pierwsze spojrzenie na dane</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolna-wiedza-o-danych">Ogólna wiedza o danych</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-poszczegolnych-kolumn">Analiza poszczególnych kolumn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badanie-korelacji">Badanie korelacji</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testy-statystyczne">Testy statystyczne</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="analiza-statystyczna-tutorial">
-<h1>Analiza statystyczna - tutorial<a class="headerlink" href="#analiza-statystyczna-tutorial" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="wstep">
-<h2>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="analiza-statystyczna-tutorial">
+<h1>Analiza statystyczna - tutorial<a class="headerlink" href="#analiza-statystyczna-tutorial" title="Permalink to this heading">#</a></h1>
+<section id="wstep">
+<h2>Wstęp<a class="headerlink" href="#wstep" title="Permalink to this heading">#</a></h2>
 <p>Przed rozpoczęciem prac nad modelami/ analizami warto poznać dane, na których będziemy pracować.
 W tym celu wykonujemy analizy statystyczne opisujące nam dane.</p>
 <div class="alert alert-block alert-success">
-<b>Cel</b> 
+<b>Cel:</b> 
 Celem analizy statystycznej jest pozyskanie jak największej wiedzy z danych
 </div>
 <div class="cell docutils container">
@@ -442,39 +539,45 @@ California Housing dataset
 
 **Data Set Characteristics:**
 
-    :Number of Instances: 20640
+:Number of Instances: 20640
 
-    :Number of Attributes: 8 numeric, predictive attributes and the target
+:Number of Attributes: 8 numeric, predictive attributes and the target
 
-    :Attribute Information:
-        - MedInc        median income in block
-        - HouseAge      median house age in block
-        - AveRooms      average number of rooms
-        - AveBedrms     average number of bedrooms
-        - Population    block population
-        - AveOccup      average house occupancy
-        - Latitude      house block latitude
-        - Longitude     house block longitude
+:Attribute Information:
+    - MedInc        median income in block group
+    - HouseAge      median house age in block group
+    - AveRooms      average number of rooms per household
+    - AveBedrms     average number of bedrooms per household
+    - Population    block group population
+    - AveOccup      average number of household members
+    - Latitude      block group latitude
+    - Longitude     block group longitude
 
-    :Missing Attribute Values: None
+:Missing Attribute Values: None
 
 This dataset was obtained from the StatLib repository.
-http://lib.stat.cmu.edu/datasets/
+https://www.dcc.fc.up.pt/~ltorgo/Regression/cal_housing.html
 
-The target variable is the median house value for California districts.
+The target variable is the median house value for California districts,
+expressed in hundreds of thousands of dollars ($100,000).
 
 This dataset was derived from the 1990 U.S. census, using one row per census
 block group. A block group is the smallest geographical unit for which the U.S.
 Census Bureau publishes sample data (a block group typically has a population
 of 600 to 3,000 people).
 
+A household is a group of people residing within a home. Since the average
+number of rooms and bedrooms in this dataset are provided per household, these
+columns may take surprisingly large values for block groups with few households
+and many empty houses, such as vacation resorts.
+
 It can be downloaded/loaded using the
 :func:`sklearn.datasets.fetch_california_housing` function.
 
-.. topic:: References
+.. rubric:: References
 
-    - Pace, R. Kelley and Ronald Barry, Sparse Spatial Autoregressions,
-      Statistics and Probability Letters, 33 (1997) 291-297
+- Pace, R. Kelley and Ronald Barry, Sparse Spatial Autoregressions,
+  Statistics and Probability Letters, 33 (1997) 291-297
 </pre></div>
 </div>
 </div>
@@ -580,15 +683,15 @@ It can be downloaded/loaded using the
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="pierwsze-spojrzenie-na-dane">
-<h2>Pierwsze spojrzenie na dane<a class="headerlink" href="#pierwsze-spojrzenie-na-dane" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="pierwsze-spojrzenie-na-dane">
+<h2>Pierwsze spojrzenie na dane<a class="headerlink" href="#pierwsze-spojrzenie-na-dane" title="Permalink to this heading">#</a></h2>
 <div class="alert alert-block alert-success">
 <b>Cel</b> 
 <p>Celem poniższego zadania jest analiza statystyczna danych <em>fetch_california_housing</em> przed tworzeniem modelu regresyjnego, w którym celem (zmienną objaśnianą) będzie wyznaczenie Mediany wartości domu (<strong>MedHouseVal</strong>)</p>
-</div><div class="section" id="ogolna-wiedza-o-danych">
-<h3>Ogólna wiedza o danych<a class="headerlink" href="#ogolna-wiedza-o-danych" title="Permalink to this headline">¶</a></h3>
-<p>Przy pierwszym spojrzeniu na dane warto sprawdzić jaka jest średnia, mediana, wartosci minimalne i maksymalne. Najprostszy sposób, aby to zbadać to wykorzystać metodę <em>describe()</em>. Przedstawia ona liczbę danych, średnią, odchylenie standardowe, minimalną wartość, maksymalną wartośc, mediane oraz 25 i 75 percentyl</p>
+</div><section id="ogolna-wiedza-o-danych">
+<h3>Ogólna wiedza o danych<a class="headerlink" href="#ogolna-wiedza-o-danych" title="Permalink to this heading">#</a></h3>
+<p>Przy pierwszym spojrzeniu na dane warto sprawdzić jaka jest średnia, mediana, wartosci minimalne i maksymalne. Najprostszy sposób, aby to zbadać to wykorzystać metodę <em>describe()</em>. Przedstawia ona liczbę danych, średnią, odchylenie standardowe, minimalną wartość, maksymalną wartośc, medianę oraz 25 i 75 percentyl.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -726,7 +829,7 @@ It can be downloaded/loaded using the
 </table>
 </div></div></div>
 </div>
-<p>Wsyztskie te informacje można oczywiście wydobyć osobnymi metodami:</p>
+<p>Wszystkie te informacje można oczywiście wydobyć osobnymi metodami:</p>
 <p><strong>Liczba wierszy:</strong></p>
 <ul class="simple">
 <li><p>dla wszystkich kolulumn <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.count.html"><em>pd.DataFrame.count()</em></a></p></li>
@@ -836,7 +939,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1539561587441387
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1539561587441483
 </pre></div>
 </div>
 </div>
@@ -1047,12 +1150,12 @@ dtype: float64
 </div>
 </div>
 </div>
-<p>Mamy już pewną ogólną wiedze na temat naszych danych. Przyjżyjmy się teraz poszczególnym kolumnom i sprawdźmy jak rozkładają się  w nich dane</p>
-</div>
-<div class="section" id="analiza-poszczegolnych-kolumn">
-<h3>Analiza poszczególnych kolumn<a class="headerlink" href="#analiza-poszczegolnych-kolumn" title="Permalink to this headline">¶</a></h3>
-<p>W pierwszej kolejności sprawdźmy jak wyglada nasz cel, a więc mediana wartości domu</p>
-<p>Poniważ wartość mieszkania może przyjmować wszystkie wartości większe od 0, najlepszym sposobem na sprawdzenie rozkładu jest stworzenie histogramu</p>
+<p>Mamy już pewną ogólną wiedze na temat naszych danych. Przyjrzyjmy się teraz poszczególnym kolumnom i sprawdźmy jak rozkładają się w nich dane.</p>
+</section>
+<section id="analiza-poszczegolnych-kolumn">
+<h3>Analiza poszczególnych kolumn<a class="headerlink" href="#analiza-poszczegolnych-kolumn" title="Permalink to this heading">#</a></h3>
+<p>W pierwszej kolejności sprawdźmy jak wyglada nasz cel, a więc mediana wartości domu.</p>
+<p>Ponieważ wartość mieszkania może przyjmować wszystkie wartości większe od 0, najlepszym sposobem na sprawdzenie rozkładu jest stworzenie histogramu.</p>
 <p>Najprostszą metodą jest wygenerowanie automatycznego histogramy za pomocą metody <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.hist.html> <em>pd.Series.hist()</em> </a>, lub z pakietu matplotlib <a href = https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html> <em>plt.hist()</em> </a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1065,7 +1168,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4_Analiza statystyczna_40_0.png" src="../_images/4_Analiza statystyczna_40_0.png" />
+<img alt="../_images/ea81ba9b17e5066685042497dd0ec742acda61b28b13add6cf3f2a3e7d3e0ca2.png" src="../_images/ea81ba9b17e5066685042497dd0ec742acda61b28b13add6cf3f2a3e7d3e0ca2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1079,7 +1182,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4_Analiza statystyczna_41_0.png" src="../_images/4_Analiza statystyczna_41_0.png" />
+<img alt="../_images/43f15c6b94163afaf2c449e814f4e70c181f7369b5495d6ac1ea18eff65ba41f.png" src="../_images/43f15c6b94163afaf2c449e814f4e70c181f7369b5495d6ac1ea18eff65ba41f.png" />
 </div>
 </div>
 <p>Najwięcej przypadków znajduje się w przedziale 1-2. Dodatkowo rozkład nie przypomina standardowego <a href = https://en.wikipedia.org/wiki/Normal_distribution> rozkładu normalnego </a>. W kolejnych częściach dowiemy się jak sprawdzić czy dane układają się w rozkład normalny, czy nie.</p>
@@ -1094,7 +1197,8 @@ W tym celu można wykorzystać funkcję <a href = https://pandas.pydata.org/pand
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>52.0    1273
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HouseAge
+52.0    1273
 36.0     862
 35.0     824
 16.0     771
@@ -1146,21 +1250,21 @@ W tym celu można wykorzystać funkcję <a href = https://pandas.pydata.org/pand
 2.0       58
 51.0      48
 1.0        4
-Name: HouseAge, dtype: int64
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
 <p>Otrzymane wyniki są automatycznie ustawiane od przypadków najczęściej do najrzadziej występujacych.</p>
 <p>Występuje 1273 obszarów z medianą wieku domów równą 52 lata. Co ciekawe mediana równa 51 lat występuje tylko w 48 obszarach. Najmniej, bo tylko 4 obszary, mają medianę wieku domów w wysokości 1 roku.</p>
-<p>Sprawdźmy jak wyglądają takie dane na wykresie</p>
+<p>Sprawdźmy jak wyglądają takie dane na wykresie.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
-<span class="n">df_plot</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;HouseAge&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span> <span class="s1">&#39;index&#39;</span><span class="p">)</span>
-<span class="c1">#df_plot[&#39;index&#39;]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="s1">&#39;HouseAge&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df_plot</span><span class="p">)</span>
+<span class="n">df_plot</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;HouseAge&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;HouseAge&#39;</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df_plot</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;House Age&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1168,15 +1272,15 @@ Name: HouseAge, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4_Analiza statystyczna_46_0.png" src="../_images/4_Analiza statystyczna_46_0.png" />
+<img alt="../_images/ed620655ac4a84d22b4f00fb9ac38f05b29115ceb244e8605a5c4b64bf3562af.png" src="../_images/ed620655ac4a84d22b4f00fb9ac38f05b29115ceb244e8605a5c4b64bf3562af.png" />
 </div>
 </div>
 <p>Widać, że zdecydowanie 52 lata to najczęściej występująca mediana wieku domów. Widać także zwiększenie ilości danych w środkowych przedziale lat.</p>
 <p>Po wyglądzie można się zastanowić czy ta wartość 52 lata nie jest maksymalną wartością, która mogła zostać wpisana. Należy się zastanowić czy nie warto usunąć tych danych do dalszej analizy. Niestety w źródle danych nie ma informacji na ten temat, ale w rzeczywistych warunkach taka informacja powinna być opisana.</p>
-</div>
-</div>
-<div class="section" id="badanie-korelacji">
-<h2>Badanie korelacji<a class="headerlink" href="#badanie-korelacji" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="badanie-korelacji">
+<h2>Badanie korelacji<a class="headerlink" href="#badanie-korelacji" title="Permalink to this heading">#</a></h2>
 <p>W analizie statystycznej ważnym elementem jest badanie korelacji zmiennych. To dzięki niej wiemy czy występuje jakaś zależność pomiędzy zbiorami danych.</p>
 <p>Bardzo istotne jest zbadanie korelacji podczas budowania modelu regresyjnego. Badając korelację naszego celu (w tym przykładzie ‘MedHouseVal’) z cechami, możemy dowiedzieć się która z cech jest naistotniejsza, a która nie pomoże nam w stworzeniu odpowiedniego modelu</p>
 <p>Najczęściej badanymi korelacjami są:</p>
@@ -1198,8 +1302,8 @@ r_{p}= \frac{cov(X,Y)}{\sigma_X \sigma_Y}
 <p><span class="math notranslate nohighlight">\(cov()\)</span> - kowariancja,</p>
 <p><span class="math notranslate nohighlight">\(\sigma\)</span> - odchylenie standardowe</p>
 <p><span class="math notranslate nohighlight">\(R()\)</span> - rangi danych</p>
-<p>Najprostrzym sposobem na zbadanie korelacji w tabeli jest wykorzystanie metody <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.corr.html> <em>pd.DataFrame.corr()</em> </a></p>
-<p>Metoda stworzy macież korelacji pomiędzy wszystkimi kolumnami numerycznymi w DataFrame</p>
+<p>Najprostszym sposobem na zbadanie korelacji w tabeli jest wykorzystanie metody <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.corr.html> <em>pd.DataFrame.corr()</em> </a></p>
+<p>Metoda stworzy macierz korelacji Pearsona pomiędzy wszystkimi kolumnami numerycznymi w DataFrame</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
@@ -1514,7 +1618,7 @@ r_{p}= \frac{cov(X,Y)}{\sigma_X \sigma_Y}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4_Analiza statystyczna_57_0.png" src="../_images/4_Analiza statystyczna_57_0.png" />
+<img alt="../_images/2d808803a26a8f22651e583e73dd664082be77744b8a7b2a7422f694e0fb94b3.png" src="../_images/2d808803a26a8f22651e583e73dd664082be77744b8a7b2a7422f694e0fb94b3.png" />
 </div>
 </div>
 <p>Na wykresie widać tendencję zwiększania się wartości domów przy zwiększajacych się zarobkach.</p>
@@ -1547,7 +1651,7 @@ Służą do tego metody:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.6880752079585468, 0.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PearsonRResult(statistic=0.6880752079585477, pvalue=0.0)
 </pre></div>
 </div>
 </div>
@@ -1561,15 +1665,15 @@ Służą do tego metody:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SpearmanrResult(correlation=0.6767781095942506, pvalue=0.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SignificanceResult(statistic=0.6767781095942506, pvalue=0.0)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Zwróćmy uwagę, że metody z biblioteki <em>scipy</em> zwracają dwie wartości. Pierwsza jest to współczynnik korelacji, a druga to <em><strong>P-value</strong></em>, której teraz dokładnie się przyjrzymy</p>
-</div>
-<div class="section" id="testy-statystyczne">
-<h2>Testy statystyczne<a class="headerlink" href="#testy-statystyczne" title="Permalink to this headline">¶</a></h2>
+<p>Zwróćmy uwagę, że metody z biblioteki <em>scipy</em> zwracają dwie wartości. Pierwsza jest to współczynnik korelacji, a druga to <em><strong>P-value</strong></em>, której teraz dokładnie się przyjrzymy.</p>
+</section>
+<section id="testy-statystyczne">
+<h2>Testy statystyczne<a class="headerlink" href="#testy-statystyczne" title="Permalink to this heading">#</a></h2>
 <div class="alert alert-block alert-success">
    <b> Definicje </b>
 <p><strong>Test statystyczny</strong> – formuła matematyczna pozwalająca oszacować prawdopodobieństwo spełnienia pewnej hipotezy statystycznej w populacji na podstawie próby losowej z tej populacji.</p>
@@ -1582,15 +1686,16 @@ Służą do tego metody:</p>
 <p><strong>P-value</strong> - prawdopodobieństwo kumulatywne wylosowania próby takiej lub bardziej skrajnej jak zaobserwowana, przy założeniu, że hipoteza zerowa jest prawdziwa</p>
 <p><em>Przykład:</em> W korelacji pomiędzy wartoscią domu, a zarobkami P-value wynosi 0. Możemy więc stwierdzić, że nie istnieje możliwość wylosowania takiej próby, aby korelacja była wyższa lub taka sama z jednoczesnym założeniem, że korelacja ta nie istnieje.</p>
 </div><div class="alert alert-block alert-warning">
-    Przy wykorzystywaniu testów statystycznych ustala się pewien próg (<b>poziom istotności</b> $\alpha$ ). Jeżeli P-value jest mniejsze niż ten poziom można odrzucić hipotezę zerową. Zazwyczaj $\alpha$ = 0.05
+<p>Przy wykorzystywaniu testów statystycznych ustala się pewien próg (<b>poziom istotności</b> <span class="math notranslate nohighlight">\(\alpha\)</span> ). Jeżeli P-value jest mniejsze niż ten poziom można odrzucić hipotezę zerową. Zazwyczaj <span class="math notranslate nohighlight">\(\alpha\)</span> = 0.05</p>
 <p><em>Przykład</em> W korelacji pomiędzy wartoscią domu, a zarobkami P-value &lt; 0.05, więc odrzucamy hipotezę zerową.</p>
-</div><div class="alert alert-block alert-info">
+</div>
+<div class="alert alert-block alert-info">
 <p>Za pomocą P-value oraz poziomu istotności możemy odrzucić hipotezę zerową. Jednak, nie oznacza to, że potwierdzamy hipotezę alternatywną (<span class="math notranslate nohighlight">\(H_1\)</span>).</p>
 </div><p>Za pomocą testów statystycznych możemy także sprawdzić czy dane posiadają konkretny rozkład.</p>
 <p>Sprawdźmy więc, czy ceny domów posiadaja rozkład normalny. Możemy to zrobić za pomocą metody <a href = https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.normaltest.html> <em>scipy.stats.normaltest()</em> </a></p>
 <p>Hipotezą zerową w tej metodzie jest załozenie, że dane mają rozkład normalny.</p>
 <p>Przyjmijmy poziom istotności <span class="math notranslate nohighlight">\(\alpha\)</span> = 0.05.
-Jeżeli P-value &lt; 0.05 Będziemy mogli odrzucić tą hipotezę i powiedzieć, że cena domów nie posiada rozkładu normalnego</p>
+Jeżeli P-value &lt; 0.05, to będziemy mogli odrzucić tą hipotezę i powiedzieć, że cena domów nie posiada rozkładu normalnego.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normaltest</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">])</span>
@@ -1608,7 +1713,7 @@ Jeżeli P-value &lt; 0.05 Będziemy mogli odrzucić tą hipotezę i powiedzieć,
 <p>Wylosujmy 10 000 próbek z rozkładu normalnego</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1">#pozwala na wylosowanie zawsze tych samych danych</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1">#ustawienie ziarna pozwala na wylosowanie zawsze tych samych danych</span>
 <span class="n">norm</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">)]</span>
 </pre></div>
 </div>
@@ -1634,7 +1739,7 @@ Jeżeli P-value &lt; 0.05 Będziemy mogli odrzucić tą hipotezę i powiedzieć,
  &lt;BarContainer object of 20 artists&gt;)
 </pre></div>
 </div>
-<img alt="../_images/4_Analiza statystyczna_74_1.png" src="../_images/4_Analiza statystyczna_74_1.png" />
+<img alt="../_images/b826e5f649dbd01bae99b6b363b180a51930ec134b92ad36efef3f951e0383de.png" src="../_images/b826e5f649dbd01bae99b6b363b180a51930ec134b92ad36efef3f951e0383de.png" />
 </div>
 </div>
 <p>A teraz sprawdźmy, czy za pomocą testu statystycznego możemy stwierdzić, że rozkład jest normalny</p>
@@ -1665,27 +1770,35 @@ Jeżeli P-value &lt; 0.05 Będziemy mogli odrzucić tą hipotezę i powiedzieć,
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;norm&#39;</span><span class="p">,</span> <span class="s1">&#39;expon&#39;</span><span class="p">,</span> <span class="s1">&#39;logistic&#39;</span><span class="p">,</span> <span class="s1">&#39;gumbel&#39;</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sprawdzamy czy rozkład jest &#39;</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span> <span class="n">anderson</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">],</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">test</span><span class="p">))</span>
-    
+<span class="c1"># informacje success i message mowia nam o poprawnym przeprowadzeniu testu, nie o jego wyniku</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sprawdzamy czy rozkład jest  norm
-AndersonResult(statistic=501.7692781709593, critical_values=array([0.576, 0.656, 0.787, 0.918, 1.092]), significance_level=array([15. , 10. ,  5. ,  2.5,  1. ]))
+AndersonResult(statistic=501.76927817096293, critical_values=array([0.576, 0.656, 0.787, 0.918, 1.092]), significance_level=array([15. , 10. ,  5. ,  2.5,  1. ]), fit_result=  params: FitParams(loc=2.068558169089147, scale=1.1539561587441483)
+ success: True
+ message: &#39;`anderson` successfully fit the distribution to the data.&#39;)
 Sprawdzamy czy rozkład jest  expon
-AndersonResult(statistic=1999.7321503644089, critical_values=array([0.922, 1.078, 1.341, 1.606, 1.957]), significance_level=array([15. , 10. ,  5. ,  2.5,  1. ]))
+AndersonResult(statistic=1999.7321503644089, critical_values=array([0.922, 1.078, 1.341, 1.606, 1.957]), significance_level=array([15. , 10. ,  5. ,  2.5,  1. ]), fit_result=  params: FitParams(loc=0.0, scale=2.068558169089147)
+ success: True
+ message: &#39;`anderson` successfully fit the distribution to the data.&#39;)
 Sprawdzamy czy rozkład jest  logistic
-AndersonResult(statistic=346.8528191385558, critical_values=array([0.426, 0.563, 0.66 , 0.769, 0.906, 1.01 ]), significance_level=array([25. , 10. ,  5. ,  2.5,  1. ,  0.5]))
+AndersonResult(statistic=346.8528191385485, critical_values=array([0.426, 0.563, 0.66 , 0.769, 0.906, 1.01 ]), significance_level=array([25. , 10. ,  5. ,  2.5,  1. ,  0.5]), fit_result=  params: FitParams(loc=1.9349363857771555, scale=0.6388770232823134)
+ success: True
+ message: &#39;`anderson` successfully fit the distribution to the data.&#39;)
 Sprawdzamy czy rozkład jest  gumbel
-AndersonResult(statistic=1156.3864507171638, critical_values=array([0.473, 0.636, 0.756, 0.876, 1.037]), significance_level=array([25. , 10. ,  5. ,  2.5,  1. ]))
+AndersonResult(statistic=1156.3864507171602, critical_values=array([0.473, 0.636, 0.756, 0.876, 1.037]), significance_level=array([25. , 10. ,  5. ,  2.5,  1. ]), fit_result=  params: FitParams(loc=2.6938727629324233, scale=1.3327039128959755)
+ success: True
+ message: &#39;`anderson` successfully fit the distribution to the data.&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 <p>W dokumentacji danej metody można wyczytać, że jeżeli wartość testu (<em>statistic</em>) jest większa od wartości krytycznych (<em>critical_values</em>) to dane nie należą do testowanego rozkładu, co oznacza, że rozkład ceny domow nie należy do żadnego z wyżej wymienonych.</p>
 <p>W bibliotece <em>scipy.stats</em> można znaleść inne testy statystyczne.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1699,7 +1812,7 @@ AndersonResult(statistic=1156.3864507171638, critical_values=array([0.473, 0.636
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./4. Analiza_statystyczna"
         },
         predefinedOutput: true
@@ -1707,46 +1820,111 @@ AndersonResult(statistic=1156.3864507171638, critical_values=array([0.473, 0.636
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Wizualizacja danych w Python</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Wizualizacja danych w Python</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Wykrywanie anomalii - definicje</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By codersi<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wstep">Wstęp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pierwsze-spojrzenie-na-dane">Pierwsze spojrzenie na dane</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolna-wiedza-o-danych">Ogólna wiedza o danych</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-poszczegolnych-kolumn">Analiza poszczególnych kolumn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badanie-korelacji">Badanie korelacji</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testy-statystyczne">Testy statystyczne</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By codersi
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

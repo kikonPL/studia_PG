@@ -1,0 +1,164 @@
+Traceback (most recent call last):
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\nbclient\client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\nbclient\client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\nbclient\client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\nbclient\client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Wyswietlenie arraya przy pomocy pakietu matplotlib
+# Na jednym z kolejnych zajec bedzie wiecej o tym pakiecie i nie tylko :)
+import matplotlib.pyplot as plt
+plt.imshow(raccoon)
+------------------
+
+----- stderr -----
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.0 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel_launcher.py", line 18, in <module>
+    app.launch_new_instance()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\traitlets\config\application.py", line 1075, in launch_instance
+    app.start()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\kernelapp.py", line 739, in start
+    self.io_loop.start()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\tornado\platform\asyncio.py", line 205, in start
+    self.asyncio_loop.run_forever()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\asyncio\base_events.py", line 641, in run_forever
+    self._run_once()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\asyncio\base_events.py", line 1987, in _run_once
+    handle._run()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\kernelbase.py", line 545, in dispatch_queue
+    await self.process_one()
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\kernelbase.py", line 534, in process_one
+    await dispatch(*args)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\kernelbase.py", line 437, in dispatch_shell
+    await result
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\ipkernel.py", line 362, in execute_request
+    await super().execute_request(stream, ident, parent)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\kernelbase.py", line 778, in execute_request
+    reply_content = await reply_content
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\ipkernel.py", line 449, in do_execute
+    res = shell.run_cell(
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\ipykernel\zmqshell.py", line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\IPython\core\interactiveshell.py", line 3075, in run_cell
+    result = self._run_cell(
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\IPython\core\interactiveshell.py", line 3130, in _run_cell
+    result = runner(coro)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\IPython\core\async_helpers.py", line 128, in _pseudo_sync_runner
+    coro.send(None)
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\IPython\core\interactiveshell.py", line 3334, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\IPython\core\interactiveshell.py", line 3517, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\IPython\core\interactiveshell.py", line 3577, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "C:\Users\knajmajer\AppData\Local\Temp\ipykernel_27236\216495308.py", line 3, in <module>
+    import matplotlib.pyplot as plt
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\matplotlib\__init__.py", line 159, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\matplotlib\rcsetup.py", line 28, in <module>
+    from matplotlib.colors import Colormap, is_color_like
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\matplotlib\colors.py", line 57, in <module>
+    from matplotlib import _api, _cm, cbook, scale
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\matplotlib\scale.py", line 22, in <module>
+    from matplotlib.ticker import (
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\matplotlib\ticker.py", line 144, in <module>
+    from matplotlib import transforms as mtransforms
+  File "C:\Users\knajmajer\.conda\envs\pg_env\Lib\site-packages\matplotlib\transforms.py", line 49, in <module>
+    from matplotlib._path import (
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mImportError[0m                               Traceback (most recent call last)
+[1;31mImportError[0m: numpy.core.multiarray failed to import
+
+The above exception was the direct cause of the following exception:
+
+[1;31mImportError[0m                               Traceback (most recent call last)
+Cell [1;32mIn[84], line 3[0m
+[0;32m      1[0m [38;5;66;03m# Wyswietlenie arraya przy pomocy pakietu matplotlib[39;00m
+[0;32m      2[0m [38;5;66;03m# Na jednym z kolejnych zajec bedzie wiecej o tym pakiecie i nie tylko :)[39;00m
+[1;32m----> 3[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+[0;32m      4[0m plt[38;5;241m.[39mimshow(raccoon)
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\matplotlib\__init__.py:159[0m
+[0;32m    155[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpackaging[39;00m[38;5;21;01m.[39;00m[38;5;21;01mversion[39;00m [38;5;28;01mimport[39;00m parse [38;5;28;01mas[39;00m parse_version
+[0;32m    157[0m [38;5;66;03m# cbook must import matplotlib only within function[39;00m
+[0;32m    158[0m [38;5;66;03m# definitions, so it is safe to import from it here.[39;00m
+[1;32m--> 159[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m [38;5;28;01mimport[39;00m _api, _version, cbook, _docstring, rcsetup
+[0;32m    160[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcbook[39;00m [38;5;28;01mimport[39;00m sanitize_sequence
+[0;32m    161[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_api[39;00m [38;5;28;01mimport[39;00m MatplotlibDeprecationWarning
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\matplotlib\rcsetup.py:28[0m
+[0;32m     26[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m [38;5;28;01mimport[39;00m BackendFilter, backend_registry
+[0;32m     27[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcbook[39;00m [38;5;28;01mimport[39;00m ls_mapper
+[1;32m---> 28[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcolors[39;00m [38;5;28;01mimport[39;00m Colormap, is_color_like
+[0;32m     29[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_fontconfig_pattern[39;00m [38;5;28;01mimport[39;00m parse_fontconfig_pattern
+[0;32m     30[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_enums[39;00m [38;5;28;01mimport[39;00m JoinStyle, CapStyle
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\matplotlib\colors.py:57[0m
+[0;32m     55[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mas[39;00m [38;5;21;01mmpl[39;00m
+[0;32m     56[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[1;32m---> 57[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mimport[39;00m _api, _cm, cbook, scale
+[0;32m     58[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m_color_data[39;00m [38;5;28;01mimport[39;00m BASE_COLORS, TABLEAU_COLORS, CSS4_COLORS, XKCD_COLORS
+[0;32m     61[0m [38;5;28;01mclass[39;00m [38;5;21;01m_ColorMapping[39;00m([38;5;28mdict[39m):
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\matplotlib\scale.py:22[0m
+[0;32m     20[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mas[39;00m [38;5;21;01mmpl[39;00m
+[0;32m     21[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mimport[39;00m _api, _docstring
+[1;32m---> 22[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mticker[39;00m [38;5;28;01mimport[39;00m (
+[0;32m     23[0m     NullFormatter, ScalarFormatter, LogFormatterSciNotation, LogitFormatter,
+[0;32m     24[0m     NullLocator, LogLocator, AutoLocator, AutoMinorLocator,
+[0;32m     25[0m     SymmetricalLogLocator, AsinhLocator, LogitLocator)
+[0;32m     26[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtransforms[39;00m [38;5;28;01mimport[39;00m Transform, IdentityTransform
+[0;32m     29[0m [38;5;28;01mclass[39;00m [38;5;21;01mScaleBase[39;00m:
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\matplotlib\ticker.py:144[0m
+[0;32m    142[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mas[39;00m [38;5;21;01mmpl[39;00m
+[0;32m    143[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mimport[39;00m _api, cbook
+[1;32m--> 144[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mimport[39;00m transforms [38;5;28;01mas[39;00m mtransforms
+[0;32m    146[0m _log [38;5;241m=[39m logging[38;5;241m.[39mgetLogger([38;5;18m__name__[39m)
+[0;32m    148[0m __all__ [38;5;241m=[39m ([38;5;124m'[39m[38;5;124mTickHelper[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mFormatter[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mFixedFormatter[39m[38;5;124m'[39m,
+[0;32m    149[0m            [38;5;124m'[39m[38;5;124mNullFormatter[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mFuncFormatter[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mFormatStrFormatter[39m[38;5;124m'[39m,
+[0;32m    150[0m            [38;5;124m'[39m[38;5;124mStrMethodFormatter[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mScalarFormatter[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mLogFormatter[39m[38;5;124m'[39m,
+[1;32m   (...)[0m
+[0;32m    156[0m            [38;5;124m'[39m[38;5;124mMultipleLocator[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mMaxNLocator[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mAutoMinorLocator[39m[38;5;124m'[39m,
+[0;32m    157[0m            [38;5;124m'[39m[38;5;124mSymmetricalLogLocator[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mAsinhLocator[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mLogitLocator[39m[38;5;124m'[39m)
+
+File [1;32m~\.conda\envs\pg_env\Lib\site-packages\matplotlib\transforms.py:49[0m
+[0;32m     46[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnumpy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlinalg[39;00m [38;5;28;01mimport[39;00m inv
+[0;32m     48[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mimport[39;00m _api
+[1;32m---> 49[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_path[39;00m [38;5;28;01mimport[39;00m (
+[0;32m     50[0m     affine_transform, count_bboxes_overlapping_bbox, update_path_extents)
+[0;32m     51[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mpath[39;00m [38;5;28;01mimport[39;00m Path
+[0;32m     53[0m DEBUG [38;5;241m=[39m [38;5;28;01mFalse[39;00m
+
+[1;31mImportError[0m: initialization failed
+

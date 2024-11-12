@@ -1,450 +1,517 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Pakiet NumPy - tutorial &#8212; Silky Coders Data Science</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '2. Numpy_tutorial/2_Tutorial numpy';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Wizualizacja danych w Python" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html" />
     <link rel="prev" title="Pakiet pandas - tutorial" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/silky-logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Silky Coders Data Science</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wprowadzenie do pakietów numpy i pandas
- </span>
-</p>
+    
+    
+    <img src="../_static/silky-logo.png" class="logo__image only-light" alt="Silky Coders Data Science - Home"/>
+    <img src="../_static/silky-logo.png" class="logo__image only-dark pst-js-only" alt="Silky Coders Data Science - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wprowadzenie do pakietów numpy i pandas</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">
-   Pakiet pandas - tutorial
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Pakiet NumPy - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html">Pakiet pandas - tutorial</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pakiet NumPy - tutorial</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wizualizacja danych
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wizualizacja danych</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">
-   Wizualizacja danych w Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html">Wizualizacja danych w Python</a></li>
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Analiza statystyczna
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza statystyczna</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">
-   Analiza statystyczna - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../4.%20Analiza_statystyczna/4_Analiza%20statystyczna.html">Analiza statystyczna - tutorial</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wykrywanie anomalii
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wykrywanie anomalii</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">
-   Wykrywanie anomalii - definicje
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">
-   Wykrywanie anomalii - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../5.%20Wykrywanie_anomalii/Wykrywanie_anomalii_teoria.html">Wykrywanie anomalii - definicje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.%20Wykrywanie_anomalii/5_Wykrywanie%20anomalii%20tutorial.html">Wykrywanie anomalii - tutorial</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Inżynieria cech
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inżynieria cech</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">
-   Inżynieria cech
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">Inżynieria cech</a></li>
+
+
+
+
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Czyszczenie danych
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Czyszczenie danych</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">
-   Czyszczenie danych
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../10.%20Czyszczenie_danych/Czyszczenie%20danych.html">Czyszczenie danych</a></li>
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Klasteryzacja
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klasteryzacja</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">
-   Klasteryzacja w Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../7.%20Klasteryzacja/7_Klasteryzacja.html">Klasteryzacja w Python</a></li>
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Klasyfikacja
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klasyfikacja</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">
-   Klasyfikacja w Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../12.%20Klasyfikacja/Klasyfikacja.html">Klasyfikacja w Python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Regresja
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja GLM</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../11.%20Regresja/Regresja-Part2.html">
-   Analiza regresji
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../11.%20Regresja/Regresja_lin.html">Liniowe modele regresji</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Wyjaśnialność modeli
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regresja - modele drzewiaste</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">
-   Wyjaśnialność modeli - metryki statystyczne - tutorial
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">
-   Wyjaśnialność modeli - definicje
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">
-   Wyjaśnialność modeli - XAI - tutorial
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../11.%20Regresja/Regresja_trees.html">Regresja oparta o modele drzewiaste</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wyjaśnialność modeli</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">Wyjaśnialność modeli - metryki statystyczne - tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">Wyjaśnialność modeli - definicje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">Wyjaśnialność modeli - XAI - tutorial</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Przetwarzanie języka naturalnego</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../13.%20NLP/TutorialNLP.html">NLP</a></li>
+
+
+
+
+
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/2. Numpy_tutorial/2_Tutorial numpy.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/kikonPL/studia_PG"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F2. Numpy_tutorial/2_Tutorial numpy.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+<div class="article-header-buttons">
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/kikonPL/studia_PG/main?urlpath=tree/2. Numpy_tutorial/2_Tutorial numpy.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/2. Numpy_tutorial/2_Tutorial numpy.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wstep">
-   Wstep
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#roznica-miedzy-dzialaniami-na-listach-a-numpy-array">
-   Różnica między działaniami na listach a numpy array
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#operacje-na-arrayach">
-   Operacje na arrayach
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tworzenie-numpy-array">
-     Tworzenie Numpy Array
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtrowanie-elementow">
-     Filtrowanie elementow
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wywolywanie-funkcji-opisujacych-array">
-     Wywoływanie funkcji opisujących array
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wywolywanie-okreslonych-operacji-matematycznych-na-arrayach">
-     Wywoływanie określonych operacji matematycznych na arrayach
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sortowanie-array-a">
-     Sortowanie array’a
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#laczenie-i-dzielenie-array-i-dodawanie-i-usuwanie-elementow">
-     Łączenie i dzielenie array’i, dodawanie i usuwanie elementów
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#podstawowe-statystyki">
-     Podstawowe statystyki
-    </a>
-   </li>
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/kikonPL/studia_PG/blob/main/2. Numpy_tutorial/2_Tutorial numpy.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zdjecie-jako-wielowymiarowy-array">
-   Zdjęcie jako wielowymiarowy array
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pandas-dataframe-a-numpy-array">
-   Pandas DataFrame a Numpy Array
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#podsumowanie">
-   Podsumowanie
-  </a>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kikonPL/studia_PG" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kikonPL/studia_PG/issues/new?title=Issue%20on%20page%20%2F2. Numpy_tutorial/2_Tutorial numpy.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/2. Numpy_tutorial/2_Tutorial numpy.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pakiet NumPy - tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wstep">Wstep</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roznica-miedzy-dzialaniami-na-listach-a-numpy-array">Różnica między działaniami na listach, a numpy array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operacje-na-arrayach">Operacje na arrayach</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-numpy-array">Tworzenie Numpy Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrowanie-elementow">Filtrowanie elementow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wywolywanie-funkcji-opisujacych-array">Wywoływanie funkcji opisujących array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wywolywanie-okreslonych-operacji-matematycznych-na-arrayach">Wywoływanie określonych operacji matematycznych na arrayach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sortowanie-array-a">Sortowanie array’a</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laczenie-i-dzielenie-array-i-dodawanie-i-usuwanie-elementow">Łączenie i dzielenie array’i, dodawanie i usuwanie elementów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-statystyki">Podstawowe statystyki</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zdjecie-jako-wielowymiarowy-array">Zdjęcie jako wielowymiarowy array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframe-vs-numpy-array">Pandas DataFrame vs Numpy Array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podsumowanie">Podsumowanie</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="pakiet-numpy-tutorial">
-<h1>Pakiet NumPy - tutorial<a class="headerlink" href="#pakiet-numpy-tutorial" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="wstep">
-<h2>Wstep<a class="headerlink" href="#wstep" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pakiet-numpy-tutorial">
+<h1>Pakiet NumPy - tutorial<a class="headerlink" href="#pakiet-numpy-tutorial" title="Permalink to this heading">#</a></h1>
+<section id="wstep">
+<h2>Wstep<a class="headerlink" href="#wstep" title="Permalink to this heading">#</a></h2>
 <p><strong>Czym jest pakiet numpy?</strong>
-Pakiet NumPy jest pakietam wykorzystywanym do operacji numerycznych przeprowadzanych na wielowymiarowych obiektach zwanych arrayami. Pakiet ten jest bardzo wydajny i często wykorzystywany - zarówno przez początkujących jak i tych bardziej zaawansowanych. Dobrze współpracuje z pakietami takimi jak pandas, scipy, matplotlib, scikit-learn i wieloma innymi pakietami bazującymi na danych numerycznych.</p>
+Pakiet NumPy jest pakietem wykorzystywanym do operacji numerycznych przeprowadzanych na wielowymiarowych obiektach zwanych arrayami. Pakiet ten jest bardzo wydajny i często wykorzystywany - zarówno przez początkujących jak i tych bardziej zaawansowanych. Dobrze współpracuje z pakietami takimi jak pandas, scipy, matplotlib, scikit-learn i wieloma innymi pakietami bazującymi na danych numerycznych.</p>
 <p><strong>Czym jest array?</strong>
-Array jest obiektem, na którym można wywoływać złożone operacje numeryczne. Z uwagi na wydajność obliczeń array’e sa często wykorzystywane. Swoją strukturą przypominają listę, lecz między tymi obiektami są znaczące różnice. Niektóre z nich zostały przedstawione poniżej.</p>
-</div>
-<div class="section" id="roznica-miedzy-dzialaniami-na-listach-a-numpy-array">
-<h2>Różnica między działaniami na listach a numpy array<a class="headerlink" href="#roznica-miedzy-dzialaniami-na-listach-a-numpy-array" title="Permalink to this headline">¶</a></h2>
+Array jest obiektem, na którym można wywoływać złożone operacje numeryczne. Z uwagi na wydajność obliczeń array’e sa często wykorzystywane. Swoją strukturą przypominają listę, lecz między tymi obiektami są znaczące różnice. Poniżej zostały przedstawione niektóre z nich.</p>
+</section>
+<section id="roznica-miedzy-dzialaniami-na-listach-a-numpy-array">
+<h2>Różnica między działaniami na listach, a numpy array<a class="headerlink" href="#roznica-miedzy-dzialaniami-na-listach-a-numpy-array" title="Permalink to this heading">#</a></h2>
 <p>Standardowo Python nie potrafi robić obliczeń na listach:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">height</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.82</span><span class="p">,</span> <span class="mf">2.01</span><span class="p">,</span> <span class="mf">1.68</span><span class="p">]</span>
 <span class="n">weight</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">53</span><span class="p">]</span>
+<span class="c1"># weight / height ** 2 - to nie zadziala</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">weight</span> <span class="o">/</span> <span class="n">height</span> <span class="o">**</span> <span class="mi">2</span> <span class="c1"># to nie zadziala</span>
-</pre></div>
 </div>
 <p>Jest na to sposób, który też jest powszechnie stosowany - List Comprehension.</p>
 <p>Należy jednak pamiętać, że nie w każdym przypadku List Comprehension zastąpi nam funckje wbudowane w pakiet numpy. Ponadto nadmiar tej struktury wpływa negatywnie na wydajność kodu.</p>
@@ -582,11 +649,11 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="operacje-na-arrayach">
-<h2>Operacje na arrayach<a class="headerlink" href="#operacje-na-arrayach" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="tworzenie-numpy-array">
-<h3>Tworzenie Numpy Array<a class="headerlink" href="#tworzenie-numpy-array" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="operacje-na-arrayach">
+<h2>Operacje na arrayach<a class="headerlink" href="#operacje-na-arrayach" title="Permalink to this heading">#</a></h2>
+<section id="tworzenie-numpy-array">
+<h3>Tworzenie Numpy Array<a class="headerlink" href="#tworzenie-numpy-array" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definiowanie array&#39;a na podstawie listy</span>
@@ -615,7 +682,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funkcja np.ones tworzy array skladajacy sie z samych 0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funkcja np.zeros tworzy array skladajacy sie z samych 0</span>
 <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -628,16 +695,14 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tworzenie pustej arrayi. Powinna dzialac najszybciej bo nie wymaga zmieniania wartosci liczb</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tworzenie pustej array&#39;i. Powinna dzialac najszybciej bo nie wymaga zmieniania wartosci liczb</span>
 <span class="c1"># (wartosci sa wybierane na podstawie miejsca w pamieci gdzie sie znajduja)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([      0,       0,       0,       0,       0,       0,       0,
-             0,       0,       0,    1540,       0,       0, 7077999,
-             0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 </pre></div>
 </div>
 </div>
@@ -673,7 +738,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definiowanie arraya z zadanego zakresu o okreslonej roznicy miedzy wyrazami</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definiowanie array&#39;a z zadanego zakresu o okreslonej roznicy miedzy wyrazami</span>
 <span class="c1"># Zauwaz ze wyraz 5.25 nie zostal juz dopisany</span>
 <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mf">5.25</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
 </pre></div>
@@ -715,12 +780,12 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="filtrowanie-elementow">
-<h3>Filtrowanie elementow<a class="headerlink" href="#filtrowanie-elementow" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="filtrowanie-elementow">
+<h3>Filtrowanie elementow<a class="headerlink" href="#filtrowanie-elementow" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chcac stworzyc dwuwymiarowy array tworzymy array od zagniezdzonych list</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chcac stworzyc dwuwymiarowy array tworzymy array z zagniezdzonych list</span>
 <span class="n">np_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
                   <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 <span class="n">np_2d</span>
@@ -862,11 +927,11 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="wywolywanie-funkcji-opisujacych-array">
-<h3>Wywoływanie funkcji opisujących array<a class="headerlink" href="#wywolywanie-funkcji-opisujacych-array" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="wywolywanie-funkcji-opisujacych-array">
+<h3>Wywoływanie funkcji opisujących array<a class="headerlink" href="#wywolywanie-funkcji-opisujacych-array" title="Permalink to this heading">#</a></h3>
 <p>W celu lepszego poznania obiektu, z którym pracujemy warto wywołać podstawowe funkcje mówiące nam o ilości danych, liczbie wymiarów, itp.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>funkcja</p></th>
 <th class="head"><p>opis</p></th>
@@ -890,6 +955,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </tr>
 </tbody>
 </table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Utworzmy 16elementowy array. Zauwaz, ze w pakiecie numpy mamy zdefiniowana liczbe pi.</span>
@@ -940,7 +1006,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sprawdzanie liczby elementow w arrayu</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sprawdzanie liczby elementow w array&#39;u</span>
 <span class="n">pi_array</span><span class="o">.</span><span class="n">size</span>
 </pre></div>
 </div>
@@ -953,7 +1019,8 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi_array</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sprawdzenie typu danych w array&#39;u</span>
+<span class="n">pi_array</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span>
 </pre></div>
 </div>
 </div>
@@ -965,7 +1032,8 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">pi_array</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wartosci unikalne w array&#39;u</span>
+<span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">pi_array</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -978,10 +1046,10 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="wywolywanie-okreslonych-operacji-matematycznych-na-arrayach">
-<h3>Wywoływanie określonych operacji matematycznych na arrayach<a class="headerlink" href="#wywolywanie-okreslonych-operacji-matematycznych-na-arrayach" title="Permalink to this headline">¶</a></h3>
-<table class="colwidths-auto table">
+</section>
+<section id="wywolywanie-okreslonych-operacji-matematycznych-na-arrayach">
+<h3>Wywoływanie określonych operacji matematycznych na arrayach<a class="headerlink" href="#wywolywanie-okreslonych-operacji-matematycznych-na-arrayach" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>funkcja</p></th>
 <th class="head"><p>opis</p></th>
@@ -1008,8 +1076,9 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </tr>
 </tbody>
 </table>
+</div>
 <p>Stałe matematyczne:</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>funkcja</p></th>
 <th class="head"><p>stała</p></th>
@@ -1036,9 +1105,10 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </tr>
 </tbody>
 </table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wywolywanie funkcji na arrayu. Zauwaz, ze w pakiecie numpy wystepuja funkcje trygonometryczne</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wywolywanie funkcji na array&#39;u. Zauwaz, ze w pakiecie numpy wystepuja funkcje trygonometryczne</span>
 <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">pi_array</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1220,7 +1290,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funkcja e^x. Chac uzyskac liczbe e wystarczy podac np.exp(1)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funkcja e^x. Chcac uzyskac liczbe e wystarczy podac np.exp(1)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1250,9 +1320,9 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="sortowanie-array-a">
-<h3>Sortowanie array’a<a class="headerlink" href="#sortowanie-array-a" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="sortowanie-array-a">
+<h3>Sortowanie array’a<a class="headerlink" href="#sortowanie-array-a" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stworzenie arrayi z 10 losowych liczb calkowitych z przedzialu [1,10]</span>
@@ -1268,7 +1338,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 3, 9, 1, 3, 7, 7, 5, 9, 2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 5, 2, 2, 8, 5, 7, 2, 9, 7])
 </pre></div>
 </div>
 </div>
@@ -1280,7 +1350,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 3, 4, 5, 7, 7, 9, 9])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 2, 2, 5, 5, 7, 7, 8, 9])
 </pre></div>
 </div>
 </div>
@@ -1293,28 +1363,28 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 9, 7, 7, 5, 4, 3, 3, 2, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 8, 7, 7, 5, 5, 2, 2, 2, 1])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funckja flip odwraca kolejnosc elementow w arrayi</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funckja flip odwraca kolejnosc elementow w array&#39;i</span>
 <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">to_sort</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 9, 7, 7, 5, 4, 3, 3, 2, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 8, 7, 7, 5, 5, 2, 2, 2, 1])
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="laczenie-i-dzielenie-array-i-dodawanie-i-usuwanie-elementow">
-<h3>Łączenie i dzielenie array’i, dodawanie i usuwanie elementów<a class="headerlink" href="#laczenie-i-dzielenie-array-i-dodawanie-i-usuwanie-elementow" title="Permalink to this headline">¶</a></h3>
-<table class="colwidths-auto table">
+</section>
+<section id="laczenie-i-dzielenie-array-i-dodawanie-i-usuwanie-elementow">
+<h3>Łączenie i dzielenie array’i, dodawanie i usuwanie elementów<a class="headerlink" href="#laczenie-i-dzielenie-array-i-dodawanie-i-usuwanie-elementow" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>funkcja</p></th>
 <th class="head"><p>opis</p></th>
@@ -1338,6 +1408,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </tr>
 </tbody>
 </table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wertykalne laczanie arrayi</span>
@@ -1396,59 +1467,59 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dodawanie liczby do arraya</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dodawanie liczby do array&#39;a</span>
 <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">to_sort</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4,  3,  9,  1,  3,  7,  7,  5,  9,  2, 10])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  5,  2,  2,  8,  5,  7,  2,  9,  7, 10])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dodawanie listy do arraya</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dodawanie listy do array&#39;a</span>
 <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">to_sort</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">13</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4,  3,  9,  1,  3,  7,  7,  5,  9,  2, 10, 15, 13])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  5,  2,  2,  8,  5,  7,  2,  9,  7, 10, 15, 13])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dodawanie arraya do arraya</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dodawanie arraya do array&#39;a</span>
 <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">to_sort</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">13</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4,  3,  9,  1,  3,  7,  7,  5,  9,  2, 10, 15, 13])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  5,  2,  2,  8,  5,  7,  2,  9,  7, 10, 15, 13])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Umieszczenie na 5 miejscu w arrayu listy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wrzucenie elementow listy na dana pozycje w array&#39;u</span>
 <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">to_sort</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">23</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4,  3,  9,  1,  1, 23,  3,  7,  7,  5,  9,  2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  5,  2,  2,  1, 23,  8,  5,  7,  2,  9,  7])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usuniecie drugiej kolumny w arrayu</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usuniecie drugiej kolumny w array&#39;u</span>
 <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1476,10 +1547,10 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="podstawowe-statystyki">
-<h3>Podstawowe statystyki<a class="headerlink" href="#podstawowe-statystyki" title="Permalink to this headline">¶</a></h3>
-<table class="colwidths-auto table">
+</section>
+<section id="podstawowe-statystyki">
+<h3>Podstawowe statystyki<a class="headerlink" href="#podstawowe-statystyki" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>funkcja</p></th>
 <th class="head"><p>opis</p></th>
@@ -1521,6 +1592,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </tr>
 </tbody>
 </table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Zsumowanie wszystkich elementow</span>
@@ -1568,7 +1640,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  0,   1,   3,   6,  10,  15,  21,  28,  36,  45,  55,  66,  78,
-        91, 105, 120], dtype=int32)
+        91, 105, 120])
 </pre></div>
 </div>
 </div>
@@ -1580,7 +1652,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 3, 9, 1, 3, 7, 7, 5, 9, 2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 5, 2, 2, 8, 5, 7, 2, 9, 7])
 </pre></div>
 </div>
 </div>
@@ -1592,15 +1664,15 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="zdjecie-jako-wielowymiarowy-array">
-<h2>Zdjęcie jako wielowymiarowy array<a class="headerlink" href="#zdjecie-jako-wielowymiarowy-array" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="zdjecie-jako-wielowymiarowy-array">
+<h2>Zdjęcie jako wielowymiarowy array<a class="headerlink" href="#zdjecie-jako-wielowymiarowy-array" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wczytajmy przykladowe zdjecie i sprawdzmy jego typ</span>
@@ -1611,6 +1683,10 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\knajmajer\AppData\Local\Temp\ipykernel_27104\461371906.py:3: DeprecationWarning: scipy.misc.face has been deprecated in SciPy v1.10.0; and will be completely removed in SciPy v1.12.0. Dataset methods have moved into the scipy.datasets module. Use scipy.datasets.face instead.
+  raccoon = misc.face()
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
 </pre></div>
 </div>
@@ -1793,10 +1869,10 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1e65cbe5cd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1574f11a9f0&gt;
 </pre></div>
 </div>
-<img alt="../_images/2_Tutorial numpy_100_1.png" src="../_images/2_Tutorial numpy_100_1.png" />
+<img alt="../_images/9a096a27492d68567c03350c2c4a978fbd6ab7c573c5226b1d7c3908ffd0fc7f.png" src="../_images/9a096a27492d68567c03350c2c4a978fbd6ab7c573c5226b1d7c3908ffd0fc7f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1834,20 +1910,20 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1e65e750c10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1574f3cee70&gt;
 </pre></div>
 </div>
-<img alt="../_images/2_Tutorial numpy_104_1.png" src="../_images/2_Tutorial numpy_104_1.png" />
+<img alt="../_images/03d929308d0426191206a8e463241ff53f02c44ce9383f31c7a262128edafce2.png" src="../_images/03d929308d0426191206a8e463241ff53f02c44ce9383f31c7a262128edafce2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="pandas-dataframe-a-numpy-array">
-<h2>Pandas DataFrame a Numpy Array<a class="headerlink" href="#pandas-dataframe-a-numpy-array" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="pandas-dataframe-vs-numpy-array">
+<h2>Pandas DataFrame vs Numpy Array<a class="headerlink" href="#pandas-dataframe-vs-numpy-array" title="Permalink to this heading">#</a></h2>
 <p>Chcąc wykonywać obliczenia szybciej warto zamienić DataFrame na Array. Wtedy każdy wiersz arraya będzie odpowiadać za każdy wiersz ramki danych.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;mpg.csv&#39;</span><span class="p">,</span> <span class="c1"># sciezka do pliku</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="s1">&#39;mpg.csv&#39;</span><span class="p">,</span> <span class="c1"># sciezka do pliku</span>
                 <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="c1"># separator</span>
                 <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># naglowek (nazwy kolumn)</span>
                 <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># kolumna z indeksem</span>
@@ -2009,7 +2085,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 </div>
-<p>Porównajmy czas wykonania działań na trzech kolumnach</p>
+<p>Porównajmy czas wykonania działań na trzech kolumnach.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
@@ -2027,7 +2103,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Czas wykonania: 0.018826961517333984
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Czas wykonania: 0.008620500564575195
 </pre></div>
 </div>
 </div>
@@ -2046,13 +2122,13 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
 </div>
 </div>
 </div>
-<p>Jak widać już na niewielkim zbiorze danych proste obliczenia na arrayach wykonują się szybciej. Warto o tym pamiętać i to wykorzystywać.</p>
-</div>
-<div class="section" id="podsumowanie">
-<h2>Podsumowanie<a class="headerlink" href="#podsumowanie" title="Permalink to this headline">¶</a></h2>
+<p>Jak widać już na niewielkim zbiorze danych proste obliczenia na array’ach wykonują się szybciej. Warto o tym pamiętać i to wykorzystywać.</p>
+</section>
+<section id="podsumowanie">
+<h2>Podsumowanie<a class="headerlink" href="#podsumowanie" title="Permalink to this heading">#</a></h2>
 <p>Jak widać NumPy jest pakietem, ktory zdecydowanie potrafi ułatwić życie. Jest często wykorzystywany do złożonych obliczeń. Ma zastosowania przy pracy z różnymi danymi - obrazami, ramkami danych, czy po prostu dużymi listami.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2066,7 +2142,7 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./2. Numpy_tutorial"
         },
         predefinedOutput: true
@@ -2074,46 +2150,118 @@ Array jest obiektem, na którym można wywoływać złożone operacje numeryczne
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Pakiet pandas - tutorial</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../1.%20Tutorial%20pandas/1_Tutorial%20pandas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pakiet pandas - tutorial</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../3.%20Wizualizacja_danych/3_Wizualizacja%20danych.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Wizualizacja danych w Python</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By codersi<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wstep">Wstep</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roznica-miedzy-dzialaniami-na-listach-a-numpy-array">Różnica między działaniami na listach, a numpy array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operacje-na-arrayach">Operacje na arrayach</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-numpy-array">Tworzenie Numpy Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrowanie-elementow">Filtrowanie elementow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wywolywanie-funkcji-opisujacych-array">Wywoływanie funkcji opisujących array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wywolywanie-okreslonych-operacji-matematycznych-na-arrayach">Wywoływanie określonych operacji matematycznych na arrayach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sortowanie-array-a">Sortowanie array’a</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laczenie-i-dzielenie-array-i-dodawanie-i-usuwanie-elementow">Łączenie i dzielenie array’i, dodawanie i usuwanie elementów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-statystyki">Podstawowe statystyki</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zdjecie-jako-wielowymiarowy-array">Zdjęcie jako wielowymiarowy array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframe-vs-numpy-array">Pandas DataFrame vs Numpy Array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podsumowanie">Podsumowanie</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By codersi
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
