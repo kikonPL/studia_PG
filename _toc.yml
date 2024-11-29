@@ -3,7 +3,7 @@ root: intro
 parts:
   - caption: Fundamenty Pythona
     chapters:
-      # - file: 0. Wstęp/AnacondaJupyter
+      - file: 0. Wstęp/AnacondaJupyter
       - file: 0. Wstęp/TutorialBasicsPython
   - caption: Wprowadzenie do pakietów numpy i pandas
     chapters:
