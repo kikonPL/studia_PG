@@ -65,6 +65,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Podstawy Python" href="TutorialBasicsPython.html" />
+    <link rel="prev" title="Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -115,8 +117,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -171,7 +171,9 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamenty Pythona</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">JupyterLab &amp; Anaconda</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="TutorialBasicsPython.html">Podstawy Python</a></li>
 
 
@@ -505,8 +507,6 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przydatne-informacje">Przydatne informacje</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-1">Zadanie 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-2">Zadanie 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-jupyter-notebook">JupyterLab / Jupyter Notebook</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uruchomienie-jupyterlab-jupyter-notebook">Uruchomienie JupyterLab / Jupyter Notebook</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-poziomu-wiersza-polecen">Z poziomu wiersza poleceń:</a></li>
@@ -566,7 +566,6 @@
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-3">Zadanie 3</a></li>
 </ul>
 </li>
 </ul>
@@ -651,7 +650,7 @@
 </pre></div>
 </div>
 <p>Po właściwej aktywacji środowiska będzie ono widoczne:</p>
-<p><img alt="Alt text" src="../_images/image-18.png" /></p>
+<p><img alt="Alt text" src="../_images/image-18_new.png" /></p>
 </section>
 </section>
 <section id="deaktywacja-srodowiska">
@@ -668,7 +667,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deactivate</span>
 </pre></div>
 </div>
-<p><img alt="Alt text" src="../_images/image-19.png" /></p>
+<p><img alt="Alt text" src="../_images/image-19_new.png" /></p>
 </section>
 </section>
 <section id="wylistowanie-wszystkich-dostepnych-srodowisk-w-condzie">
@@ -677,7 +676,7 @@
 </pre></div>
 </div>
 <p>Warto zauważyć, że aktywne środowisko jest oznaczone “*”</p>
-<p><img alt="Alt text" src="../_images/image-7.png" /></p>
+<p><img alt="Alt text" src="../_images/image-7_new.png" /></p>
 </section>
 <section id="usuwanie-srodowiska-conda">
 <h3>Usuwanie środowiska conda<a class="headerlink" href="#usuwanie-srodowiska-conda" title="Permalink to this heading">#</a></h3>
@@ -724,9 +723,9 @@
 </ol>
 <p><img alt="Alt text" src="../_images/image.png" /></p>
 <ol class="arabic simple" start="2">
-<li><p>Klikamy przycisk “Create” znajdujący się na dole drugiego panelu</p></li>
+<li><p>Klikamy przcisk “Create” znajdujący się na dole drugiego panelu</p></li>
 </ol>
-<p><img alt="Alt text" src="../_images/image-1.png" /></p>
+<p><img alt="Alt text" src="../_images/image-1_new.png" /></p>
 <ol class="arabic simple" start="3">
 <li><p>Wpisujemy nazwę naszego środowiska oraz wybieramy wersję python. Zatwierdzamy klikając “Create”</p></li>
 </ol>
@@ -741,23 +740,6 @@
 <p>Cheatsheet: <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html">https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html</a></p>
 <p>Różnice pomiędzy pip oraz conda: <a class="reference external" href="https://www.anaconda.com/blog/understanding-conda-and-pip">https://www.anaconda.com/blog/understanding-conda-and-pip</a></p>
 </section>
-</section>
-<section id="zadanie-1">
-<h2>Zadanie 1<a class="headerlink" href="#zadanie-1" title="Permalink to this heading">#</a></h2>
-<p>Utwórz środowisko wirtualne o nazwie <strong>env_szkolenie_python</strong> z wersją Python 3.10 z następującymi bibliotekami:</p>
-<ul class="simple">
-<li><p>pandas</p></li>
-<li><p>numpy</p></li>
-<li><p>scipy</p></li>
-<li><p>statsmodels</p></li>
-<li><p>matplotlib</p></li>
-<li><p>seaborn</p></li>
-</ul>
-<p>Środowisko wirtualne utwórz z wiersza poleceń korzystając z polecenia <em>conda</em>. Po utworzeniu środowiska zapisz artefakt w formie pliku requirements.txt oraz environment.yaml. Skorzystaj do tego z poleceń opartych o <em>pip</em> oraz <em>conda</em>.</p>
-</section>
-<section id="zadanie-2">
-<h2>Zadanie 2<a class="headerlink" href="#zadanie-2" title="Permalink to this heading">#</a></h2>
-<p>Na podstawie eksportowanego środowiska w poprzednim zadaniu utwórz nowe środowisko wirtualne tym razem o nazwie <strong>env_szkolenie_python_pip</strong> i <strong>env_szkolenie_python_conda</strong>. Do tego wykorzystaj plik <em>requirements.txt</em> oraz <em>envrionment.yaml</em>.</p>
 </section>
 <section id="jupyterlab-jupyter-notebook">
 <h2>JupyterLab / Jupyter Notebook<a class="headerlink" href="#jupyterlab-jupyter-notebook" title="Permalink to this heading">#</a></h2>
@@ -779,7 +761,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">lab</span>
 </pre></div>
 </div>
-<p><img alt="Alt text" src="../_images/image-9.png" /></p>
+<p><img alt="Alt text" src="../_images/image-9_new.png" /></p>
 <ol class="arabic simple" start="3">
 <li><p>Po wpisaniu komendy w przeglądarce JupyterLab chodzi na lokalnym hoście</p></li>
 <li><p>Nie należy wyłączać wiersza poleceń. W innym wypadku stracimy połączenie z JupyterLab:</p></li>
@@ -792,7 +774,7 @@
 <li><p>Uruchamiamy Anaconda Navigator</p></li>
 <li><p>Upewniamy się, że mamy wybrane dobre środowisko:</p></li>
 </ol>
-<p><img alt="Alt text" src="../_images/image-11.png" /></p>
+<p><img alt="Alt text" src="../_images/image-11_new.png" /></p>
 <ol class="arabic simple" start="2">
 <li><p>Instalujemy bibliotekę jupyter (o ile nie zrobiliśmy tego wcześniej). Jeśli juptyer nie jest zainstalowany to można to zrobić jednym kliknięciem w menu głównym:</p></li>
 </ol>
@@ -838,7 +820,7 @@
 <span class="n">activate</span>
 </pre></div>
 </div>
-<p><img alt="Alt text" src="../_images/image-16.png" /></p>
+<p><img alt="Alt text" src="../_images/image-16_new.png" /></p>
 <ol class="arabic simple" start="3">
 <li><p>W razie potrzeby instalujemy jupyter (jeżeli jupyter jest zainstalowany to patrz punkt 5)</p></li>
 </ol>
@@ -1157,7 +1139,7 @@ x_{0} = 0
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: total: 62.5 ms
-Wall time: 66.2 ms
+Wall time: 65.1 ms
 </pre></div>
 </div>
 </div>
@@ -1259,12 +1241,12 @@ w notatnikach Jupyter służy do dostarczania informacji i dokumentacji na temat
 <p>Pobiera, ustawia lub wyświetla listę zmiennych środowiskowych.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">env</span> WD=Users/user/Forecast/AML
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">env</span> WD=Users/my_user/dir
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>env: WD=Users/user/Forecast/AML
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>env: WD=Users/my_user/dir
 </pre></div>
 </div>
 </div>
@@ -1278,14 +1260,104 @@ w notatnikach Jupyter służy do dostarczania informacji i dokumentacji na temat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Users/user/Forecast/AML&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Users/my_user/dir&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %env listuje zmienne środowiskowe</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">env</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ALLUSERSPROFILE&#39;: &#39;C:\\ProgramData&#39;,
+ &#39;APPDATA&#39;: &#39;C:\\Users\\knajmajer\\AppData\\Roaming&#39;,
+ &#39;CHOCOLATEYINSTALL&#39;: &#39;C:\\ProgramData\\chocolatey&#39;,
+ &#39;CHROME_CRASHPAD_PIPE_NAME&#39;: &#39;\\\\.\\pipe\\crashpad_2440_SOKHRGZKFLZRGHVO&#39;,
+ &#39;COLORTERM&#39;: &#39;truecolor&#39;,
+ &#39;COMMONPROGRAMFILES&#39;: &#39;C:\\Program Files\\Common Files&#39;,
+ &#39;COMMONPROGRAMFILES(X86)&#39;: &#39;C:\\Program Files (x86)\\Common Files&#39;,
+ &#39;COMMONPROGRAMW6432&#39;: &#39;C:\\Program Files\\Common Files&#39;,
+ &#39;COMPUTERNAME&#39;: &#39;PL_KNAJMAJER24&#39;,
+ &#39;COMSPEC&#39;: &#39;C:\\WINDOWS\\system32\\cmd.exe&#39;,
+ &#39;CONDA_ALLOW_SOFTLINKS&#39;: &#39;false&#39;,
+ &#39;CONDA_DEFAULT_ENV&#39;: &#39;jbook&#39;,
+ &#39;CONDA_EXE&#39;: &#39;C:\\ProgramData\\anaconda3\\Scripts\\conda.exe&#39;,
+ &#39;CONDA_PREFIX&#39;: &#39;C:\\Users\\knajmajer\\.conda\\envs\\jbook&#39;,
+ &#39;CONDA_PROMPT_MODIFIER&#39;: &#39;(jbook) &#39;,
+ &#39;CONDA_PYTHON_EXE&#39;: &#39;C:\\ProgramData\\anaconda3\\python.exe&#39;,
+ &#39;CONDA_ROOT&#39;: &#39;C:\\ProgramData\\anaconda3&#39;,
+ &#39;CONDA_SHLVL&#39;: &#39;1&#39;,
+ &#39;DADIR&#39;: &#39;C:\\Program Files (x86)\\CheckPoint\\Endpoint Security\\Endpoint Common&#39;,
+ &#39;DRIVERDATA&#39;: &#39;C:\\Windows\\System32\\Drivers\\DriverData&#39;,
+ &#39;EFC_13108&#39;: &#39;1&#39;,
+ &#39;FPS_BROWSER_APP_PROFILE_STRING&#39;: &#39;Internet Explorer&#39;,
+ &#39;FPS_BROWSER_USER_PROFILE_STRING&#39;: &#39;Default&#39;,
+ &#39;GIT_ASKPASS&#39;: &#39;c:\\Users\\knajmajer\\AppData\\Local\\Programs\\cursor\\resources\\app\\extensions\\git\\dist\\askpass.sh&#39;,
+ &#39;HOMEDRIVE&#39;: &#39;C:&#39;,
+ &#39;HOMEPATH&#39;: &#39;\\Users\\knajmajer&#39;,
+ &#39;IPY_INTERRUPT_EVENT&#39;: &#39;984&#39;,
+ &#39;JPY_INTERRUPT_EVENT&#39;: &#39;984&#39;,
+ &#39;JPY_PARENT_PID&#39;: &#39;1100&#39;,
+ &#39;LANG&#39;: &#39;en_US.UTF-8&#39;,
+ &#39;LOCALAPPDATA&#39;: &#39;C:\\Users\\knajmajer\\AppData\\Local&#39;,
+ &#39;LOGONSERVER&#39;: &#39;\\\\SYSTEMA&#39;,
+ &#39;NUMBER_OF_PROCESSORS&#39;: &#39;20&#39;,
+ &#39;ONEDRIVE&#39;: &#39;C:\\Users\\knajmajer\\OneDrive - LPP S.A&#39;,
+ &#39;ONEDRIVECOMMERCIAL&#39;: &#39;C:\\Users\\knajmajer\\OneDrive - LPP S.A&#39;,
+ &#39;ORIGINAL_XDG_CURRENT_DESKTOP&#39;: &#39;undefined&#39;,
+ &#39;OS&#39;: &#39;Windows_NT&#39;,
+ &#39;PATH&#39;: &#39;C:\\Users\\knajmajer\\.conda\\envs\\jbook;C:\\Users\\knajmajer\\.conda\\envs\\jbook\\Library\\mingw-w64\\bin;C:\\Users\\knajmajer\\.conda\\envs\\jbook\\Library\\usr\\bin;C:\\Users\\knajmajer\\.conda\\envs\\jbook\\Library\\bin;C:\\Users\\knajmajer\\.conda\\envs\\jbook\\Scripts;C:\\Users\\knajmajer\\.conda\\envs\\jbook\\bin;C:\\ProgramData\\anaconda3\\condabin;C:\\Program Files\\PowerShell\\7;C:\\Program Files\\Microsoft SDKs\\Azure\\CLI2\\wbin;C:\\Python312\\Scripts;C:\\Python312;C:\\oracle11\\product\\11.2.0\\client\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\WINDOWS\\System32\\OpenSSH;C:\\Program Files (x86)\\CheckPoint\\Endpoint Security\\Endpoint Common\\bin;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn;C:\\Program Files\\Azure Data Studio\\bin;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\Program Files\\PowerShell\\7;C:\\Program Files\\nodejs;C:\\ProgramData\\chocolatey\\bin;C:\\Users\\knajmajer\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\knajmajer\\AppData\\Local\\Programs\\Git\\cmd;C:\\Users\\knajmajer\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\knajmajer\\AppData\\Local\\Programs\\Azure Dev CLI;C:\\Users\\knajmajer\\AppData\\Roaming\\npm;C:\\Program Files\\Microsoft SDKs\\Azure\\CLI2\\wbin;C:\\Python312\\Scripts\\;C:\\Python312\\;C:\\oracle11\\product\\11.2.0\\client\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files (x86)\\CheckPoint\\Endpoint Security\\Endpoint Common\\bin;C:\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files\\Azure Data Studio\\bin;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\Program Files\\PowerShell\\7\\;C:\\Program Files\\nodejs\\;C:\\ProgramData\\chocolatey\\bin;C:\\Users\\knajmajer\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\knajmajer\\AppData\\Local\\Programs\\Git\\cmd;C:\\Users\\knajmajer\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\knajmajer\\AppData\\Local\\Programs\\Azure Dev CLI\\;C:\\Users\\knajmajer\\AppData\\Roaming\\npm&#39;,
+ &#39;PATHEXT&#39;: &#39;.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW&#39;,
+ &#39;POWERSHELL_DISTRIBUTION_CHANNEL&#39;: &#39;MSI:Windows 10 Pro&#39;,
+ &#39;PROCESSOR_ARCHITECTURE&#39;: &#39;AMD64&#39;,
+ &#39;PROCESSOR_IDENTIFIER&#39;: &#39;Intel64 Family 6 Model 154 Stepping 3, GenuineIntel&#39;,
+ &#39;PROCESSOR_LEVEL&#39;: &#39;6&#39;,
+ &#39;PROCESSOR_REVISION&#39;: &#39;9a03&#39;,
+ &#39;PROGRAMDATA&#39;: &#39;C:\\ProgramData&#39;,
+ &#39;PROGRAMFILES&#39;: &#39;C:\\Program Files&#39;,
+ &#39;PROGRAMFILES(X86)&#39;: &#39;C:\\Program Files (x86)&#39;,
+ &#39;PROGRAMW6432&#39;: &#39;C:\\Program Files&#39;,
+ &#39;PROMPT&#39;: &#39;(jbook) $P$G&#39;,
+ &#39;PSMODULEPATH&#39;: &#39;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules&#39;,
+ &#39;PUBLIC&#39;: &#39;C:\\Users\\Public&#39;,
+ &#39;SESSIONNAME&#39;: &#39;Console&#39;,
+ &#39;SSL_CERT_DIR&#39;: &#39;C:\\Users\\knajmajer\\.conda\\envs\\jbook\\Library\\ssl\\certs&#39;,
+ &#39;SSL_CERT_FILE&#39;: &#39;C:\\Users\\knajmajer\\.conda\\envs\\jbook\\Library\\ssl\\cacert.pem&#39;,
+ &#39;SYSTEMDRIVE&#39;: &#39;C:&#39;,
+ &#39;SYSTEMROOT&#39;: &#39;C:\\WINDOWS&#39;,
+ &#39;TEMP&#39;: &#39;C:\\Users\\KNAJMA~1\\AppData\\Local\\Temp&#39;,
+ &#39;TERM_PROGRAM&#39;: &#39;vscode&#39;,
+ &#39;TERM_PROGRAM_VERSION&#39;: &#39;0.42.5&#39;,
+ &#39;TMP&#39;: &#39;C:\\Users\\KNAJMA~1\\AppData\\Local\\Temp&#39;,
+ &#39;TVDUMPFLAGS&#39;: &#39;8&#39;,
+ &#39;UATDATA&#39;: &#39;C:\\WINDOWS\\CCM\\UATData\\D9F8C395-CAB8-491d-B8AC-179A1FE1BE77&#39;,
+ &#39;USERDNSDOMAIN&#39;: &#39;HEADQUARTER.COMPANY.LPP.COM.PL&#39;,
+ &#39;USERDOMAIN&#39;: &#39;HEADQUARTER&#39;,
+ &#39;USERDOMAIN_ROAMINGPROFILE&#39;: &#39;HEADQUARTER&#39;,
+ &#39;USERNAME&#39;: &#39;knajmajer&#39;,
+ &#39;USERPROFILE&#39;: &#39;C:\\Users\\knajmajer&#39;,
+ &#39;VSCODE_ENV_PREPEND&#39;: &#39;PATH=C\\x3a\\Users\\knajmajer\\.conda\\envs\\jbook;C\\x3a\\Users\\knajmajer\\.conda\\envs\\jbook\\Library\\mingw-w64\\bin;C\\x3a\\Users\\knajmajer\\.conda\\envs\\jbook\\Library\\usr\\bin;C\\x3a\\Users\\knajmajer\\.conda\\envs\\jbook\\Library\\bin;C\\x3a\\Users\\knajmajer\\.conda\\envs\\jbook\\Scripts;C\\x3a\\Users\\knajmajer\\.conda\\envs\\jbook\\bin;C\\x3a\\ProgramData\\anaconda3\\condabin;C\\x3a\\Program Files\\PowerShell\\7;C\\x3a\\Program Files\\Microsoft SDKs\\Azure\\CLI2\\wbin;C\\x3a\\Python312\\Scripts;C\\x3a\\Python312;C\\x3a\\oracle11\\product\\11.2.0\\client\\bin;C\\x3a\\WINDOWS\\system32;C\\x3a\\WINDOWS;C\\x3a\\WINDOWS\\System32\\Wbem;C\\x3a\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C\\x3a\\WINDOWS\\System32\\OpenSSH;C\\x3a\\Program Files (x86)\\CheckPoint\\Endpoint Security\\Endpoint Common\\bin;C\\x3a\\Program Files (x86)\\Microsoft SQL Server\\160\\DTS\\Binn;C\\x3a\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn;C\\x3a\\Program Files\\Azure Data Studio\\bin;C\\x3a\\Program Files\\Docker\\Docker\\resources\\bin;C\\x3a\\Program Files\\PowerShell\\7;C\\x3a\\Program Files\\nodejs;C\\x3a\\ProgramData\\chocolatey\\bin;C\\x3a\\Users\\knajmajer\\AppData\\Local\\Microsoft\\WindowsApps;C\\x3a\\Users\\knajmajer\\AppData\\Local\\Programs\\Git\\cmd;C\\x3a\\Users\\knajmajer\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C\\x3a\\Users\\knajmajer\\AppData\\Local\\Programs\\Azure Dev CLI;C\\x3a\\Users\\knajmajer\\AppData\\Roaming\\npm;&#39;,
+ &#39;VSCODE_ENV_REPLACE&#39;: &#39;CONDA_ALLOW_SOFTLINKS=false:CONDA_DEFAULT_ENV=jbook:CONDA_EXE=C\\x3a\\ProgramData\\anaconda3\\Scripts\\conda.exe:CONDA_PREFIX=C\\x3a\\Users\\knajmajer\\.conda\\envs\\jbook:CONDA_PROMPT_MODIFIER=(jbook) :CONDA_PYTHON_EXE=C\\x3a\\ProgramData\\anaconda3\\python.exe:CONDA_ROOT=C\\x3a\\ProgramData\\anaconda3:CONDA_SHLVL=1:PROMPT=(jbook) $P$G:SSL_CERT_DIR=C\\x3a\\Users\\knajmajer\\.conda\\envs\\jbook\\Library\\ssl\\certs:SSL_CERT_FILE=C\\x3a\\Users\\knajmajer\\.conda\\envs\\jbook\\Library\\ssl\\cacert.pem:_CONDA_OLD_CHCP=852:__CONDA_OPENSSL_CERT_DIR_SET=&quot;1&quot;:__CONDA_OPENSSL_CERT_FILE_SET=&quot;1&quot;&#39;,
+ &#39;VSCODE_GIT_ASKPASS_EXTRA_ARGS&#39;: &#39;&#39;,
+ &#39;VSCODE_GIT_ASKPASS_MAIN&#39;: &#39;c:\\Users\\knajmajer\\AppData\\Local\\Programs\\cursor\\resources\\app\\extensions\\git\\dist\\askpass-main.js&#39;,
+ &#39;VSCODE_GIT_ASKPASS_NODE&#39;: &#39;C:\\Users\\knajmajer\\AppData\\Local\\Programs\\cursor\\Cursor.exe&#39;,
+ &#39;VSCODE_GIT_IPC_HANDLE&#39;: &#39;\\\\.\\pipe\\vscode-git-9affc1c374-sock&#39;,
+ &#39;WINDIR&#39;: &#39;C:\\WINDOWS&#39;,
+ &#39;_CONDA_OLD_CHCP&#39;: &#39;852&#39;,
+ &#39;__CONDA_OPENSSL_CERT_DIR_SET&#39;: &#39;&quot;1&quot;&#39;,
+ &#39;__CONDA_OPENSSL_CERT_FILE_SET&#39;: &#39;&quot;1&quot;&#39;,
+ &#39;PYDEVD_USE_FRAME_EVAL&#39;: &#39;NO&#39;,
+ &#39;TERM&#39;: &#39;xterm-color&#39;,
+ &#39;CLICOLOR&#39;: &#39;1&#39;,
+ &#39;FORCE_COLOR&#39;: &#39;1&#39;,
+ &#39;CLICOLOR_FORCE&#39;: &#39;1&#39;,
+ &#39;PAGER&#39;: &#39;cat&#39;,
+ &#39;GIT_PAGER&#39;: &#39;cat&#39;,
+ &#39;MPLBACKEND&#39;: &#39;module://matplotlib_inline.backend_inline&#39;,
+ &#39;WD&#39;: &#39;Users/my_user/dir&#39;}
 </pre></div>
 </div>
 </div>
@@ -1300,7 +1372,7 @@ w notatnikach Jupyter służy do dostarczania informacji i dokumentacji na temat
 <p>uruchomi skrypt <em><a class="reference external" href="http://script.py">script.py</a></em> znajdujący się w akutalnym katalogu</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run script.py</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %run script.py</span>
 </pre></div>
 </div>
 </div>
@@ -1369,16 +1441,6 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </section>
 </section>
 </section>
-<section id="zadanie-3">
-<h2>Zadanie 3<a class="headerlink" href="#zadanie-3" title="Permalink to this heading">#</a></h2>
-<p>Napisz instrukcje “Jak utworzyć środowisko wirtualne env_szkolenie_python ?” korzystając z RMarkdown w Jupyter Lab. W instrukcji powinno się znaleźć:</p>
-<ul class="simple">
-<li><p>tabelka z podanymi podstawowymi bibliotekami oraz ich wersjami do instalacji</p></li>
-<li><p>komendy, które należy wykonać aby zainstalować środowisko z wiersza poleceń</p></li>
-<li><p>należy zmienić kolor czcionki w niektórych miejscach instrukcji</p></li>
-<li><p>dodać do opisu elementy typu: “Uwaga!”, “Wskazówka”</p></li>
-</ul>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1411,6 +1473,24 @@ Automagic is ON, % prefix IS NOT needed for line magics.
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Laboratorium specjalistyczne: Data Science w branży modowej, 1 semestr studiów magisterskich Matematyki na Wydziale Fizyki Technicznej i Matematyki Stosowanej na Politechnice Gdańskiej</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="TutorialBasicsPython.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Podstawy Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1457,8 +1537,6 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przydatne-informacje">Przydatne informacje</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-1">Zadanie 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-2">Zadanie 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-jupyter-notebook">JupyterLab / Jupyter Notebook</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uruchomienie-jupyterlab-jupyter-notebook">Uruchomienie JupyterLab / Jupyter Notebook</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-poziomu-wiersza-polecen">Z poziomu wiersza poleceń:</a></li>
@@ -1518,7 +1596,6 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-3">Zadanie 3</a></li>
 </ul>
 </li>
 </ul>
