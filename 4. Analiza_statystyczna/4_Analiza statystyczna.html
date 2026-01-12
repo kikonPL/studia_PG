@@ -197,7 +197,6 @@
 
 
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza statystyczna</span></p>
 <ul class="current nav bd-sidenav">
@@ -211,6 +210,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Inżynieria cech</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">Inżynieria cech</a></li>
+
+
 
 
 
@@ -251,6 +252,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">Wyjaśnialność modeli - metryki statystyczne - tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">Wyjaśnialność modeli - definicje</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">Wyjaśnialność modeli - XAI - tutorial</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Przetwarzanie języka naturalnego</span></p>
 <ul class="nav bd-sidenav">
@@ -482,10 +484,14 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pierwsze-spojrzenie-na-dane">Pierwsze spojrzenie na dane</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolna-wiedza-o-danych">Ogólna wiedza o danych</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-poszczegolnych-kolumn">Analiza poszczególnych kolumn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-1">Zadanie 1</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badanie-korelacji">Badanie korelacji</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testy-statystyczne">Testy statystyczne</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testy-statystyczne">Testy statystyczne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-2">Zadanie 2</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -1166,7 +1172,7 @@ dtype: float64
 <h3>Analiza poszczególnych kolumn<a class="headerlink" href="#analiza-poszczegolnych-kolumn" title="Permalink to this heading">#</a></h3>
 <p>W pierwszej kolejności sprawdźmy jak wyglada nasz cel, a więc mediana wartości domu.</p>
 <p>Ponieważ wartość mieszkania może przyjmować wszystkie wartości większe od 0, najlepszym sposobem na sprawdzenie rozkładu jest stworzenie histogramu.</p>
-<p>Najprostszą metodą jest wygenerowanie automatycznego histogramy za pomocą metody <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.hist.html> <em>pd.Series.hist()</em> </a>, lub z pakietu matplotlib <a href = https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html> <em>plt.hist()</em> </a></p>
+<p>Najprostszą metodą jest wygenerowanie automatycznego histogramu za pomocą metody <a href = https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.hist.html> <em>pd.Series.hist()</em> </a>, lub z pakietu matplotlib <a href = https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html> <em>plt.hist()</em> </a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MedHouseVal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
@@ -1178,7 +1184,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ea81ba9b17e5066685042497dd0ec742acda61b28b13add6cf3f2a3e7d3e0ca2.png" src="../_images/ea81ba9b17e5066685042497dd0ec742acda61b28b13add6cf3f2a3e7d3e0ca2.png" />
+<img alt="../_images/c15775d664ac5d6f2e92a3a1015194d58ae809b1c168c20e1a75b26030fb352b.png" src="../_images/c15775d664ac5d6f2e92a3a1015194d58ae809b1c168c20e1a75b26030fb352b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1192,7 +1198,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/43f15c6b94163afaf2c449e814f4e70c181f7369b5495d6ac1ea18eff65ba41f.png" src="../_images/43f15c6b94163afaf2c449e814f4e70c181f7369b5495d6ac1ea18eff65ba41f.png" />
+<img alt="../_images/267f8b944dfddd8ff35874199bd949151e8354fd0e7a420c3765d2329d8fe2ed.png" src="../_images/267f8b944dfddd8ff35874199bd949151e8354fd0e7a420c3765d2329d8fe2ed.png" />
 </div>
 </div>
 <p>Najwięcej przypadków znajduje się w przedziale 1-2. Dodatkowo rozkład nie przypomina standardowego <a href = https://en.wikipedia.org/wiki/Normal_distribution> rozkładu normalnego </a>. W kolejnych częściach dowiemy się jak sprawdzić czy dane układają się w rozkład normalny, czy nie.</p>
@@ -1282,11 +1288,18 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ed620655ac4a84d22b4f00fb9ac38f05b29115ceb244e8605a5c4b64bf3562af.png" src="../_images/ed620655ac4a84d22b4f00fb9ac38f05b29115ceb244e8605a5c4b64bf3562af.png" />
+<img alt="../_images/4350422048b2b93f5d4e389615525e813a8739c3af61054b7dbcd0a6bcfc9990.png" src="../_images/4350422048b2b93f5d4e389615525e813a8739c3af61054b7dbcd0a6bcfc9990.png" />
 </div>
 </div>
 <p>Widać, że zdecydowanie 52 lata to najczęściej występująca mediana wieku domów. Widać także zwiększenie ilości danych w środkowych przedziale lat.</p>
 <p>Po wyglądzie można się zastanowić czy ta wartość 52 lata nie jest maksymalną wartością, która mogła zostać wpisana. Należy się zastanowić czy nie warto usunąć tych danych do dalszej analizy. Niestety w źródle danych nie ma informacji na ten temat, ale w rzeczywistych warunkach taka informacja powinna być opisana.</p>
+</section>
+<section id="zadanie-1">
+<h3>Zadanie 1<a class="headerlink" href="#zadanie-1" title="Permalink to this heading">#</a></h3>
+<p>Na podstawie bazy danych dotyczących salonów Sinsay, zbadaj i porównaj rozkłady zmiennych numerycznych w zależności od:</p>
+<p>a) Przyjmowanej wartości zmiennej <em>Class_1</em>.</p>
+<p>b) Przyjmowanej wartości zmiennej <em>Class_2</em>.</p>
+<p>Czy można zauważyć jakieś zależności?</p>
 </section>
 </section>
 <section id="badanie-korelacji">
@@ -1628,11 +1641,11 @@ r_{p}= \frac{cov(X,Y)}{\sigma_X \sigma_Y}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2d808803a26a8f22651e583e73dd664082be77744b8a7b2a7422f694e0fb94b3.png" src="../_images/2d808803a26a8f22651e583e73dd664082be77744b8a7b2a7422f694e0fb94b3.png" />
+<img alt="../_images/c5e1854a18ff817037376c4da5091a6dac766cc979f95ed6d2c288959f181c7b.png" src="../_images/c5e1854a18ff817037376c4da5091a6dac766cc979f95ed6d2c288959f181c7b.png" />
 </div>
 </div>
 <p>Na wykresie widać tendencję zwiększania się wartości domów przy zwiększajacych się zarobkach.</p>
-<p>Korelacji nie musimy liczyć dla wszystkich kolumn w tabeli. Możemy ją takze zmierzyć tylko dla dwóch wybranych kolumn.
+<p>Korelacji nie musimy liczyć dla wszystkich kolumn w tabeli. Możemy ją także zmierzyć tylko dla dwóch wybranych kolumn.
 Służą do tego metody:</p>
 <ul class="simple">
 <li><p><a href= https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html> np.corrcoef()</a> (korelacja Pearsona)</p></li>
@@ -1694,10 +1707,10 @@ Służą do tego metody:</p>
 <p><em>Przykład:</em> w metodzie <em>pearsonr</em> hipotezą zerową jest założenie, że nie istnieje korelacja pomiędzy zbiorami danych
 <span class="math notranslate nohighlight">\(\newline\)</span></p>
 <p><strong>P-value</strong> - prawdopodobieństwo kumulatywne wylosowania próby takiej lub bardziej skrajnej jak zaobserwowana, przy założeniu, że hipoteza zerowa jest prawdziwa</p>
-<p><em>Przykład:</em> W korelacji pomiędzy wartoscią domu, a zarobkami P-value wynosi 0. Możemy więc stwierdzić, że nie istnieje możliwość wylosowania takiej próby, aby korelacja była wyższa lub taka sama z jednoczesnym założeniem, że korelacja ta nie istnieje.</p>
+<p><em>Przykład:</em> W korelacji pomiędzy wartością domu, a zarobkami P-value wynosi 0. Możemy więc stwierdzić, że nie istnieje możliwość wylosowania takiej próby, aby korelacja była wyższa lub taka sama z jednoczesnym założeniem, że korelacja ta nie istnieje.</p>
 </div><div class="alert alert-block alert-warning">
 <p>Przy wykorzystywaniu testów statystycznych ustala się pewien próg (<b>poziom istotności</b> <span class="math notranslate nohighlight">\(\alpha\)</span> ). Jeżeli P-value jest mniejsze niż ten poziom można odrzucić hipotezę zerową. Zazwyczaj <span class="math notranslate nohighlight">\(\alpha\)</span> = 0.05</p>
-<p><em>Przykład</em> W korelacji pomiędzy wartoscią domu, a zarobkami P-value &lt; 0.05, więc odrzucamy hipotezę zerową.</p>
+<p><em>Przykład</em> W korelacji pomiędzy wartością domu, a zarobkami P-value &lt; 0.05, więc odrzucamy hipotezę zerową.</p>
 </div>
 <div class="alert alert-block alert-info">
 <p>Za pomocą P-value oraz poziomu istotności możemy odrzucić hipotezę zerową. Jednak, nie oznacza to, że potwierdzamy hipotezę alternatywną (<span class="math notranslate nohighlight">\(H_1\)</span>).</p>
@@ -1749,7 +1762,7 @@ Jeżeli P-value &lt; 0.05, to będziemy mogli odrzucić tą hipotezę i powiedzi
  &lt;BarContainer object of 20 artists&gt;)
 </pre></div>
 </div>
-<img alt="../_images/b826e5f649dbd01bae99b6b363b180a51930ec134b92ad36efef3f951e0383de.png" src="../_images/b826e5f649dbd01bae99b6b363b180a51930ec134b92ad36efef3f951e0383de.png" />
+<img alt="../_images/56923437dedd6cdedca95077161ae5bd4126757a2f793aade3cf1caecdd72abd.png" src="../_images/56923437dedd6cdedca95077161ae5bd4126757a2f793aade3cf1caecdd72abd.png" />
 </div>
 </div>
 <p>A teraz sprawdźmy, czy za pomocą testu statystycznego możemy stwierdzić, że rozkład jest normalny</p>
@@ -1805,8 +1818,14 @@ AndersonResult(statistic=1156.3864507171602, critical_values=array([0.473, 0.636
 </div>
 </div>
 </div>
-<p>W dokumentacji danej metody można wyczytać, że jeżeli wartość testu (<em>statistic</em>) jest większa od wartości krytycznych (<em>critical_values</em>) to dane nie należą do testowanego rozkładu, co oznacza, że rozkład ceny domow nie należy do żadnego z wyżej wymienonych.</p>
+<p>W dokumentacji danej metody można wyczytać, że jeżeli wartość testu (<em>statistic</em>) jest większa od wartości krytycznych (<em>critical_values</em>) to dane nie należą do testowanego rozkładu, co oznacza, że rozkład ceny domów nie należy do żadnego z wyżej wymienonych.</p>
 <p>W bibliotece <em>scipy.stats</em> można znaleść inne testy statystyczne.</p>
+<section id="zadanie-2">
+<h3>Zadanie 2<a class="headerlink" href="#zadanie-2" title="Permalink to this heading">#</a></h3>
+<p>Na podstawie bazy danych dotyczących salonów Sinsay:</p>
+<p>a) Sprawdź za pomocą odpowiedniego testu statystycznego, czy metraż salonu ma rozkład normalny.</p>
+<p>b) Czy występują silne korelacje (Spearmana i Pearsona) pomiędzy zmiennymi numerycznymi? Czy są one zgodne z intuicją?</p>
+</section>
 </section>
 </section>
 
@@ -1879,10 +1898,14 @@ AndersonResult(statistic=1156.3864507171602, critical_values=array([0.473, 0.636
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pierwsze-spojrzenie-na-dane">Pierwsze spojrzenie na dane</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolna-wiedza-o-danych">Ogólna wiedza o danych</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-poszczegolnych-kolumn">Analiza poszczególnych kolumn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-1">Zadanie 1</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#badanie-korelacji">Badanie korelacji</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testy-statystyczne">Testy statystyczne</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testy-statystyczne">Testy statystyczne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-2">Zadanie 2</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

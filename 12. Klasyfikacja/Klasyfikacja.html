@@ -197,7 +197,6 @@
 
 
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza statystyczna</span></p>
 <ul class="nav bd-sidenav">
@@ -211,6 +210,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Inżynieria cech</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../6.%20Inzynieria_cech/6_Inzynieria%20cech.html">Inżynieria cech</a></li>
+
+
 
 
 
@@ -251,6 +252,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../8.%20Wyjasnialnosc/8_Tutorial%20metryki%20statystyczne.html">Wyjaśnialność modeli - metryki statystyczne - tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/Wyjasnialnosc_modeli_definicje.html">Wyjaśnialność modeli - definicje</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../9.%20XAI/9_Wyjasnialnosc%20modeli.html">Wyjaśnialność modeli - XAI - tutorial</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Przetwarzanie języka naturalnego</span></p>
 <ul class="nav bd-sidenav">
@@ -504,6 +506,7 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia-support-vector-machines">Bibliografia Support Vector Machines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie">Zadanie</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dodatkowe-informacje">Dodatkowe informacje</a></li>
 </ul>
             </nav>
@@ -628,7 +631,7 @@ Wymiar obiektu array: (2000, 2)
 ------------------------------
 </pre></div>
 </div>
-<img alt="../_images/174e285b325561a129668b8add47e69e40a1ca1080ee0a2aec2675415c21b07f.png" src="../_images/174e285b325561a129668b8add47e69e40a1ca1080ee0a2aec2675415c21b07f.png" />
+<img alt="../_images/11bd98ce059a322c616ca0845a48a408b751fb1e75f3494bdd9a77d38004ea3a.png" src="../_images/11bd98ce059a322c616ca0845a48a408b751fb1e75f3494bdd9a77d38004ea3a.png" />
 </div>
 </div>
 <p>Za pomocą powyższego kodu otrzymaliśmy niezbalansowany zbiór danych, posiadający 2 klasy. 1397 punktów należy do klasy 0, a 603 do klasy 1.
@@ -665,18 +668,18 @@ W celu zaprezentowania metod działania algorytmów klasyfikacyjnych, zbiór ten
 <h2>K-Nearest Neighbors<a class="headerlink" href="#k-nearest-neighbors" title="Permalink to this heading">#</a></h2>
 <p>Algorytm K-najbliższych sąsiadów opiera się na sprawdzaniu odległości pomiędzy pewnymi testowymi przykładami, a wartościami ze zbioru uczącego. Wybór liczby k, definiuje ilość najbliższych sąsiadów ze zbioru uczącego. Uśredniając wartości zmiennej objaśnianej dla wybranych obserwacji, otrzymujemy prognozę. Określenie “najbliższy” nie zawsze musi być jednoznaczne, w algorytmie istnieje możliwość stosowania różnych metryk liczących odległości (np. metryka euklidesowa, czy też taksówkowa).
 Algorytm ten najlepiej stosować, gdy zmienne objaśniające i objaśniane nie posiadają prostych zależności między sobą (np. zależność ta nie jest liniowa).</p>
-<p>Na poniżczym przykładzie, punkt testowy, oznaczony kolorem zielonym, zostanie zaklasyfikowany jako czerwony, gdy za k przyjmiemy 3 oraz jako niebieski, gdy za k weźmiemy 5.</p>
+<p>Na poniższym przykładzie, punkt testowy, oznaczony kolorem zielonym, zostanie zaklasyfikowany jako czerwony, gdy za k przyjmiemy 3 oraz jako niebieski, gdy za k weźmiemy 5.</p>
 <p><img alt="Przykład" src="../_images/KNN.png" /></p>
 <p><a href="https://pl.wikipedia.org/wiki/K_najbli%C5%BCszych_s%C4%85siad%C3%B3w#/media/Plik:KnnClassification.svg" target="_blank">źródło</a></p>
 <p><strong>Podstawowe metryki</strong></p>
 <p><strong>Metryka euklidesowa</strong></p>
 <p>Metrykę euklidesową w przestrzeni <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> definiuje się wzorem
-$<span class="math notranslate nohighlight">\(d_e(x,y)=\sqrt{(y_1-x_1)^2+...+(y_n-x_n)^2}\)</span>$
-<strong>Metryka taksówkowa (manhattan)</strong></p>
+$<span class="math notranslate nohighlight">\(d_e(x,y)=\sqrt{(y_1-x_1)^2+...+(y_n-x_n)^2}\)</span>$</p>
+<p><strong>Metryka taksówkowa (manhattan)</strong></p>
 <p>Metrykę taksówkową w przestrzeni <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> definiujemy za pomocą poniższego wzoru
 $<span class="math notranslate nohighlight">\(d_m(x,y)=\sum\limits^{n}_{k=1}|x_k-y_k|\)</span>$</p>
 <p><strong>Kroki działania algorytmu</strong></p>
-<p>Zakładamy, że mamy podział na zbiór uczący i testowy, wtedy algorytm prezentuję się następująco</p>
+<p>Zakładamy, że mamy podział na zbiór uczący i testowy, wtedy algorytm prezentuje się następująco</p>
 <ol class="arabic simple">
 <li><p>Wybór wartośći <em>k</em></p></li>
 <li><p>Kalkulacja macierzy odległości pomiędzy obserwacjami</p></li>
@@ -727,7 +730,7 @@ wtedy macierz odległości będzie wyglądała następująco.</p>
 </table><p>Ponieważ k=3, to sprawdzamy do jakich klas należą trzej najbliżsi sąsiędzi, są to <span class="math notranslate nohighlight">\(x_1,\;x_2,\;x_3\)</span> o klasach odpowiednio <span class="math notranslate nohighlight">\(1,\;0,\;0\)</span>, zatem obserwacji <span class="math notranslate nohighlight">\(x_5\)</span> zostanie przypisana klasa 0.</p>
 <section id="przyklad">
 <h3>Przykład<a class="headerlink" href="#przyklad" title="Permalink to this heading">#</a></h3>
-<p>W celu lepszego zrozumienia algorytmu posłużymy się poniższym przykładem. Użyjemy danych wygenerowanych wcześniej do zbioru X i y, które następne zostały podzielone na zbiory treningowy i testowy. Przedstawiono 3 warianty algorytmu, dla różnej liczby sąsiadów. Patrząc na wykresy widać, że w tym przypadku większa liczba sąsiadów daje lepsze rezultaty. Jednak w celu potwierdzenia tej hipotezy najlepiej sprawdzić metryki określające wiarygodność tego modelu i wtedy wyznaczyć najoptymalniejszą liczbę sąsiadów.</p>
+<p>W celu lepszego zrozumienia algorytmu posłużymy się poniższym przykładem. Użyjemy danych wygenerowanych wcześniej do zbioru X i y, które następnie zostały podzielone na zbiory treningowy i testowy. Przedstawiono 3 warianty algorytmu, dla różnej liczby sąsiadów. Patrząc na wykresy widać, że w tym przypadku większa liczba sąsiadów daje lepsze rezultaty. Jednak w celu potwierdzenia tej hipotezy najlepiej sprawdzić metryki określające wiarygodność tego modelu i wtedy wyznaczyć najoptymalniejszą liczbę sąsiadów.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
@@ -768,7 +771,7 @@ wtedy macierz odległości będzie wyglądała następująco.</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>k= 3
 </pre></div>
 </div>
-<img alt="../_images/d778206e6b2502d8fa3b6a68e6f8e25f4d04a9e1c85869437d99d0c826c1c806.png" src="../_images/d778206e6b2502d8fa3b6a68e6f8e25f4d04a9e1c85869437d99d0c826c1c806.png" />
+<img alt="../_images/80772d543abb20cd699397b32729685e67de039451801031e80c6e0f1757b41c.png" src="../_images/80772d543abb20cd699397b32729685e67de039451801031e80c6e0f1757b41c.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.955
 Precision: 0.913
 Recall: 0.943
@@ -777,8 +780,8 @@ F1: 0.927
 k= 5
 </pre></div>
 </div>
-<img alt="../_images/39a6be5d5af151c159a72e903220da7b09d988d8302e1d1653871020ce561308.png" src="../_images/39a6be5d5af151c159a72e903220da7b09d988d8302e1d1653871020ce561308.png" />
-<img alt="../_images/276de7c7d00c4416f5754be800c97c3d8c337b821b013630a74921e8829069f7.png" src="../_images/276de7c7d00c4416f5754be800c97c3d8c337b821b013630a74921e8829069f7.png" />
+<img alt="../_images/2e740d5429ab8bbda309949e6c74031ce8714dcb3ecd87128a222be0c5a16e8d.png" src="../_images/2e740d5429ab8bbda309949e6c74031ce8714dcb3ecd87128a222be0c5a16e8d.png" />
+<img alt="../_images/91c4084bddc5b560de9b03595ac070034395bd7f4fb934bccacaedda4c8877a1.png" src="../_images/91c4084bddc5b560de9b03595ac070034395bd7f4fb934bccacaedda4c8877a1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.948
 Precision: 0.891
 Recall: 0.943
@@ -787,8 +790,8 @@ F1: 0.916
 k= 21
 </pre></div>
 </div>
-<img alt="../_images/8dcd2715e0e4c9469840a1b4c444a39203f801cde962ac09435b8dcc08e213e3.png" src="../_images/8dcd2715e0e4c9469840a1b4c444a39203f801cde962ac09435b8dcc08e213e3.png" />
-<img alt="../_images/cff22cbb1da574cb4749d200abdb7f3620b0db267db9df29692521b142603995.png" src="../_images/cff22cbb1da574cb4749d200abdb7f3620b0db267db9df29692521b142603995.png" />
+<img alt="../_images/6271b764c2ea761ac738dee664931081f3806ddf9c09317cd062f860fd1d5aff.png" src="../_images/6271b764c2ea761ac738dee664931081f3806ddf9c09317cd062f860fd1d5aff.png" />
+<img alt="../_images/b8b813ebd238840b31fd5168898d1359f1f12c0ad4627ffb29f5bb2098b43b1f.png" src="../_images/b8b813ebd238840b31fd5168898d1359f1f12c0ad4627ffb29f5bb2098b43b1f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.950
 Precision: 0.905
 Recall: 0.934
@@ -796,10 +799,10 @@ F1: 0.919
 ------------------------------------------------------------
 </pre></div>
 </div>
-<img alt="../_images/0a09b28af93c4aeba4194b8341d051830d55eee3a3dfda93fc86a415068bade2.png" src="../_images/0a09b28af93c4aeba4194b8341d051830d55eee3a3dfda93fc86a415068bade2.png" />
+<img alt="../_images/190ca4579f2fbef6a9a84182abbb3f4d3001d4492a3e562c02683b30a2b97bd7.png" src="../_images/190ca4579f2fbef6a9a84182abbb3f4d3001d4492a3e562c02683b30a2b97bd7.png" />
 </div>
 </div>
-<p>W celu wyznaczenia najoptymalniejszej wartośći k możemy sprawdzić jak zmienia się wartość metryki F1 w zależności od tej liczby. Jest to metryka, która jest dokładniejszą metryką, niż Accuracy pozwalająca zachować odpowiednia równowagę pomiędzy Recall, a Precision.</p>
+<p>W celu wyznaczenia najoptymalniejszej wartości k możemy sprawdzić jak zmienia się wartość metryki F1 w zależności od tej liczby. Jest to metryka, która jest dokładniejszą metryką, niż Accuracy pozwalająca zachować odpowiednią równowagę pomiędzy Recall, a Precision.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">error_rate</span> <span class="o">=</span> <span class="p">[]</span>
@@ -820,7 +823,7 @@ F1: 0.919
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1223cb75518919ced3ec7486e9b866426bb8a2945f1e4a4fbb1faeadf48b99b1.png" src="../_images/1223cb75518919ced3ec7486e9b866426bb8a2945f1e4a4fbb1faeadf48b99b1.png" />
+<img alt="../_images/bc3e28cabf39b051c8351f25431bb5f3311cf0a034b158e952b699df4a626dae.png" src="../_images/bc3e28cabf39b051c8351f25431bb5f3311cf0a034b158e952b699df4a626dae.png" />
 </div>
 </div>
 <p>Z powyższego wykresu widzimy, że najstabilniejszy wzrost F1-score zachodzi od k=20 do k=32, gdzie dla k=32 osiągamy maksimum, dlatego tę wartość możemy uznać za najlepszą.</p>
@@ -848,10 +851,10 @@ Recall: 0.943
 F1: 0.935
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x20bf4d5bcb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x1675a545670&gt;
 </pre></div>
 </div>
-<img alt="../_images/0a09b28af93c4aeba4194b8341d051830d55eee3a3dfda93fc86a415068bade2.png" src="../_images/0a09b28af93c4aeba4194b8341d051830d55eee3a3dfda93fc86a415068bade2.png" />
+<img alt="../_images/190ca4579f2fbef6a9a84182abbb3f4d3001d4492a3e562c02683b30a2b97bd7.png" src="../_images/190ca4579f2fbef6a9a84182abbb3f4d3001d4492a3e562c02683b30a2b97bd7.png" />
 </div>
 </div>
 </section>
@@ -912,7 +915,7 @@ $<span class="math notranslate nohighlight">\(\underset{w}{\textrm{min}}C\sum\li
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/117d0d34d89cbdd2fd9879c55cefeffe1f39e47ab87ca40eae066392ba940a79.png" src="../_images/117d0d34d89cbdd2fd9879c55cefeffe1f39e47ab87ca40eae066392ba940a79.png" />
+<img alt="../_images/5f68a92f4de0579b972ee8ecfdeff55b206b7b437a94ac60874ba4fde28dbcc4.png" src="../_images/5f68a92f4de0579b972ee8ecfdeff55b206b7b437a94ac60874ba4fde28dbcc4.png" />
 </div>
 </div>
 <p>W celu sprawdzenia działania powyższego algorytmu ponownie możemy posłużyć się metrykami opisanymi w osobnym rozdziale.</p>
@@ -1006,7 +1009,7 @@ Wyróżnia się dwa podstawowe rodzaje przycinania:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/aa817a005f960d1ab5f975a59865f8255d1a01a878159fdd08e64780d431f42f.png" src="../_images/aa817a005f960d1ab5f975a59865f8255d1a01a878159fdd08e64780d431f42f.png" />
+<img alt="../_images/b5b51624d4af61c9cda87bbd6fd08e71517946713870bbcdd081c0b96bc34d50.png" src="../_images/b5b51624d4af61c9cda87bbd6fd08e71517946713870bbcdd081c0b96bc34d50.png" />
 </div>
 </div>
 <p>Działanie algorytmu możemy zwizualizować w formie tekstowej, jak i graficznie.</p>
@@ -1046,7 +1049,7 @@ Wyróżnia się dwa podstawowe rodzaje przycinania:</p>
 |   |   |   |--- class: 1
 </pre></div>
 </div>
-<img alt="../_images/c1f2e239266e769aa00711ecf26362ca76afe6094ea93e6e609635d3f4455ec4.png" src="../_images/c1f2e239266e769aa00711ecf26362ca76afe6094ea93e6e609635d3f4455ec4.png" />
+<img alt="../_images/4c5e05dd86d1d098b8055f409c57f3df6f991a1dc9600aff0ecf3a0abf5fdbd2.png" src="../_images/4c5e05dd86d1d098b8055f409c57f3df6f991a1dc9600aff0ecf3a0abf5fdbd2.png" />
 </div>
 </div>
 </section>
@@ -1070,7 +1073,7 @@ Wyróżnia się dwa podstawowe rodzaje przycinania:</p>
 </ul>
 <p>Innymi słowy, gdy dla zmiennej testowej “T”, kiedy las składa się z 11 drzew i 3 drzewa uznają, że zmienna ta powinna zostać oznaczona jako 0, a 8 drzew przypisze jej klasę 1, to ostatecznie zostanie ona zakwalifikowana jako 1.
 Zaletą lasów losowych jest to, że są one odporne na braki danych, różne typy zmiennych czy istnienie wartości odstających. Są one odporne na przeuczenie oraz zachowują stabilność.</p>
-<p>Ponieważ lasy losowe korzystają z drzew decyzyjnych, które powstają na podstawie różnych podzbiorów zmiennych objaśniających, w pierwszym kroku wygenerujemy nowy zbiór danych zawierający większą liczbę zmiennych. Mając teraz 6 zmiennych objaśniających, nie jesteśmy w stanie przedstawić ich na pojedynczym wykresie. Dlatego w celu zobrazowania jak wygląda nasz zbiór posłuzymy się funkcją pairplot, przedstawi nam ona zależności pomiędzy każdymi dwiema zmiennymi.</p>
+<p>Ponieważ lasy losowe korzystają z drzew decyzyjnych, które powstają na podstawie różnych podzbiorów zmiennych objaśniających, w pierwszym kroku wygenerujemy nowy zbiór danych zawierający większą liczbę zmiennych. Mając teraz 6 zmiennych objaśniających, nie jesteśmy w stanie przedstawić ich na pojedynczym wykresie. Dlatego w celu zobrazowania jak wygląda nasz zbiór posłużymy się funkcją pairplot, przedstawi nam ona zależności pomiędzy każdymi dwiema zmiennymi.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stworzenie losowego obiektu np.array</span>
@@ -1113,7 +1116,7 @@ Name: count, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1500x1500 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../_images/08018706b4ffe9b6cde2a50c22839a73fff87250c043160a820fcb696e3fb724.png" src="../_images/08018706b4ffe9b6cde2a50c22839a73fff87250c043160a820fcb696e3fb724.png" />
+<img alt="../_images/760b825786f6928ccc49e5b16dc0b64e199d6c85f1a246d689bc800a35a5337a.png" src="../_images/760b825786f6928ccc49e5b16dc0b64e199d6c85f1a246d689bc800a35a5337a.png" />
 </div>
 </div>
 <p>Jak widać na powyższym wykresie, otrzymaliśmy niezbalansowany zbiór danych względnie podzielony na 2 klasy.</p>
@@ -1158,10 +1161,10 @@ Name: count, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1500x1500 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../_images/f0420fc2946cdbe8ea4f08ed6f6a8f2bdc88ed5e7ad4171bd43cbae8df07fd44.png" src="../_images/f0420fc2946cdbe8ea4f08ed6f6a8f2bdc88ed5e7ad4171bd43cbae8df07fd44.png" />
+<img alt="../_images/a80af0aa2a9d45e6da868b6c0e34d54321fc912522048f0478b6c11b0d0d609a.png" src="../_images/a80af0aa2a9d45e6da868b6c0e34d54321fc912522048f0478b6c11b0d0d609a.png" />
 </div>
 </div>
-<p>Po zastosowaniu algorytmu lasów losowych, widzimy jak zmiennę w miarę poprawnie zostały oznaczone jako dana klasa. Dodatkowo możemy też sprawdzić jak wygląda każde drzewo w lesie, poniżej zaprezentowano pierwsze z 20 drzew.</p>
+<p>Po zastosowaniu algorytmu lasów losowych, widzimy jak zmienne w miarę poprawnie zostały oznaczone jako dana klasa. Dodatkowo możemy też sprawdzić jak wygląda każde drzewo w lesie, poniżej zaprezentowano pierwsze z 20 drzew.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wykres pierwszego z 20 drzew w lesie losowym.</span>
@@ -1172,7 +1175,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d7bd1386df1b19aa1dfa692033d9e9f1dc6116cbb1ec2026c7ac5b7b14158c57.png" src="../_images/d7bd1386df1b19aa1dfa692033d9e9f1dc6116cbb1ec2026c7ac5b7b14158c57.png" />
+<img alt="../_images/c962c2051d0f37d5a587bfed50f0ae1f8de41b1075f03c6cbca72eb4b139b073.png" src="../_images/c962c2051d0f37d5a587bfed50f0ae1f8de41b1075f03c6cbca72eb4b139b073.png" />
 </div>
 </div>
 </section>
@@ -1200,7 +1203,7 @@ Name: count, dtype: int64
 <li><p>homogeniczne jądra wielomianowe</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[ K(x_i,x_j)=(x_i\cdot x_j),\]</div>
+\[K(x_i,x_j)=(x_i\cdot x_j),\]</div>
 <p>gdzie <span class="math notranslate nohighlight">\(\cdot\)</span> oznacza iloczyn skalarny obu wektorów, a <span class="math notranslate nohighlight">\(d\)</span> jest stopniem wielomianu.</p>
 <ol class="arabic simple" start="2">
 <li><p>niehomogeniczne jądra wielomianowe</p></li>
@@ -1235,7 +1238,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7d491cd4bb57a5df87e50fd22bdf5053c6e5a7e229bf96e279cf00c24eb0ad72.png" src="../_images/7d491cd4bb57a5df87e50fd22bdf5053c6e5a7e229bf96e279cf00c24eb0ad72.png" />
+<img alt="../_images/6957e1a98fd54481e2d007d51d1604457eb4c58180b38d691df80eebc8062cc6.png" src="../_images/6957e1a98fd54481e2d007d51d1604457eb4c58180b38d691df80eebc8062cc6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1271,7 +1274,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/120b467fe7af8fb25ad4ed0bb59e9e7584e32e2014da356a2588ebbf734bb5ba.png" src="../_images/120b467fe7af8fb25ad4ed0bb59e9e7584e32e2014da356a2588ebbf734bb5ba.png" />
+<img alt="../_images/f82ad89c59dfa2b745da16addeea090f5fbc4fdcfdf6cdf9d70bd96a73713681.png" src="../_images/f82ad89c59dfa2b745da16addeea090f5fbc4fdcfdf6cdf9d70bd96a73713681.png" />
 </div>
 </div>
 </section>
@@ -1300,7 +1303,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b50a5d2096ee96de46c96702a4f6cba4f883be1db0d56b56554b0d972f6c6a56.png" src="../_images/b50a5d2096ee96de46c96702a4f6cba4f883be1db0d56b56554b0d972f6c6a56.png" />
+<img alt="../_images/82dc017931cf986f1a666af4df42a847a667908b1f2684b5f1f147ae96fa724c.png" src="../_images/82dc017931cf986f1a666af4df42a847a667908b1f2684b5f1f147ae96fa724c.png" />
 </div>
 </div>
 <p>Na pierwszym przykładzie widać, że jądro liniowe nie do końca się sprawdza. Jednak po zastosowaniu jądra radialnego, rezultaty są o wiele lepsze. Maszyny wektorów nośnych z jądrem radialnym są bardzo dobrymi klasyfikatorami rozpoznającymi najbliższych sąsiadów.</p>
@@ -1311,6 +1314,13 @@ Name: count, dtype: int64
 <p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html?highlight=svc#sklearn.svm.SVC">https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html?highlight=svc#sklearn.svm.SVC</a></p>
 <p><a class="reference external" href="https://scikit-learn.org/stable/modules/svm.html#svm-classification">https://scikit-learn.org/stable/modules/svm.html#svm-classification</a></p>
 <p><a class="reference external" href="https://stackabuse.com/implementing-svm-and-kernel-svm-with-pythons-scikit-learn/">https://stackabuse.com/implementing-svm-and-kernel-svm-with-pythons-scikit-learn/</a></p>
+</section>
+<hr class="docutils" />
+<section id="zadanie">
+<h2>Zadanie<a class="headerlink" href="#zadanie" title="Permalink to this heading">#</a></h2>
+<p>Wykorzystując jeden z powyższych algorytmów dla danych sprzedażowych salonów z tabeli Dane_Ladies stworzyć model prognozujący przynależność salonu do jednej z dwóch klas {0,1} z kolumny Class 2.
+Zacznij od przygotowania danych, obróbki cech potrzebnych do osiągnięcia celu. Wykorzystaj wybrany algorytm klasyfikacji, np. drzewo decyzyjne, regresję logistyczną lub k najbliższych sąsiadów.
+Oceń skuteczność modelu, przedstaw wizualnie oraz zinterpretuj wyniki.</p>
 </section>
 <hr class="docutils" />
 <section id="dodatkowe-informacje">
@@ -1414,6 +1424,7 @@ Name: count, dtype: int64
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia-support-vector-machines">Bibliografia Support Vector Machines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie">Zadanie</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dodatkowe-informacje">Dodatkowe informacje</a></li>
 </ul>
   </nav></div>
