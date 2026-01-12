@@ -2,8 +2,8 @@
 
 
 ## Wstęp
-To już trzecia edycja prowadzonych przez Silky Coders zajęć na Politechnice Gdanskiej podczas której studenci mogą zapoznać się z tematyką uczenia maszynowego i analizy danych.
-Ksiązka została skompilowana przez Kazimierza Najmajera z notatników stworzonych wspólnym wysiłkiem przez Data Scientistów Silky Coders.
+To już czwarta edycja prowadzonych przez Silky Coders zajęć na Politechnice Gdanskiej podczas której studenci mogą zapoznać się z tematyką uczenia maszynowego i analizy danych.
+Ksiązka została skompilowan z notatników stworzonych wspólnym wysiłkiem przez Data Scientistów Silky Coders.
 
 
 ## O książce 
@@ -18,16 +18,4 @@ Autorzy życza przyjemnej nauki.
 ## Środowiska
 
 W celu uruchomienia przykładów na swoich komputerze sugerujemy wykorzystanie [środowiska conda](https://github.com/kikonPL/studia_PG/blob/main/politechnika.yml) które zostało użyte do zbudowania niniejszej książki.
-
-
-## Tegoroczni prowadzący
-
-- Emilia Murawiejko
-- Grzegorz Jarantowski
-- Jedrzej Smulski
-- Jakub Szczegiecki
-- Kacper Wojtacki
-- Kazimierz Najmajer
-- Maciej Płużyński
-- Magdalena Sienkiewicz
 
